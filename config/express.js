@@ -70,9 +70,9 @@ module.exports = (app, config) => {
   }));
   app.use(helmet.xssFilter());
   app.use(helmet({
-    // frameguard: {
-    //   action: 'deny',
-    // },
+    frameguard: {
+      action: 'deny',
+    },
   }));
   app.use(helmet.hidePoweredBy());
   app.use(helmet.ieNoOpen());
