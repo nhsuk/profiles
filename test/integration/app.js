@@ -46,8 +46,7 @@ describe('app', () => {
           expect(res).to.have.status(404);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
-
-         expect(res.text).to.equal('Page not found');
+          expect(res.text).to.equal('Page not found');
           done();
         });
     });
