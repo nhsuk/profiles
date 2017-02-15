@@ -3,7 +3,12 @@ function siteHome(req, res) {
 }
 
 function gpSurgeries(req, res) {
-  res.render('gp-surgeries');
+  if (res.locals.gp) {
+    res.render('gp-surgeries');
+  } else {
+    res.status(404);
+    res.render('error-404');
+  }
 }
 
 function bookAnAppointment(req, res) {

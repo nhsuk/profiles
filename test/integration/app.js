@@ -39,6 +39,19 @@ describe('app', () => {
     });
   });
 
+  describe('existing GP page', () => {
+    it('should return a GP Page for a valid Org Code', (done) => {
+      chai.request(app)
+        .get('/gp-surgeries/A81001')
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+          expect(res.text).to.contain('GP Page');
+          done();
+        });
+    });
+  });
+
   describe('an unknown page', () => {
     it('should return a 404', (done) => {
       chai.request(app)
@@ -54,27 +67,16 @@ describe('app', () => {
     });
   });
 
-  describe('existing GP page', () => {
-    it('should return a GP Page for a valid Org Code', (done) => {
-      chai.request(app)
-        .get('/gp-surgeries/A81001')
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-          expect(res.text).to.contain('GP Page');
-          done();
-        });
-    });
-  });
-
   describe('non-existant GP page', () => {
     it('should return a 404', (done) => {
       chai.request(app)
         .get('/gp-surgeries/12345')
         .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-          expect(res.text).to.contain('Unknown Practice');
+          expect(err).to.not.be.equal(null);
+          expect(res).to.have.status(404);
+          // eslint-disable-next-line no-unused-expressions
+          expect(res).to.be.html;
+          expect(res.text).to.equal('Page not found');
           done();
         });
     });
