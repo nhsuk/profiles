@@ -117,6 +117,6 @@ module.exports = (app, config) => {
   app.use((req, res) => {
     log.warn({ req }, 404);
     res.status(404);
-    res.render('error-404');
+    res.render('404');
   });
 };

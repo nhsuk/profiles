@@ -4,15 +4,15 @@ function siteHome(req, res) {
 
 function gpSurgeries(req, res) {
   if (res.locals.gp) {
-    res.render('gp-surgeries');
+    res.render('hub');
   } else {
     res.status(404);
-    res.render('error-404');
+    res.render('404');
   }
 }
 
 function bookAnAppointment(req, res) {
-  res.render('book-an-appointment');
+  res.render('book-appointment');
 }
 
 module.exports = {

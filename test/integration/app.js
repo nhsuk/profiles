@@ -29,6 +29,7 @@ describe('app', () => {
         .get('/')
         .end((err, res) => {
           expect(err).to.equal(null);
+          // eslint-disable-next-line no-unused-expressions
           expect(res).to.redirect;
           expect(res).to.have.status(200);
           // eslint-disable-next-line no-unused-expressions
@@ -42,7 +43,7 @@ describe('app', () => {
   describe('existing GP page', () => {
     it('should return a GP Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get('/gp-surgeries/A81001')
+        .get(`${constants.SITE_ROOT}/A81001`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -70,7 +71,7 @@ describe('app', () => {
   describe('non-existant GP page', () => {
     it('should return a 404', (done) => {
       chai.request(app)
-        .get('/gp-surgeries/12345')
+        .get(`${constants.SITE_ROOT}/unknown`)
         .end((err, res) => {
           expect(err).to.not.be.equal(null);
           expect(res).to.have.status(404);
@@ -85,7 +86,7 @@ describe('app', () => {
   describe('Book a GP appointment page', () => {
     it('should return a book a GP Appointment Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get('/gp-surgeries/A81001/book-appointment')
+        .get(`${constants.SITE_ROOT}/A81001/book-appointment`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
