@@ -96,11 +96,6 @@ module.exports = (app, config) => {
   app.use(constants.SITE_ROOT, express.static(`${config.root}/public`));
 
   app.use(constants.SITE_ROOT, router);
-  app.use(constants.SITE_ROOT, (req, res) => {
-    log.warn({ req }, 404);
-    res.status(404);
-    res.render('error-404');
-  });
 
   // eslint-disable-next-line no-unused-vars
   app.use(constants.SITE_ROOT, (err, req, res, next) => {
@@ -117,5 +112,11 @@ module.exports = (app, config) => {
 
   app.get('/', (req, res) => {
     res.redirect(constants.SITE_ROOT);
+  });
+
+  app.use((req, res) => {
+    log.warn({ req }, 404);
+    res.status(404);
+    res.render('error-404');
   });
 };

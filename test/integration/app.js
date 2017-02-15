@@ -23,24 +23,26 @@ describe('app', () => {
     });
   });
 
-  describe('default page', () => {
+  describe('redirect to root of app', () => {
     it('should return a 200 response as html', (done) => {
       chai.request(app)
-        .get('/profiles')
+        .get('/')
         .end((err, res) => {
           expect(err).to.equal(null);
+          expect(res).to.redirect;
           expect(res).to.have.status(200);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
+          expect(res.text).to.be.equal('Hello World!');
           done();
         });
     });
   });
 
-  describe('An unknown page', () => {
+  describe('an unknown page', () => {
     it('should return a 404', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/not-known`)
+        .get('/not-known')
         .end((err, res) => {
           expect(err).to.not.be.equal(null);
           expect(res).to.have.status(404);
@@ -52,10 +54,10 @@ describe('app', () => {
     });
   });
 
-  describe('GP page', () => {
+  describe('existing GP page', () => {
     it('should return a GP Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get('/profiles/gp-surgeries/A81001')
+        .get('/gp-surgeries/A81001')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -64,10 +66,11 @@ describe('app', () => {
         });
     });
   });
-  describe('GP page', () => {
-    it('should return Unknown Practice GP Page for an invalid Org Code', (done) => {
+
+  describe('non-existant GP page', () => {
+    it('should return a 404', (done) => {
       chai.request(app)
-        .get('/profiles/gp-surgeries/12345')
+        .get('/gp-surgeries/12345')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -80,7 +83,7 @@ describe('app', () => {
   describe('Book a GP appointment page', () => {
     it('should return a book a GP Appointment Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get('/profiles/gp-surgeries/A81001/book-a-gp-appointment')
+        .get('/gp-surgeries/A81001/book-appointment')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
