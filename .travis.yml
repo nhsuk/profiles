@@ -1,11 +1,14 @@
 sudo: required
 
 language: node_js
+node_js:
+  - node
 
 services:
   - docker
 
 env:
+  global:
   - DOCKER_COMPOSE_VERSION=1.11.1
   - DOCKER_REPO=nhsuk/profiles
   - DOCKER_USERNAME=nhsukautomata
