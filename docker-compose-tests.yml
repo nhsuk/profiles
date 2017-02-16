@@ -10,10 +10,30 @@ services:
     command: npm run watch-test
     volumes:
       - .:/code
-      - test-node_modules:/code/node_modules
+      - test-deps:/code/node_modules
     environment:
       NODE_ENV: test
 
+  travis-tests:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    command:
+      sh -c "npm run git-hook && npm run upload-coverage-coveralls"
+    volumes:
+      - .:/code
+      - travis-test-deps:/code/node_modules
+    environment:
+      COVERALLS_REPO_TOKEN: ${COVERALLS_REPO_TOKEN}
+      NODE_ENV: development
+      SNYK_TOKEN: ${SNYK_TOKEN}
+      TRAVIS: ${TRAVIS}
+      TRAVIS_BRANCH: ${TRAVIS_BRANCH}
+      TRAVIS_COMMIT: ${TRAVIS_COMMIT}
+      TRAVIS_JOB_ID: ${TRAVIS_JOB_ID}
+
 volumes:
-  test-node_modules:
+  test-deps:
+  travis-test-deps:
 

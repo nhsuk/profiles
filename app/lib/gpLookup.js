@@ -13,7 +13,7 @@ const sampleGPs = {
 };
 
 function getGP(orgCode) {
-  return sampleGPs[orgCode] || { name: 'Unknown Practice' };
+  return sampleGPs[orgCode];
 }
 
 module.exports = getGP;

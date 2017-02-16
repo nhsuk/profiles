@@ -9,14 +9,14 @@ router.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-router.get('/gp-surgeries/:orgCode',
+router.get('/:orgCode',
   log.info,
   setLocals.fromRequest,
   setGp,
   renderer.gpSurgeries
 );
 
-router.get('/gp-surgeries/:orgCode/book-a-gp-appointment',
+router.get('/:orgCode/book-appointment',
   log.info,
   setLocals.fromRequest,
   setGp,

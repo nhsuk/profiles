@@ -3,11 +3,16 @@ function siteHome(req, res) {
 }
 
 function gpSurgeries(req, res) {
-  res.render('gp-surgeries');
+  if (res.locals.gp) {
+    res.render('hub');
+  } else {
+    res.status(404);
+    res.render('404');
+  }
 }
 
 function bookAnAppointment(req, res) {
-  res.render('book-an-appointment');
+  res.render('book-appointment');
 }
 
 module.exports = {

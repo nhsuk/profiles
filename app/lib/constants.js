@@ -1,3 +1,3 @@
 module.exports = {
-  SITE_ROOT: '/profiles'
+  SITE_ROOT: '/gp-surgeries'
 };
