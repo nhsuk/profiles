@@ -1,7 +1,27 @@
 sudo: required
 
+language: node_js
+node_js:
+  - node
+
 services:
   - docker
+
+env:
+  global:
+  - DOCKER_COMPOSE_VERSION=1.11.1
+  - DOCKER_REPO=nhsuk/profiles
+  - DOCKER_USERNAME=nhsukautomata
+  - RANCHER_ACCESS_KEY=655696CC96424E6D4DB0
+  - RANCHER_ENVIRONMENT=c2s-dev
+  - RANCHER_TEMPLATE_NAME=c2s-profiles
+  - RANCHER_URL=https://rancher.nhschoices.net
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
@@ -9,6 +29,9 @@ after_success:
   - ./ci-deployment/rancher_pr_deploy.sh
 
 script:
-  - docker build --build-arg NODE_ENV=development -t nhsuk/profiles .
-  - docker run -e TRAVIS=true -e TRAVIS_JOB_ID=$TRAVIS_JOB_ID -e TRAVIS_BRANCH=$TRAVIS_BRANCH -e COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN nhsuk/profiles sh -c "cd /code && npm run git-hook && npm run upload-coverage-coveralls"
+  - docker-compose -f docker-compose-tests.yml build travis-tests
+  - docker-compose -f docker-compose-tests.yml run travis-tests
+
+after_script:
+  - docker-compose -f docker-compose-tests.yml down -v
 
