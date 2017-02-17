@@ -1,1 +1,5 @@
+{% extends 'layout.nunjucks' %}
+
+{% block content %}
 Book an appointment at {{gp.name}}
+{% endblock %}

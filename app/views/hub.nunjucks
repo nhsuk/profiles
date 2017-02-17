@@ -1,10 +1,28 @@
-GP Page for {{gp.name}}
-<p>Telephone number: {{ gp.phone }}</p>
+{% extends 'layout.nunjucks' %}
 
-Address:
-<ul>
-{% for line in gp.location.address %}
-<li>{{ line }}</li>
-  {% endfor %}
-  <li>{{ gp.location.postcode }}</li>
-<ul>
+{% block header %}
+<h1 class="local-header__title">GP Page for {{ gp.name }}</h1>
+{% endblock %}
+
+{% block pageIntro %}
+  <div class="reading-with">
+    <ul class="link-list">
+      <li class="on-dark"><a href="#">When reception is open</a></li>
+      <li><a href="#">When GPs see patients</a></li>
+      <li><a href="{{ gp.organisation_code }}/book-appointment">Book a GP appointment</a></li>
+      <li><a href="#">What patients say about this surgery</a></li>
+      <li><a href="#">GPs at this surgery</a></li>
+      <li><a href="#">Services at this surgery</a></li>
+      <li><a href="#">Parking and accessibility</a></li>
+      <li><a href="#">Register as a patient with this surgery</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<p>{{ gp.location.address|safe | replace(",", "<br />") }}<br />{{ gp.location.postcode }}</p>
+<p>Telephone: {{ gp.phone }}</p>
+<p><a href="https://www.google.com/maps?q={{ gp.location.latitude }},{{ gp.location.longitude }}">See this surgery on a map</a></p>
+<hr class="hr--full-width" style="margin:40px 0;">
+{% endblock %}
