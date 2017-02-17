@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
 
-  profiles-frontend:
+  base-app:
     build:
       context: .
       args:
@@ -17,6 +17,15 @@ services:
       NODE_ENV: ${NODE_ENV-development}
       SPLUNK_HEC_TOKEN: ${SPLUNK_HEC_TOKEN}
       SPLUNK_HEC_ENDPOINT: ${SPLUNK_HEC_ENDPOINT-https://splunk-collector.cloudapp.net:8088}
+
+  profiles-frontend:
+    extends:
+      service: base-app
+    links:
+    - profiles-db:mongo
+
+  profiles-db:
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-pr-1}"
 
 volumes:
   profiles-node_modules:
