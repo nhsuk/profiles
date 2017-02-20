@@ -28,7 +28,6 @@
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
-    "co": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
