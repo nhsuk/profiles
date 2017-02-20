@@ -8,7 +8,7 @@ services:
       service: base-app
     command: npm run watch-test
     volumes:
-      - profiles-node_modules:/code/node_modules
+      - profiles-tests-node_modules:/code/node_modules
     environment:
       NODE_ENV: test
     links:
@@ -21,7 +21,7 @@ services:
     command:
       sh -c "npm run git-hook && npm run upload-coverage-coveralls"
     volumes:
-      - profiles-node_modules:/code/node_modules
+      - profiles-travis-tests-node_modules:/code/node_modules
     environment:
       COVERALLS_REPO_TOKEN: ${COVERALLS_REPO_TOKEN}
       NODE_ENV: development
@@ -37,6 +37,6 @@ services:
     image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-latest}"
 
 volumes:
-  profiles-node_modules:
-  profiles-node_modules:
+  profiles-tests-node_modules:
+  profiles-travis-tests-node_modules:
 
