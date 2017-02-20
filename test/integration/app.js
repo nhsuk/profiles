@@ -68,10 +68,25 @@ describe('app', () => {
     });
   });
 
-  describe('non-existant GP page', () => {
+  describe('non-existant GP', () => {
     it('should return a 404', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/unknown`)
+        .end((err, res) => {
+          expect(err).to.not.be.equal(null);
+          expect(res).to.have.status(404);
+          // eslint-disable-next-line no-unused-expressions
+          expect(res).to.be.html;
+          expect(res.text).to.equal('Page not found');
+          done();
+        });
+    });
+  });
+
+  describe('non-existant GP but parseable as int', () => {
+    it('should return a 404', (done) => {
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}/1unknown`)
         .end((err, res) => {
           expect(err).to.not.be.equal(null);
           expect(res).to.have.status(404);

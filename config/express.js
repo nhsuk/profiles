@@ -8,6 +8,7 @@ const nunjucks = require('nunjucks');
 const router = require('./routes');
 const locals = require('../app/middleware/locals');
 const constants = require('../app/lib/constants');
+const notFound = require('../app/middleware/renderer').notFound;
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
@@ -115,8 +116,6 @@ module.exports = (app, config) => {
   });
 
   app.use((req, res) => {
-    log.warn({ req }, 404);
-    res.status(404);
-    res.render('404');
+    notFound(req, res, { req });
   });
 };

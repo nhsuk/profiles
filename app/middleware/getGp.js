@@ -10,7 +10,7 @@ function getGp(req, res, next) {
 
     const collection = db.collection(config.collection);
 
-    const choicesId = parseInt(res.locals.choicesId, 10);
+    const choicesId = res.locals.choicesId;
 
     collection.findOne({ choicesId }).then((gp) => {
       log.debug({ gp }, `Returned when searching for ${choicesId}`);

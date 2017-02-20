@@ -1,13 +1,16 @@
-function siteHome(req, res) {
-  res.render('home');
+const log = require('../lib/logger');
+
+function notFound(req, res, msg) {
+  log.warn(msg, 'Not found (404)');
+  res.status(404);
+  res.render('404');
 }
 
 function gpSurgeries(req, res) {
   if (res.locals.gp) {
     res.render('hub');
   } else {
-    res.status(404);
-    res.render('404');
+    notFound(req, res);
   }
 }
 
@@ -16,7 +19,7 @@ function bookAnAppointment(req, res) {
 }
 
 module.exports = {
-  siteHome,
+  bookAnAppointment,
   gpSurgeries,
-  bookAnAppointment
+  notFound
 };
