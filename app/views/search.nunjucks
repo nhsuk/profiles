@@ -1,7 +1,11 @@
 {% extends 'layout.nunjucks' %}
 
+{% block headerClass %}local-header-white-bg{% endblock %}
+
 {% block header %}
-<h1 class="local-header--title--question">Find a GP Surgery</h1>
+<div class="local-header--question">
+  <h1 class="local-header--title--question">Find a GP Surgery</h1>
+</div>
 {% endblock %}
 
 {% block pageTitle %}Find a GP Surgery{% endblock %}
