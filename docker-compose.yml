@@ -12,7 +12,6 @@ services:
       - 3000:3000
     volumes:
       - .:/code
-      - profiles-node_modules:/code/node_modules
     environment:
       NODE_ENV: ${NODE_ENV-development}
       SPLUNK_HEC_TOKEN: ${SPLUNK_HEC_TOKEN}
@@ -23,9 +22,11 @@ services:
       service: base-app
     links:
     - profiles-db:mongo
+    volumes:
+      - profiles-node_modules:/code/node_modules
 
   profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-pr-1}"
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-latest}"
 
 volumes:
   profiles-node_modules:
