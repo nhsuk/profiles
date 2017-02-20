@@ -12,10 +12,10 @@ function getGp(req, res, next) {
 
     const collection = db.collection(config.collection);
 
-    const choicesId = parseInt(res.locals.orgCode, 10);
+    const choicesId = parseInt(res.locals.choicesId, 10);
     const gp = yield collection.findOne({ choicesId });
 
-    log.info({ gp }, `Returned when searching for ${choicesId}`);
+    log.debug({ gp }, `Returned when searching for ${choicesId}`);
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = gp;
 
