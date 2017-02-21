@@ -1,5 +1,6 @@
 # Profiles
 
+[![Build Status](https://travis-ci.org/nhsuk/profiles.svg?branch=master)](https://travis-ci.org/nhsuk/profiles)
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/profiles/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/profiles?branch=master)
 
 A collection of health service provider profiles. Initially containing GP practices and Pharmacies.
