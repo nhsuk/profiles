@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="page-section reading-width">
+      <div class="page-section">
         {% block pageSection %}
           {% block content %}{% endblock %}
         {% endblock %}
