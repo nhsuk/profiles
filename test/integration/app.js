@@ -43,7 +43,7 @@ describe('app', () => {
   describe('existing GP page', () => {
     it('should return a GP Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/A81001`)
+        .get(`${constants.SITE_ROOT}/43213`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -68,7 +68,7 @@ describe('app', () => {
     });
   });
 
-  describe('non-existant GP page', () => {
+  describe('non-existant GP', () => {
     it('should return a 404', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/unknown`)
@@ -83,10 +83,25 @@ describe('app', () => {
     });
   });
 
+  describe('non-existant GP but parseable as int', () => {
+    it('should return a 404', (done) => {
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}/1unknown`)
+        .end((err, res) => {
+          expect(err).to.not.be.equal(null);
+          expect(res).to.have.status(404);
+          // eslint-disable-next-line no-unused-expressions
+          expect(res).to.be.html;
+          expect(res.text).to.equal('Page not found');
+          done();
+        });
+    });
+  });
+
   describe('Book a GP appointment page', () => {
     it('should return a book a GP Appointment Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/A81001/book-appointment`)
+        .get(`${constants.SITE_ROOT}/43213/book-appointment`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);

@@ -3,23 +3,23 @@ const router = require('express').Router();
 const renderer = require('../app/middleware/renderer');
 const setLocals = require('../app/middleware/setLocals');
 const log = require('../app/middleware/logger');
-const setGp = require('../app/middleware/setGp');
+const getGp = require('../app/middleware/getGp');
 
 router.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-router.get('/:orgCode',
+router.get('/:choicesId',
   log.info,
   setLocals.fromRequest,
-  setGp,
+  getGp,
   renderer.gpSurgeries
 );
 
-router.get('/:orgCode/book-appointment',
+router.get('/:choicesId/book-appointment',
   log.info,
   setLocals.fromRequest,
-  setGp,
+  getGp,
   renderer.bookAnAppointment
 );
 
