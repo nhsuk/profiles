@@ -15,4 +15,6 @@ EXPOSE 3000
 
 COPY . /code
 
+RUN [ "npm", "run" ]
+
 CMD [ "npm", "start" ]

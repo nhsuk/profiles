@@ -30,4 +30,3 @@ services:
 
 volumes:
   profiles-node_modules:
-
