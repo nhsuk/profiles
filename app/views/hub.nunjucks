@@ -13,7 +13,7 @@
       <p>{{ gp.location.address|safe | replace(",", "<br />") }}<br />{{gp.location.postcode}}</p>
     </div>
     <div class="column--one-half">
-      <p>Telephone: {{ gp.contact_telephone_number}}
+      <p>Telephone: {{ gp.phone}}
       <br /><a href="https://www.google.com/maps?q={{gp.location.latitude}},{{gp.location.longitude}}">See this surgery on a map</a></p>
     </div>
 </div>
