@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OUTPUT_STYLE=${compressed}
+OUTPUT_STYLE=${1:-compressed}
 
 echo "node-sass with output-style of ${OUTPUT_STYLE}"
 
