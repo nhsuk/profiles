@@ -8,8 +8,6 @@ services:
       args:
         NODE_ENV: development
     command: npm run watch-dev
-    ports:
-      - 3000:3000
     volumes:
       - .:/code
     environment:
@@ -22,6 +20,8 @@ services:
       service: base-app
     links:
     - profiles-db:mongo
+    ports:
+      - 3000:3000
     volumes:
       - profiles-node_modules:/code/node_modules
 
