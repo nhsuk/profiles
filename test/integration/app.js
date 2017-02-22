@@ -48,6 +48,8 @@ describe('app', () => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
           expect(res.text).to.contain('GP Page');
+          expect(res.text).to.contain('Telephone number');
+          expect(res.text).to.contain('Address');
           done();
         });
     });
