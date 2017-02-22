@@ -1,1 +1,10 @@
 GP Page for {{gp.name}}
+<p>Telephone number: {{ gp.phone }}</p>
+
+Address:
+<ul>
+{% for line in gp.location.address %}
+<li>{{ line }}</li>
+  {% endfor %}
+  <li>{{ gp.location.postcode }}</li>
+<ul>
