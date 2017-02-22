@@ -5,6 +5,10 @@ const setLocals = require('../app/middleware/setLocals');
 const log = require('../app/middleware/logger');
 const getGp = require('../app/middleware/getGp');
 
+router.get('/',
+  renderer.listing
+);
+
 router.get('/:choicesId',
   log.info,
   setLocals.fromRequest,

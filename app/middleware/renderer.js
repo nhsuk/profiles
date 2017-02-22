@@ -18,8 +18,13 @@ function bookAnAppointment(req, res) {
   res.render('book-appointment');
 }
 
+function listing(req, res) {
+  res.render('listing');
+}
+
 module.exports = {
   bookAnAppointment,
   gpSurgeries,
+  listing,
   notFound
 };
