@@ -4,8 +4,13 @@
 
 {% block pageTitle %} {{ message }} {% endblock %}
 
+
+{% block headerClass %}local-header-white-bg{% endblock %}
+
 {% block header %}
-  <h1 class="local-header--title--question">{{ message }}</h1>
+  <div class="local-header--question">
+    <h1 class="local-header--title--question">{{ message }}</h1>
+  </div>
 {% endblock %}
 
 {% block content %}
