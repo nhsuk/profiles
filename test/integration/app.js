@@ -34,7 +34,7 @@ describe('app', () => {
           expect(res).to.have.status(200);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
-          expect(res.text).to.be.equal('Hello World!');
+          expect(res.text).to.contain('Listings of all GPs coming soon...');
           done();
         });
     });
@@ -47,9 +47,8 @@ describe('app', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
-          expect(res.text).to.contain('GP Page');
-          expect(res.text).to.contain('Telephone number');
-          expect(res.text).to.contain('Address');
+          // TODO: Expand this to check more data fields
+          expect(res.text).to.contain('Dr C A Xavier');
           done();
         });
     });
@@ -64,7 +63,7 @@ describe('app', () => {
           expect(res).to.have.status(404);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
-          expect(res.text).to.equal('Page not found');
+          expect(res.text).to.contain('Page not found');
           done();
         });
     });
@@ -79,7 +78,7 @@ describe('app', () => {
           expect(res).to.have.status(404);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
-          expect(res.text).to.equal('Page not found');
+          expect(res.text).to.contain('Page not found');
           done();
         });
     });
@@ -94,7 +93,7 @@ describe('app', () => {
           expect(res).to.have.status(404);
           // eslint-disable-next-line no-unused-expressions
           expect(res).to.be.html;
-          expect(res.text).to.equal('Page not found');
+          expect(res.text).to.contain('Page not found');
           done();
         });
     });

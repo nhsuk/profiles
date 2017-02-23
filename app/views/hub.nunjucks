@@ -1,10 +1,170 @@
-GP Page for {{gp.name}}
-<p>Telephone number: {{ gp.phone }}</p>
+{% extends 'layout.nunjucks' %}
 
-Address:
-<ul>
-{% for line in gp.location.address %}
-<li>{{ line }}</li>
-  {% endfor %}
-  <li>{{ gp.location.postcode }}</li>
-<ul>
+{% block headerClass %}local-header{% endblock %}
+
+{% block header %}
+<h1 class="local-header__title">{{gp.name}}</h1>
+{% endblock %}
+
+{% block pageIntro %}
+<div class="local-header__intro">
+  <div class="grid-row">
+    <div class="column--one-half">
+      <p>{{ gp.location.address|safe | replace(",", "<br />") }}<br />{{gp.location.postcode}}</p>
+    </div>
+    <div class="column--one-half">
+      <p>Telephone: {{ gp.phone}}
+      <br /><a href="https://www.google.com/maps?q={{gp.location.latitude}},{{gp.location.longitude}}">See this surgery on a map</a></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="reading-width">
+  <h2>On this page</h2>
+  <ul class="link-list">
+    <li class="on-dark"><a href="#">When reception is open</a></li>
+    <li><a href="#">When GPs see patients</a></li>
+    <li><a href="{{ gp.organisation_code }}/book-appointment">Book a GP appointment</a></li>
+    <li><a href="#">What patients say about this surgery</a></li>
+    <li><a href="#">GPs at this surgery</a></li>
+    <li><a href="#">Services at this surgery</a></li>
+    <li><a href="#">Parking and accessibility</a></li>
+    <li><a href="#">Register as a patient with this surgery</a></li>
+  </ul>
+  <hr class="hr--full-width" style="margin:40px 0;">
+  <h2>When reception is open</h2>
+  <table>
+    <tr>
+      <td>Monday</td>
+      <td>7:30am to 8pm</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td>9:30am to 12:30pm</td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td>9:30am to 12:30pm</td>
+    </tr>
+  </table>
+  <h2>When GPs see patients</h2>
+  <table>
+    <tr>
+      <td>Monday</td>
+      <td>8am to 1pm</td>
+      <td>3pm to 6pm</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>8am to 1pm</td>
+      <td>3pm to 6pm</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>8am to 1pm</td>
+      <td>3pm to 6pm</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td colspan="2">8:30am to 1:30pm</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>8am to 1pm</td>
+      <td>3pm to 6pm</td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td colspan="2">9:30am to 12:30pm</td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td colspan="2">9:30am to 12:30pm</td>
+    </tr>
+  </table>
+  <h2>Book a GP appointment</h2>
+  <p><a href="{{gp.organisation_code}}/book-appointment">Book an appointment with a GP</a></p>
+  <h2>What patients say about this surgery</h2>
+  <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p>
+  <p>The table below shows some of the latest results for this surgery.</p>
+  <table class="table--grey">
+    <tr>
+      <th>&nbsp;</th>
+      <th>This surgery</th>
+      <th>National average</th>
+    </tr>
+    <tr>
+      <th>Patients who would recommend their surgery</th><td>76%</td><td>78%</td>
+    </tr>
+    <tr>
+      <th>Patients who think the receptionists are helpful</th><td>82%</td><td>87%</td>
+    </tr>
+    <tr>
+      <th>Patients who said it’s easy to get through to this surgery on the phone</th><td>75%</td><td>73%</td>
+    </tr>
+    <tr>
+      <th>Patients who said booking an appointment was a good experience</th><td>66%</td><td>73%</td>
+    </tr>
+    <tr>
+      <th>Patients who had confidence in the last GP they saw</th><td>99%</td><td>95%</td>
+    </tr>
+    <tr>
+      <th>Patients who said the last GP I saw was good at listening to them</th><td>90%</td><td>89% </td>
+    </tr>
+  </table>
+  <p><a href="">See more results on the GP Patient Survey website.</a></p>
+  <h2>GPs at this surgery</h2>
+  <ul class="link-list">
+    <li>2 female GPs</li>
+    <li>1 male GP</li>
+  </ul>
+  <h2>Services at this surgery</h2>
+  <h3>Services that need a GP referral</h3>
+  <ul class="link-list">
+    <li>Minor surgery</li>
+    <li>Counselling service</li>
+  </ul>
+  <h3>Services patients can book themselves</h3>
+  <ul class="link-list">
+    <li>Child vaccination</li>
+    <li>Asthma clinic</li>
+    <li>Diabetes clinic</li>
+    <li>Chronic obstructive pulmonary disease (COPD) clinic</li>
+    <li>Stop smoking clinic</li>
+    <li>Travel injections</li>
+  </ul>
+  <h2>Parking and accessibility</h2>
+  <ul class="link-list">
+    <li>8 parking spaces, including 2 disabled parking spaces</li>
+    <li>Wheelchair access</li>
+    <li>Disabled toilet</li>
+    <li>Step-free access</li>
+  </ul>
+  <h2>Register as a patient</h2>
+  <p>You need to go to the surgery to register. Take with you:</p>
+  <ul>
+    <li>proof of identity (for example your passport)</li>
+    <li>proof of your current address (for example a gas or electricity bill)</li>
+    <li>your last GP surgery’s name and address</li>
+    <li>your NHS number (you can find this on any document you’ve received from the NHS)</li>
+  </ul>
+  <p>You’ll also need to fill in a registration form. You can <a href="#">download and fill in a form</a> before going to the surgery. But the receptionist might have other forms that you need to fill in.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.nunjucks' %}
+
+{% set message = 'GP Listings' %}
+
+{% block pageTitle %} {{ message }} {% endblock %}
+
+{% block header %}
+  <h1 class="local-header--title--question">{{ message }}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="reading-width">
+    <p>Listings of all GPs coming soon...</p>
+  </div>
+{% endblock %}
