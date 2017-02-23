@@ -12,7 +12,7 @@ function getGp(req, res, next) {
 
     const choicesId = res.locals.choicesId;
 
-    collection.findOne({ choicesId }).then((gp) => {
+    collection.findOne({ _id: choicesId }).then((gp) => {
       log.debug({ gp }, `Returned when searching for ${choicesId}`);
       // eslint-disable-next-line no-param-reassign
       res.locals.gp = gp;
