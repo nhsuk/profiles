@@ -756,6 +756,7 @@ b, strong { font-weight: 600; }
 
 .js-enabled .js-tabs-content > div.is-active { display: block; }
 
+/* Colours. */
 /* HTML elements */
 table tr th, .table tr th { font-weight: normal; font-size: 1em; line-height: 1.375em; }
 
@@ -764,6 +765,8 @@ table tr td, table tr th, .table tr td, .table tr th { padding: 16px; }
 table tr:first-child th, .table tr:first-child th { font-weight: bold; }
 
 table--grey, .table--grey { background-color: #f5f5f5; }
+
+hr--no-color, .hr--no-color { background-color: transparent; }
 
 form .form-control { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: "FS Me", Arial, sans-serif; font-size: 24px; font-weight: 400; line-height: 32px; text-transform: none; width: 100%; padding: 4px; background-color: #fff; border: 2px solid #000; }
 
@@ -775,8 +778,15 @@ form .form-label-bold { font-family: "FS Me", Arial, sans-serif; font-size: 24px
 
 form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; float: left; width: 100%; }
 
-/* Colours. */
+.h3 { font-size: 24px; line-height: 32px; }
+
+@media (min-width: 641px) { .h3 { font-size: 24px; line-height: 32px; } }
+
+@media (min-width: 925px) { .h3 { font-size: 24px; line-height: 32px; } }
+
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+.callout--blue { background-color: rgba(64, 173, 215, 0.1); border-left: 8px solid #40ADD7; padding: 8px 16px; }
 
 .local-header-white-bg--question, .local-header-white-bg > *, .global-header--question, .global-header > *, .global-footer--question, .global-footer > *, .notification-banner--question, .notification-banner > * { max-width: 960px; margin: 0 16px; padding: 8px 0; }
 
