@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block pageIntro %}
-<div class="local-header__intro">
+<div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
     <div class="column--one-half">
       <p>{{ gp.location.address|safe | replace(",", "<br />") }}<br />{{gp.location.postcode}}</p>

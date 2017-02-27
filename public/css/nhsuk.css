@@ -927,3 +927,5 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 
 /* Other */
 .local-header--question { padding: 0; }
+
+.local-header__intro--fullwidth { max-width: 100%; padding-top: 32px; }
