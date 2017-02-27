@@ -4,7 +4,6 @@
    Colours.
 */
 $hiviz: #ffca55;
-$blue: #0072c6;
 $callout-border-blue: #40ADD7;
 $callout-blue: rgba(64, 173, 215, 0.1);
 /*
@@ -80,7 +79,8 @@ form {
   }
 }
 
-.h3 {
+.h2 {
+  &--smaller{
     font-size: 24px;
     line-height: 32px;
     @include media(tablet) {
@@ -91,6 +91,7 @@ form {
       font-size: 24px;
       line-height: 32px;
     }
+  }
 }
 
 .sr-only {
@@ -105,8 +106,8 @@ form {
 }
 
 .callout--blue {
-    background-color: rgba(64, 173, 215, 0.1);
-    border-left: 8px solid #40ADD7;
+    background-color: $callout-blue;
+    border-left: 8px solid $callout-border-blue;
     padding: 8px 16px;
 }
 

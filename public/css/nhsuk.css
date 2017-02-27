@@ -778,11 +778,11 @@ form .form-label-bold { font-family: "FS Me", Arial, sans-serif; font-size: 24px
 
 form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; float: left; width: 100%; }
 
-.h3 { font-size: 24px; line-height: 32px; }
+.h2--smaller { font-size: 24px; line-height: 32px; }
 
-@media (min-width: 641px) { .h3 { font-size: 24px; line-height: 32px; } }
+@media (min-width: 641px) { .h2--smaller { font-size: 24px; line-height: 32px; } }
 
-@media (min-width: 925px) { .h3 { font-size: 24px; line-height: 32px; } }
+@media (min-width: 925px) { .h2--smaller { font-size: 24px; line-height: 32px; } }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
