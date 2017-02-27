@@ -1,5 +1,95 @@
 {% extends 'layout.nunjucks' %}
 
+{% block headerClass %}local-header{% endblock %}
+
+{% block header %}
+<h1 class="local-header__title">Book a GP appointment at {{gp.name}}</h1>
+{% endblock %}
+
+{% block pageIntro %}
+<div class="local-header__intro">
+  <div class="reading-width">
+    <ul class="link-list">
+      <li><a href="#contact-reception">Contact reception</a></li>
+      <li><a href="#book-appointment">Book an appointment online</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
-Book an appointment at {{gp.name}}
+<div class="reading-width">
+  <h2>Contact reception</h2>
+  <h3>Book an appointment</h3>
+  <p>Contact reception: {{gp.phone}}</p>
+  <h3>Reception opening hours</h3>
+  <p>Reception is open from 7.30am to 8pm</p>
+  §<details role="group">
+      <summary data-analytics="summary" role="button">
+        <span class="details__summary">See all opening times</span>
+      </summary>
+      <div id="details-content-0" aria-hidden="true">
+        <div class="card__container">
+          <table>
+            <tr>
+              <td>Monday</td>
+              <td>7:30am to 8pm</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>7:30am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>8am to 6pm</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </details>
+
+  <h3>GP appointment times</h3>
+  <p>You can book an appointment up to 4 weeks in advance.</p>
+  <table>
+    <tr>
+      <td>Monday</td>
+      <td>7:30am to 8pm</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+  </table>
+  <p>You can also ask for a late appointment between 6pm and 8pm on Wednesdays and Thursdays.</p>
+  <p>The surgery has telephone appointments available, Monday to Friday 7.30am to 9am.</p>
+  <h2>Book an appointment online</h2>
+  <p>You can book an appointment online if:</p>
+  <ul>
+    <li>you're a registered patient with this practice</li>
+    <li>you have a username and password for this surgery’s online services website</li>
+  </ul>
+  <p>If you don’t have a username and password, ask reception for a form to register for online services.</p>
+  <p class="callout--blue">Sign into the online services website</p>
+  <p><a href="#">Find your GP</a></p>
+</div>
 {% endblock %}
