@@ -897,6 +897,8 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 
 .link-back:link, .link-back:visited, .link-back:hover, .link-back:active { color: #000000; }
 
+.callout--blue { background-color: rgba(64, 173, 215, 0.1); border-left: 8px solid #40ADD7; padding: 8px 16px; }
+
 /* Error styling */
 .error { margin-right: 15px; border-left: 4px solid #b10e1e; padding-left: 10px; }
 

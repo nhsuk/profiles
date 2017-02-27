@@ -1,5 +1,8 @@
 @import "betahealth/nhsuk";
 
+$callout-border-blue: #40ADD7;
+ $callout-blue: rgba(64, 173, 215, 0.1);
+
 /*
    Colours.
 */
@@ -392,6 +395,12 @@ form {
   &:active {
     color: #000000;
   }
+}
+
+.callout--blue {
+  background-color: $callout-blue;
+  border-left: 8px solid $callout-border-blue;
+  padding: 8px 16px;
 }
 
 /*
