@@ -24,7 +24,7 @@
   <p>Contact reception: {{gp.phone}}</p>
   <h3>Reception opening hours</h3>
   <p>Reception is open from 7.30am to 8pm</p>
-  §<details role="group">
+  <details role="group">
       <summary data-analytics="summary" role="button">
         <span class="details__summary">See all opening times</span>
       </summary>
