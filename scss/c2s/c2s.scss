@@ -1,6 +1,12 @@
 @import "betahealth/nhsuk";
 
 /*
+   Colours.
+*/
+$hiviz: #ffca55;
+$callout-border-blue: #40ADD7;
+$callout-blue: rgba(64, 173, 215, 0.1);
+/*
    HTML elements
 */
 table, .table {
@@ -24,6 +30,12 @@ table, .table {
   }
   &--grey {
     background-color:#f5f5f5;
+  }
+}
+
+hr, .hr {
+  &--no-color {
+    background-color:transparent;
   }
 }
 
@@ -67,12 +79,20 @@ form {
   }
 }
 
-/*
-   Colours.
-*/
-$hiviz: #ffca55;
-$blue: #0072c6;
-
+.h2 {
+  &--smaller{
+    font-size: 24px;
+    line-height: 32px;
+    @include media(tablet) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @include media(desktop) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -83,6 +103,12 @@ $blue: #0072c6;
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+
+.callout--blue {
+    background-color: $callout-blue;
+    border-left: 8px solid $callout-border-blue;
+    padding: 8px 16px;
 }
 
 .local-header-white-bg,
@@ -437,6 +463,14 @@ $blue: #0072c6;
 /*
   Other
 */
-.local-header--question {
+.local-header{
+  &--question {
     padding: 0;
+  }
+  &__intro {
+    &--fullwidth {
+      max-width:100%;
+      padding-top:32px;
+    }
+  }
 }
