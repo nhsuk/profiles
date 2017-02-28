@@ -46,6 +46,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "cheerio": "^0.22.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^13.0.0",

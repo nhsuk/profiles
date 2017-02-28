@@ -1,7 +1,8 @@
-const chai = require('chai');
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
+const chai = require('chai');
 const chaiHttp = require('chai-http');
+const cheerio = require('cheerio');
 
 const expect = chai.expect;
 
@@ -47,8 +48,15 @@ describe('app', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
-          // TODO: Expand this to check more data fields
-          expect(res.text).to.contain('Dr C A Xavier');
+
+          const $ = cheerio.load(res.text);
+
+          expect($('.local-header__title').text().trim())
+            .to.equal('Dr C A Xavier');
+          expect($('.column--one-half').first().text().trim())
+            .to.equal('647 Liverpool RoadPlatt BridgeWigangreater manchesterWN2 5BD');
+          expect($('.column--one-half p').last().text().trim())
+            .to.include('Telephone: 01942 862738');
           done();
         });
     });
