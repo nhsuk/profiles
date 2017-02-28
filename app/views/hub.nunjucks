@@ -3,18 +3,18 @@
 {% block headerClass %}local-header{% endblock %}
 
 {% block header %}
-<h1 class="local-header__title">{{gp.name}}</h1>
+<h1 class="local-header__title">{{ gp.name }}</h1>
 {% endblock %}
 
 {% block pageIntro %}
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
     <div class="column--one-half">
-      <p>{{ gp.location.address|safe | replace(",", "<br />") }}<br />{{gp.location.postcode}}</p>
+      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
     </div>
     <div class="column--one-half">
-      <p>Telephone: {{ gp.phone}}
-      <br /><a href="https://www.google.com/maps?q={{gp.location.latitude}},{{gp.location.longitude}}">See this surgery on a map</a></p>
+      <p>Telephone: {{ gp.contact.telephone }}
+      <br /><a href="https://www.google.com/maps?q={{ gp.location.latitude }},{{ gp.location.longitude }}">See this surgery on a map</a></p>
     </div>
 </div>
 {% endblock %}
@@ -25,7 +25,7 @@
   <ul class="link-list">
     <li class="on-dark"><a href="#">When reception is open</a></li>
     <li><a href="#">When GPs see patients</a></li>
-    <li><a href="{{ gp.organisation_code }}/book-appointment">Book a GP appointment</a></li>
+    <li><a href="{{ gp.choicesId }}/book-appointment">Book a GP appointment</a></li>
     <li><a href="#">What patients say about this surgery</a></li>
     <li><a href="#">GPs at this surgery</a></li>
     <li><a href="#">Services at this surgery</a></li>
@@ -104,7 +104,7 @@
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
   <hr class="hr--no-color"/>
   <h2>Book a GP appointment</h2>
-  <p><a href="{{gp.organisation_code}}/book-appointment">Book an appointment with a GP</a></p>
+  <p><a href="{{ gp.choicesId }}/book-appointment">Book an appointment with a GP</a></p>
   <hr class="hr--no-color"/>
   <h2>What patients say about this surgery</h2>
   <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p>
