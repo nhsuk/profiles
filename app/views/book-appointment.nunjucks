@@ -19,7 +19,7 @@
 
 {% block content %}
 <div class="reading-width">
-  <h2>Contact reception</h2>
+  <h2 id="contact-reception">Contact reception</h2>
   <h3>Book an appointment</h3>
   <p>Contact reception: {{gp.phone}}</p>
   <h3>Reception opening hours</h3>
@@ -82,14 +82,14 @@
   </table>
   <p>You can also ask for a late appointment between 6pm and 8pm on Wednesdays and Thursdays.</p>
   <p>The surgery has telephone appointments available, Monday to Friday 7.30am to 9am.</p>
-  <h2>Book an appointment online</h2>
+  <h2 id="book-appointment">Book an appointment online</h2>
   <p>You can book an appointment online if:</p>
   <ul>
     <li>you're a registered patient with this practice</li>
     <li>you have a username and password for this surgery’s online services website</li>
   </ul>
   <p>If you don’t have a username and password, ask reception for a form to register for online services.</p>
-  <p class="callout--blue">Sign into the online services website</p>
+  <p class="callout--blue"><a href="https://patient.emisaccess.co.uk/Account/Login">Sign into the online services website</a></p>
   <p><a href="#">Find your GP</a></p>
 </div>
 {% endblock %}
