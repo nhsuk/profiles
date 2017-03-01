@@ -34,72 +34,74 @@
   </ul>
   <hr class="hr--no-color"/>
   <h2>When reception is open</h2>
-  <table>
-    <tr>
-      <td>Monday</td>
-      <td>7:30am to 8pm</td>
-    </tr>
-    <tr>
-      <td>Tuesday</td>
-      <td>7:30am to 6pm</td>
-    </tr>
-    <tr>
-      <td>Wednesday</td>
-      <td>7:30am to 6pm</td>
-    </tr>
-    <tr>
-      <td>Thursday</td>
-      <td>7:30am to 6pm</td>
-    </tr>
-    <tr>
-      <td>Friday</td>
-      <td>7:30am to 6pm</td>
-    </tr>
-    <tr>
-      <td>Saturday</td>
-      <td>9:30am to 12:30pm</td>
-    </tr>
-    <tr>
-      <td>Sunday</td>
-      <td>9:30am to 12:30pm</td>
-    </tr>
-  </table>
+  <p>coming soon</p>
+  <!-- <table> -->
+  <!--   <tr> -->
+  <!--     <td>Monday</td> -->
+  <!--     <td>7:30am to 8pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Tuesday</td> -->
+  <!--     <td>7:30am to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Wednesday</td> -->
+  <!--     <td>7:30am to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Thursday</td> -->
+  <!--     <td>7:30am to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Friday</td> -->
+  <!--     <td>7:30am to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Saturday</td> -->
+  <!--     <td>9:30am to 12:30pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Sunday</td> -->
+  <!--     <td>9:30am to 12:30pm</td> -->
+  <!--   </tr> -->
+  <!-- </table> -->
   <hr class="hr--no-color"/>
   <h2>When GPs see patients</h2>
-  <table>
-    <tr>
-      <td>Monday</td>
-      <td>8am to 1pm</td>
-      <td>3pm to 6pm</td>
-    </tr>
-    <tr>
-      <td>Tuesday</td>
-      <td>8am to 1pm</td>
-      <td>3pm to 6pm</td>
-    </tr>
-    <tr>
-      <td>Wednesday</td>
-      <td>8am to 1pm</td>
-      <td>3pm to 6pm</td>
-    </tr>
-    <tr>
-      <td>Thursday</td>
-      <td colspan="2">8:30am to 1:30pm</td>
-    </tr>
-    <tr>
-      <td>Friday</td>
-      <td>8am to 1pm</td>
-      <td>3pm to 6pm</td>
-    </tr>
-    <tr>
-      <td>Saturday</td>
-      <td colspan="2">9:30am to 12:30pm</td>
-    </tr>
-    <tr>
-      <td>Sunday</td>
-      <td colspan="2">9:30am to 12:30pm</td>
-    </tr>
-  </table>
+  <p>coming soon</p>
+  <!-- <table> -->
+  <!--   <tr> -->
+  <!--     <td>Monday</td> -->
+  <!--     <td>8am to 1pm</td> -->
+  <!--     <td>3pm to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Tuesday</td> -->
+  <!--     <td>8am to 1pm</td> -->
+  <!--     <td>3pm to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Wednesday</td> -->
+  <!--     <td>8am to 1pm</td> -->
+  <!--     <td>3pm to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Thursday</td> -->
+  <!--     <td colspan="2">8:30am to 1:30pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Friday</td> -->
+  <!--     <td>8am to 1pm</td> -->
+  <!--     <td>3pm to 6pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Saturday</td> -->
+  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <td>Sunday</td> -->
+  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
+  <!--   </tr> -->
+  <!-- </table> -->
   <h3>Out-of-hours services</h3>
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
   <hr class="hr--no-color"/>
@@ -109,72 +111,77 @@
   <h2>What patients say about this surgery</h2>
   <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p>
   <p>The table below shows some of the latest results for this surgery.</p>
-  <table class="table--grey">
-    <tr>
-      <th>&nbsp;</th>
-      <th>This surgery</th>
-      <th>National average</th>
-    </tr>
-    <tr>
-      <th>Patients who would recommend their surgery</th><td>76%</td><td>78%</td>
-    </tr>
-    <tr>
-      <th>Patients who think the receptionists are helpful</th><td>82%</td><td>87%</td>
-    </tr>
-    <tr>
-      <th>Patients who said it’s easy to get through to this surgery on the phone</th><td>75%</td><td>73%</td>
-    </tr>
-    <tr>
-      <th>Patients who said booking an appointment was a good experience</th><td>66%</td><td>73%</td>
-    </tr>
-    <tr>
-      <th>Patients who had confidence in the last GP they saw</th><td>99%</td><td>95%</td>
-    </tr>
-    <tr>
-      <th>Patients who said the last GP I saw was good at listening to them</th><td>90%</td><td>89% </td>
-    </tr>
-  </table>
-  <p><a href="">See more results on the GP Patient Survey website.</a></p>
+  <p>coming soon</p>
+  <!-- <table class="table--grey"> -->
+  <!--   <tr> -->
+  <!--     <th>&nbsp;</th> -->
+  <!--     <th>This surgery</th> -->
+  <!--     <th>National average</th> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who would recommend their surgery</th><td>76%</td><td>78%</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who think the receptionists are helpful</th><td>82%</td><td>87%</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who said it’s easy to get through to this surgery on the phone</th><td>75%</td><td>73%</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who said booking an appointment was a good experience</th><td>66%</td><td>73%</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who had confidence in the last GP they saw</th><td>99%</td><td>95%</td> -->
+  <!--   </tr> -->
+  <!--   <tr> -->
+  <!--     <th>Patients who said the last GP I saw was good at listening to them</th><td>90%</td><td>89% </td> -->
+  <!--   </tr> -->
+  <!-- </table> -->
+  <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p>
   <hr class="hr--no-color"/>
   <h2>GPs at this surgery</h2>
-  <ul class="link-list">
-    <li>2 female GPs</li>
-    <li>1 male GP</li>
-  </ul>
+  <p>coming soon</p>
+  <!-- <ul class="link-list"> -->
+  <!--   <li>2 female GPs</li> -->
+  <!--   <li>1 male GP</li> -->
+  <!-- </ul> -->
   <hr class="hr--no-color"/>
   <h2>Services at this surgery</h2>
-  <h3>Services that need a GP referral</h3>
-  <ul class="link-list">
-    <li>Minor surgery</li>
-    <li>Counselling service</li>
-  </ul>
-  <h3>Services patients can book themselves</h3>
-  <ul class="link-list">
-    <li>Child vaccination</li>
-    <li>Asthma clinic</li>
-    <li>Diabetes clinic</li>
-    <li>Chronic obstructive pulmonary disease (COPD) clinic</li>
-    <li>Stop smoking clinic</li>
-    <li>Travel injections</li>
-  </ul>
+  <p>coming soon</p>
+  <!-- <h3>Services that need a GP referral</h3> -->
+  <!-- <ul class="link-list"> -->
+  <!--   <li>Minor surgery</li> -->
+  <!--   <li>Counselling service</li> -->
+  <!-- </ul> -->
+  <!-- <h3>Services patients can book themselves</h3> -->
+  <!-- <ul class="link-list"> -->
+  <!--   <li>Child vaccination</li> -->
+  <!--   <li>Asthma clinic</li> -->
+  <!--   <li>Diabetes clinic</li> -->
+  <!--   <li>Chronic obstructive pulmonary disease (COPD) clinic</li> -->
+  <!--   <li>Stop smoking clinic</li> -->
+  <!--   <li>Travel injections</li> -->
+  <!-- </ul> -->
   <hr class="hr--no-color"/>
   <h2>Parking and accessibility</h2>
-  <ul class="link-list">
-    <li>8 parking spaces, including 2 disabled parking spaces</li>
-    <li>Wheelchair access</li>
-    <li>Disabled toilet</li>
-    <li>Step-free access</li>
-  </ul>
+  <p>coming soon</p>
+  <!-- <ul class="link-list"> -->
+  <!--   <li>8 parking spaces, including 2 disabled parking spaces</li> -->
+  <!--   <li>Wheelchair access</li> -->
+  <!--   <li>Disabled toilet</li> -->
+  <!--   <li>Step-free access</li> -->
+  <!-- </ul> -->
   <hr class="hr--no-color"/>
   <h2>Register as a patient</h2>
-  <p class="callout callout--blue">This surgery is accepting new patients</p>
-  <p>You need to go to the surgery to register. Take with you:</p>
-  <ul>
-    <li>proof of identity (for example your passport)</li>
-    <li>proof of your current address (for example a gas or electricity bill)</li>
-    <li>your last GP surgery’s name and address</li>
-    <li>your NHS number (you can find this on any document you’ve received from the NHS)</li>
-  </ul>
-  <p>You’ll also need to fill in a registration form. You can <a href="http://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf">download and fill in a form</a> before going to the surgery. But the receptionist might have other forms that you need to fill in.</p>
+  <p>coming soon</p>
+  <!-- <p class="callout callout--blue">This surgery is accepting new patients</p> -->
+  <!-- <p>You need to go to the surgery to register. Take with you:</p> -->
+  <!-- <ul> -->
+  <!--   <li>proof of identity (for example your passport)</li> -->
+  <!--   <li>proof of your current address (for example a gas or electricity bill)</li> -->
+  <!--   <li>your last GP surgery’s name and address</li> -->
+  <!--   <li>your NHS number (you can find this on any document you’ve received from the NHS)</li> -->
+  <!-- </ul> -->
+  <!-- <p>You’ll also need to fill in a registration form. You can <a href="http://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf">download and fill in a form</a> before going to the surgery. But the receptionist might have other forms that you need to fill in.</p> -->
 </div>
 {% endblock %}
