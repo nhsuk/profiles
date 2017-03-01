@@ -23,91 +23,99 @@
 <div class="reading-width">
 
   <h2 id="book-appointment">Book an appointment online</h2>
-    <p>coming soon</p>
-  <!-- <p>You can book an appointment online if:</p> -->
-  <!-- <ul> -->
-  <!--   <li>you're a registered patient with this surgery</li> -->
-  <!--   <li>you have a username and password for this surgery's online services website</li> -->
-  <!-- </ul> -->
-  <!-- <p>If you don't have a username and password, ask reception for a form to register for online services.</p> -->
-  <!-- <p class="callout--blue"><a href="#TODO">Sign into the online services website</a></p> -->
+  <p>You can book an appointment online if:</p>
+  <ul>
+    <li>you're a registered patient with this surgery</li>
+    <li>you have a username and password for this surgery's online services</li>
+  </ul>
+  <p>If you don't have a username and password, ask reception for a form to register for online services.</p>
+  <p class="callout--blue"><a href="http://nhsuk-systmonline-fake.herokuapp.com/start.html">Sign into your surgery's online services</a></p>
 
   <h2 id="other-ways">Other ways to book</h2>
-    <p>coming soon</p>
-  <!-- <p><a href="#TODO">Visit the surgery's website</a> to find out about other ways to book an appointment. Or contact reception on {{ gp.contact.telephone }}.</p> -->
+  <p><a href="#">Visit the surgery's website</a> to find out about other ways to book an appointment. Or contact reception on {{gp.contact.telephone}}.</p>
+
 
   <h2>Reception times</h2>
-    <p>coming soon</p>
-  <!-- <p>Reception is open today from 7.30am to 8pm</p> -->
-  <!-- <details role="group"> -->
-  <!--     <summary data-analytics="summary" role="button"> -->
-  <!--     <span class="details__summary">See all opening times</span> -->
-  <!--     </summary> -->
-  <!--     <div id="details-content-0" aria-hidden="true"> -->
-  <!--       <div class="card__container"> -->
-  <!--         <table> -->
-  <!--           <tr> -->
-  <!--             <td>Monday</td> -->
-  <!--             <td>7.30am to 8pm</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Tuesday</td> -->
-  <!--             <td>8am to 6pm</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Wednesday</td> -->
-  <!--             <td>7.30am to 6pm</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Thursday</td> -->
-  <!--             <td>8am to 6pm</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Friday</td> -->
-  <!--             <td>8am to 6pm</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Saturday</td> -->
-  <!--             <td>Closed</td> -->
-  <!--           </tr> -->
-  <!--           <tr> -->
-  <!--             <td>Sunday</td> -->
-  <!--             <td>Closed</td> -->
-  <!--           </tr> -->
-  <!--         </table> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </details> -->
+  <p>Reception is open today from 7.30am to 8pm</p>
+  <details role="group">
+      <summary data-analytics="summary" role="button">
+        <span class="details__summary">See all opening times</span>
+      </summary>
+      <div id="details-content-0" aria-hidden="true">
+        <div class="card__container">
+          <table>
+            <tr>
+              <td>Monday</td>
+              <td>7.30am to 8pm</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>7.30am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>Closed</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>Closed</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </details>
 
   <h2 id="gps-see-patients">When GPs see patients at this surgery</h2>
-  <p>coming soon</p>
-  <!-- <table> -->
-  <!--   <tr> -->
-  <!--     <td>Monday</td> -->
-  <!--     <td>7.30am to 8pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Tuesday</td> -->
-  <!--     <td>7.30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Wednesday</td> -->
-  <!--     <td>7.30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Thursday</td> -->
-  <!--     <td>7.30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Friday</td> -->
-  <!--     <td>7.30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!-- </table> -->
+  <table>
+    <tr>
+      <td>Monday</td>
+      <td>7.30am to 8pm</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>7.30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>7.30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>7.30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>7.30am to 6pm</td>
+    </tr>
+  </table>
 
   <h2 id="closed">What to do when the surgery is closed</h2>
-  <p>coming soon</p>
-  <!-- <p>When the surgery is closed, you can still <a href="/gp-surgeries/book-appointment">book an appointment online</a>.</p> -->
-  <!-- <p>If you think you need to see someone more urgently, call 111 for advice on where to get help.</p> -->
+
+  <p>If the surgery is closed, you can <a href="http://www.nhs.uk/Conditions/Pages/hub.aspx">search this site for advice on your symptoms or condition</a>. Or you might be able to get help from a pharmacy.</p>
+
+  <p><a href="http://www.nhs.uk/Livewell/Pharmacy/Pages/Yourpharmacy.aspx">Find out when a pharmacy can help</a></p>
+
+  <p><a href="https://beta.nhs.uk/finders/find-help">Find a pharmacy near you</a></p>
+
+  <h3>If you think you need help quickly</h3>
+
+  <p>You can call 111 for advice on local services that might be able to help. Or you can
+  <a href="http://www.nhs.uk/service-search/Urgent-Care/LocationSearch/0">find local NHS services that provide
+  urgent care</a>.</p>
+
+  <p>Only call 999 when someone is seriously ill or injured or their life is at risk. </p>
 
   <!-- <p><a href="#">Back</a></p> -->
 </div>
