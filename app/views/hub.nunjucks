@@ -23,7 +23,7 @@
 <div class="reading-width">
   <h2 class="h2--smaller">On this page</h2>
   <ul class="link-list">
-    <li class="on-dark"><a href="#">When reception is open</a></li>
+    <li><a href="#">When reception is open</a></li>
     <li><a href="#">When GPs see patients</a></li>
     <li><a href="{{ gp.choicesId }}/book-appointment">Book a GP appointment</a></li>
     <li><a href="#">What patients say about this surgery</a></li>
