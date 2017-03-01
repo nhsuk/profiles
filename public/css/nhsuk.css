@@ -786,8 +786,6 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-.callout--blue { background-color: rgba(64, 173, 215, 0.1); border-left: 8px solid #40ADD7; padding: 8px 16px; }
-
 .local-header-white-bg--question, .local-header-white-bg > *, .global-header--question, .global-header > *, .global-footer--question, .global-footer > *, .notification-banner--question, .notification-banner > * { max-width: 960px; margin: 0 16px; padding: 8px 0; }
 
 @media (min-width: 641px) { .local-header-white-bg--question, .local-header-white-bg > *, .global-header--question, .global-header > *, .global-footer--question, .global-footer > *, .notification-banner--question, .notification-banner > * { margin: 0 16px; } }

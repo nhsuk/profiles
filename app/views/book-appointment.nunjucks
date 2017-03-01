@@ -21,7 +21,7 @@
 <div class="reading-width">
   <h2 id="contact-reception">Contact reception</h2>
   <h3>Book an appointment</h3>
-  <p>Contact reception: {{gp.phone}}</p>
+  <p>Contact reception: {{gp.contact.telephone}}</p>
   <h3>Reception opening hours</h3>
   <p>Reception is open from 7.30am to 8pm</p>
   <details role="group">
