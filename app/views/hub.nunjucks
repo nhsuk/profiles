@@ -105,13 +105,15 @@
   <h3>Out-of-hours services</h3>
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
   <hr class="hr--no-color"/>
+
   <h2>Book a GP appointment</h2>
   <p><a href="{{ gp.choicesId }}/book-appointment">Book an appointment with a GP</a></p>
   <hr class="hr--no-color"/>
+
   <h2>What patients say about this surgery</h2>
-  <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p>
-  <p>The table below shows some of the latest results for this surgery.</p>
   <p>coming soon</p>
+  <!-- <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p> -->
+  <!-- <p>The table below shows some of the latest results for this surgery.</p> -->
   <!-- <table class="table--grey"> -->
   <!--   <tr> -->
   <!--     <th>&nbsp;</th> -->
@@ -137,8 +139,9 @@
   <!--     <th>Patients who said the last GP I saw was good at listening to them</th><td>90%</td><td>89% </td> -->
   <!--   </tr> -->
   <!-- </table> -->
-  <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p>
+  <!-- <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p> -->
   <hr class="hr--no-color"/>
+
   <h2>GPs at this surgery</h2>
   <p>coming soon</p>
   <!-- <ul class="link-list"> -->
@@ -146,6 +149,7 @@
   <!--   <li>1 male GP</li> -->
   <!-- </ul> -->
   <hr class="hr--no-color"/>
+
   <h2>Services at this surgery</h2>
   <p>coming soon</p>
   <!-- <h3>Services that need a GP referral</h3> -->
@@ -163,6 +167,7 @@
   <!--   <li>Travel injections</li> -->
   <!-- </ul> -->
   <hr class="hr--no-color"/>
+
   <h2>Parking and accessibility</h2>
   <p>coming soon</p>
   <!-- <ul class="link-list"> -->
@@ -172,6 +177,7 @@
   <!--   <li>Step-free access</li> -->
   <!-- </ul> -->
   <hr class="hr--no-color"/>
+
   <h2>Register as a patient</h2>
   <p>coming soon</p>
   <!-- <p class="callout callout--blue">This surgery is accepting new patients</p> -->
