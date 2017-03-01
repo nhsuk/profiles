@@ -8,6 +8,14 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
+function expect404Page(err, res) {
+  expect(err).to.not.equal(null);
+  expect(res).to.have.status(404);
+  // eslint-disable-next-line no-unused-expressions
+  expect(res).to.be.html;
+  expect(res.text).to.contain('Page not found');
+}
+
 describe('app', () => {
   describe('security headers', () => {
     it('should be returned for a valid request', (done) => {
@@ -25,17 +33,22 @@ describe('app', () => {
   });
 
   describe('redirect to root of app', () => {
-    it('should return a 200 response as html', (done) => {
+    it('should return a 404 response as html', (done) => {
       chai.request(app)
         .get('/')
         .end((err, res) => {
-          expect(err).to.equal(null);
-          // eslint-disable-next-line no-unused-expressions
-          expect(res).to.redirect;
-          expect(res).to.have.status(200);
-          // eslint-disable-next-line no-unused-expressions
-          expect(res).to.be.html;
-          expect(res.text).to.contain('Listings of all GPs coming soon...');
+          expect404Page(err, res);
+          done();
+        });
+    });
+  });
+
+  describe('direct access to the root of the app', () => {
+    it('should return a 404 response as html', (done) => {
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}`)
+        .end((err, res) => {
+          expect404Page(err, res);
           done();
         });
     });
@@ -67,11 +80,7 @@ describe('app', () => {
       chai.request(app)
         .get('/not-known')
         .end((err, res) => {
-          expect(err).to.not.be.equal(null);
-          expect(res).to.have.status(404);
-          // eslint-disable-next-line no-unused-expressions
-          expect(res).to.be.html;
-          expect(res.text).to.contain('Page not found');
+          expect404Page(err, res);
           done();
         });
     });
@@ -82,11 +91,7 @@ describe('app', () => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/unknown`)
         .end((err, res) => {
-          expect(err).to.not.be.equal(null);
-          expect(res).to.have.status(404);
-          // eslint-disable-next-line no-unused-expressions
-          expect(res).to.be.html;
-          expect(res.text).to.contain('Page not found');
+          expect404Page(err, res);
           done();
         });
     });
@@ -97,11 +102,7 @@ describe('app', () => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/1unknown`)
         .end((err, res) => {
-          expect(err).to.not.be.equal(null);
-          expect(res).to.have.status(404);
-          // eslint-disable-next-line no-unused-expressions
-          expect(res).to.be.html;
-          expect(res.text).to.contain('Page not found');
+          expect404Page(err, res);
           done();
         });
     });
@@ -120,3 +121,4 @@ describe('app', () => {
     });
   });
 });
+

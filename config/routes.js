@@ -6,7 +6,7 @@ const log = require('../app/middleware/logger');
 const getGp = require('../app/middleware/getGp');
 
 router.get('/',
-  renderer.listing
+  renderer.notFound
 );
 
 router.get('/:choicesId',
