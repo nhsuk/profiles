@@ -9,6 +9,8 @@ $callout-blue: rgba(64, 173, 215, 0.1);
 /*
    HTML elements
 */
+
+
 table, .table {
   tr {
     th {
@@ -103,12 +105,6 @@ form {
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
-}
-
-.callout--blue {
-    background-color: $callout-blue;
-    border-left: 8px solid $callout-border-blue;
-    padding: 8px 16px;
 }
 
 .local-header-white-bg,
@@ -392,6 +388,12 @@ form {
   &:active {
     color: #000000;
   }
+}
+
+.callout--blue {
+  background-color: $callout-blue;
+  border-left: 8px solid $callout-border-blue;
+  padding: 8px 16px;
 }
 
 /*
