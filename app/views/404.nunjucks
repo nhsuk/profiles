@@ -3,7 +3,6 @@
 {% set message = 'Page not found' %}
 
 {% block pageTitle %} {{ message }} {% endblock %}
-
 {% block headerClass %}local-header-white-bg{% endblock %}
 
 {% block header %}
