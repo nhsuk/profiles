@@ -1,5 +1,102 @@
 {% extends 'layout.nunjucks' %}
 
+{% block headerClass %}local-header{% endblock %}
+
+{% block header %}
+<h1 class="local-header__title">Book a GP appointment at {{gp.name}}</h1>
+{% endblock %}
+
+{% block pageIntro %}
+<div class="local-header__intro">
+  <div class="reading-width">
+    <ul class="link-list">
+      <li><a href="#book-appointment">Book an appointment online</a></li>
+      <li><a href="#other-ways">Other ways to book</a></li>
+      <li><a href="#closed">What to do when the surgery is closed</a></li>
+      <li><a href="#gps-see-patients">When GPs see patients</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
-Book an appointment at {{gp.name}}
+<div class="reading-width">
+
+  <h2 id="book-appointment">Book an appointment online</h2>
+  <p>You can book an appointment online if:</p>
+  <ul>
+    <li>you're a registered patient with this surgery</li>
+    <li>you have a username and password for this surgery’s online services website</li>
+  </ul>
+  <p>If you don’t have a username and password, ask reception for a form to register for online services.</p>
+  <p class="callout--blue"><a href="https://patient.emisaccess.co.uk/Account/Login">Sign into the online services website</a></p>
+
+  <h2 id="other-ways">Other ways to book</h2>
+  <p><a href="">Visit the surgery's website</a> to find out about other ways to book an appointment. Or contact reception on {{gp.contact.telephone}}</p>
+
+
+  <h2>Reception times</h2>
+  <p>Reception is open from 7.30am to 8pm</p>
+  <details role="group">
+      <summary data-analytics="summary" role="button">
+        <span class="details__summary">See all opening times</span>
+      </summary>
+      <div id="details-content-0" aria-hidden="true">
+        <div class="card__container">
+          <table>
+            <tr>
+              <td>Monday</td>
+              <td>7:30am to 8pm</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>7:30am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>8am to 6pm</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>8am to 6pm</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </details>
+
+  <h2 id="gps-see-patients">When GPs see patients at this surgery</h2>
+  <table>
+    <tr>
+      <td>Monday</td>
+      <td>7:30am to 8pm</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>7:30am to 6pm</td>
+    </tr>
+  </table>
+
+  <h2 id="closed">What to do when the surgery is closed</h2>
+  <p>When the surgery is closed, you can still <a href="#book-appointment">book an appointment online</a>.</p>
+  <p>If you think you need to see someone more urgently, call 111 for advice on where to get help.</p>
+
+  <p><a href="#">Back</a></p>
+</div>
 {% endblock %}

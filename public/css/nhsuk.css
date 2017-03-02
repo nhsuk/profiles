@@ -786,8 +786,6 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-.callout--blue { background-color: rgba(64, 173, 215, 0.1); border-left: 8px solid #40ADD7; padding: 8px 16px; }
-
 .local-header-white-bg--question, .local-header-white-bg > *, .global-header--question, .global-header > *, .global-footer--question, .global-footer > *, .notification-banner--question, .notification-banner > * { max-width: 960px; margin: 0 16px; padding: 8px 0; }
 
 @media (min-width: 641px) { .local-header-white-bg--question, .local-header-white-bg > *, .global-header--question, .global-header > *, .global-footer--question, .global-footer > *, .notification-banner--question, .notification-banner > * { margin: 0 16px; } }
@@ -896,6 +894,8 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 .link-back::before { border-bottom: 5px solid transparent; border-right: 6px solid #0b0c0c; border-top: 5px solid transparent; content: ""; display: block; height: 0; left: 0; margin-top: -6px; position: absolute; top: 50%; width: 0; }
 
 .link-back:link, .link-back:visited, .link-back:hover, .link-back:active { color: #000000; }
+
+.callout--blue { background-color: rgba(64, 173, 215, 0.1); border-left: 8px solid #40ADD7; padding: 8px 16px; }
 
 /* Error styling */
 .error { margin-right: 15px; border-left: 4px solid #b10e1e; padding-left: 10px; }
