@@ -26,10 +26,10 @@
   <p>You can book an appointment online if:</p>
   <ul>
     <li>you're a registered patient with this surgery</li>
-    <li>you have a username and password for this surgery's online services website</li>
+    <li>you have a username and password for this surgery's online services</li>
   </ul>
   <p>If you don't have a username and password, ask reception for a form to register for online services.</p>
-  <p class="callout--blue"><a href="http://nhsuk-systmonline-fake.herokuapp.com/start.html">Sign into the online services website</a></p>
+  <p class="callout--blue"><a href="http://nhsuk-systmonline-fake.herokuapp.com/start.html">Sign into your surgery's online services</a></p>
 
   <h2 id="other-ways">Other ways to book</h2>
   <p><a href="#">Visit the surgery's website</a> to find out about other ways to book an appointment. Or contact reception on {{gp.contact.telephone}}.</p>
@@ -102,8 +102,24 @@
   </table>
 
   <h2 id="closed">What to do when the surgery is closed</h2>
-  <p>When the surgery is closed, you can still <a href="#book-appointment">book an appointment online</a>.</p>
-  <p>If you think you need to see someone more urgently, call 111 for advice on where to get help.</p>
+
+  <p>If the surgery is closed, you can still <a href="#book-appointment">book an appointment online</a>.
+  You can also <a href="http://www.nhs.uk/Conditions/Pages/hub.aspx">search this site</a>
+  for advice on your symptoms or condition.</p>
+
+  <p>Sometimes another NHS service (for example a pharmacy or a walk-in centre) might be able to help.</p>
+
+  <p><a href="http://www.nhs.uk/Livewell/Pharmacy/Pages/Yourpharmacy.aspx">Find out how a pharmacist can help</a></p>
+
+  <p><a href="https://beta.nhs.uk/finders/find-help">Find a pharmacy near to you</a></p>
+
+  <h3>If you think you need help quickly</h3>
+
+  <p>You can call 111 for advice on local services that might be able to help. Or you can
+  <a href="http://www.nhs.uk/service-search/Urgent-Care/LocationSearch/0">find local NHS services that provide
+  urgent care</a>.</p>
+
+  <p>Only call 999 when someone is seriously ill or injured or their life is at risk. </p>
 
   <!-- <p><a href="#">Back</a></p> -->
 </div>
