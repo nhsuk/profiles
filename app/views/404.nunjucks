@@ -3,7 +3,6 @@
 {% set message = 'Page not found' %}
 
 {% block pageTitle %} {{ message }} {% endblock %}
-
 {% block headerClass %}local-header-white-bg{% endblock %}
 
 {% block header %}
@@ -13,6 +12,7 @@
 {% endblock %}
 
 {% block content %}
+<h1>More text</h1>
   <div class="reading-width">
     <p>If you have entered a web address check it was correct. You can <a href="http://nhs.uk/">browse from the NHS.UK home page</a>.</p>
     <p><a href="javascript:history.go(-1)" class="link-back">Back</a></p>
