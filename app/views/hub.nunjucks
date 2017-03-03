@@ -107,7 +107,7 @@
   <hr class="hr--no-color"/>
 
   <h2>Book a GP appointment</h2>
-  <p><a href="{{ gp.choicesId }}/book-appointment">Book an appointment with a GP</a></p>
+  <p><a href="/gp-surgeries/{{ gp.choicesId }}/book-appointment">Book an appointment with a GP</a></p>
   <hr class="hr--no-color"/>
 
   <h2>What patients say about this surgery</h2>
