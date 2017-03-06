@@ -6,13 +6,11 @@ const log = require('../app/middleware/logger');
 const getGp = require('../app/middleware/getGp');
 
 router.get('/',
-  setLocals.backLink,
   renderer.notFound
 );
 
 router.get('/:choicesId',
   log.info,
-  setLocals.backLink,
   setLocals.fromRequest,
   getGp,
   renderer.gpSurgeries
@@ -20,7 +18,6 @@ router.get('/:choicesId',
 
 router.get('/:choicesId/book-appointment',
   log.info,
-  setLocals.backLink,
   setLocals.fromRequest,
   getGp,
   renderer.bookAnAppointment

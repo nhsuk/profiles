@@ -9,6 +9,7 @@ const router = require('./routes');
 const locals = require('../app/middleware/locals');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
+const backLink = require('../app/middleware/setLocals').backLink;
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
@@ -96,6 +97,7 @@ module.exports = (app, config) => {
 
   app.use(constants.SITE_ROOT, express.static(`${config.root}/public`));
 
+  app.use(constants.SITE_ROOT, backLink);
   app.use(constants.SITE_ROOT, router);
 
   // eslint-disable-next-line no-unused-vars
