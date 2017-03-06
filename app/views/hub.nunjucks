@@ -143,11 +143,16 @@
   <hr class="hr--no-color"/>
 
   <h2>GPs at this surgery</h2>
-  <p>coming soon</p>
-  <!-- <ul class="link-list"> -->
-  <!--   <li>2 female GPs</li> -->
-  <!--   <li>1 male GP</li> -->
-  <!-- </ul> -->
+    <ul class="link-list">
+      {% for message in getGpCountMessages(gp.gpCounts) %}
+          <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+    <ul class="link-list">
+      {% for doctor in gp.doctors %}
+          <li>{{doctor}}</li>
+      {% endfor %}
+    </ul>
   <hr class="hr--no-color"/>
 
   <h2>Services at this surgery</h2>
