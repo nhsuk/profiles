@@ -68,8 +68,10 @@ describe('app', () => {
             .to.equal('Dr C A Xavier');
           expect($('.column--one-half').first().text().trim())
             .to.equal('647 Liverpool RoadPlatt BridgeWigangreater manchesterWN2 5BD');
-          expect($('.column--one-half p').last().text().trim())
-            .to.include('Telephone: 01942 862738');
+          const contactDetailsText = $('.column--one-half p').last().text().trim();
+          expect(contactDetailsText).to.include('Telephone: 01942 862738');
+          expect(contactDetailsText).to.include('Email: gp-p92651@nhs.net');
+          expect(contactDetailsText).to.include('Fax: 01942 865171');
           done();
         });
     });
