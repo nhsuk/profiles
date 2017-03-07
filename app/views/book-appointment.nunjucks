@@ -109,6 +109,7 @@
   <!-- <p>When the surgery is closed, you can still <a href="/gp-surgeries/book-appointment">book an appointment online</a>.</p> -->
   <!-- <p>If you think you need to see someone more urgently, call 111 for advice on where to get help.</p> -->
 
-  <!-- <p><a href="#">Back</a></p> -->
+  <p><a href="{{ backLink }}" class="link-back">Back</a></p>
+
 </div>
 {% endblock %}
