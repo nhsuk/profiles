@@ -13,8 +13,12 @@
       <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
     </div>
     <div class="column--one-half">
-      <p>Telephone: {{ gp.contact.telephone }}
-      <br /><a href="https://www.google.com/maps?q={{ gp.location.latitude }},{{ gp.location.longitude }}">See this surgery on a map</a></p>
+      <p>
+      {% if gp.contact.telephone %}Telephone: {{ gp.contact.telephone }}<br />{% endif %}
+      {% if gp.contact.email %}Email: {{ gp.contact.email }}<br />{% endif %}
+      {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
+      <a href="https://www.google.com/maps?q={{ gp.location.latitude }},{{ gp.location.longitude }}">See this surgery on a map</a>
+      </p>
     </div>
 </div>
 {% endblock %}
