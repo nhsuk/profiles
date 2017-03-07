@@ -13,6 +13,14 @@ function fromRequest(req, res, next) {
   }
 }
 
+function backLink(req, res, next) {
+  /* eslint-disable no-script-url */
+  /* eslint-disable no-param-reassign */
+  res.locals.backLink = req.get('referer') || 'javascript:history.back();';
+  next();
+}
+
 module.exports = {
   fromRequest,
+  backLink,
 };
