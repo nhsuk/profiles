@@ -4,29 +4,62 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('view logic', () => {
-  describe('GP Counts', () => {
-    it('should return \'none\' missing gp counts', () => {
-      const message = viewLogic.getGpCountMessages(undefined);
-      expect(message[0]).to.equal('None');
+  describe('doctorsAvailable', () => {
+    it('should return false missing gp counts', () => {
+      const result = viewLogic.doctorsAvailable(undefined);
+      expect(result).to.equal(false);
     });
 
-    it('should return \'None\' for zero male and female gp counts', () => {
+    it('should return false for zero male and female gp counts', () => {
       const gpCounts = {
         male: 0,
         female: 0
       };
-      const message = viewLogic.getGpCountMessages(gpCounts);
-      expect(message[0]).to.equal('None');
+      const result = viewLogic.doctorsAvailable(gpCounts);
+      // eslint-disable-next-line no-unused-expressions
+      expect(result).to.be.false;
     });
 
-    it('should return \'None\' for zero unknown gp counts', () => {
+    it('should return true for more than one male gp counts', () => {
+      const gpCounts = {
+        male: 1,
+        female: 0
+      };
+      const result = viewLogic.doctorsAvailable(gpCounts);
+      // eslint-disable-next-line no-unused-expressions
+      expect(result).to.be.true;
+    });
+
+    it('should return true for more than one female gp counts', () => {
+      const gpCounts = {
+        female: 1,
+        male: 0
+      };
+      const result = viewLogic.doctorsAvailable(gpCounts);
+      // eslint-disable-next-line no-unused-expressions
+      expect(result).to.be.true;
+    });
+
+    it('should return false for zero unknown gp counts', () => {
       const gpCounts = {
         unknown: 0
       };
-      const message = viewLogic.getGpCountMessages(gpCounts);
-      expect(message[0]).to.equal('None');
+      const result = viewLogic.doctorsAvailable(gpCounts);
+      // eslint-disable-next-line no-unused-expressions
+      expect(result).to.be.false;
     });
 
+    it('should return true for more than one unknown gp counts', () => {
+      const gpCounts = {
+        unknown: 1
+      };
+      const result = viewLogic.doctorsAvailable(gpCounts);
+      // eslint-disable-next-line no-unused-expressions
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('getGpCountMessages', () => {
     it('should return \'GPs\' for more than one male or female doctor', () => {
       const gpCounts = {
         male: 3,

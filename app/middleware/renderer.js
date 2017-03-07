@@ -9,7 +9,10 @@ function notFound(req, res, msg) {
 
 function gpSurgeries(req, res) {
   if (res.locals.gp) {
-    res.render('hub', { getGpCountMessages: viewLogic.getGpCountMessages });
+    res.render('hub', {
+      getGpCountMessages: viewLogic.getGpCountMessages,
+      doctorsAvailable: viewLogic.doctorsAvailable
+    });
   } else {
     notFound(req, res);
   }

@@ -2,11 +2,12 @@ function pluraliseGP(count) {
   return count === 1 ? 'GP' : 'GPs';
 }
 
+function doctorsAvailable(gpCounts) {
+  return !!gpCounts && (gpCounts.unknown > 0 || gpCounts.male > 0 || gpCounts.female > 0);
+}
+
 function getGpCountMessages(gpCounts) {
   const messages = [];
-  if (!gpCounts || gpCounts.unknown === 0 || (gpCounts.male === 0 && gpCounts.female === 0)) {
-    return ['None'];
-  }
   if (gpCounts.female) {
     messages.push(`${gpCounts.female} female ${pluraliseGP(gpCounts.female)}`);
   }
@@ -20,4 +21,4 @@ function getGpCountMessages(gpCounts) {
   return messages;
 }
 
-module.exports = { getGpCountMessages };
+module.exports = { getGpCountMessages, doctorsAvailable };
