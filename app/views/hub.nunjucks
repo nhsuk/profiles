@@ -17,7 +17,7 @@
       {% if gp.contact.telephone %}Telephone: {{ gp.contact.telephone }}<br />{% endif %}
       {% if gp.contact.email %}Email: {{ gp.contact.email }}<br />{% endif %}
       {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
-      <a href="https://www.google.com/maps/dir/{{ gp.address.addressLines | safe | replace(" ", "+") }},{{ gp.address.postcode | safe | replace(" ", "+")}}/@{{ gp.location.latitude }},{{ gp.location.longitude }},17z">See this surgery on a map</a>
+      <a href="https://www.google.com/maps/dir/{{ gp.name | safe | replace(" ", "+")}},{{ gp.address.addressLines | safe | replace(" ", "+") }},{{ gp.address.postcode | safe | replace(" ", "+")}}/@{{ gp.location.latitude }},{{ gp.location.longitude }},17z">See this surgery on a map</a>
       </p>
     </div>
 </div>
