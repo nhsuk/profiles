@@ -1,4 +1,5 @@
 const log = require('../lib/logger');
+const viewLogic = require('../lib/viewLogic');
 
 function notFound(req, res, msg) {
   log.warn(msg, 'Not found (404)');
@@ -8,7 +9,10 @@ function notFound(req, res, msg) {
 
 function gpSurgeries(req, res) {
   if (res.locals.gp) {
-    res.render('hub');
+    res.render('hub', {
+      getGpCountMessages: viewLogic.getGpCountMessages,
+      gpsAvailable: viewLogic.gpsAvailable
+    });
   } else {
     notFound(req, res);
   }
