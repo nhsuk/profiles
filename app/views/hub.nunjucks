@@ -27,7 +27,7 @@
     <li><a href="#">When GPs see patients</a></li>
     <li><a href="{{ gp.choicesId }}/book-appointment">Book a GP appointment</a></li>
     <li><a href="#">What patients say about this surgery</a></li>
-    {% if doctorsAvailable(gp.gpCounts) %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
+    {% if gpsAvailable(gp.gpCounts) %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
     <li><a href="#">Services at this surgery</a></li>
     <li><a href="#">Parking and accessibility</a></li>
     <li><a href="#">Register as a patient with this surgery</a></li>
@@ -141,7 +141,7 @@
   <!-- </table> -->
   <!-- <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p> -->
   <hr class="hr--no-color"/>
- {% if doctorsAvailable(gp.gpCounts) %}
+ {% if gpsAvailable(gp.gpCounts) %}
   <h2>GPs at this surgery</h2>
     <ul class="link-list">
       {% for message in getGpCountMessages(gp.gpCounts) %}

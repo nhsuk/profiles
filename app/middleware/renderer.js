@@ -11,7 +11,7 @@ function gpSurgeries(req, res) {
   if (res.locals.gp) {
     res.render('hub', {
       getGpCountMessages: viewLogic.getGpCountMessages,
-      doctorsAvailable: viewLogic.doctorsAvailable
+      gpsAvailable: viewLogic.gpsAvailable
     });
   } else {
     notFound(req, res);
