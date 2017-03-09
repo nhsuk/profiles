@@ -1,0 +1,80 @@
+{
+  "reception": {
+    "sunday": [],
+    "monday": [
+      {
+        "opens": "07:30",
+        "closes": "18:30"
+      }
+    ],
+    "tuesday": [
+      {
+        "opens": "08:00",
+        "closes": "18:30"
+      }
+    ],
+    "wednesday": [
+      {
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "thursday": [
+      {
+        "opens": "08:00",
+        "closes": "18:30"
+      }
+    ],
+    "friday": [
+      {
+        "opens": "07:30",
+        "closes": "18:30"
+      }
+    ],
+    "saturday": [
+      {
+        "opens": "08:00",
+        "closes": "10:00"
+      }
+    ]
+  },
+  "surgery": {
+    "sunday": [],
+    "monday": [
+      {
+        "opens": "07:30",
+        "closes": "18:30"
+      }
+    ],
+    "tuesday": [
+      {
+        "opens": "08:00",
+        "closes": "18:30"
+      }
+    ],
+    "wednesday": [
+      {
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "thursday": [
+      {
+        "opens": "08:00",
+        "closes": "18:30"
+      }
+    ],
+    "friday": [
+      {
+        "opens": "07:30",
+        "closes": "18:30"
+      }
+    ],
+    "saturday": [
+      {
+        "opens": "08:00",
+        "closes": "10:00"
+      }
+    ]
+  }
+}
