@@ -12,7 +12,7 @@ function gpSurgeries(req, res) {
   if (res.locals.gp) {
     res.render('hub', {
       getGpCountMessages: viewLogic.getGpCountMessages,
-      gpsAvailable: viewLogic.gpsAvailable
+      gpsAvailable: viewLogic.gpsAvailable,
       mapUrl: mapLink.addUrl(res.locals.gp),
     });
   } else {
