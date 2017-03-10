@@ -37,35 +37,7 @@
     <li><a href="#">Register as a patient with this surgery</a></li>
   </ul>
   <hr class="hr--no-color"/>
-  {% if gp.openingTimes %}
-  <h2>When reception is open</h2>
-   <table>
-      {% for ot in gp.openingTimes.reception %}
-      <tr>
-          <td>{{ot.day}}</td>
-          <td>
-          {% for session in ot.sessions %}
-          <div>{{ session }} </div>          
-          {% endfor %}
-          </td>
-      </tr>
-      {% endfor %}
-  </table>
-  <h2>When GPs see patients</h2>
-   <table>
-      {% for ot in gp.openingTimes.surgery %}
-      <tr>
-          <td>{{ot.day}}</td>
-          <td>
-          {% for session in ot.sessions %}
-          <div>{{ session }} </div>          
-          {% endfor %}
-          </td>
-      </tr>
-      {% endfor %}
-  </table>
-  {% endif %}
-  <p>coming soon</p>
+    {% include "includes/opening-times.nunjucks" %}
   <!-- <table> -->
   <!--   <tr> -->
   <!--     <td>Monday</td> -->

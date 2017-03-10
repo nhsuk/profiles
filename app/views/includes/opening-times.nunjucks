@@ -1,0 +1,36 @@
+{% macro openingTimes(times, title) %}
+    <h2>{{ title }}</h2>
+    <table>
+      {% for ot in times %}
+      <tr>
+          <td>{{ot.day}}</td>
+          <td>
+            {% for session in ot.sessions %}
+                <div>{{ session }} </div>
+            {% endfor %}
+          </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endmacro %}
+
+{% macro openingTimesUnavailable(title, phone) %}
+    <h2>{{ title }}</h2>
+    <table>
+      <tr>
+      {% if gp.contact.telephone %}
+        <td>Please call {{gp.contact.telephone}} for times</td>
+      {% else %}
+        <td>Please contact surgery for times</td>
+      {% endif %}  
+      </tr>
+  </table>
+{% endmacro %}
+
+{% if gp.openingTimes %}
+  {{ openingTimes(gp.openingTimes.reception, 'When reception is open') }}
+  {{ openingTimes(gp.openingTimes.surgery, 'When GPs see patients') }}
+{% else %}
+  {{ openingTimesUnavailable('When reception is open') }}
+  {{ openingTimesUnavailable('When GPs see patients') }}
+{% endif %}
