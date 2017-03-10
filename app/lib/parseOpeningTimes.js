@@ -8,10 +8,24 @@ function parseDay(day) {
   if (day === undefined) {
     return ['No information available'];
   }
+
+  const fixedDays = day.reduce((o, session) => {
+    /* eslint-disable no-param-reassign */
+    if (o.prev && session.opens === o.prev.closes) {
+      o.prev.closes = session.closes;
+    } else {
+      o.list.push(session);
+      o.prev = session;
+    }
+    /* eslint-enable no-param-reassign */
+    return o;
+  }, { list: [], prev: undefined });
+
   // eslint-disable-next-line arrow-body-style
-  const sessions = day.map((session) => {
+  const sessions = fixedDays.list.map((session) => {
     return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
   });
+
   if (sessions.length === 0) {
     sessions.push('Closed');
   }

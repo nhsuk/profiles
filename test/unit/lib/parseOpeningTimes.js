@@ -38,10 +38,10 @@ describe('parseOpeningTimes', () => {
       const monday = [
         {
           opens: '07:30',
-          closes: '18:30'
+          closes: '12:30'
         },
         {
-          opens: '18:30',
+          opens: '13:30',
           closes: '20:00'
         }
       ];
@@ -49,8 +49,26 @@ describe('parseOpeningTimes', () => {
       const openingTimes = parseOpeningTimes.parseDay(monday);
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes.length).to.equal(2);
-      expect(openingTimes[0]).to.equal('7:30am to 6:30pm');
-      expect(openingTimes[1]).to.equal('6:30pm to 8:00pm');
+      expect(openingTimes[0]).to.equal('7:30am to 12:30pm');
+      expect(openingTimes[1]).to.equal('1:30pm to 8:00pm');
+    });
+
+    it('should replace contiguous times with a single messages', () => {
+      const monday = [
+        {
+          opens: '07:30',
+          closes: '12:30'
+        },
+        {
+          opens: '12:30',
+          closes: '20:00'
+        }
+      ];
+
+      const openingTimes = parseOpeningTimes.parseDay(monday);
+      // eslint-disable-next-line no-unused-expressions
+      expect(openingTimes.length).to.equal(1);
+      expect(openingTimes[0]).to.equal('7:30am to 8:00pm');
     });
   });
 
