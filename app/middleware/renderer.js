@@ -13,7 +13,7 @@ function gpSurgeries(req, res) {
     res.render('hub', {
       getGpCountMessages: viewLogic.getGpCountMessages,
       gpsAvailable: viewLogic.gpsAvailable,
-      mapUrl: mapLink.addUrl(res.locals.gp),
+      mapUrl: mapLink.generateUrl(res.locals.gp),
     });
   } else {
     notFound(req, res);

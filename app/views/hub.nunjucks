@@ -17,8 +17,7 @@
       {% if gp.contact.telephone %}Telephone: {{ gp.contact.telephone }}<br />{% endif %}
       {% if gp.contact.email %}Email: {{ gp.contact.email }}<br />{% endif %}
       {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
-      <a href="{{mapUrl}}">See this surgery on a map</a>
-      {{alex}}</p>
+      <a href="{{mapUrl}}">See this surgery on a map</a></p>
 
     </div>
 </div>
