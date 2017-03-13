@@ -1,6 +1,6 @@
 {% macro openingTimes(times, title) %}
     <h2>{{ title }}</h2>
-    <table>
+    <table class='opening-times'>
       {% for ot in times %}
       <tr>
           <td>{{ot.day}}</td>
@@ -14,14 +14,14 @@
   </table>
 {% endmacro %}
 
-{% macro openingTimesUnavailable(title, phone) %}
+{% macro openingTimesUnavailable(title, message) %}
     <h2>{{ title }}</h2>
-    <table>
+    <table class='opening-times'>
       <tr>
       {% if gp.contact.telephone %}
-        <td>Please call {{gp.contact.telephone}} for times</td>
+        <td>No information available. Contact reception on {{gp.contact.telephone}} to find out {{message}}.</td>
       {% else %}
-        <td>Please contact surgery for times</td>
+        <td>No information available. Contact reception to find out {{message}}.</td>
       {% endif %}  
       </tr>
   </table>
@@ -31,6 +31,6 @@
   {{ openingTimes(gp.openingTimes.reception, 'When reception is open') }}
   {{ openingTimes(gp.openingTimes.surgery, 'When GPs see patients') }}
 {% else %}
-  {{ openingTimesUnavailable('When reception is open') }}
-  {{ openingTimesUnavailable('When GPs see patients') }}
+  {{ openingTimesUnavailable('When reception is open', 'opening times') }}
+  {{ openingTimesUnavailable('When GPs see patients', 'when you can get a GP appointment') }}
 {% endif %}

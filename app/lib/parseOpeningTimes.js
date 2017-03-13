@@ -2,13 +2,7 @@ const timeUtils = require('./timeUtils');
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-function parseDay(day) {
-  // empty day field doesn't occur in the source data, added default in case
-  // it changes in future
-  if (day === undefined) {
-    return ['No information available'];
-  }
-
+function joinContiguousTimes(day) {
   const fixedDays = day.reduce((o, session) => {
     /* eslint-disable no-param-reassign */
     if (o.prev && session.opens === o.prev.closes) {
@@ -21,8 +15,18 @@ function parseDay(day) {
     return o;
   }, { list: [], prev: undefined });
 
+  return fixedDays.list;
+}
+
+function parseDay(day) {
+  // empty day field doesn't occur in the source data, added default in case
+  // it changes in future
+  if (day === undefined) {
+    return ['No information available'];
+  }
+
   // eslint-disable-next-line arrow-body-style
-  const sessions = fixedDays.list.map((session) => {
+  const sessions = joinContiguousTimes(day).map((session) => {
     return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
   });
 
