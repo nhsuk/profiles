@@ -16,14 +16,19 @@ describe('timeUtils', () => {
       expect(time).to.equal('6:30pm');
     });
 
-    it('it should report midnight as 12:00am', () => {
-      const time = timeUtils.toAmPm('00:00');
-      expect(time).to.equal('12:00am');
+    it('it should remove minutes for times on the hour', () => {
+      const time = timeUtils.toAmPm('07:00');
+      expect(time).to.equal('7am');
     });
 
-    it('it should report noon as 12:00pm', () => {
+    it('it should report midnight as 12:00am', () => {
+      const time = timeUtils.toAmPm('00:00');
+      expect(time).to.equal('12am');
+    });
+
+    it('it should report noon as 12pm', () => {
       const time = timeUtils.toAmPm('12:00');
-      expect(time).to.equal('12:00pm');
+      expect(time).to.equal('12pm');
     });
 
     it('it should return invalid strings unchanged', () => {

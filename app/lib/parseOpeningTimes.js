@@ -36,7 +36,21 @@ function parseDay(day) {
   return sessions;
 }
 
-function parseTimes(times) {
+function addPadding(parsedTimes) {
+  const counts = parsedTimes.map(time => time.sessions.length);
+  const max = Math.max(...counts);
+
+  parsedTimes.forEach((time) => {
+    if (time.sessions.length < max) {
+      // eslint-disable-next-line no-param-reassign
+      time.padding = (max - time.sessions.length);
+    }
+  });
+
+  return parsedTimes;
+}
+
+function parseWeek(times) {
   const parsedTimes = [];
 
   daysOfWeek.forEach((day) => {
@@ -44,8 +58,7 @@ function parseTimes(times) {
     const sessions = parseDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
-
-  return parsedTimes;
+  return addPadding(parsedTimes);
 }
 
 function parseAll(allTimes) {
@@ -53,9 +66,9 @@ function parseAll(allTimes) {
     return undefined;
   }
   return {
-    reception: allTimes.reception && parseTimes(allTimes.reception),
-    surgery: allTimes.surgery && parseTimes(allTimes.surgery),
+    reception: allTimes.reception && parseWeek(allTimes.reception),
+    surgery: allTimes.surgery && parseWeek(allTimes.surgery),
   };
 }
 
-module.exports = { parseAll, parseDay };
+module.exports = { parseAll, parseWeek, parseDay };

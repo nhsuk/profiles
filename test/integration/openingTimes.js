@@ -40,14 +40,14 @@ describe('app', () => {
 
           const receptionRows = $('table.opening-times').first().find('tr');
           const expectedRecTimes = [
-            '8:00am to 6:30pm', '8:00am to 6:30pm', '8:00am to 1:00pm',
-            '8:00am to 6:30pm', '8:00am to 6:30pm', 'Closed', 'Closed'];
+            '8am to 6:30pm', '8am to 6:30pm', '8am to 1pm',
+            '8am to 6:30pm', '8am to 6:30pm', 'Closed', 'Closed'];
           expectOpeningTimes($, receptionRows, expectedRecTimes);
 
           const surgeryRows = $('table.opening-times').last().find('tr');
           const expectedSurTimes = [
-            '8:00am to 6:30pm', '8:00am to 6:30pm', '8:00am to 1:00pm',
-            '8:00am to 6:30pm', '8:00am to 6:30pm', 'Closed', 'Closed'];
+            '8am to 6:30pm', '8am to 6:30pm', '8am to 1pm',
+            '8am to 6:30pm', '8am to 6:30pm', 'Closed', 'Closed'];
           expectOpeningTimes($, surgeryRows, expectedSurTimes);
 
           done();

@@ -14,7 +14,9 @@ function toAmPm(timeString) {
     hours = 12;
   }
 
-  return `${hours}:${hoursMins[1]}${suffix}`;
+  const mins = hoursMins[1] === '00' ? '' : `:${hoursMins[1]}`;
+
+  return `${hours}${mins}${suffix}`;
 }
 
 module.exports = { toAmPm };

@@ -4,11 +4,14 @@
       {% for ot in times %}
       <tr>
           <td>{{ot.day}}</td>
+          {% for session in ot.sessions %}
           <td>
-            {% for session in ot.sessions %}
-                <div>{{ session }} </div>
-            {% endfor %}
+              {{ session }}
           </td>
+          {% endfor %}
+          {% if ot.padding %}
+            <td colspan='{{ot.padding}}'></td>
+          {% endif %}
       </tr>
     {% endfor %}
   </table>
