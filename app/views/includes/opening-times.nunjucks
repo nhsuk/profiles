@@ -21,11 +21,7 @@
     <h2>{{ title }}</h2>
     <table class='opening-times'>
       <tr>
-      {% if gp.contact.telephone %}
-        <td>No information available. Contact reception on {{gp.contact.telephone}} to find out {{message}}.</td>
-      {% else %}
         <td>No information available. Contact reception to find out {{message}}.</td>
-      {% endif %}  
       </tr>
   </table>
 {% endmacro %}

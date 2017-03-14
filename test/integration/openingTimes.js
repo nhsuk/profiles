@@ -66,10 +66,10 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const receptionTableText = $('table.opening-times').first().text().trim();
-          expect(receptionTableText).to.include('No information available. Contact reception on 01455 234414 to find out opening times');
+          expect(receptionTableText).to.include('No information available. Contact reception to find out opening times');
 
           const surgeryTableText = $('table.opening-times').last().text().trim();
-          expect(surgeryTableText).to.include('No information available. Contact reception on 01455 234414 to find out when you can get a GP appointment.');
+          expect(surgeryTableText).to.include('No information available. Contact reception to find out when you can get a GP appointment.');
 
           done();
         });
