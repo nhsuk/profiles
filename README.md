@@ -16,9 +16,6 @@ the application is being run. This is best practice as described by
 |:---------------------------------|:---------------------------------------------------------------------------------------|:-------------------------|-----------------|
 | `NODE_ENV`                       | node environment                                                                       | development              |                 |
 | `PORT`                           | server port                                                                            | 3000                     |                 |
-| `SPLUNK_HEC_TOKEN`               | [HTTP Event Collector token](http://dev.splunk.com/view/event-collector/SP-CAAAE7C)    |                          | In `production` |
-| `SPLUNK_HEC_ENDPOINT`            | [HTTP Event Collector endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) |                          | In `production` |
-| `LOG_LEVEL`                      | [bunyan log level](https://github.com/trentm/node-bunyan#levels)                       | Depends on `NODE_ENV`    |                 |
 
 
 ## Application development
