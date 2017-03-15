@@ -38,40 +38,7 @@
   </ul>
   <hr class="hr--no-color"/>
     {% include "includes/opening-times.nunjucks" %}
-  <!-- <table> -->
-  <!--   <tr> -->
-  <!--     <td>Monday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Tuesday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Wednesday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Thursday</td> -->
-  <!--     <td colspan="2">8:30am to 1:30pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Friday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Saturday</td> -->
-  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Sunday</td> -->
-  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!-- </table> -->
+
   <h3>Out-of-hours services</h3>
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
   <hr class="hr--no-color"/>

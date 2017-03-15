@@ -19,11 +19,7 @@
 
 {% macro openingTimesUnavailable(title, message) %}
     <h2 class='opening-times'>{{ title }}</h2>
-    <table class='opening-times'>
-      <tr>
-        <td>No information available. Contact reception to find out {{message}}.</td>
-      </tr>
-  </table>
+    <p class='opening-times'>No information available. Contact reception to find out {{message}}.</p>
 {% endmacro %}
 
 {% if gp.openingTimes %}
