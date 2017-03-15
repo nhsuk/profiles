@@ -19,4 +19,6 @@ function toAmPm(timeString) {
   return `${hours}${mins}${suffix}`;
 }
 
-module.exports = { toAmPm };
+module.exports = {
+  toAmPm
+};

@@ -1,12 +1,12 @@
-const gpCountsHelper = require('../../../app/lib/gpCountsHelper');
+const gpHelper = require('../../../app/lib/gpHelper');
 const chai = require('chai');
 
 const expect = chai.expect;
 
 describe('gp counts helper', () => {
-  describe('gpsAvailable', () => {
+  describe('areGpsAvailable', () => {
     it('should return false missing gp counts', () => {
-      const result = gpCountsHelper.gpsAvailable(undefined);
+      const result = gpHelper.areGpsAvailable(undefined);
       expect(result).to.equal(false);
     });
 
@@ -15,7 +15,7 @@ describe('gp counts helper', () => {
         male: 0,
         female: 0
       };
-      const result = gpCountsHelper.gpsAvailable(gpCounts);
+      const result = gpHelper.areGpsAvailable(gpCounts);
       // eslint-disable-next-line no-unused-expressions
       expect(result).to.be.false;
     });
@@ -25,7 +25,7 @@ describe('gp counts helper', () => {
         male: 1,
         female: 0
       };
-      const result = gpCountsHelper.gpsAvailable(gpCounts);
+      const result = gpHelper.areGpsAvailable(gpCounts);
       // eslint-disable-next-line no-unused-expressions
       expect(result).to.be.true;
     });
@@ -35,7 +35,7 @@ describe('gp counts helper', () => {
         female: 1,
         male: 0
       };
-      const result = gpCountsHelper.gpsAvailable(gpCounts);
+      const result = gpHelper.areGpsAvailable(gpCounts);
       // eslint-disable-next-line no-unused-expressions
       expect(result).to.be.true;
     });
@@ -44,7 +44,7 @@ describe('gp counts helper', () => {
       const gpCounts = {
         unknown: 0
       };
-      const result = gpCountsHelper.gpsAvailable(gpCounts);
+      const result = gpHelper.areGpsAvailable(gpCounts);
       // eslint-disable-next-line no-unused-expressions
       expect(result).to.be.false;
     });
@@ -53,7 +53,7 @@ describe('gp counts helper', () => {
       const gpCounts = {
         unknown: 1
       };
-      const result = gpCountsHelper.gpsAvailable(gpCounts);
+      const result = gpHelper.areGpsAvailable(gpCounts);
       // eslint-disable-next-line no-unused-expressions
       expect(result).to.be.true;
     });
@@ -65,7 +65,7 @@ describe('gp counts helper', () => {
         male: 3,
         female: 2
       };
-      const message = gpCountsHelper.getGpCountMessages(gpCounts);
+      const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('2 female GPs');
       expect(message[1]).to.equal('3 male GPs');
     });
@@ -75,7 +75,7 @@ describe('gp counts helper', () => {
         male: 1,
         female: 1
       };
-      const message = gpCountsHelper.getGpCountMessages(gpCounts);
+      const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('1 female GP');
       expect(message[1]).to.equal('1 male GP');
     });
@@ -84,7 +84,7 @@ describe('gp counts helper', () => {
       const gpCounts = {
         unknown: 2
       };
-      const message = gpCountsHelper.getGpCountMessages(gpCounts);
+      const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('2 GPs');
     });
 
@@ -92,7 +92,7 @@ describe('gp counts helper', () => {
       const gpCounts = {
         unknown: 1
       };
-      const message = gpCountsHelper.getGpCountMessages(gpCounts);
+      const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('1 GP');
     });
   });

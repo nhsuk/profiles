@@ -61,14 +61,21 @@ function parseWeek(times) {
   return addPadding(parsedTimes);
 }
 
-function parseAll(allTimes) {
-  if (!allTimes) {
-    return undefined;
-  }
-  return {
-    reception: allTimes.reception && parseWeek(allTimes.reception),
-    surgery: allTimes.surgery && parseWeek(allTimes.surgery),
-  };
+function timesValid(allTimes) {
+  // the source data always has both reception and surgery populated
+  // if opening times exist
+  return allTimes && allTimes.reception && allTimes.surgery;
 }
 
-module.exports = { parseAll, parseWeek, parseDay };
+function parseAll(allTimes) {
+  return timesValid(allTimes) ? {
+    reception: parseWeek(allTimes.reception),
+    surgery: parseWeek(allTimes.surgery),
+  } : undefined;
+}
+
+module.exports = {
+  parseAll,
+  parseWeek,
+  parseDay
+};

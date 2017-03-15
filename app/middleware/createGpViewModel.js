@@ -1,9 +1,9 @@
 const parseOpeningTimes = require('../lib/parseOpeningTimes');
-const gpCountsHelper = require('../lib/gpCountsHelper');
+const gpHelper = require('../lib/gpHelper');
 
 function createGpInfo(gpData) {
   return {
-    counts: gpCountsHelper.getGpCountMessages(gpData.gpCounts),
+    counts: gpHelper.getGpCountMessages(gpData.gpCounts),
     doctors: gpData.doctors,
   };
 }
@@ -11,7 +11,7 @@ function createGpInfo(gpData) {
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
   if (gpData) {
-    const gpInfo = gpCountsHelper.gpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
+    const gpInfo = gpHelper.areGpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
     const openingTimes = parseOpeningTimes.parseAll(gpData.openingTimes);
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {

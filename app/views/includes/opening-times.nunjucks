@@ -1,5 +1,5 @@
 {% macro openingTimes(times, title) %}
-    <h2>{{ title }}</h2>
+    <h2 class='opening-times'>{{ title }}</h2>
     <table class='opening-times'>
       {% for ot in times %}
       <tr>
@@ -18,7 +18,7 @@
 {% endmacro %}
 
 {% macro openingTimesUnavailable(title, message) %}
-    <h2>{{ title }}</h2>
+    <h2 class='opening-times'>{{ title }}</h2>
     <table class='opening-times'>
       <tr>
         <td>No information available. Contact reception to find out {{message}}.</td>

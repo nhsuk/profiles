@@ -13,6 +13,13 @@ describe('parseOpeningTimes', () => {
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes).to.be.undefined;
     });
+
+    it('should return undefined for empty opening times', () => {
+      const openingTimes = parseOpeningTimes.parseAll({});
+      // eslint-disable-next-line no-unused-expressions
+      expect(openingTimes).to.be.undefined;
+    });
+
     it('should gracefully handle missing days on opening times', () => {
       const openingTimes = parseOpeningTimes.parseAll(rawOpeningTimesNoMonday);
       /* eslint-disable no-unused-expressions */
@@ -67,32 +74,6 @@ describe('parseOpeningTimes', () => {
       // eslint-disable-next-line no-unused-expressions
       expect(days[0].padding).to.be.undefined;
       expect(days[3].padding).to.equal(1);
-      // expect(openingTimes[1]).to.equal('1:30pm to 8:00pm');
-    });
-
-    it('should replace contiguous times with a single message', () => {
-      const monday = [
-        {
-          opens: '07:30',
-          closes: '12:30'
-        },
-        {
-          opens: '12:30',
-          closes: '20:00'
-        }
-      ];
-
-      const openingTimes = parseOpeningTimes.parseDay(monday);
-      // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes.length).to.equal(1);
-      expect(openingTimes[0]).to.equal('7:30am to 8pm');
-    });
-
-    it('should change empty array to closed message', () => {
-      const openingTimes = parseOpeningTimes.parseDay([]);
-      // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes.length).to.equal(1);
-      expect(openingTimes[0]).to.equal('Closed');
     });
   });
 
@@ -142,4 +123,3 @@ describe('parseOpeningTimes', () => {
     });
   });
 });
-

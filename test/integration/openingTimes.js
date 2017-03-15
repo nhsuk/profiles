@@ -61,9 +61,10 @@ describe('app', () => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
 
-          expect(res.text).to.include('When reception is open');
-          expect(res.text).to.include('When GPs see patients');
           const $ = cheerio.load(res.text);
+
+          expect($('h2.opening-times').first().text().trim()).to.include('When reception is open');
+          expect($('h2.opening-times').last().text().trim()).to.include('When GPs see patients');
 
           const receptionTableText = $('table.opening-times').first().text().trim();
           expect(receptionTableText).to.include('No information available. Contact reception to find out opening times');
