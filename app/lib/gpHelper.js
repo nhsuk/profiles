@@ -2,7 +2,7 @@ function pluraliseGP(count) {
   return count === 1 ? 'GP' : 'GPs';
 }
 
-function gpsAvailable(gpCounts) {
+function areGpsAvailable(gpCounts) {
   return !!gpCounts && (gpCounts.unknown > 0 || gpCounts.male > 0 || gpCounts.female > 0);
 }
 
@@ -21,4 +21,4 @@ function getGpCountMessages(gpCounts) {
   return messages;
 }
 
-module.exports = { getGpCountMessages, gpsAvailable };
+module.exports = { getGpCountMessages, areGpsAvailable };

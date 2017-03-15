@@ -1,5 +1,4 @@
 const log = require('../lib/logger');
-const viewLogic = require('../lib/viewLogic');
 const mapLink = require('../lib/mapLink');
 
 function notFound(req, res, msg) {
@@ -11,8 +10,6 @@ function notFound(req, res, msg) {
 function gpSurgeries(req, res) {
   if (res.locals.gp) {
     res.render('hub', {
-      getGpCountMessages: viewLogic.getGpCountMessages,
-      gpsAvailable: viewLogic.gpsAvailable,
       mapUrl: mapLink.generateUrl(res.locals.gp),
     });
   } else {

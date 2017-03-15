@@ -31,81 +31,14 @@
     <li><a href="#">When GPs see patients</a></li>
     <li><a href="{{ gp.choicesId }}/book-appointment">Book a GP appointment</a></li>
     <li><a href="#">What patients say about this surgery</a></li>
-    {% if gpsAvailable(gp.gpCounts) %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
+    {% if gp.gpInfo %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
     <li><a href="#">Services at this surgery</a></li>
     <li><a href="#">Parking and accessibility</a></li>
     <li><a href="#">Register as a patient with this surgery</a></li>
   </ul>
   <hr class="hr--no-color"/>
-  <h2>When reception is open</h2>
-  <p>coming soon</p>
-  <!-- <table> -->
-  <!--   <tr> -->
-  <!--     <td>Monday</td> -->
-  <!--     <td>7:30am to 8pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Tuesday</td> -->
-  <!--     <td>7:30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Wednesday</td> -->
-  <!--     <td>7:30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Thursday</td> -->
-  <!--     <td>7:30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Friday</td> -->
-  <!--     <td>7:30am to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Saturday</td> -->
-  <!--     <td>9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Sunday</td> -->
-  <!--     <td>9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!-- </table> -->
-  <hr class="hr--no-color"/>
-  <h2>When GPs see patients</h2>
-  <p>coming soon</p>
-  <!-- <table> -->
-  <!--   <tr> -->
-  <!--     <td>Monday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Tuesday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Wednesday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Thursday</td> -->
-  <!--     <td colspan="2">8:30am to 1:30pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Friday</td> -->
-  <!--     <td>8am to 1pm</td> -->
-  <!--     <td>3pm to 6pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Saturday</td> -->
-  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <td>Sunday</td> -->
-  <!--     <td colspan="2">9:30am to 12:30pm</td> -->
-  <!--   </tr> -->
-  <!-- </table> -->
+    {% include "includes/opening-times.nunjucks" %}
+
   <h3>Out-of-hours services</h3>
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
   <hr class="hr--no-color"/>
@@ -145,15 +78,15 @@
   <!-- </table> -->
   <!-- <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p> -->
   <hr class="hr--no-color"/>
- {% if gpsAvailable(gp.gpCounts) %}
+ {% if gp.gpInfo %}
   <h2>GPs at this surgery</h2>
     <ul class="link-list">
-      {% for message in getGpCountMessages(gp.gpCounts) %}
+      {% for message in gp.gpInfo.counts %}
           <li>{{message}}</li>
       {% endfor %}
     </ul>
     <ul class="link-list">
-      {% for doctor in gp.doctors %}
+      {% for doctor in gp.gpInfo.doctors %}
           <li>{{doctor}}</li>
       {% endfor %}
     </ul>
