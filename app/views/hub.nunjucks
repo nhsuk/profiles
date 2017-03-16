@@ -29,22 +29,22 @@
   <ul class="link-list">
     <li><a href="#">When reception is open</a></li>
     <li><a href="#">When GPs see patients</a></li>
-    <li><a href="#book">Book a GP appointment</a></li>
+    {% if gp.bookOnlineLink %}<li><a href="{{ gp.bookOnlineLink }}">Book a GP appointment</a></li>{% endif %}
     <li><a href="#">What patients say about this surgery</a></li>
     {% if gp.gpInfo %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
     <li><a href="#">Services at this surgery</a></li>
     <li><a href="#">Parking and accessibility</a></li>
     <li><a href="#">Register as a patient with this surgery</a></li>
   </ul>
+  {% if not gp.bookOnlineLink %}
+  <p>Contact reception to find out if appointments are available at other times (for example early in the morning or after work).  If the surgery is closed and you need help quickly, call 111 for advice on local service that might be able to help.</p>
+  {% endif %}
+
   <hr class="hr--no-color"/>
     {% include "includes/opening-times.nunjucks" %}
 
   <h3>Out-of-hours services</h3>
   <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
-  <hr class="hr--no-color"/>
-
-  <h2 id="book">Book a GP appointment</h2>
-  <p><a href="{{ gp.bookOnlineLink }}">Book an appointment with a GP</a></p>
   <hr class="hr--no-color"/>
 
   <h2>What patients say about this surgery</h2>
