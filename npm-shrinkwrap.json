@@ -302,7 +302,7 @@
     },
     "bunyan": {
       "version": "1.8.8",
-      "from": "bunyan@latest",
+      "from": "bunyan@>=1.8.5 <2.0.0",
       "resolved": "https://registry.npmjs.org/bunyan/-/bunyan-1.8.8.tgz"
     },
     "bytes": {
@@ -2378,6 +2378,11 @@
       "from": "is-my-json-valid@>=2.12.4 <3.0.0",
       "resolved": "https://registry.npmjs.org/is-my-json-valid/-/is-my-json-valid-2.15.0.tgz"
     },
+    "is-nan": {
+      "version": "1.2.1",
+      "from": "is-nan@>=1.2.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/is-nan/-/is-nan-1.2.1.tgz"
+    },
     "is-npm": {
       "version": "1.0.0",
       "from": "is-npm@>=1.0.0 <2.0.0",
@@ -3043,6 +3048,11 @@
       "from": "nested-error-stacks@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-1.0.2.tgz"
     },
+    "nhsuk-bunyan-logger": {
+      "version": "0.1.0",
+      "from": "nhsuk/bunyan-logger",
+      "resolved": "git://github.com/nhsuk/bunyan-logger.git#80f8535f1196d92d0475307a07c921cf82f08f40"
+    },
     "nocache": {
       "version": "2.0.0",
       "from": "nocache@2.0.0",
@@ -3550,7 +3560,7 @@
     },
     "require-environment-variables": {
       "version": "1.1.2",
-      "from": "require-environment-variables@>=1.1.2 <2.0.0",
+      "from": "require-environment-variables@latest",
       "resolved": "https://registry.npmjs.org/require-environment-variables/-/require-environment-variables-1.1.2.tgz"
     },
     "require-main-filename": {
@@ -3741,7 +3751,7 @@
       "dependencies": {
         "minimist": {
           "version": "1.2.0",
-          "from": "minimist@>=1.2.0 <2.0.0",
+          "from": "minimist@^1.2.0",
           "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
         }
       }
@@ -3912,7 +3922,7 @@
       "dependencies": {
         "uuid": {
           "version": "2.0.3",
-          "from": "uuid@>=2.0.1 <3.0.0",
+          "from": "uuid@^2.0.1",
           "resolved": "https://registry.npmjs.org/uuid/-/uuid-2.0.3.tgz"
         }
       }

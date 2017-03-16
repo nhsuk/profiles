@@ -1,2 +1,1 @@
-module.exports = require('bunyan').createLogger({ name: 'profiles' });
-
+module.exports = require('nhsuk-bunyan-logger')('profiles');
