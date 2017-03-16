@@ -21,4 +21,38 @@ function getGpCountMessages(gpCounts) {
   return messages;
 }
 
-module.exports = { getGpCountMessages, areGpsAvailable };
+function getBookOnlineLink(gpData) {
+  if (gpData.supplier) {
+    let bookOnlineLink;
+    switch (gpData.supplier) {
+      case 'EMIS':
+        bookOnlineLink = 'https://patient.emisaccess.co.uk/Account/Login';
+        break;
+      case 'Informatica':
+      case 'INPS':
+        bookOnlineLink = 'https://www.myvisiononline.co.uk/vpp/';
+        break;
+      case 'Microtest':
+        bookOnlineLink = 'https://www.thewaiting-room.net/';
+        break;
+      case 'TPP':
+        bookOnlineLink = `https://systmonline.tpp-uk.com/Login?PracticeId=${gpData.odsCode}`;
+        break;
+      case 'NK':
+      case 'EMIS (I)':
+      case 'INPS (I)':
+        bookOnlineLink = gpData.contact.website;
+        break;
+      default:
+        bookOnlineLink = undefined;
+    }
+    return bookOnlineLink;
+  }
+  return gpData.contact.website;
+}
+
+module.exports = {
+  areGpsAvailable,
+  getBookOnlineLink,
+  getGpCountMessages,
+};

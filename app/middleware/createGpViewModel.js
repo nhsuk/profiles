@@ -23,6 +23,7 @@ function createGpViewModel(req, res, next) {
       location: gpData.location,
       gpInfo,
       openingTimes,
+      bookOnlineLink: gpHelper.getBookOnlineLink(gpData),
     };
   }
   next();
