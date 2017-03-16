@@ -109,18 +109,4 @@ describe('app', () => {
         });
     });
   });
-
-  describe('Book a GP appointment page', () => {
-    it('should return a book a GP Appointment Page for a valid Org Code', (done) => {
-      chai.request(app)
-        .get(`${constants.SITE_ROOT}/43213/book-appointment`)
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-          expect(res.text).to.contain('Book an appointment');
-          done();
-        });
-    });
-  });
 });
-

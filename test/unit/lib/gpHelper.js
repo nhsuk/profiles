@@ -97,7 +97,7 @@ describe('gp counts helper', () => {
     });
   });
 
-  describe.only('getBookOnlineLink', () => {
+  describe('getBookOnlineLink', () => {
     const odsCode = 'A12345';
     const gpWebsite = 'http://gp.website.com';
 
