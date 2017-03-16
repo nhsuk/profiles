@@ -61,10 +61,22 @@ function parseWeek(times) {
   return addPadding(parsedTimes);
 }
 
+function isOpen(times) {
+  let openDays = 0;
+  daysOfWeek.forEach((day) => {
+    const daySessions = times[day.toLowerCase()];
+    if (daySessions) {
+      openDays += daySessions.length;
+    }
+  });
+  return openDays > 0;
+}
+
 function timesValid(allTimes) {
   // the source data always has both reception and surgery populated
   // if opening times exist
-  return allTimes && allTimes.reception && allTimes.surgery;
+  return allTimes && allTimes.reception && isOpen(allTimes.reception)
+    && allTimes.surgery && isOpen(allTimes.surgery);
 }
 
 function parseAll(allTimes) {
