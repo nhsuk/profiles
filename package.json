@@ -20,9 +20,12 @@
     "precommit": "npm run git-hook",
     "prepush": "npm run git-hook && npm run snyk-test",
     "postrewrite": "npm run git-hook",
+    "snyk": "snyk",
     "snyk-test": "snyk test",
     "git-hook": "npm run lint && npm run generate-unit-coverage && npm run check-unit-coverage",
-    "travis": "npm run lint && npm run generate-coverage && npm run check-coverage && npm run upload-coverage-coveralls"
+    "travis": "npm run lint && npm run generate-coverage && npm run check-coverage && npm run upload-coverage-coveralls",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
