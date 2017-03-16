@@ -17,12 +17,7 @@ function gpSurgeries(req, res) {
   }
 }
 
-function bookAnAppointment(req, res) {
-  res.render('book-appointment');
-}
-
 module.exports = {
-  bookAnAppointment,
   gpSurgeries,
   notFound
 };
