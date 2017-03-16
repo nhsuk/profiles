@@ -101,12 +101,14 @@ describe('gp counts helper', () => {
     const odsCode = 'A12345';
     const gpWebsite = 'http://gp.website.com';
 
+    function getBaseGpData() {
+      return { odsCode, contact: {} };
+    }
+
     describe('edge cases', () => {
       it('should return the GPs website when there is no supplier', () => {
-        const gpData = {
-          odsCode,
-          contact: { website: gpWebsite }
-        };
+        const gpData = getBaseGpData();
+        gpData.contact = { website: gpWebsite };
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -114,10 +116,7 @@ describe('gp counts helper', () => {
       });
 
       it('should return undefined when there is no supplier and no GP website', () => {
-        const gpData = {
-          odsCode,
-          contact: {}
-        };
+        const gpData = getBaseGpData();
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -128,11 +127,8 @@ describe('gp counts helper', () => {
 
     describe('for known systems', () => {
       it('should return the suppliers system address for EMIS', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'EMIS',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'EMIS';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -140,11 +136,8 @@ describe('gp counts helper', () => {
       });
 
       it('should return the suppliers system address for INPS', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'INPS',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'INPS';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -152,11 +145,8 @@ describe('gp counts helper', () => {
       });
 
       it('should return the suppliers system address for Informatica', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'Informatica',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'Informatica';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -164,11 +154,8 @@ describe('gp counts helper', () => {
       });
 
       it('should return the suppliers system address for Microtest', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'Microtest',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'Microtest';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -176,11 +163,9 @@ describe('gp counts helper', () => {
       });
 
       it('should return the GPs website address for NK', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'NK',
-          contact: { website: gpWebsite }
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'NK';
+        gpData.contact = { website: gpWebsite };
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -188,11 +173,8 @@ describe('gp counts helper', () => {
       });
 
       it('should return undefined when no GP website is available for NK', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'NK',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'NK';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -201,11 +183,8 @@ describe('gp counts helper', () => {
       });
 
       it('should return the suppliers system address for TPP', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'TPP',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'TPP';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -215,11 +194,8 @@ describe('gp counts helper', () => {
 
     describe('for unknown systems', () => {
       it('should return undefined when no GP website is available', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'EMIS (I)',
-          contact: {}
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'EMIS (I)';
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -228,11 +204,9 @@ describe('gp counts helper', () => {
       });
 
       it('should return the GPs website address for EMIS (I) link', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'EMIS (I)',
-          contact: { website: gpWebsite }
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'EMIS (I)';
+        gpData.contact = { website: gpWebsite };
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -240,11 +214,9 @@ describe('gp counts helper', () => {
       });
 
       it('should return the GPs website address for INPS (I) link', () => {
-        const gpData = {
-          odsCode,
-          supplier: 'INPS (I)',
-          contact: { website: gpWebsite }
-        };
+        const gpData = getBaseGpData();
+        gpData.supplier = 'INPS (I)';
+        gpData.contact = { website: gpWebsite };
 
         const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
 
@@ -253,4 +225,3 @@ describe('gp counts helper', () => {
     });
   });
 });
-
