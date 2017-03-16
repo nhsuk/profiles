@@ -18,11 +18,4 @@ router.get('/:choicesId',
   renderer.gpSurgeries
 );
 
-router.get('/:choicesId/book-appointment',
-  log.info,
-  setLocals.fromRequest,
-  getGp,
-  renderer.bookAnAppointment
-);
-
 module.exports = router;

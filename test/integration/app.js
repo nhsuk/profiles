@@ -72,6 +72,9 @@ describe('app', () => {
           expect(contactDetailsText).to.include('Telephone: 01942 862738');
           expect(contactDetailsText).to.include('Email: gp-p92651@nhs.net');
           expect(contactDetailsText).to.include('Fax: 01942 865171');
+
+          const bookOnlineLink = $('#book').next('p').children('a').prop('href');
+          expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/Account/Login');
           done();
         });
     });
@@ -109,18 +112,4 @@ describe('app', () => {
         });
     });
   });
-
-  describe('Book a GP appointment page', () => {
-    it('should return a book a GP Appointment Page for a valid Org Code', (done) => {
-      chai.request(app)
-        .get(`${constants.SITE_ROOT}/43213/book-appointment`)
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-          expect(res.text).to.contain('Book an appointment');
-          done();
-        });
-    });
-  });
 });
-

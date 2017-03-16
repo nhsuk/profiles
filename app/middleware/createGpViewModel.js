@@ -13,6 +13,7 @@ function createGpViewModel(req, res, next) {
   if (gpData) {
     const gpInfo = gpHelper.areGpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
     const openingTimes = parseOpeningTimes.parseAll(gpData.openingTimes);
+    const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {
       name: gpData.name,
@@ -23,6 +24,7 @@ function createGpViewModel(req, res, next) {
       location: gpData.location,
       gpInfo,
       openingTimes,
+      bookOnlineLink,
     };
   }
   next();

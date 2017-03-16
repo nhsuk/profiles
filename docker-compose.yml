@@ -24,7 +24,7 @@ services:
       - profiles-node_modules:/code/node_modules
 
   profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.3.0}"
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.4.0}"
 
 volumes:
   profiles-node_modules:
