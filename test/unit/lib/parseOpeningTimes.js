@@ -8,16 +8,16 @@ const expect = chai.expect;
 
 describe('parseOpeningTimes', () => {
   describe('parseAll', () => {
-    it('should return undefined for empty opening times', () => {
+    it('should return empty object for empty opening times', () => {
       const openingTimes = parseOpeningTimes.parseAll(undefined);
       // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes).to.be.undefined;
+      expect(openingTimes).to.be.empty;
     });
 
-    it('should return undefined for empty opening times', () => {
+    it('should return empty object for empty opening times', () => {
       const openingTimes = parseOpeningTimes.parseAll({});
       // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes).to.be.undefined;
+      expect(openingTimes).to.be.empty;
     });
 
     it('should gracefully handle missing days on opening times', () => {

@@ -50,17 +50,6 @@ function addPadding(parsedTimes) {
   return parsedTimes;
 }
 
-function parseWeek(times) {
-  const parsedTimes = [];
-
-  daysOfWeek.forEach((day) => {
-    const daySessions = times[day.toLowerCase()];
-    const sessions = parseDay(daySessions);
-    parsedTimes.push({ day, sessions });
-  });
-  return addPadding(parsedTimes);
-}
-
 function isOpen(times) {
   let openDays = 0;
   daysOfWeek.forEach((day) => {
@@ -72,18 +61,31 @@ function isOpen(times) {
   return openDays > 0;
 }
 
+function parseWeek(times) {
+  if (isOpen(times) === false) {
+    return undefined;
+  }
+  const parsedTimes = [];
+
+  daysOfWeek.forEach((day) => {
+    const daySessions = times[day.toLowerCase()];
+    const sessions = parseDay(daySessions);
+    parsedTimes.push({ day, sessions });
+  });
+  return addPadding(parsedTimes);
+}
+
 function timesValid(allTimes) {
   // the source data always has both reception and surgery populated
   // if opening times exist
-  return allTimes && allTimes.reception && isOpen(allTimes.reception)
-    && allTimes.surgery && isOpen(allTimes.surgery);
+  return allTimes && allTimes.reception && allTimes.surgery;
 }
 
 function parseAll(allTimes) {
   return timesValid(allTimes) ? {
     reception: parseWeek(allTimes.reception),
     surgery: parseWeek(allTimes.surgery),
-  } : undefined;
+  } : {};
 }
 
 module.exports = {
