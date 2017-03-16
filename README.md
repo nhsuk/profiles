@@ -15,8 +15,8 @@ the application is being run. This is best practice as described by
 | Variable                         | Description                                                                            | Default                  | Required        |
 |:---------------------------------|:---------------------------------------------------------------------------------------|:-------------------------|-----------------|
 | `NODE_ENV`                       | node environment                                                                       | development              |                 |
+| `LOG_LEVEL`                      | [bunyan log level](https://github.com/trentm/node-bunyan#levels)                       | Depends on `NODE_ENV`    |                 |
 | `PORT`                           | server port                                                                            | 3000                     |                 |
-
 
 ## Application development
 
