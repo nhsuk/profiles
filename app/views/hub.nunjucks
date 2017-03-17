@@ -36,9 +36,6 @@
     <li><a href="#">Parking and accessibility</a></li>
     <li><a href="#">Register as a patient with this surgery</a></li>
   </ul>
-  {% if not gp.bookOnlineLink %}
-  <p>Contact reception to find out if appointments are available at other times (for example early in the morning or after work).  If the surgery is closed and you need help quickly, call 111 for advice on local service that might be able to help.</p>
-  {% endif %}
 
   <hr class="hr--no-color"/>
     {% include "includes/opening-times.nunjucks" %}
