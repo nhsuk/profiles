@@ -74,7 +74,7 @@ describe('app', () => {
           expect(contactDetailsText).to.include('Fax: 01942 865171');
 
           const bookOnlineLink = $('.link-list').find('a').eq(2).prop('href');
-          expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/Account/Login');
+          expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
           done();
         });
     });
