@@ -41,6 +41,7 @@
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
+    "detect-mobile-browser": "^5.0.0",
     "express": "^4.15.2",
     "helmet": "^3.5.0",
     "mongodb": "^2.2.24",

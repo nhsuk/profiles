@@ -70,6 +70,7 @@ module.exports = (app, config) => {
       ],
     },
   }));
+
   app.use(helmet.xssFilter());
   app.use(helmet({
     frameguard: {
