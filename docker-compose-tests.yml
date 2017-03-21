@@ -19,6 +19,7 @@ services:
       file: docker-compose.yml
       service: base-app
     command: sh -c "npm run travis"
+    user: root
     volumes:
       - profiles-travis-tests-node_modules:/code/node_modules
     environment:
