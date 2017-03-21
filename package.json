@@ -24,8 +24,7 @@
     "snyk-test": "snyk test",
     "git-hook": "npm run lint && npm run generate-unit-coverage && npm run check-unit-coverage",
     "travis": "npm run lint && npm run generate-coverage && npm run check-coverage && npm run upload-coverage-coveralls",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",

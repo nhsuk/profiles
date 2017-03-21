@@ -9,7 +9,6 @@ services:
     command: npm run watch-test
     volumes:
       - profiles-tests-node_modules:/code/node_modules
-    user: root
     environment:
       NODE_ENV: test
     links:
@@ -20,9 +19,9 @@ services:
       file: docker-compose.yml
       service: base-app
     command: sh -c "npm run travis"
+    user: root
     volumes:
       - profiles-travis-tests-node_modules:/code/node_modules
-    user: root
     environment:
       COVERALLS_REPO_TOKEN: ${COVERALLS_REPO_TOKEN}
       NODE_ENV: development
