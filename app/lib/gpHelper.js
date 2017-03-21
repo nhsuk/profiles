@@ -21,27 +21,7 @@ function getGpCountMessages(gpCounts) {
   return messages;
 }
 
-function getBookOnlineLink(gpData) {
-  switch (gpData.supplier) {
-    case 'EMIS':
-      return 'https://patient.emisaccess.co.uk/Account/Login';
-    case 'Informatica':
-    case 'INPS':
-      return 'https://www.myvisiononline.co.uk/vpp/';
-    case 'Microtest':
-      return 'https://www.thewaiting-room.net/';
-    case 'TPP':
-      return `https://systmonline.tpp-uk.com/Login?PracticeId=${gpData.odsCode}`;
-    case 'NK':
-    case 'EMIS (I)':
-    case 'INPS (I)':
-    default:
-      return gpData.contact.website;
-  }
-}
-
 module.exports = {
   areGpsAvailable,
-  getBookOnlineLink,
   getGpCountMessages,
 };

@@ -8,12 +8,17 @@ function createGpInfo(gpData) {
   };
 }
 
+function getBookOnlineLink(gpData) {
+  return gpData.bookingSystem
+    ? gpData.bookingSystem.bookOnlineLink
+    : undefined;
+}
+
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
   if (gpData) {
     const gpInfo = gpHelper.areGpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
     const openingTimes = parseOpeningTimes.parseAll(gpData.openingTimes);
-    const bookOnlineLink = gpHelper.getBookOnlineLink(gpData);
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {
       name: gpData.name,
@@ -24,7 +29,7 @@ function createGpViewModel(req, res, next) {
       location: gpData.location,
       gpInfo,
       openingTimes,
-      bookOnlineLink,
+      bookOnlineLink: getBookOnlineLink(gpData),
     };
   }
   next();
