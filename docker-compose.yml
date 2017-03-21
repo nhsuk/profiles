@@ -10,7 +10,6 @@ services:
     command: npm run watch-dev
     volumes:
       - .:/code
-    user: root
     environment:
       NODE_ENV: ${NODE_ENV-development}
 
