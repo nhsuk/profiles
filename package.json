@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "lint": "eslint --ext .js,.json .",
-    "test": "NODE_ENV=test mocha --recursive test",
+    "test": "snyk test && NODE_ENV=test mocha --recursive test",
     "build-css": "./css-build",
     "istanbul": "NODE_ENV=test istanbul",
     "generate-coverage": "npm run istanbul -- cover _mocha -- --recursive",

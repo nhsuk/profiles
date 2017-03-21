@@ -10,7 +10,21 @@ $callout-blue: rgba(64, 173, 215, 0.1);
    HTML elements
 */
 
-
+dl {
+  dt {
+    font-weight:bold;
+    border-top:1px solid $grey-3;
+    padding-top: 16px;
+    &:first-child {
+      border:none;
+      padding-top:0;
+    }
+    dd{}
+  }
+  border-bottom:1px solid $grey-3;
+  padding-bottom: 16px;
+  margin-bottom: 48px;
+}
 table, .table {
   tr {
     th {
