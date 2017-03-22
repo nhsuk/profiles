@@ -1,20 +1,32 @@
 {% macro openingTimes(times, title) %}
     <h2 class='opening-times'>{{ title }}</h2>
+    {% if isMoble %}
+
+    <dl class='opening-times'>
+      {% for ot in times %}
+        <dt>{{ot.day}}</dt>
+        {% for session in ot.sessions %}
+          <dd>{{ session }}</dd>
+        {% endfor %}
+    {% endfor %}
+    </dl>
+    {% else %}
     <table class='opening-times'>
       {% for ot in times %}
-      <tr>
-          <td>{{ot.day}}</td>
-          {% for session in ot.sessions %}
-          <td>
-              {{ session }}
-          </td>
-          {% endfor %}
-          {% if ot.padding %}
-            <td colspan='{{ot.padding}}'></td>
-          {% endif %}
-      </tr>
+        <tr>
+            <td>{{ot.day}}</td>
+            {% for session in ot.sessions %}
+            <td>
+                {{ session }}
+            </td>
+            {% endfor %}
+            {% if ot.padding %}
+              <td colspan='{{ot.padding}}'></td>
+            {% endif %}
+        </tr>
     {% endfor %}
-  </table>
+    </table>
+  {% endif %}
 {% endmacro %}
 
 {% macro openingTimesUnavailable(title, message) %}

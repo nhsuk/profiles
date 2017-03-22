@@ -758,6 +758,12 @@ b, strong { font-weight: 600; }
 
 /* Colours. */
 /* HTML elements */
+dl { border-bottom: 1px solid #d9e1e2; padding-bottom: 16px; margin-bottom: 48px; }
+
+dl dt { font-weight: bold; border-top: 1px solid #d9e1e2; padding-top: 16px; }
+
+dl dt:first-child { border: none; padding-top: 0; }
+
 table tr th, .table tr th { font-weight: normal; font-size: 1em; line-height: 1.375em; }
 
 table tr td, table tr th, .table tr td, .table tr th { padding: 16px; }
