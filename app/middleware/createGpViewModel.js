@@ -1,4 +1,5 @@
 const parseOpeningTimes = require('../lib/parseOpeningTimes');
+const parseFacilities = require('../lib/parseFacilities');
 const gpHelper = require('../lib/gpHelper');
 
 function createGpInfo(gpData) {
@@ -14,11 +15,13 @@ function getBookOnlineLink(gpData) {
     : undefined;
 }
 
+function getGpInfo(gpData) {
+  return gpHelper.areGpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
+}
+
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
   if (gpData) {
-    const gpInfo = gpHelper.areGpsAvailable(gpData.gpCounts) ? createGpInfo(gpData) : undefined;
-    const openingTimes = parseOpeningTimes.parseAll(gpData.openingTimes);
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {
       name: gpData.name,
@@ -27,8 +30,9 @@ function createGpViewModel(req, res, next) {
       odCode: gpData.odsCode,
       choicesId: gpData.choicesId,
       location: gpData.location,
-      gpInfo,
-      openingTimes,
+      facilities: parseFacilities(gpData.facilities),
+      gpInfo: getGpInfo(gpData),
+      openingTimes: parseOpeningTimes.parseAll(gpData.openingTimes),
       bookOnlineLink: getBookOnlineLink(gpData),
     };
   }

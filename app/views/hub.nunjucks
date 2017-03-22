@@ -33,7 +33,7 @@
     <li><a href="#">What patients say about this surgery</a></li>
     {% if gp.gpInfo %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
     <li><a href="#">Services at this surgery</a></li>
-    <li><a href="#">Parking and accessibility</a></li>
+     {% if gp.facilities %}<li><a href="#">Parking and accessibility</a></li>{% endif %}
     <li><a href="#">Register as a patient with this surgery</a></li>
   </ul>
 
@@ -106,15 +106,7 @@
   <!--   <li>Travel injections</li> -->
   <!-- </ul> -->
   <hr class="hr--no-color"/>
-
-  <h2>Parking and accessibility</h2>
-  <p>coming soon</p>
-  <!-- <ul class="link-list"> -->
-  <!--   <li>8 parking spaces, including 2 disabled parking spaces</li> -->
-  <!--   <li>Wheelchair access</li> -->
-  <!--   <li>Disabled toilet</li> -->
-  <!--   <li>Step-free access</li> -->
-  <!-- </ul> -->
+    {% include "includes/parking-accessibility.nunjucks" %}
   <hr class="hr--no-color"/>
 
   <h2>Register as a patient</h2>
