@@ -82,19 +82,7 @@
   <!-- </ul> -->
   <hr class="hr--fullwidth"/>
 
-  <h2>Parking and accessibility</h2>
-  <ul class="link-list">
-    {% for item in gp.parking %}
-      {% if item.exists == "Yes" %}
-        <li>{{item.name}}</li>
-      {% endif %}
-    {% endfor %}
-    {% for item in gp.accessibility %}
-      {% if item.exists == "Yes" %}
-        <li>{{item.name}}</li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+  {% include "includes/parking-accessibility.nunjucks" %}
   <hr class="hr--fullwidth"/>
 
   <h2>How to register</h2>
