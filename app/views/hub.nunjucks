@@ -1,6 +1,6 @@
 {% extends 'layout.nunjucks' %}
 
-{% block headerClass %}local-header{% endblock %}
+{% block headerClass %}local-header local-header--fullwidth local-header--no-padding{% endblock %}
 
 {% block header %}
 <h1 class="local-header__title">{{ gp.name }}</h1>
@@ -20,74 +20,49 @@
       <a href="{{mapUrl}}">See this surgery on a map</a></p>
 
     </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="reading-width">
-  <h2 class="h2--smaller">On this page</h2>
+  <h2>Online services</h2>
   <ul class="link-list">
-    <li><a href="#">When reception is open</a></li>
-    <li><a href="#">When GPs see patients</a></li>
-    {% if gp.bookOnlineLink %}<li><a href="{{ gp.bookOnlineLink }}">Book a GP appointment</a></li>{% endif %}
-    <li><a href="#">What patients say about this surgery</a></li>
-    {% if gp.gpInfo %}<li><a href="#">GPs at this surgery</a></li>{% endif %}
-    <li><a href="#">Services at this surgery</a></li>
-    <li><a href="#">Parking and accessibility</a></li>
-    <li><a href="#">Register as a patient with this surgery</a></li>
+    {% if gp.bookOnlineLink %}
+      <li><a href="{{gp.bookOnlineLink}}">Book a GP appointment
+    {% endif %}
+    <li><a href="https://www.nhs.uk/Services/GP/LeaveReview/DefaultView.aspx?id={{gp.choicesId}}">Leave a review
+    {%if gp.contact.website %}<li><a href="{{gp.contact.website}}">Get a repeat prescription</a></li>{% endif %}
   </ul>
 
-  <hr class="hr--no-color"/>
-    {% include "includes/opening-times.nunjucks" %}
-
-  <h3>Out-of-hours services</h3>
-  <p>Call 111 if you want to speak to somebody about a health problem when the surgery isn’t open. Or you can <a href="http://www.nhs.uk/service-search">find other local NHS services</a> that might be able to help.</p>
-  <hr class="hr--no-color"/>
+  <hr class="hr--fullwidth"/>
+  {% include "includes/opening-times.nunjucks" %}
+  <hr class="hr--fullwidth"/>
 
   <h2>What patients say about this surgery</h2>
-  <p>coming soon</p>
-  <!-- <p>The GP Patient Survey is an annual survey that shows what patients think of their surgery.</p> -->
-  <!-- <p>The table below shows some of the latest results for this surgery.</p> -->
-  <!-- <table class="table--grey"> -->
-  <!--   <tr> -->
-  <!--     <th>&nbsp;</th> -->
-  <!--     <th>This surgery</th> -->
-  <!--     <th>National average</th> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who would recommend their surgery</th><td>76%</td><td>78%</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who think the receptionists are helpful</th><td>82%</td><td>87%</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who said it’s easy to get through to this surgery on the phone</th><td>75%</td><td>73%</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who said booking an appointment was a good experience</th><td>66%</td><td>73%</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who had confidence in the last GP they saw</th><td>99%</td><td>95%</td> -->
-  <!--   </tr> -->
-  <!--   <tr> -->
-  <!--     <th>Patients who said the last GP I saw was good at listening to them</th><td>90%</td><td>89% </td> -->
-  <!--   </tr> -->
-  <!-- </table> -->
-  <!-- <p><a href="https://gp-patient.co.uk/practices/{{ gp.odsCode }}">See more results on the GP Patient Survey website.</a></p> -->
-  <hr class="hr--no-color"/>
+  <p>Every year, the GP Patient Survey gives patients a chance to say how they feel about their GP surgery.</p>
+  <p>The survey is independent and asks people about their experiences of:</p>
+  <ul>
+    <li>booking an appointment</li>
+    <li>waiting times</li>
+    <li>staff at the surgery</li>
+  </ul>
+  <p>You can <a href="https://gp-patient.co.uk/practices/{{gp.odsCode}}">see results for this surgery on the GP Patient Survey website.</a></p>
+
+  <hr class="hr--fullwidth"/>
  {% if gp.gpInfo %}
   <h2>GPs at this surgery</h2>
-    <ul class="link-list">
-      {% for message in gp.gpInfo.counts %}
-          <li>{{message}}</li>
-      {% endfor %}
-    </ul>
+  <p>There are
+    {% for message in gp.gpInfo.counts %}
+        {{message}}
+    {% endfor %}
+  </p>
     <ul class="link-list">
       {% for doctor in gp.gpInfo.doctors %}
           <li>{{doctor}}</li>
       {% endfor %}
     </ul>
-  <hr class="hr--no-color"/>
+  <hr class="hr--fullwidth"/>
 {% endif %}
   <h2>Services at this surgery</h2>
   <p>coming soon</p>
@@ -105,28 +80,25 @@
   <!--   <li>Stop smoking clinic</li> -->
   <!--   <li>Travel injections</li> -->
   <!-- </ul> -->
-  <hr class="hr--no-color"/>
+  <hr class="hr--fullwidth"/>
 
   <h2>Parking and accessibility</h2>
-  <p>coming soon</p>
-  <!-- <ul class="link-list"> -->
-  <!--   <li>8 parking spaces, including 2 disabled parking spaces</li> -->
-  <!--   <li>Wheelchair access</li> -->
-  <!--   <li>Disabled toilet</li> -->
-  <!--   <li>Step-free access</li> -->
-  <!-- </ul> -->
-  <hr class="hr--no-color"/>
+  <ul class="link-list">
+    {% for item in gp.parking %}
+      {% if item.exists == "Yes" %}
+        <li>{{item.name}}</li>
+      {% endif %}
+    {% endfor %}
+    {% for item in gp.accessibility %}
+      {% if item.exists == "Yes" %}
+        <li>{{item.name}}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <hr class="hr--fullwidth"/>
 
-  <h2>Register as a patient</h2>
-  <p>coming soon</p>
-  <!-- <p class="callout callout--blue">This surgery is accepting new patients</p> -->
-  <!-- <p>You need to go to the surgery to register. Take with you:</p> -->
-  <!-- <ul> -->
-  <!--   <li>proof of identity (for example your passport)</li> -->
-  <!--   <li>proof of your current address (for example a gas or electricity bill)</li> -->
-  <!--   <li>your last GP surgery’s name and address</li> -->
-  <!--   <li>your NHS number (you can find this on any document you’ve received from the NHS)</li> -->
-  <!-- </ul> -->
-  <!-- <p>You’ll also need to fill in a registration form. You can <a href="http://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf">download and fill in a form</a> before going to the surgery. But the receptionist might have other forms that you need to fill in.</p> -->
+  <h2>How to register</h2>
+  <p class="callout callout--blue">This surgery is accepting new patients</p>
+  <p>Find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx">how to register as a patient.</a></p>
 </div>
 {% endblock %}

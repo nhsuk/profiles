@@ -11,6 +11,9 @@ function getGpCountMessages(gpCounts) {
   if (gpCounts.female) {
     messages.push(`${gpCounts.female} female ${pluraliseGP(gpCounts.female)}`);
   }
+  if (gpCounts.female && gpCounts.male) {
+    messages.push('and');
+  }
   if (gpCounts.male) {
     messages.push(`${gpCounts.male} male ${pluraliseGP(gpCounts.male)}`);
   }

@@ -64,6 +64,7 @@
     <main id="content" role="main" class="util-nofocus">
       {% block article %}
       <div class="{% block headerClass %}{% endblock %}">
+        <div class="local-header local-header--no-padding-lr">
           {% block header %}{% endblock %}
           {% block pageIntro %}
           {% endblock %}
