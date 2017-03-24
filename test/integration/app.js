@@ -73,7 +73,7 @@ describe('app', () => {
           expect(contactDetailsText).to.include('Email: gp-p92651@nhs.net');
           expect(contactDetailsText).to.include('Fax: 01942 865171');
 
-          const bookOnlineLink = $('.link-list').find('a').eq(2).prop('href');
+          const bookOnlineLink = $('.link-list').find('a').eq(0).prop('href');
           expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
           done();
         });

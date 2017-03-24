@@ -23,17 +23,14 @@
 {% endmacro %}
 
 {% if gp.openingTimes %}
-  {{ openingTimes(gp.openingTimes.reception, 'When reception is open') }}
-  {{ openingTimes(gp.openingTimes.surgery, 'When GPs see patients') }}
+  {{ openingTimes(gp.openingTimes.reception, 'Reception opening times') }}
+  {{ openingTimes(gp.openingTimes.surgery, 'GP appointment times') }}
 
-  {% if not gp.bookOnlineLink %}
-  <p>Contact reception to find out if appointments are available at other times (for example early in the morning or after work). If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
-  {% endif %}
 {% else %}
-  {{ openingTimesUnavailable('When reception is open', 'opening times') }}
-  {{ openingTimesUnavailable('When GPs see patients', 'when you can get a GP appointment') }}
+  {{ openingTimesUnavailable('Reception opening times', 'opening times') }}
+  {{ openingTimesUnavailable('GP appointment times', 'when you can get a GP appointment') }}
 
-  {% if not gp.bookOnlineLink %}
-  <p>Contact reception to find out when appointments are available. If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
-  {% endif %}
 {% endif %}
+
+<p>Contact reception{%if gp.contact.website %} or go to the <a href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
+<p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>

@@ -67,7 +67,8 @@ describe('gp counts helper', () => {
       };
       const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('2 female GPs');
-      expect(message[1]).to.equal('3 male GPs');
+      expect(message[1]).to.equal('and');
+      expect(message[2]).to.equal('3 male GPs');
     });
 
     it('should return \'GP\' for only one male or female gp', () => {
@@ -77,7 +78,8 @@ describe('gp counts helper', () => {
       };
       const message = gpHelper.getGpCountMessages(gpCounts);
       expect(message[0]).to.equal('1 female GP');
-      expect(message[1]).to.equal('1 male GP');
+      expect(message[1]).to.equal('and');
+      expect(message[2]).to.equal('1 male GP');
     });
 
     it('should return \'GPs\' for more than one unknown or female gp', () => {
