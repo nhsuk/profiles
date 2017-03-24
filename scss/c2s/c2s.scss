@@ -137,6 +137,11 @@ form {
     background-color: $hiviz;
   }
 }
+.local-header-white-bg {
+  > .local-header {
+    background-color:$white;
+  }
+}
 
 .local-header {
   margin-top:0;

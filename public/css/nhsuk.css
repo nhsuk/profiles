@@ -800,6 +800,8 @@ form .form-group { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; 
 
 .local-header-white-bg__hiviz, .global-header__hiviz, .global-footer__hiviz, .notification-banner__hiviz { background-color: #ffca55; }
 
+.local-header-white-bg > .local-header { background-color: #fff; }
+
 .local-header { margin-top: 0; padding-top: 32px; }
 
 .local-header--fullwidth { max-width: 100%; }
