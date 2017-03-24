@@ -53,5 +53,27 @@ describe('app', () => {
           done();
         });
     });
+
+    it('should return call reception message for no reception or surgery opening times', (done) => {
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}/107891`)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+
+          const $ = cheerio.load(res.text);
+
+          expect($('h2.opening-times').first().text().trim()).to.include('Reception opening times');
+          expect($('h2.opening-times').last().text().trim()).to.include('GP appointment times');
+
+          const receptionTableText = $('p.opening-times').first().text().trim();
+          expect(receptionTableText).to.include('No information available. Contact reception to find out opening times');
+
+          const surgeryTableText = $('p.opening-times').last().text().trim();
+          expect(surgeryTableText).to.include('No information available. Contact reception to find out when you can get a GP appointment.');
+
+          done();
+        });
+    });
   });
 });

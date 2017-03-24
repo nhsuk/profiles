@@ -8,4 +8,5 @@
         </li>
     {% endfor %}
     </ul>
+    <hr class="hr--fullwidth"/>
 {% endif %}

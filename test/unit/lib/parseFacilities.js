@@ -1,7 +1,6 @@
 const chai = require('chai');
 const parseFacilities = require('../../../app/lib/parseFacilities');
 
-
 const expect = chai.expect;
 
 describe('parseFacilities', () => {
@@ -10,6 +9,7 @@ describe('parseFacilities', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes).to.be.undefined;
   });
+
   it('should join parking and accessibility, returning only facilities where exists is yes', () => {
     const facilities = {
       parking: [
@@ -79,5 +79,4 @@ describe('parseFacilities', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.be.undefined;
   });
-}
-);
+});

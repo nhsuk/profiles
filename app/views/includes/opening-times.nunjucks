@@ -27,8 +27,8 @@
   {{ openingTimes(gp.openingTimes.surgery, 'GP appointment times') }}
 
 {% else %}
-  {{ openingTimesUnavailable('When reception is open', 'opening times') }}
-  {{ openingTimesUnavailable('When GPs see patients', 'when you can get a GP appointment') }}
+  {{ openingTimesUnavailable('Reception opening times', 'opening times') }}
+  {{ openingTimesUnavailable('GP appointment times', 'when you can get a GP appointment') }}
 
 {% endif %}
 
