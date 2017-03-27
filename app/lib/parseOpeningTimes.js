@@ -50,7 +50,17 @@ function addPadding(parsedTimes) {
   return parsedTimes;
 }
 
+function isOpen(times) {
+  return daysOfWeek.some((day) => {
+    const daySessions = times[day.toLowerCase()];
+    return daySessions && daySessions.length > 0;
+  });
+}
+
 function parseWeek(times) {
+  if (isOpen(times) === false) {
+    return undefined;
+  }
   const parsedTimes = [];
 
   daysOfWeek.forEach((day) => {
@@ -71,7 +81,7 @@ function parseAll(allTimes) {
   return timesValid(allTimes) ? {
     reception: parseWeek(allTimes.reception),
     surgery: parseWeek(allTimes.surgery),
-  } : undefined;
+  } : {};
 }
 
 module.exports = {
