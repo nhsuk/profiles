@@ -26,13 +26,10 @@
 
 {% block content %}
 <div class="reading-width">
-  <h2>Online services</h2>
   <ul class="link-list">
     {% if gp.bookOnlineLink %}
       <li><a href="{{gp.bookOnlineLink}}">Book a GP appointment</a></li>
     {% endif %}
-    <li><a href="https://www.nhs.uk/Services/GP/LeaveReview/DefaultView.aspx?id={{gp.choicesId}}">Leave a review</a></li>
-    {%if gp.contact.website %}<li><a href="{{gp.contact.website}}">Get a repeat prescription</a></li>{% endif %}
   </ul>
 
   <hr class="hr--fullwidth"/>
