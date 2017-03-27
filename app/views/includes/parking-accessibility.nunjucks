@@ -1,8 +1,8 @@
 {% if gp.facilities %}
-  <h2 class='facilities' >Parking and Accessibility</h2>
+  <h2 class='facilities' >{{gp.facilities.title}}</h2>
     <!-- <h3>{{title}}</h3> -->
     <ul class="link-list facilities">
-    {% for name in gp.facilities %}
+    {% for name in gp.facilities.items %}
         <li>
             {{ name }}
         </li>
