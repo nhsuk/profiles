@@ -51,14 +51,10 @@ function addPadding(parsedTimes) {
 }
 
 function isOpen(times) {
-  let openDays = 0;
-  daysOfWeek.forEach((day) => {
+  return daysOfWeek.some((day) => {
     const daySessions = times[day.toLowerCase()];
-    if (daySessions) {
-      openDays += daySessions.length;
-    }
+    return daySessions && daySessions.length > 0;
   });
-  return openDays > 0;
 }
 
 function parseWeek(times) {
