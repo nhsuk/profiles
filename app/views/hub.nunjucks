@@ -61,28 +61,7 @@
     </ul>
   <hr class="hr--fullwidth"/>
 {% endif %}
-  <h2>Services at this surgery</h2>
-  <p>coming soon</p>
-  <!-- <h3>Services that need a GP referral</h3> -->
-  <!-- <ul class="link-list"> -->
-  <!--   <li>Minor surgery</li> -->
-  <!--   <li>Counselling service</li> -->
-  <!-- </ul> -->
-  <!-- <h3>Services patients can book themselves</h3> -->
-  <!-- <ul class="link-list"> -->
-  <!--   <li>Child vaccination</li> -->
-  <!--   <li>Asthma clinic</li> -->
-  <!--   <li>Diabetes clinic</li> -->
-  <!--   <li>Chronic obstructive pulmonary disease (COPD) clinic</li> -->
-  <!--   <li>Stop smoking clinic</li> -->
-  <!--   <li>Travel injections</li> -->
-  <!-- </ul> -->
-  <hr class="hr--fullwidth"/>
 
   {% include "includes/parking-accessibility.nunjucks" %}
-
-  <h2>How to register</h2>
-  <p class="callout callout--blue">This surgery is accepting new patients</p>
-  <p>Find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx">how to register as a patient.</a></p>
 </div>
 {% endblock %}
