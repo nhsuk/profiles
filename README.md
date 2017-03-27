@@ -4,7 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/profiles/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/profiles?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/nhsuk/profiles/badge.svg)](https://snyk.io/test/github/nhsuk/profiles)
 
-A collection of health service provider profiles. Initially containing GP practices and Pharmacies.
+A collection of health service provider profiles. Initially containing GP
+practices and Pharmacies.
 
 ## Environment variables
 
@@ -12,23 +13,23 @@ Environment variables are expected to be managed by the environment in which
 the application is being run. This is best practice as described by
 [twelve-factor](https://12factor.net/config).
 
-| Variable                         | Description                                                                            | Default                  | Required        |
-|:---------------------------------|:---------------------------------------------------------------------------------------|:-------------------------|-----------------|
-| `NODE_ENV`                       | node environment                                                                       | development              |                 |
-| `LOG_LEVEL`                      | [bunyan log level](https://github.com/trentm/node-bunyan#levels)                       | Depends on `NODE_ENV`    |                 |
-| `PORT`                           | server port                                                                            | 3000                     |                 |
+| Variable    | Description      | Default | Required |
+|:------------|:-----------------|:--------|:---------|
+| `NODE_ENV`  | node environment | development |      |
+| `LOG_LEVEL` | [log level](https://github.com/trentm/node-bunyan#levels) | Depends on `NODE_ENV` | |
+| `PORT`      | server port      | 3000    |          |
 
 ## Application development
 
-Start by cloning the repo and all submodules i.e. `git clone
-https://github.com/nhsuk/profiles.git && cd profiles/ && git submodule update
---init --recursive`
+Start by cloning the repo and all submodules i.e.
+`git clone https://github.com/nhsuk/profiles.git && cd profiles/ && git submodule update --init --recursive`
 
 It is good practice to run `docker-compose down -v` before starting the
 application as this will clear up any resources from previous containers that
 might otherwise affect the correct running of the application.  Run the
-application with Docker via `docker-compose up --build --force-recreate
-profiles-frontend`. This will build an image based on the code in the current
+application with Docker via
+`docker-compose up --build --force-recreate profiles-frontend`.
+This will build an image based on the code in the current
 working directory and start it running. It will be available locally on
 [http://localhost:3000](http://localhost:3000)
 
