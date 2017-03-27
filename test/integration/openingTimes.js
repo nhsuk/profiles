@@ -67,10 +67,12 @@ describe('app', () => {
           expect($('h2.opening-times').last().text().trim()).to.include('GP appointment times');
 
           const receptionTableText = $('p.opening-times').first().text().trim();
-          expect(receptionTableText).to.include('No information available. Contact reception to find out opening times');
+          expect(receptionTableText).to.include('No information available. ' +
+                                                'Contact reception to find out opening times');
 
           const surgeryTableText = $('p.opening-times').last().text().trim();
-          expect(surgeryTableText).to.include('No information available. Contact reception to find out when you can get a GP appointment.');
+          expect(surgeryTableText).to.include('We don\'t have opening times for this surgery. ' +
+                                              'Contact reception to find out when the surgery is open.');
 
           done();
         });

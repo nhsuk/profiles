@@ -17,18 +17,12 @@
     {% endfor %}
   </table>
 {% else %}
-    <p class='opening-times'>No information available. Contact reception to find out {{message}}.</p>
+    <p class='opening-times'>{{message}}</p>
 {% endif %}
-
 {% endmacro %}
 
-{% macro openingTimesUnavailable(title, message) %}
-    <h2 class='opening-times'>{{ title }}</h2>
-    <p class='opening-times'>No information available. Contact reception to find out {{message}}.</p>
-{% endmacro %}
-
-{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'opening times') }}
-{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', 'when you can get a GP appointment') }}
+{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.') }}
+{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.") }}
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
