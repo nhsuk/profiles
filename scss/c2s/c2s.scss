@@ -3,9 +3,10 @@
 /*
    Colours.
 */
-$hiviz: #ffca55;
+$hiviz: #fada8b;
 $callout-border-blue: #40ADD7;
 $callout-blue: rgba(64, 173, 215, 0.1);
+$blue: #005eb8;
 /*
    HTML elements
 */
@@ -146,8 +147,17 @@ form {
 .local-header {
   margin-top:0;
   padding-top:32px;
+  background-color:$blue;
   &--fullwidth {
     max-width:100%;
+    @include media(mobile) {
+      margin:0;
+      padding:0 16px;
+    }
+    @include media(tablet) {
+      margin:0;
+      padding:0 16px;
+    }
     h1 {
       padding-top:0;
     }
