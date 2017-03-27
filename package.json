@@ -4,27 +4,25 @@
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
-    "start": "node app.js",
-    "lint": "eslint --ext .js,.json .",
-    "test": "NODE_ENV=test mocha --recursive test",
     "build-css": "./css-build",
-    "istanbul": "NODE_ENV=test istanbul",
-    "generate-coverage": "npm run istanbul -- cover _mocha -- --recursive",
-    "generate-unit-coverage": "npm run istanbul -- cover _mocha -- --recursive test/unit",
     "check-coverage": "istanbul check-coverage --config .istanbul.yml",
     "check-unit-coverage": "istanbul check-coverage --config .istanbul.unit.yml",
-    "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls",
-    "watch-dev": "nodemon app.js | ./node_modules/.bin/bunyan & nodemon -e scss -x npm run build-css -- compact",
-    "watch-lint": "esw --watch .",
-    "watch-test": "npm run test -- --watch --reporter min",
-    "precommit": "npm run git-hook",
-    "prepush": "npm run git-hook && npm run snyk-test",
-    "postrewrite": "npm run git-hook",
-    "snyk": "snyk",
-    "snyk-test": "snyk test",
+    "generate-unit-coverage": "npm run istanbul -- cover _mocha -- --recursive test/unit",
+    "generate-coverage": "npm run istanbul -- cover _mocha -- --recursive",
     "git-hook": "npm run lint && npm run generate-unit-coverage && npm run check-unit-coverage",
+    "istanbul": "NODE_ENV=test istanbul",
+    "lint": "eslint --ext .js,.json .",
+    "lint-watch": "esw --watch .",
+    "postrewrite": "npm run git-hook",
+    "precommit": "npm run git-hook",
+    "prepush": "npm run git-hook && npm run snyk -- test",
+    "snyk": "snyk",
+    "start": "node app.js",
+    "start-watch": "nodemon app.js | ./node_modules/.bin/bunyan & nodemon -e scss -x npm run build-css -- compact",
+    "test": "NODE_ENV=test mocha --recursive test",
+    "test-watch": "npm run test -- --watch --reporter min",
     "travis": "npm run lint && npm run generate-coverage && npm run check-coverage && npm run upload-coverage-coveralls",
-    "snyk-protect": "snyk protect"
+    "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -69,6 +67,5 @@
     "istanbul": "^0.4.3",
     "mocha": "^3.0.2",
     "nodemon": "^1.11.0"
-  },
-  "snyk": true
+  }
 }
