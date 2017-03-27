@@ -15,10 +15,8 @@
     "lint-watch": "esw --watch .",
     "postrewrite": "npm run git-hook",
     "precommit": "npm run git-hook",
-    "prepush": "npm run git-hook && npm run snyk-test",
+    "prepush": "npm run git-hook && npm run snyk -- test",
     "snyk": "snyk",
-    "snyk-protect": "snyk protect",
-    "snyk-test": "snyk test",
     "start": "node app.js",
     "start-watch": "nodemon app.js | ./node_modules/.bin/bunyan & nodemon -e scss -x npm run build-css -- compact",
     "test": "NODE_ENV=test mocha --recursive test",
@@ -69,6 +67,5 @@
     "istanbul": "^0.4.3",
     "mocha": "^3.0.2",
     "nodemon": "^1.11.0"
-  },
-  "snyk": true
+  }
 }
