@@ -7,6 +7,7 @@ $hiviz: #fada8b;
 $callout-border-blue: #40ADD7;
 $callout-blue: rgba(64, 173, 215, 0.1);
 $blue: #005eb8;
+$grey: #d9dde0;
 /*
    HTML elements
 */
@@ -21,6 +22,7 @@ table, .table {
     }
     td, th {
       padding:16px;
+      border-bottom:1px solid $grey;
     }
     &:first-child {
       th {
@@ -42,7 +44,22 @@ hr, .hr {
   }
   &--fullwidth {
     width:100%;
-    margin:56px 0;
+    margin:32px 0;
+    background-color: $grey;
+    height:2px;
+    @include media(desktop) {
+      margin:56px 0;
+    }
+
+  }
+
+}
+
+ul {
+  &.link-list {
+    &:first-of-type {
+      margin-top:24px;
+    }
   }
 }
 
@@ -164,7 +181,7 @@ form {
     .local-header__intro {
       * {
         font-size:1em;
-        line-height:1.4em;
+        line-height:1.6em;
       }
     }
   }
@@ -431,11 +448,14 @@ form {
   }
 }
 
-.callout--blue {
-  background-color: $callout-blue;
-  border-left: 8px solid $callout-border-blue;
-  padding: 8px 16px;
+.callout{
+  &--blue {
+    background-color: $callout-blue;
+    border-left: 8px solid $callout-border-blue;
+    padding: 8px 16px;
+  }
 }
+
 
 /*
    Error styling
