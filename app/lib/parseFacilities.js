@@ -19,8 +19,9 @@ function getTitle(parking, accessibility) {
     titles.push('Parking');
   }
   if (accessibility.length > 0) {
-    titles.push('Accessibility');
+    titles.push(titles.length === 1 ? 'accessibility' : 'Accessibility');
   }
+
   return titles.join(' and ');
 }
 

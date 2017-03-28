@@ -197,7 +197,7 @@ describe('parseFacilities', () => {
 
     const yesFacilities = parseFacilities(facilities);
     // eslint-disable-next-line no-unused-expressions
-    expect(yesFacilities.title).to.equal('Parking and Accessibility');
+    expect(yesFacilities.title).to.equal('Parking and accessibility');
   });
 
   it('should rename \'Car Parking\' to \'Car parking\'', () => {

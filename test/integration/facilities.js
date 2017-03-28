@@ -19,7 +19,7 @@ describe('app', () => {
 
           const $ = cheerio.load(res.text);
 
-          expect($('h2.facilities').first().text().trim()).to.equal('Parking and Accessibility');
+          expect($('h2.facilities').first().text().trim()).to.equal('Parking and accessibility');
 
           const facilitiesList = $('ul.facilities li');
           expect(facilitiesList.length).to.equal(4);
