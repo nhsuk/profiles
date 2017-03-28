@@ -1,6 +1,7 @@
 const parseOpeningTimes = require('../lib/parseOpeningTimes');
 const parseFacilities = require('../lib/parseFacilities');
 const gpHelper = require('../lib/gpHelper');
+const servicesMapper = require('../lib/servicesMapper');
 
 function createGpInfo(gpData) {
   return {
@@ -29,6 +30,7 @@ function createGpViewModel(req, res, next) {
       choicesId: gpData.choicesId,
       location: gpData.location,
       facilities: parseFacilities(gpData.facilities),
+      services: servicesMapper.map(gpData.services),
       gpInfo,
       openingTimes,
       bookOnlineLink: getBookOnlineLink(gpData),
