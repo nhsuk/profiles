@@ -3,9 +3,7 @@
     <!-- <h3>{{title}}</h3> -->
     <ul class="link-list facilities">
     {% for name in gp.facilities.items %}
-        <li>
-            {{ name }}
-        </li>
+        <li>{{ name }}</li>
     {% endfor %}
     </ul>
     <hr class="hr--fullwidth"/>
