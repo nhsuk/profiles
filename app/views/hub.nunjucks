@@ -7,81 +7,20 @@
 {% endblock %}
 
 {% block pageIntro %}
-<div class="local-header__intro local-header__intro--fullwidth">
-  <div class="grid-row">
-    <div class="column--one-half">
-      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
-    </div>
-    <div class="column--one-half">
-      <p>
-      {% if gp.contact.telephone %}Reception: {{ gp.contact.telephone }}<br />{% endif %}
-      {% if gp.contact.email %}Email: {{ gp.contact.email }}<br />{% endif %}
-      {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
-      <a href="{{mapUrl}}">See this surgery on a map</a></p>
-
-    </div>
-  </div>
-</div>
+  {% include "includes/profile-header.nunjucks" %}
 {% endblock %}
 
 {% block content %}
 <div class="reading-width">
-  <ul class="link-list">
-    {% if gp.bookOnlineLink %}
-      <li><a href="{{gp.bookOnlineLink}}">Book a GP appointment</a></li>
-    {% endif %}
-  </ul>
+  {% include "includes/online-tasks.nunjucks" %}
 
-  <hr class="hr--fullwidth"/>
   {% include "includes/opening-times.nunjucks" %}
-  <hr class="hr--fullwidth"/>
 
-  <h2>What patients say about this surgery</h2>
-  <p>Every year, the GP Patient Survey gives patients a chance to say how they feel about their GP surgery.</p>
-  <p>The survey is independent and asks people about their experiences of:</p>
-  <ul>
-    <li>booking an appointment</li>
-    <li>waiting times</li>
-    <li>staff at the surgery</li>
-  </ul>
-  <p>You can <a href="https://gp-patient.co.uk/practices/{{gp.odsCode}}">see results for this surgery on the GP Patient Survey website.</a></p>
+  {% include "includes/patient-survey.nunjucks" %}
 
-  <hr class="hr--fullwidth"/>
- {% if gp.gpInfo %}
-  <h2>GPs at this surgery</h2>
-  <p>There are
-    {% for message in gp.gpInfo.counts %}
-        {{message}}
-    {% endfor %}
-  </p>
-    <ul class="link-list">
-      {% for doctor in gp.gpInfo.doctors %}
-          <li>{{doctor}}</li>
-      {% endfor %}
-    </ul>
-  <hr class="hr--fullwidth"/>
-{% endif %}
+  {% include "includes/gps.nunjucks" %}
 
-{% if gp.services %}
-  <h2 class="services">Services at this surgery</h2>
-  {% if gp.services.gpReferrals.length %}
-    <h3>Services that need a GP referral</h3>
-    <ul class="link-list gp-referrals">
-      {% for service in gp.services.gpReferrals %}
-      <li>{{ service }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {% if gp.services.selfReferrals.length %}
-    <h3>Services patients can book themselves</h3>
-    <ul class="link-list self-referrals">
-      {% for service in gp.services.selfReferrals %}
-      <li>{{ service }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-    <hr class="hr--fullwidth"/>
-{% endif %}
+  {% include "includes/services.nunjucks" %}
 
   {% include "includes/parking-accessibility.nunjucks" %}
 </div>
