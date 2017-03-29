@@ -142,6 +142,31 @@ describe('parseFacilities', () => {
     expect(yesFacilities.title).to.equal('Parking');
   });
 
+  it('should set change \'Car Parking\' to \'Car parking available\', if only one parking, but no accessibility facilities', () => {
+    const facilities = {
+      parking: [
+        {
+          name: 'Car Parking',
+          exists: 'Yes'
+        },
+      ],
+      accessibility: [
+        {
+          name: 'Braille translation service',
+          exists: 'No'
+        },
+        {
+          name: 'Disabled parking',
+          exists: 'No'
+        }
+      ],
+    };
+
+    const yesFacilities = parseFacilities(facilities);
+    // eslint-disable-next-line no-unused-expressions
+    expect(yesFacilities.items[0]).to.equal('Car parking is available');
+  });
+
   it('should set title to \'Accessibility\' for accessibility available, but no parking facilities', () => {
     const facilities = {
       parking: [
@@ -207,6 +232,10 @@ describe('parseFacilities', () => {
           name: 'Car Parking',
           exists: 'Yes'
         },
+        {
+          name: 'Cycle parking',
+          exists: 'Yes'
+        },
       ],
     };
 
@@ -217,7 +246,7 @@ describe('parseFacilities', () => {
 
   it('should rename \'Disabled WC\' to \'Disabled toilet\'', () => {
     const facilities = {
-      parking: [
+      accessibility: [
         {
           name: 'Disabled WC',
           exists: 'Yes'
@@ -232,7 +261,7 @@ describe('parseFacilities', () => {
 
   it('should rename \'Step free access\' to \'Step-free access\'', () => {
     const facilities = {
-      parking: [
+      accessibility: [
         {
           name: 'Step free access',
           exists: 'Yes'

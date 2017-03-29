@@ -6,8 +6,12 @@ const ALIASES = {
   'Step free access': 'Step-free access',
 };
 
+function correctName(name) {
+  return ALIASES[name] || name;
+}
+
 function correctNames(names) {
-  return names.map(name => ALIASES[name] || name);
+  return names.map(correctName);
 }
 
 function filterYes(item) {
@@ -26,12 +30,19 @@ function getTitle(parking, accessibility) {
   return titles.join(' and ');
 }
 
+function createItemList(parking, accessibility) {
+  if (parking.length === 1 && accessibility.length === 0) {
+    return [`${correctName(parking[0])} is available`];
+  }
+  return utils.removeDuplicates(parking.concat(accessibility)).map(correctName);
+}
+
 function parseFacilities(allFacilities) {
   if (allFacilities) {
     const parking = filterYes(allFacilities.parking);
     const accessibility = filterYes(allFacilities.accessibility);
     const title = getTitle(parking, accessibility);
-    const items = correctNames(utils.removeDuplicates(parking.concat(accessibility)));
+    const items = createItemList(parking, accessibility);
     return items.length === 0 ? undefined : { title, items };
   }
   return undefined;
