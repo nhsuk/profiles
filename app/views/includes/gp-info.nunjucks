@@ -1,0 +1,14 @@
+ {% if gp.gpInfo %}
+  <h2>GPs at this surgery</h2>
+  <p>There {{gp.gpInfo.personSingular}}
+    {% for message in gp.gpInfo.counts %}
+        {{message}}
+    {% endfor %}
+  </p>
+    <ul class="link-list">
+      {% for doctor in gp.gpInfo.doctors %}
+          <li>{{doctor}}</li>
+      {% endfor %}
+    </ul>
+  <hr class="hr--fullwidth"/>
+{% endif %}
