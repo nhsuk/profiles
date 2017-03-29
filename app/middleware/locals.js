@@ -6,6 +6,6 @@ module.exports = config =>
     res.locals.HOTJAR_TRACKING_ID = config.hotjarId;
     res.locals.SITE_ROOT = req.app.locals.SITE_ROOT;
     /* eslint-enable no-param-reassign */
-
+    console.log("*******" + config.hotjarId);
     next();
   };

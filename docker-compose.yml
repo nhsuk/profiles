@@ -11,7 +11,10 @@ services:
     volumes:
       - .:/code
     environment:
-      NODE_ENV: ${NODE_ENV-development}
+      NODE_ENV: ${NODE_ENV}
+      WEBTRENDS_ANALYTICS_TRACKING_ID: ${WEBTRENDS_ANALYTICS_TRACKING_ID}
+      GOOGLE_ANALYTICS_TRACKING_ID: ${GOOGLE_ANALYTICS_TRACKING_ID}
+      HOTJAR_ANALYTICS_TRACKING_ID: ${HOTJAR_ANALYTICS_TRACKING_ID}
 
   profiles-frontend:
     extends:
