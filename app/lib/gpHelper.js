@@ -1,3 +1,13 @@
+function getPersonSingular(gpCounts) {
+  if (gpCounts.female === 1) {
+    return 'is';
+  }
+  if (gpCounts.female === 0 && gpCounts.male === 1) {
+    return 'is';
+  }
+  return 'are';
+}
+
 function pluraliseGP(count) {
   return count === 1 ? 'GP' : 'GPs';
 }
@@ -25,6 +35,7 @@ function getGpCountMessages(gpCounts) {
 }
 
 module.exports = {
+  getPersonSingular,
   areGpsAvailable,
   getGpCountMessages,
 };

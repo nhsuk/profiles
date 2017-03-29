@@ -98,4 +98,42 @@ describe('gp counts helper', () => {
       expect(message[0]).to.equal('1 GP');
     });
   });
+
+  describe('getPersonSingular', () => {
+    it('should return \'are\' for more than one male and female gp', () => {
+      const gpCounts = {
+        male: 3,
+        female: 2
+      };
+      const personSingular = gpHelper.getPersonSingular(gpCounts);
+      expect(personSingular).to.equal('are');
+    });
+
+    it('should return \'is\' for only one male gp', () => {
+      const gpCounts = {
+        male: 1,
+        female: 0
+      };
+      const personSingular = gpHelper.getPersonSingular(gpCounts);
+      expect(personSingular).to.equal('is');
+    });
+
+    it('should return \'is\' for only one female gp', () => {
+      const gpCounts = {
+        male: 0,
+        female: 1
+      };
+      const personSingular = gpHelper.getPersonSingular(gpCounts);
+      expect(personSingular).to.equal('is');
+    });
+
+    it('should return \'is\' for one female gp and one male GP', () => {
+      const gpCounts = {
+        male: 1,
+        female: 1
+      };
+      const personSingular = gpHelper.getPersonSingular(gpCounts);
+      expect(personSingular).to.equal('is');
+    });
+  });
 });

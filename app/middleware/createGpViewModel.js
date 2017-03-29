@@ -5,6 +5,7 @@ const servicesMapper = require('../lib/servicesMapper');
 
 function createGpInfo(gpData) {
   return {
+    personSingular: gpHelper.getPersonSingular(gpData.gpCounts),
     counts: gpHelper.getGpCountMessages(gpData.gpCounts),
     doctors: gpData.doctors,
   };
