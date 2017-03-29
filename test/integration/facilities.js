@@ -19,13 +19,13 @@ describe('app', () => {
 
           const $ = cheerio.load(res.text);
 
-          expect($('h2.facilities').first().text().trim()).to.equal('Parking and Accessibility');
+          expect($('h2.facilities').first().text().trim()).to.equal('Parking and accessibility');
 
           const facilitiesList = $('ul.facilities li');
           expect(facilitiesList.length).to.equal(4);
-          expect($(facilitiesList[0]).text().trim()).to.equal('Car Parking');
-          expect($(facilitiesList[1]).text().trim()).to.equal('Disabled WC');
-          expect($(facilitiesList[2]).text().trim()).to.equal('Step free access');
+          expect($(facilitiesList[0]).text().trim()).to.equal('Car parking');
+          expect($(facilitiesList[1]).text().trim()).to.equal('Disabled toilet');
+          expect($(facilitiesList[2]).text().trim()).to.equal('Step-free access');
           expect($(facilitiesList[3]).text().trim()).to.equal('Wheelchair access');
           done();
         });
