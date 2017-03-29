@@ -12,7 +12,9 @@ $grey: #d9dde0;
    HTML elements
 */
 
-
+html {
+  background-color:$blue;
+}
 table, .table {
   tr {
     th {
@@ -183,6 +185,15 @@ form {
         font-size:1em;
         line-height:1.6em;
       }
+      .column {
+        &--one-half {
+          &:first-child {
+            p {
+              text-transform:capitalize;
+            }
+          }
+        }
+      }
     }
   }
   &--no-padding {
@@ -222,11 +233,10 @@ form {
 }
 .global-footer {
   background-color: $blue;
-  &--inner {
+  &__inner {
     padding-bottom: 96px;
     padding-top: 32px;
     &::before {
-      background: url(../images/logotype-nhs-colour.png) no-repeat;
       background-size: contain;
       content: "";
       display: block;
