@@ -15,5 +15,8 @@ module.exports = {
   mongodb: {
     collection: 'gps',
     connectionString: `mongodb://${host}:${port}/${db}`,
-  }
+  },
+  hotjarId: process.env.HOTJAR_ANALYTICS_TRACKING_ID,
+  googleAnalyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+  webtrendsId: process.env.WEBTRENDS_ANALYTICS_TRACKING_ID,
 };
