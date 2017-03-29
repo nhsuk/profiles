@@ -229,4 +229,19 @@ describe('parseFacilities', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities.items[0]).to.equal('Disabled toilet');
   });
+
+  it('should rename \'Step free access\' to \'Step-free access\'', () => {
+    const facilities = {
+      parking: [
+        {
+          name: 'Step free access',
+          exists: 'Yes'
+        },
+      ],
+    };
+
+    const yesFacilities = parseFacilities(facilities);
+    // eslint-disable-next-line no-unused-expressions
+    expect(yesFacilities.items[0]).to.equal('Step-free access');
+  });
 });

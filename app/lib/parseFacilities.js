@@ -3,6 +3,7 @@ const utils = require('./utils');
 const ALIASES = {
   'Car Parking': 'Car parking',
   'Disabled WC': 'Disabled toilet',
+  'Step free access': 'Step-free access',
 };
 
 function correctNames(names) {

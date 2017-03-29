@@ -25,7 +25,7 @@ describe('app', () => {
           expect(facilitiesList.length).to.equal(4);
           expect($(facilitiesList[0]).text().trim()).to.equal('Car parking');
           expect($(facilitiesList[1]).text().trim()).to.equal('Disabled toilet');
-          expect($(facilitiesList[2]).text().trim()).to.equal('Step free access');
+          expect($(facilitiesList[2]).text().trim()).to.equal('Step-free access');
           expect($(facilitiesList[3]).text().trim()).to.equal('Wheelchair access');
           done();
         });
