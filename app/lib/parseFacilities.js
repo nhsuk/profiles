@@ -10,10 +10,6 @@ function correctName(name) {
   return ALIASES[name] || name;
 }
 
-function correctNames(names) {
-  return names.map(correctName);
-}
-
 function filterYes(item) {
   return item ? item.filter(e => e.exists === 'Yes').map(f => f.name) : [];
 }
