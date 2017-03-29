@@ -8,28 +8,28 @@ describe('servicesMapper', () => {
   const gpRefService = { gpReferralRequired: true, title: 'gp ref service' };
 
   it('should return undefined for undefined', () => {
-    const results = mapper.map(undefined);
+    const results = mapper(undefined);
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return undefined for empty object', () => {
-    const results = mapper.map({});
+    const results = mapper({});
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return undefined when no entries', () => {
-    const results = mapper.map({ entries: [] });
+    const results = mapper({ entries: [] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return an array of services where referrals are required', () => {
-    const results = mapper.map({ entries: [gpRefService] });
+    const results = mapper({ entries: [gpRefService] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;
@@ -41,7 +41,7 @@ describe('servicesMapper', () => {
   });
 
   it('should return an array of services where referrals are not required', () => {
-    const results = mapper.map({ entries: [selfRefService] });
+    const results = mapper({ entries: [selfRefService] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;

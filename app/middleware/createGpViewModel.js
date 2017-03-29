@@ -30,7 +30,7 @@ function createGpViewModel(req, res, next) {
       choicesId: gpData.choicesId,
       location: gpData.location,
       facilities: parseFacilities(gpData.facilities),
-      services: servicesMapper.map(gpData.services),
+      services: servicesMapper(gpData.services),
       gpInfo,
       openingTimes,
       bookOnlineLink: getBookOnlineLink(gpData),

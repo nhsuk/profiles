@@ -1,21 +1,24 @@
+function containsEntries(services) {
+  return services && services.entries && services.entries.length > 0;
+}
+
+function filterGpReferrals(services) {
+  return services.entries.filter(x => x.gpReferralRequired).map(x => x.title);
+}
+
+function filterSelfReferrals(services) {
+  return services.entries.filter(x => !x.gpReferralRequired).map(x => x.title);
+}
+
 function map(services) {
-  if (!services || Object.keys(services).length === 0) {
-    return undefined;
-  }
-  const serviceEntries = services.entries;
-
-  if (serviceEntries && serviceEntries.length > 0) {
-    const gpReferrals =
-      serviceEntries.filter(x => x.gpReferralRequired).map(x => x.title);
-    const selfReferrals =
-      serviceEntries.filter(x => !(x.gpReferralRequired)).map(x => x.title);
-
-    return { gpReferrals, selfReferrals };
+  if (containsEntries(services)) {
+    return {
+      gpReferrals: filterGpReferrals(services),
+      selfReferrals: filterSelfReferrals(services),
+    };
   }
 
   return undefined;
 }
 
-module.exports = {
-  map,
-};
+module.exports = map;
