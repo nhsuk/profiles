@@ -17,44 +17,58 @@ html {
 }
 table, .table {
   tr {
+    border-bottom:1px solid $grey;
+    @include media(tablet) {
+      border-bottom:none;
+    }
     th {
       font-weight: normal;
       font-size:1em;
       line-height: 1.375em;
     }
     td, th {
-      padding:16px;
-      border-bottom:1px solid $grey;
-    }
-    &:first-child {
-      th {
-        font-weight: bold;
+      padding:0;
+      border-bottom:none;
+      width:100%;
+      display:inline-block;
+      @include media(tablet) {
+        padding:16px;
+        width:auto;
+        display:table-cell;
+        border-bottom:1px solid $grey;
       }
     }
-    td{
-
+    td {
+      &:first-child {
+        font-weight: bold;
+        padding-top:16px;
+        @include media(tablet) {
+          font-weight:normal;
+        }
+      }
+      &:last-child {
+        padding-bottom:16px;
+      }
+      &[colspan="1"] {
+        padding:0;
+        @include media(tablet) {
+          padding:16px;
+        }
+      }
     }
+    &:first-child {
+      td {
+        padding-top:0px;
+        @include media(tablet) {
+          padding-top:16px;
+        }
+      }
+    }
+
   }
   &--grey {
     background-color:#f5f5f5;
   }
-}
-
-hr, .hr {
-  &--no-color {
-    background-color:transparent;
-  }
-  &--fullwidth {
-    width:100%;
-    margin:32px 0;
-    background-color: $grey;
-    height:2px;
-    @include media(desktop) {
-      margin:56px 0;
-    }
-
-  }
-
 }
 
 ul {
