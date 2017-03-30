@@ -6,5 +6,4 @@
   {% endfor %}
 </ul>
 <hr class="hr--fullwidth"/>
->>>>>>> af9bb24... :radio: Refactor to includes for views
 {% endif %}
