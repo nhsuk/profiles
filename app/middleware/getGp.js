@@ -22,7 +22,7 @@ function getGp(req, res, next) {
       next();
     });
   }).catch((err) => {
-    log.error(err.stack, `Error connecting to ${connectionString}`);
+    log.error(err, `Error connecting to ${connectionString}`);
     next(err);
   });
 }
