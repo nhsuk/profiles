@@ -71,6 +71,20 @@ table, .table {
   }
 }
 
+hr, .hr {
+  &--no-color {
+    background-color:transparent;
+  }
+  &--fullwidth {
+    width:100%;
+    margin:32px 0;
+    background-color: $grey;		
+    height:2px;
+    @include media(desktop) {
+      margin:56px 0;
+    }
+  }
+}
 ul {
   &.link-list {
     &:first-of-type {
