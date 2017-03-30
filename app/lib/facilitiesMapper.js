@@ -33,7 +33,7 @@ function createItemList(parking, accessibility) {
   return utils.removeDuplicates(parking.concat(accessibility)).map(correctName);
 }
 
-function parseFacilities(allFacilities) {
+function map(allFacilities) {
   if (allFacilities) {
     const parking = filterYes(allFacilities.parking);
     const accessibility = filterYes(allFacilities.accessibility);
@@ -44,4 +44,4 @@ function parseFacilities(allFacilities) {
   return undefined;
 }
 
-module.exports = parseFacilities;
+module.exports = map;

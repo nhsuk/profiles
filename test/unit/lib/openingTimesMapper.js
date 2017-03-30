@@ -1,27 +1,27 @@
 const chai = require('chai');
-const parseOpeningTimes = require('../../../app/lib/parseOpeningTimes');
+const openingTimesMapper = require('../../../app/lib/openingTimesMapper');
 
 const rawOpeningTimes = require('../../resources/openingTimes.json');
 const rawOpeningTimesNoMonday = require('../../resources/openingTimesNoMonday.json');
 
 const expect = chai.expect;
 
-describe('parseOpeningTimes', () => {
-  describe('parseAll', () => {
+describe('openingTimesMapper', () => {
+  describe('mapAll', () => {
     it('should return empty object for undefined opening times', () => {
-      const openingTimes = parseOpeningTimes.parseAll(undefined);
+      const openingTimes = openingTimesMapper.mapAll(undefined);
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes).to.be.empty;
     });
 
     it('should return empty object for empty opening times', () => {
-      const openingTimes = parseOpeningTimes.parseAll({});
+      const openingTimes = openingTimesMapper.mapAll({});
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes).to.be.empty;
     });
 
     it('should gracefully handle missing days on opening times', () => {
-      const openingTimes = parseOpeningTimes.parseAll(rawOpeningTimesNoMonday);
+      const openingTimes = openingTimesMapper.mapAll(rawOpeningTimesNoMonday);
       /* eslint-disable no-unused-expressions */
       expect(openingTimes.reception).to.exist;
       expect(openingTimes.reception[0].day).to.equal('Monday');
@@ -31,7 +31,7 @@ describe('parseOpeningTimes', () => {
     });
 
     it('should populate reception and surgery for valid opening times', () => {
-      const openingTimes = parseOpeningTimes.parseAll(rawOpeningTimes);
+      const openingTimes = openingTimesMapper.mapAll(rawOpeningTimes);
       /* eslint-disable no-unused-expressions */
       expect(openingTimes.reception).to.exist;
       expect(openingTimes.reception[0].day).to.equal('Monday');
@@ -40,7 +40,7 @@ describe('parseOpeningTimes', () => {
     });
   });
 
-  describe('parseWeek', () => {
+  describe('mapWeek', () => {
     it('should add padding metadata for jagged array', () => {
       const twoSessionDay = [
         {
@@ -69,7 +69,7 @@ describe('parseOpeningTimes', () => {
         sunday: twoSessionDay,
       };
 
-      const days = parseOpeningTimes.parseWeek(week);
+      const days = openingTimesMapper.mapWeek(week);
       expect(days.length).to.equal(7);
       // eslint-disable-next-line no-unused-expressions
       expect(days[0].padding).to.be.undefined;
@@ -86,13 +86,13 @@ describe('parseOpeningTimes', () => {
         sunday: [],
       };
 
-      const days = parseOpeningTimes.parseWeek(week);
+      const days = openingTimesMapper.mapWeek(week);
       // eslint-disable-next-line no-unused-expressions
       expect(days).to.be.undefined;
     });
   });
 
-  describe('parseDay', () => {
+  describe('mapDay', () => {
     it('should change array of 24 hour open close times to array of from to messages', () => {
       const monday = [
         {
@@ -105,7 +105,7 @@ describe('parseOpeningTimes', () => {
         }
       ];
 
-      const openingTimes = parseOpeningTimes.parseDay(monday);
+      const openingTimes = openingTimesMapper.mapDay(monday);
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes.length).to.equal(2);
       expect(openingTimes[0]).to.equal('7:30am to 12:30pm');
@@ -124,14 +124,14 @@ describe('parseOpeningTimes', () => {
         }
       ];
 
-      const openingTimes = parseOpeningTimes.parseDay(monday);
+      const openingTimes = openingTimesMapper.mapDay(monday);
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes.length).to.equal(1);
       expect(openingTimes[0]).to.equal('7:30am to 8pm');
     });
 
     it('should change empty array to closed message', () => {
-      const openingTimes = parseOpeningTimes.parseDay([]);
+      const openingTimes = openingTimesMapper.mapDay([]);
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes.length).to.equal(1);
       expect(openingTimes[0]).to.equal('Closed');

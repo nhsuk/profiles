@@ -1,35 +1,35 @@
 const chai = require('chai');
-const parseServices = require('../../../app/lib/parseServices');
+const servicesMapper = require('../../../app/lib/servicesMapper');
 
 const expect = chai.expect;
 
-describe('parseServices', () => {
+describe('servicesMapper', () => {
   const selfRefService = { gpReferralRequired: false, title: 'self ref service' };
   const gpRefService = { gpReferralRequired: true, title: 'gp ref service' };
 
   it('should return undefined for undefined', () => {
-    const results = parseServices(undefined);
+    const results = servicesMapper(undefined);
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return undefined for empty object', () => {
-    const results = parseServices({});
+    const results = servicesMapper({});
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return undefined when no entries', () => {
-    const results = parseServices({ entries: [] });
+    const results = servicesMapper({ entries: [] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.be.undefined;
   });
 
   it('should return an array of services where referrals are required', () => {
-    const results = parseServices({ entries: [gpRefService] });
+    const results = servicesMapper({ entries: [gpRefService] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;
@@ -41,7 +41,7 @@ describe('parseServices', () => {
   });
 
   it('should return an array of services where referrals are not required', () => {
-    const results = parseServices({ entries: [selfRefService] });
+    const results = servicesMapper({ entries: [selfRefService] });
 
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;
