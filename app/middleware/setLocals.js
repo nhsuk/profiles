@@ -4,7 +4,7 @@ function fromRequest(req, res, next) {
   const choicesId = parseInt(req.params.choicesId, 10);
 
   if (isNaN(choicesId)) {
-    notFound(req, res, `'${req.params.choicesId}'`);
+    notFound(req, res);
   } else {
     /* eslint-disable no-param-reassign */
     res.locals.choicesId = choicesId;

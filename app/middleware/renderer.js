@@ -1,8 +1,8 @@
 const log = require('../lib/logger');
 const mapLink = require('../lib/mapLink');
 
-function notFound(req, res, msg) {
-  log.warn(msg, 'Not found (404)');
+function notFound(req, res) {
+  log.warn({ req }, 'Not found (404)');
   res.status(404);
   res.render('404');
 }

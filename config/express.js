@@ -118,6 +118,6 @@ module.exports = (app, config) => {
   });
 
   app.use((req, res) => {
-    notFound(req, res, { req });
+    notFound(req, res);
   });
 };
