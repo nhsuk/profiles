@@ -1,0 +1,20 @@
+{% if gp.services %}
+<h2 class="services">Services at this surgery</h2>
+{% if gp.services.gpReferrals.length %}
+<h3>Services that need a GP referral</h3>
+<ul class="link-list gp-referrals">
+  {% for service in gp.services.gpReferrals %}
+  <li>{{ service }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% if gp.services.selfReferrals.length %}
+<h3>Services patients can book themselves</h3>
+<ul class="link-list self-referrals">
+  {% for service in gp.services.selfReferrals %}
+  <li>{{ service }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<hr class="hr--fullwidth"/>
+{% endif %}

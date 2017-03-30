@@ -26,3 +26,5 @@
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
+
+<hr class="hr--fullwidth"/>

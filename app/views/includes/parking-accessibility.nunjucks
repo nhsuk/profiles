@@ -1,10 +1,10 @@
 {% if gp.facilities %}
-  <h2 class='facilities' >{{gp.facilities.title}}</h2>
-    <!-- <h3>{{title}}</h3> -->
-    <ul class="link-list facilities">
-    {% for name in gp.facilities.items %}
-        <li>{{ name }}</li>
-    {% endfor %}
-    </ul>
-    <hr class="hr--fullwidth"/>
+<h2 class='facilities' >{{gp.facilities.title}}</h2>
+<ul class="link-list facilities">
+  {% for name in gp.facilities.items %}
+  <li>{{ name }}</li>
+  {% endfor %}
+</ul>
+<hr class="hr--fullwidth"/>
+>>>>>>> af9bb24... :radio: Refactor to includes for views
 {% endif %}

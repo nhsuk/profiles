@@ -1,0 +1,7 @@
+<ul class="link-list">
+  {% if gp.bookOnlineLink %}
+  <li><a href="{{gp.bookOnlineLink}}">Book a GP appointment</a></li>
+  {% endif %}
+</ul>
+
+<hr class="hr--fullwidth"/>
