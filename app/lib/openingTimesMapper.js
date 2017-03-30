@@ -18,7 +18,7 @@ function joinContiguousTimes(day) {
   return fixedDays.list;
 }
 
-function parseDay(day) {
+function mapDay(day) {
   // empty day field doesn't occur in the source data, added default in case
   // it changes in future
   if (day === undefined) {
@@ -57,7 +57,7 @@ function isOpen(times) {
   });
 }
 
-function parseWeek(times) {
+function mapWeek(times) {
   if (isOpen(times) === false) {
     return undefined;
   }
@@ -65,7 +65,7 @@ function parseWeek(times) {
 
   daysOfWeek.forEach((day) => {
     const daySessions = times[day.toLowerCase()];
-    const sessions = parseDay(daySessions);
+    const sessions = mapDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
   return addPadding(parsedTimes);
@@ -77,15 +77,15 @@ function timesValid(allTimes) {
   return allTimes && allTimes.reception && allTimes.surgery;
 }
 
-function parseAll(allTimes) {
+function mapAll(allTimes) {
   return timesValid(allTimes) ? {
-    reception: parseWeek(allTimes.reception),
-    surgery: parseWeek(allTimes.surgery),
+    reception: mapWeek(allTimes.reception),
+    surgery: mapWeek(allTimes.surgery),
   } : {};
 }
 
 module.exports = {
-  parseAll,
-  parseWeek,
-  parseDay
+  mapAll,
+  mapWeek,
+  mapDay
 };

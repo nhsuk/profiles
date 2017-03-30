@@ -1,11 +1,11 @@
 const chai = require('chai');
-const parseFacilities = require('../../../app/lib/parseFacilities');
+const facilitiesMapper = require('../../../app/lib/facilitiesMapper');
 
 const expect = chai.expect;
 
-describe('parseFacilities', () => {
+describe('facilitiesMapper', () => {
   it('should gracefully handle undefined facilities', () => {
-    const openingTimes = parseFacilities(undefined);
+    const openingTimes = facilitiesMapper(undefined);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes).to.be.undefined;
   });
@@ -22,7 +22,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.exist;
     expect(yesFacilities.items.length).to.equal(3);
@@ -44,7 +44,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.exist;
     expect(yesFacilities.items.length).to.equal(3);
@@ -66,7 +66,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.be.undefined;
   });
@@ -83,7 +83,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities.title).to.equal('Parking');
   });
@@ -99,7 +99,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities.items[0]).to.equal('Car parking is available');
   });
@@ -116,7 +116,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     expect(yesFacilities.title).to.equal('Accessibility');
   });
 
@@ -132,7 +132,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     expect(yesFacilities.title).to.equal('Parking and accessibility');
   });
 
@@ -144,7 +144,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     expect(yesFacilities.items[0]).to.equal('Car parking');
   });
 
@@ -155,7 +155,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     expect(yesFacilities.items[0]).to.equal('Disabled toilet');
   });
 
@@ -166,7 +166,7 @@ describe('parseFacilities', () => {
       ],
     };
 
-    const yesFacilities = parseFacilities(facilities);
+    const yesFacilities = facilitiesMapper(facilities);
     expect(yesFacilities.items[0]).to.equal('Step-free access');
   });
 });
