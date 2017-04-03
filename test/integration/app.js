@@ -66,12 +66,13 @@ describe('app', () => {
 
           expect($('.local-header__title').text().trim())
             .to.equal('Dr C A Xavier');
-          expect($('.column--one-half').first().text().trim())
+          expect($('.column--one-half:first-child p').text().trim())
             .to.equal('647 Liverpool RoadPlatt BridgeWigangreater manchesterWN2 5BD');
           const contactDetailsText = $('.column--one-half p').last().text().trim();
           expect(contactDetailsText).to.include('Reception: 01942 862738');
-          expect(contactDetailsText).to.include('Email: gp-p92651@nhs.net');
           expect(contactDetailsText).to.include('Fax: 01942 865171');
+          expect(contactDetailsText).to.include('gp-p92651@nhs.net');
+
 
           const bookOnlineLink = $('.link-list').find('a').eq(0).prop('href');
           expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
