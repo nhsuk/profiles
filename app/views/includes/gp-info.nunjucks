@@ -1,11 +1,11 @@
 {% if gp.gpInfo %}
-  <h2>GPs at this surgery</h2>
-  <p>There are
+  <h2 class='gp-info'>GPs at this surgery</h2>
+  <p class='gp-info'>There {{gp.gpInfo.personSingular}}
     {% for message in gp.gpInfo.counts %}
         {{message}}
     {% endfor %}
   </p>
-    <ul class="link-list">
+    <ul class="link-list gp-info">
       {% for doctor in gp.gpInfo.doctors %}
           <li>{{doctor}}</li>
       {% endfor %}

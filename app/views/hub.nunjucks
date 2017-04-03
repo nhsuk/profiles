@@ -18,7 +18,7 @@
 
   {% include "includes/patient-survey.nunjucks" %}
 
-  {% include "includes/gps.nunjucks" %}
+  {% include "includes/gp-info.nunjucks" %}
 
   {% include "includes/services.nunjucks" %}
 
