@@ -1,8 +1,8 @@
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
     <div class="column--one-half">
-      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}<br />
-        <a href="{{mapUrl}}">See this surgery on a map</a></p></p>
+      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
+      <a href="{{mapUrl}}">See this surgery on a map</a>
     </div>
     <div class="column--one-half">
       <p>
