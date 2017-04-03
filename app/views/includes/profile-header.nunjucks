@@ -1,14 +1,15 @@
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
     <div class="column--one-half">
-      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
+      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}<br />
+        <a href="{{mapUrl}}">See this surgery on a map</a></p></p>
     </div>
     <div class="column--one-half">
       <p>
       {% if gp.contact.telephone %}Reception: {{ gp.contact.telephone }}<br />{% endif %}
-      {% if gp.contact.email %}Email: {{ gp.contact.email }}<br />{% endif %}
       {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
-      <a href="{{mapUrl}}">See this surgery on a map</a></p>
+      {% if gp.contact.email %}<a href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a><br />{% endif %}
+
 
     </div>
   </div>
