@@ -20,7 +20,7 @@
 
   {% include "includes/gp-info.nunjucks" %}
 
-  {% include "includes/services.nunjucks" %} 
+  {% include "includes/services.nunjucks" %}
 
   {% include "includes/parking-accessibility.nunjucks" %}
 </div>
