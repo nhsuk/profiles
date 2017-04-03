@@ -1,7 +1,7 @@
 jQuery(function($) {
 
   // Debug flag
-  var debugMode = true;
+  var debugMode = false;
 
   // Default time delay before checking location
   var callBackTime = 100;
@@ -52,7 +52,7 @@ jQuery(function($) {
           timeToScroll = Math.round((scrollStart - beginning) / 1000);
           if (!debugMode) {
               console.log('started reading ' + timeToScroll);
-              ga('send', 'event', 'Started reading', timeToScroll+'s');
+              ga('send', 'event', 'User started scrolling', timeToScroll+'s');
           } else {
               alert('User started scrolling (Time: ' + timeToScroll + 's)');
           }
@@ -64,7 +64,7 @@ jQuery(function($) {
           openingTimesScrollEnd = currentTime.getTime();
           timeToOpeningTimesEnd = Math.round((openingTimesScrollEnd - scrollStart) / 1000);
           if (!debugMode) {
-              ga('send', 'event', 'User the "GP Opening Times" section', timeToOpeningTimesEnd+'s');
+              ga('send', 'event', 'User reached the "GP Opening Times" section', timeToOpeningTimesEnd+'s');
           } else {
               alert('User reached the "GP Opening Times" section (Time: ' + timeToOpeningTimesEnd + 's)');
           }
@@ -76,7 +76,7 @@ jQuery(function($) {
           patientsSayScrollEnd = currentTime.getTime();
           timeToPatientsSayEnd = Math.round((patientsSayScrollEnd - scrollStart) / 1000);
           if (!debugMode) {
-              ga('send', 'event', 'User the "What patients say about this surgery" section', timeToPatientsSayEnd+'s');
+              ga('send', 'event', 'User reached the "What patients say about this surgery" section', timeToPatientsSayEnd+'s');
           } else {
               alert('User reached the "What patients say about this surgery" section (Time: ' + timeToPatientsSayEnd + 's)');
           }
@@ -88,7 +88,7 @@ jQuery(function($) {
           surgeryGPsScrollEnd = currentTime.getTime();
           timeToSurgeryGPsEnd = Math.round((surgeryGPsScrollEnd - scrollStart) / 1000);
           if (!debugMode) {
-              ga('send', 'event', 'User the "GPs at this surgery" section', timeToSurgeryGPsEnd+'s');
+              ga('send', 'event', 'User reached the "GPs at this surgery" section', timeToSurgeryGPsEnd+'s');
           } else {
               alert('User reached the "GPs at this surgery" section (Time: ' + timeToSurgeryGPsEnd + 's)');
           }
@@ -100,7 +100,7 @@ jQuery(function($) {
           servicesScrollEnd = currentTime.getTime();
           timeToServicesEnd = Math.round((servicesScrollEnd - scrollStart) / 1000);
           if (!debugMode) {
-              ga('send', 'event', 'User the "Services at this surgery" section', timeToServicesEnd+'s');
+              ga('send', 'event', 'User reached the "Services at this surgery" section', timeToServicesEnd+'s');
           } else {
               alert('User reached the "Services at this surgery" section (Time: ' + timeToServicesEnd + 's)');
           }
@@ -112,7 +112,7 @@ jQuery(function($) {
           parkingScrollEnd = currentTime.getTime();
           timeToParkingEnd = Math.round((parkingScrollEnd - scrollStart) / 1000);
           if (!debugMode) {
-              ga('send', 'event', 'User the "Parking and accessibility" section', timeToParkingEnd+'s');
+              ga('send', 'event', 'User reached the "Parking and accessibility" section', timeToParkingEnd+'s');
           } else {
               alert('User reached the "Parking and accessibility" section (Time: ' + timeToParkingEnd + 's)');
           }
