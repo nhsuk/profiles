@@ -1,13 +1,17 @@
+const utils = require('./utils');
+
 function containsEntries(services) {
   return services && services.entries && services.entries.length > 0;
 }
 
 function filterGpReferrals(services) {
-  return services.entries.filter(x => x.gpReferralRequired).map(x => x.title);
+  const gpReferrals = services.entries.filter(x => x.gpReferralRequired).map(x => x.title);
+  return utils.sortIgnoreCase(gpReferrals);
 }
 
 function filterSelfReferrals(services) {
-  return services.entries.filter(x => !x.gpReferralRequired).map(x => x.title);
+  const selfReferrals = services.entries.filter(x => !x.gpReferralRequired).map(x => x.title);
+  return utils.sortIgnoreCase(selfReferrals);
 }
 
 function map(services) {

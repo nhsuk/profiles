@@ -25,9 +25,9 @@ describe('app', () => {
         expect($($('.self-referrals li')[0]).text()).to.equal('Asthma Clinic');
         expect($($('.self-referrals li')[1]).text()).to.equal('Child Immunisations');
         expect($($('.self-referrals li')[2]).text()).to.equal('COPD clinic with spirometry');
-        expect($($('.self-referrals li')[3]).text()).to.equal('Smoking cessation clinic');
-        expect($($('.self-referrals li')[4]).text()).to.equal('Travel health without yellow fever');
-        expect($($('.self-referrals li')[5]).text()).to.equal('Learning disability health check');
+        expect($($('.self-referrals li')[3]).text()).to.equal('Learning disability health check');
+        expect($($('.self-referrals li')[4]).text()).to.equal('Smoking cessation clinic');
+        expect($($('.self-referrals li')[5]).text()).to.equal('Travel health without yellow fever');
         done();
       });
     });
