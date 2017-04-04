@@ -50,6 +50,16 @@ jQuery(function($) {
     scroller = true;
   }
 
+  function scrollPoint(end, bottom, element, ended){
+    var point = $(element);
+    if (!end) {
+      return point.length && bottom > point.offset().top + point.outerHeight() && !ended;
+    }
+    else {
+      return bottom > point.offset().top + point.outerHeight() && !ended;
+    }
+  }
+
   // Check the location and track user
   function trackLocation() {
       bottom = $(window).height() + $(window).scrollTop();
@@ -66,32 +76,32 @@ jQuery(function($) {
         scroller = true;
       }
 
-      if ($('h2.opening-times:contains("GP")').length && bottom > $('h2.opening-times:contains("GP")').offset().top + $('h2.opening-times:contains("GP")').outerHeight() && !endOpeningTimes) {
+      if (scrollPoint(false, bottom, 'h2.opening-times:contains("GP")', endOpeningTimes)) {
         scrolledSection(false, 'GP Opening Times');
         endOpeningTimes = true;
       }
 
-      if ($('h2:contains("What patients say about this surgery")').length && bottom > $('h2:contains("What patients say about this surgery")').offset().top + $('h2:contains("What patients say about this surgery")').outerHeight() && !endPatientsSay) {
+      if (scrollPoint(false, bottom, 'h2:contains("What patients say about this surgery")', endPatientsSay)) {
         scrolledSection(false, 'What patients say about this surgery');
         endPatientsSay = true;
       }
 
-      if ($('h2:contains("GPs at this surgery")').length && bottom > $('h2:contains("GPs at this surgery")').offset().top + $('h2:contains("GPs at this surgery")').outerHeight() && !endSurgeryGPs) {
+      if (scrollPoint(false, bottom, 'h2:contains("GPs at this surgery")', endSurgeryGPs)) {
         scrolledSection(false, 'GPs at this surgery');
         endSurgeryGPs = true;
       }
 
-      if ($('h2:contains("Services at this surgery")').length && bottom > $('h2:contains("Services at this surgery")').offset().top + $('h2:contains("Services at this surgery")').outerHeight() && !endServices) {
+      if (scrollPoint(false, bottom, 'h2:contains("Services at this surgery")', endServices)) {
         scrolledSection(false, 'Services at this surgery');
         endServices = true;
       }
 
-      if ($('h2:contains("Parking")').length && bottom > $('h2:contains("Parking")').offset().top + $('h2:contains("Parking")').outerHeight() && !endParking) {
+      if (scrollPoint(false, bottom, 'h2:contains("Parking")', endParking)) {
         scrolledSection(false, 'Parking and accessibility');
         endParking = true;
       }
 
-      if (bottom > $('footer ul.link-list').offset().top + $('footer ul.link-list').outerHeight() && !didComplete) {
+      if (scrollPoint(true, bottom, 'footer ul.link-list', didComplete)) {
         scrolledSection(false, 'end of the page');
         didComplete = true;
       }
