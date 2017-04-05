@@ -30,6 +30,7 @@ function createGpViewModel(req, res, next) {
       odsCode: gpData.odsCode,
       choicesId: gpData.choicesId,
       location: gpData.location,
+      acceptingNewPatients: gpData.acceptingNewPatients,
       facilities: facilitiesMapper(gpData.facilities),
       services: servicesMapper(gpData.services),
       openingTimes: openingTimesMapper(gpData.openingTimes),
