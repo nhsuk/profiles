@@ -1,8 +1,8 @@
 <h2 class='how-to-register'>How to register</h2>
 {% if gp.acceptingNewPatients %}
 <div class="callout callout--info callout--blue">
-  <p>
-  This surgery is accepting new patients
+  <p class='how-to-register'>
+    This surgery is accepting new patients
   </p>
 </div>
 <div>
@@ -10,8 +10,8 @@
 </div>
 {% else %}
 <div class="callout callout--info">
-  <p>
-  This surgery isn't accepting new patients
+  <p class='how-to-register'>
+    This surgery isn't accepting new patients
   </p>
 </div>
 <div>
