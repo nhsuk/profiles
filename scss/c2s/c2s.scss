@@ -169,6 +169,20 @@ form {
   border: 0;
 }
 
+.reading-width {
+  h2 {
+    &:first-of-type {
+      margin-top:56px;
+    }
+  }
+  hr {
+    &:first-of-type {
+      + h2 {
+        margin-top:32px;
+      }
+    }
+  }
+}
 .local-header-white-bg,
 .global-header,
 .global-footer,
