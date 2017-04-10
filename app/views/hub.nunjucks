@@ -20,6 +20,8 @@
 
   {% include "includes/gp-info.nunjucks" %}
 
+  {% include "includes/how-to-register.nunjucks" %}
+
   {% include "includes/services.nunjucks" %}
 
   {% include "includes/parking-accessibility.nunjucks" %}

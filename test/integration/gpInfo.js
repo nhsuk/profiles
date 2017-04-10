@@ -3,6 +3,7 @@ const chaiHttp = require('chai-http');
 const cheerio = require('cheerio');
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
+const utils = require('./testUtils');
 
 const expect = chai.expect;
 
@@ -20,7 +21,7 @@ describe('app', () => {
         const $ = cheerio.load(res.text);
 
         expect($('h2.gp-info').text()).to.equal('GPs at this surgery');
-        expect($('p.gp-info').text().trim().replace(/\s+/g, ' ')).to.equal('There are 5 female GPs and 1 male GP');
+        expect(utils.removeWhitespace($('p.gp-info').text())).to.equal('There are 5 female GPs and 1 male GP');
         expect($('ul.gp-info li').length).to.equal(6);
         done();
       });
