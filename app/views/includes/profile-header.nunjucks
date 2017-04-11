@@ -9,8 +9,7 @@
       {% if gp.contact.telephone %}Reception: {{ gp.contact.telephone }}<br />{% endif %}
       {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
       {% if gp.contact.email %}<a href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a><br />{% endif %}
-
-
+      </p>
     </div>
   </div>
 </div>
