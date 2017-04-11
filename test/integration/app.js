@@ -57,7 +57,7 @@ describe('app', () => {
   describe('existing GP page', () => {
     it('should return a GP Page for a valid Org Code', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/43213`)
+        .get(`${constants.SITE_ROOT}/44125`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -65,13 +65,14 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           expect($('.local-header__title').text().trim())
-            .to.equal('Dr C A Xavier');
+            .to.equal('Dr Writer & Partners');
           expect($('.column--one-half:first-child p').text().trim())
-            .to.equal('647 Liverpool RoadPlatt BridgeWigangreater manchesterWN2 5BD');
+            .to.equal('Park PracticeEastbourne Park Primary Care CentreBroadwater WayEastbourneBN22 9PQ');
           const contactDetailsText = $('.column--one-half p').last().text().trim();
-          expect(contactDetailsText).to.include('Reception: 01942 862738');
-          expect(contactDetailsText).to.include('Fax: 01942 865171');
-          expect(contactDetailsText).to.include('gp-p92651@nhs.net');
+          expect(contactDetailsText).to.include('Reception: 01323 502200');
+          expect(contactDetailsText).to.include('Fax: 01323 500527');
+          expect(contactDetailsText).to.include('admin.parkpractice@nhs.net');
+          expect(contactDetailsText).to.include('www.parkpractice.co.uk');
 
 
           const bookOnlineLink = $('.link-list').find('a').eq(0).prop('href');
