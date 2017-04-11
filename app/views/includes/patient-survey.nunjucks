@@ -6,6 +6,6 @@
   <li>waiting times</li>
   <li>staff at the surgery</li>
 </ul>
-<p>You can <a href="https://gp-patient.co.uk/practices/{{gp.odsCode}}">see results for this surgery on the GP Patient Survey website.</a></p>
+<p>You can <a href="https://gp-patient.co.uk/practices/{{gp.odsCode}}">see results for this surgery on the GP Patient Survey website</a>.</p>
 
 <hr class="hr--fullwidth"/>
