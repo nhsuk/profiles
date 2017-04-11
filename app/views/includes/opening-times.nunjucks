@@ -24,7 +24,7 @@
 {{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.') }}
 {{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.") }}
 
-<p>Contact reception{%if gp.contact.website %} or go to the <a href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
+<p>Contact reception{%if gp.contact.website %} or go to the <a class="gp-website-opening-times" href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
 
 <hr class="hr--fullwidth"/>
