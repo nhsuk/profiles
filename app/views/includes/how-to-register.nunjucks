@@ -1,4 +1,4 @@
-<h2 class='how-to-register'>How to register</h2>
+<h2 class='how-to-register' data-title="Register">How to register</h2>
 {% if gp.acceptingNewPatients %}
 <div class="callout callout--info callout--blue">
   <p class='how-to-register'>

@@ -12,12 +12,10 @@ jQuery(function($) {
   // Set some flags for tracking & execution
   var timer = 0;
   var scroller = false;
-  var endOpeningTimes = false;
-  var endPatientsSay = false;
-  var endSurgeryGPs = false;
-  var endServices = false;
-  var endParking = false;
   var didComplete = false;
+
+  var endTimer;
+  var sectionTitle;
 
   // Set some time variables to calculate reading time
   var startTime = new Date();
@@ -50,25 +48,15 @@ jQuery(function($) {
     scroller = true;
   }
 
-  function scrollPoint(end, bottom, element, ended){
+  function aboveFold(bottom, element){
     var point = $(element);
-    if (!end) {
-      return point.length && bottom > point.offset().top + point.outerHeight() && !ended;
-    }
-    else {
-      return bottom > point.offset().top + point.outerHeight() && !ended;
-    }
+    return bottom > point.offset().top + point.outerHeight();
   }
 
   // Check the location and track user
   function trackLocation() {
       bottom = $(window).height() + $(window).scrollTop();
       height = $(document).height();
-      results = $('.reading-width .sr-only').attr('data-results');
-      results_14 = Math.round(results / 4);
-      results_12 = Math.round(results / 2);
-      results_34 = Math.round(results_14 * 3);
-
 
       // If user starts to scroll send an event
       if (bottom > readerLocation && !scroller) {
@@ -76,32 +64,14 @@ jQuery(function($) {
         scroller = true;
       }
 
-      if (scrollPoint(false, bottom, 'h2.opening-times:contains("GP")', endOpeningTimes)) {
-        scrolledSection(false, 'GP Opening Times');
-        endOpeningTimes = true;
-      }
+      $('h2').not('.above, .util-visuallyhidden').each(function(){
+        if(aboveFold(bottom, $(this))){
+          $(this).addClass('above');
+          scrolledSection(false, $(this).data('title'));
+        }
+      });
 
-      if (scrollPoint(false, bottom, 'h2:contains("What patients say about this surgery")', endPatientsSay)) {
-        scrolledSection(false, 'What patients say about this surgery');
-        endPatientsSay = true;
-      }
-
-      if (scrollPoint(false, bottom, 'h2:contains("GPs at this surgery")', endSurgeryGPs)) {
-        scrolledSection(false, 'GPs at this surgery');
-        endSurgeryGPs = true;
-      }
-
-      if (scrollPoint(false, bottom, 'h2:contains("Services at this surgery")', endServices)) {
-        scrolledSection(false, 'Services at this surgery');
-        endServices = true;
-      }
-
-      if (scrollPoint(false, bottom, 'h2:contains("Parking")', endParking)) {
-        scrolledSection(false, 'Parking and accessibility');
-        endParking = true;
-      }
-
-      if (scrollPoint(true, bottom, 'footer ul.link-list', didComplete)) {
+      if (bottom > $('footer ul.link-list').offset().top + $('footer ul.link-list').outerHeight() && !didComplete){
         scrolledSection(false, 'end of the page');
         didComplete = true;
       }
