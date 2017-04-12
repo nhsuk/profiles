@@ -1,5 +1,7 @@
 {% extends 'layout.nunjucks' %}
 
+{% block pageTitle %}{{ gp.name }} - NHS.UK{% endblock %}
+
 {% block meta %}
 <meta name="DCSext.CTSServiceName" content="{{ gp.name }}"></meta>
 <meta name="DCSext.CTSServiceType" content="GP"></meta>
