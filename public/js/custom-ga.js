@@ -1,7 +1,7 @@
 jQuery(function($) {
 
   // Debug flag
-  var debugMode = false;
+  var debugMode = true;
 
   // Default time delay before checking location
   var callBackTime = 100;
