@@ -2,6 +2,7 @@ const openingTimesMapper = require('../lib/openingTimesMapper').mapAll;
 const facilitiesMapper = require('../lib/facilitiesMapper');
 const gpHelper = require('../lib/gpHelper');
 const servicesMapper = require('../lib/servicesMapper');
+const contactsMapper = require('../lib/contactsMapper');
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -26,7 +27,7 @@ function createGpViewModel(req, res, next) {
     res.locals.gp = {
       name: gpData.name,
       address: gpData.address,
-      contact: gpData.contact,
+      contact: contactsMapper(gpData.contact),
       odsCode: gpData.odsCode,
       choicesId: gpData.choicesId,
       location: gpData.location,
