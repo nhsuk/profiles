@@ -12,13 +12,6 @@ jQuery(function($) {
   // Set some flags for tracking & execution
   var timer = 0;
   var scroller = false;
-  var endOpeningTimesGp = false;
-  var endOpeningTimesReception = false;
-  var endPatientsSay = false;
-  var endSurgeryGPs = false;
-  var endServices = false;
-  var endParking = false;
-  var endRegister = false;
   var didComplete = false;
 
   var endTimer;
