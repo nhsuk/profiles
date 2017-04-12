@@ -1,5 +1,5 @@
 {% if gp.facilities %}
-<h2 class='facilities' >{{gp.facilities.title}}</h2>
+<h2 class='facilities'  data-timer="endParking" data-title="Parking">{{gp.facilities.title}}</h2>
 <ul class="link-list facilities">
   {% for name in gp.facilities.items %}
   <li>{{ name }}</li>

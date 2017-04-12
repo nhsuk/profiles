@@ -1,5 +1,5 @@
 {% if gp.services %}
-<h2 class="services">Services at this surgery</h2>
+<h2 class="services" data-timer="endServices" data-title="Services">Services at this surgery</h2>
 {% if gp.services.gpReferrals.length %}
 <h3>Services that need a GP referral</h3>
 <ul class="link-list gp-referrals">

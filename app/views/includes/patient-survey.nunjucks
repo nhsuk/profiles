@@ -1,4 +1,4 @@
-<h2>What patients say about this surgery</h2>
+<h2 data-timer="endPatientsSay" data-title="Patients Say">What patients say about this surgery</h2>
 <p>Every year, the GP Patient Survey gives patients a chance to say how they feel about their GP surgery.</p>
 <p>The survey is independent and asks people about their experiences of:</p>
 <ul>

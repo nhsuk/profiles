@@ -1,5 +1,5 @@
 {% if gp.gpInfo %}
-  <h2 class='gp-info'>GPs at this surgery</h2>
+  <h2 class='gp-info' data-timer='endSurgeryGPs' data-title='GPs at this surgery'>GPs at this surgery</h2>
   <p class='gp-info'>There {{gp.gpInfo.personSingular}}
     {% for message in gp.gpInfo.counts %}
         {{message}}
