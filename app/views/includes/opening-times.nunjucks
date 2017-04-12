@@ -1,5 +1,5 @@
 {% macro openingTimes(times, title, message, genTitle) %}
-<h2 class='opening-times' data-timer='{{endTimer}}' data-title='{{genTitle}}'>{{ title }}</h2>
+<h2 class='opening-times' data-title='{{genTitle}}'>{{ title }}</h2>
 {% if times %}
     <table class='opening-times'>
       {% for ot in times %}
