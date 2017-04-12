@@ -74,9 +74,7 @@ jQuery(function($) {
       $('h2').not('.above, .util-visuallyhidden').each(function(){
         if(aboveFold(bottom, $(this))){
           $(this).addClass('above');
-          endTimer = $(this).data('timer');
           scrolledSection(false, $(this).data('title'));
-          endTimer = true;
         }
       });
 
