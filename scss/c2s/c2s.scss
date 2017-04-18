@@ -234,6 +234,11 @@ form {
       }
       .column {
         &--one-half {
+          @include media(tablet) {
+            float: left;
+            width: 50%;
+            margin-top: 0px;
+          }
           &:first-child {
             p {
               text-transform:capitalize;
