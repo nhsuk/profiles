@@ -20,6 +20,11 @@ function getBookOnlineLink(gpData) {
     : undefined;
 }
 
+function getOldProfileLink(gpData) {
+  // eslint-disable-next-line no-underscore-dangle
+  return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData._id}`;
+}
+
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
   if (gpData) {
@@ -37,6 +42,7 @@ function createGpViewModel(req, res, next) {
       openingTimes: openingTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
       bookOnlineLink: getBookOnlineLink(gpData),
+      oldProfileLink: getOldProfileLink(gpData),
     };
   }
   next();
