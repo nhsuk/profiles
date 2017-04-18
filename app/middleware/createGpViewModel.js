@@ -20,6 +20,10 @@ function getBookOnlineLink(gpData) {
     : undefined;
 }
 
+function getOldProfileLink(gpData) {
+  return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
+}
+
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
   if (gpData) {
@@ -37,6 +41,7 @@ function createGpViewModel(req, res, next) {
       openingTimes: openingTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
       bookOnlineLink: getBookOnlineLink(gpData),
+      oldProfileLink: getOldProfileLink(gpData),
     };
   }
   next();
