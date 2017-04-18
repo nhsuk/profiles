@@ -21,8 +21,7 @@ function getBookOnlineLink(gpData) {
 }
 
 function getOldProfileLink(gpData) {
-  // eslint-disable-next-line no-underscore-dangle
-  return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData._id}`;
+  return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
 }
 
 function createGpViewModel(req, res, next) {
