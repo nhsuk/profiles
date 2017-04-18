@@ -1,14 +1,11 @@
 {% if gp.onlineTasks %}
 <ul class="link-list">
 {% if gp.onlineTasks.bookOnlineLink %}
-  <li><a class="gp-book-online" href="{{gp.onlineTasks.bookOnlineLink}}">Book a GP appointment</a></li>
+  <li><a class="column--one-third gp-book-online" href="{{gp.onlineTasks.bookOnlineLink}}">Book a GP appointment</a></li>
 {% endif %}
 {% if gp.onlineTasks.repeatPrescriptionOnlineLink %}
-  <li><a class="repeat-prescription-online" href="{{gp.onlineTasks.repeatPrescriptionOnlineLink}}">Order a repeat prescription</a></li>
+  <li><a class="column--one-third repeat-prescription-online" href="{{gp.onlineTasks.repeatPrescriptionOnlineLink}}">Get a repeat prescription</a></li>
 {% endif %}
 {% if gp.onlineTasks.codedRecordsOnlineLink %}
-  <li><a class="coded-records-online" href="{{gp.onlineTasks.codedRecordsOnlineLink}}">See your health records</a></li>
-{% endif %}
-</ul>
-<hr class="hr--fullwidth"/>
+  <li><a class="column--one-third coded-records-online" href="{{gp.onlineTasks.codedRecordsOnlineLink}}">View your medical record</a></li>
 {% endif %}

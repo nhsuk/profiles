@@ -18,8 +18,8 @@
 {% endblock %}
 
 {% block content %}
+{% include "includes/online-tasks.nunjucks" %}
 <div class="reading-width">
-  {% include "includes/online-tasks.nunjucks" %}
 
   {% include "includes/opening-times.nunjucks" %}
 
