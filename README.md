@@ -15,12 +15,12 @@ the application is being run. This is best practice as described by
 
 | Variable                         | Description                                                        | Default               | Required |
 |:---------------------------------|:-------------------------------------------------------------------|-----------------------|:---------|
-| `NODE_ENV`                       | node environment                                                   | development           | |
-| `LOG_LEVEL`                      | [log level](https://github.com/trentm/node-bunyan#levels)          | Depends on `NODE_ENV` | |
-| `PORT`                           | server port                                                        | 3000                  | |
-| `GOOGLE_ANALYTICS_TRACKING_ID`   | [Google Analytics](https://www.google.co.uk/analytics) property id |                       | |
-| `WEBTRENDS_ANALYTICS_TRACKING_ID`| [Webtrends](https://www.webtrends.com/) tracking id                |                       | |
-| `HOTJAR_ANALYTICS_TRACKING_ID`   | [Hotjar](https://www.hotjar.com/) tracking id                      |                       | |
+| `NODE_ENV`                       | node environment                                                   | development           |          |
+| `LOG_LEVEL`                      | [log level](https://github.com/trentm/node-bunyan#levels)          | Depends on `NODE_ENV` |          |
+| `PORT`                           | server port                                                        | 3000                  |          |
+| `GOOGLE_ANALYTICS_TRACKING_ID`   | [Google Analytics](https://www.google.co.uk/analytics) property id |                       |          |
+| `WEBTRENDS_ANALYTICS_TRACKING_ID`| [Webtrends](https://www.webtrends.com/) tracking id                |                       |          |
+| `HOTJAR_ANALYTICS_TRACKING_ID`   | [Hotjar](https://www.hotjar.com/) tracking id                      |                       |          |
 
 ## Application development
 
