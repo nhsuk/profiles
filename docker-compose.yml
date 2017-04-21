@@ -7,7 +7,7 @@ services:
       context: .
       args:
         NODE_ENV: development
-    command: npm run start-watch
+    command: yarn run start-watch
     volumes:
       - .:/code
     environment:
