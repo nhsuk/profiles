@@ -18,7 +18,7 @@
     "prepush": "yarn run git-hook && yarn run snyk -- test",
     "snyk": "snyk",
     "start": "node app.js",
-    "start-watch": "nodemon app.js | ./node_modules/.bin/bunyan & nodemon -e scss -x yarn run build-css -- compact",
+    "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn run build-css -- compact",
     "test": "NODE_ENV=test mocha --recursive test",
     "test-watch": "yarn run test -- --watch --reporter min",
     "travis": "yarn run lint && yarn run generate-coverage && yarn run check-coverage && yarn run upload-coverage-coveralls",
