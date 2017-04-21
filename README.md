@@ -22,25 +22,10 @@ the application is being run. This is best practice as described by
 | `WEBTRENDS_ANALYTICS_TRACKING_ID`| [Webtrends](https://www.webtrends.com/) tracking id                |                       |          |
 | `HOTJAR_ANALYTICS_TRACKING_ID`   | [Hotjar](https://www.hotjar.com/) tracking id                      |                       |          |
 
-## Application development
+## Working on the application
 
 Start by cloning the repo and all submodules i.e.
 `git clone https://github.com/nhsuk/profiles.git && cd profiles/ && git submodule update --init --recursive`
 
-It is good practice to run `docker-compose down -v` before starting the
-application as this will clear up any resources from previous containers that
-might otherwise affect the correct running of the application.  Run the
-application with Docker via
-`docker-compose up --build --force-recreate profiles-frontend`.
-This will build an image based on the code in the current
-working directory and start it running. It will be available locally on
-[http://localhost:3000](http://localhost:3000)
-
-When finished with the application `docker-compose down -v` should be run to
-shutdown all services, including volumes. This is the correct way to close down
-resource used by the `up` command.
-
-It is good practice to run the tests in a Docker container. To do this run
-`docker-compose -f docker-compose-tests.yml up --build --force-recreate tests`.
-A new container will be started where the tests will run and rerun when changes
-are made to the source code.
+Next, check out the set of scripts for getting the application running
+[`scripts`](scripts/)
