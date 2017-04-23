@@ -3,6 +3,7 @@ const facilitiesMapper = require('../lib/facilitiesMapper');
 const gpHelper = require('../lib/gpHelper');
 const servicesMapper = require('../lib/servicesMapper');
 const contactsMapper = require('../lib/contactsMapper');
+const onlineTasksMapper = require('../lib/onlineTasksMapper');
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -11,12 +12,6 @@ function getGpInfo(gpData) {
       counts: gpHelper.getGpCountMessages(gpData.gpCounts),
       doctors: gpData.doctors,
     }
-    : undefined;
-}
-
-function getBookOnlineLink(gpData) {
-  return gpData.bookingSystem
-    ? gpData.bookingSystem.bookOnlineLink
     : undefined;
 }
 
@@ -40,7 +35,7 @@ function createGpViewModel(req, res, next) {
       services: servicesMapper(gpData.services),
       openingTimes: openingTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
-      bookOnlineLink: getBookOnlineLink(gpData),
+      bookOnlineLink: onlineTasksMapper(gpData),
       choicesProfileLink: choicesProfileLink(gpData),
     };
   }
