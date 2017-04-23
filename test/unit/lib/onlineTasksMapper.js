@@ -4,23 +4,32 @@ const mapper = require('../../../app/lib/onlineTasksMapper');
 const expect = chai.expect;
 
 describe('onlineTasksMapper', () => {
-  it('should return undefined when there is no booking system', () => {
-    const result = mapper({});
+  const repeatScriptsLink = 'http://order.repeat.scripts';
+  const bookOnlineLink = 'http://book.online';
+
+  it('should return undefined when there are no online tasks', () => {
+    const response = mapper({});
 
     // eslint-disable-next-line no-unused-expressions
-    expect(result).to.be.undefined;
+    expect(response).to.be.undefined;
   });
 
-  it('should return booking link', () => {
-    const bookOnlineLink = 'http://a.link.here';
-    const input = {
-      bookingSystem: {
-        bookOnlineLink
-      },
-    };
+  it('should return booking link as part of an object member', () => {
+    const input = { bookingSystem: { bookOnlineLink } };
 
-    const results = mapper(input);
+    const response = mapper(input);
 
-    expect(results).to.be.equal(bookOnlineLink);
+    expect(response).to.be.an('object');
+    expect(response.bookOnlineLink).to.be.equal(bookOnlineLink);
+  });
+
+  it('should return repeat prescriptions link as part of an object member', () => {
+    const input = { onlineServices: { repeatPrescriptions: { url: repeatScriptsLink } } };
+
+    const response = mapper(input);
+
+    expect(response).to.be.an('object');
+    expect(response.repeatPrescriptionOnlineLink)
+      .to.be.equal(repeatScriptsLink);
   });
 });

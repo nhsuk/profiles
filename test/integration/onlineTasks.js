@@ -9,7 +9,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('online services', () => {
-  it('should display a book online link when there is one', (done) => {
+  it('should display a book online link when one is available', (done) => {
     chai.request(app)
       .get(`${constants.SITE_ROOT}/44125`)
       .end((err, res) => {
@@ -26,7 +26,7 @@ describe('online services', () => {
       });
   });
 
-  it('should not display a book online link when there is not one', (done) => {
+  it('should not display a book online link when one is not available', (done) => {
     chai.request(app)
       .get(`${constants.SITE_ROOT}/43484`)
       .end((err, res) => {
@@ -37,6 +37,39 @@ describe('online services', () => {
         const bookOnlineElem = $('.gp-book-online');
 
         expect(bookOnlineElem.length).to.be.equal(0);
+
+        done();
+      });
+  });
+
+  it('should display an order repeat prescription online link when one is available', (done) => {
+    chai.request(app)
+      .get(`${constants.SITE_ROOT}/40565`)
+      .end((err, res) => {
+        expect(err).to.equal(null);
+        expect(res).to.have.status(200);
+
+        const $ = cheerio.load(res.text);
+        const onlineElem = $('.repeat-prescription-online');
+
+        expect(onlineElem.text()).to.be.equal('Order a repeat prescription');
+        expect(onlineElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/prescriptions/request');
+
+        done();
+      });
+  });
+
+  it('should not display an order repeat prescripton online link when one is not available', (done) => {
+    chai.request(app)
+      .get(`${constants.SITE_ROOT}/38560`)
+      .end((err, res) => {
+        expect(err).to.equal(null);
+        expect(res).to.have.status(200);
+
+        const $ = cheerio.load(res.text);
+        const onlineElem = $('.repeat-prescription-online');
+
+        expect(onlineElem.length).to.be.equal(0);
 
         done();
       });

@@ -35,7 +35,7 @@ function createGpViewModel(req, res, next) {
       services: servicesMapper(gpData.services),
       openingTimes: openingTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
-      bookOnlineLink: onlineTasksMapper(gpData),
+      onlineTasks: onlineTasksMapper(gpData),
       choicesProfileLink: choicesProfileLink(gpData),
     };
   }
