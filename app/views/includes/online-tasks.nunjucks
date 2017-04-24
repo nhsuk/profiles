@@ -1,6 +1,11 @@
-{% if gp.bookOnlineLink %}
+{% if gp.onlineTasks %}
 <ul class="link-list">
-  <li><a class="gp-book-online" href="{{gp.bookOnlineLink}}">Book a GP appointment</a></li>
+{% if gp.onlineTasks.bookOnlineLink %}
+  <li><a class="gp-book-online" href="{{gp.onlineTasks.bookOnlineLink}}">Book a GP appointment</a></li>
+{% endif %}
+{% if gp.onlineTasks.repeatPrescriptionOnlineLink %}
+  <li><a class="repeat-prescription-online" href="{{gp.onlineTasks.repeatPrescriptionOnlineLink}}">Order a repeat prescription</a></li>
+{% endif %}
 </ul>
 <hr class="hr--fullwidth"/>
 {% endif %}

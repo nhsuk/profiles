@@ -74,10 +74,8 @@ describe('app', () => {
           expect($('.gp-email').text()).to.include('admin.parkpractice@nhs.net');
           expect($('.gp-website').text()).to.include('www.parkpractice.co.uk');
 
-          const bookOnlineLink = $('.link-list').find('a').eq(0).prop('href');
-          expect(bookOnlineLink).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
-          const oldProfileLink = $('.gp-old-profile').prop('href');
-          expect(oldProfileLink).to.be.equal('http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
+          const choicesProfileLink = $('.choices-profile-link').prop('href');
+          expect(choicesProfileLink).to.be.equal('http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
 
           done();
         });
