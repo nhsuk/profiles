@@ -1,17 +1,24 @@
-function map(gpData) {
-  let onlineTasks;
+function hasOnlineServices(gpData) {
+  return gpData.bookingSystem ||
+    (gpData.onlineServices && gpData.onlineServices.repeatPrescriptions);
+}
+
+function createOnlineTasks(gpData) {
+  const onlineTasks = {};
 
   if (gpData.bookingSystem) {
-    onlineTasks = {};
     onlineTasks.bookOnlineLink = gpData.bookingSystem.bookOnlineLink;
   }
 
-  if (gpData.onlineServices && gpData.onlineServices.repeatPrescriptions) {
-    onlineTasks = onlineTasks || {};
+  if (gpData.onlineServices) {
     onlineTasks.repeatPrescriptionOnlineLink = gpData.onlineServices.repeatPrescriptions.url;
   }
 
   return onlineTasks;
+}
+
+function map(gpData) {
+  return hasOnlineServices(gpData) ? createOnlineTasks(gpData) : undefined;
 }
 
 module.exports = map;

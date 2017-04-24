@@ -32,4 +32,18 @@ describe('onlineTasksMapper', () => {
     expect(response.repeatPrescriptionOnlineLink)
       .to.be.equal(repeatScriptsLink);
   });
+
+  it('should return all online services when they are all available', () => {
+    const input = {
+      onlineServices: { repeatPrescriptions: { url: repeatScriptsLink } },
+      bookingSystem: { bookOnlineLink },
+    };
+
+    const response = mapper(input);
+
+    expect(response).to.be.an('object');
+    expect(response.bookOnlineLink).to.be.equal(bookOnlineLink);
+    expect(response.repeatPrescriptionOnlineLink)
+      .to.be.equal(repeatScriptsLink);
+  });
 });
