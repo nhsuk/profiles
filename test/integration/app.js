@@ -72,7 +72,7 @@ describe('app', () => {
           expect(contactDetailsText).to.include('Reception: 01323 502200');
           expect(contactDetailsText).to.include('Fax: 01323 500527');
           expect($('.gp-email').text()).to.include('admin.parkpractice@nhs.net');
-          expect($('.gp-website').text()).to.include('www.parkpractice.co.uk');
+          expect($('.gp-website').text()).to.include("See the surgery's own website");
 
           const choicesProfileLink = $('.choices-profile-link').prop('href');
           expect(choicesProfileLink).to.be.equal('http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
