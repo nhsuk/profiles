@@ -1,29 +1,21 @@
 function hasOnlineServices(gpData) {
-  return gpData.bookingSystem || gpData.onlineServices;
+  return gpData.onlineServices;
 }
 
-function createOnlineTasks(gpData) {
-  const onlineTasks = {};
+function getLink(onlineServices, key) {
+  return onlineServices[key] ? onlineServices[key].url : undefined;
+}
 
-  if (gpData.bookingSystem) {
-    onlineTasks.bookOnlineLink = gpData.bookingSystem.bookOnlineLink;
-  }
-
-  const onlineServices = gpData.onlineServices;
-  if (onlineServices) {
-    if (onlineServices.repeatPrescriptions) {
-      onlineTasks.repeatPrescriptionOnlineLink = onlineServices.repeatPrescriptions.url;
-    }
-    if (onlineServices.codedRecords) {
-      onlineTasks.codedRecordsOnlineLink = gpData.onlineServices.codedRecords.url;
-    }
-  }
-
-  return onlineTasks;
+function createOnlineTasks(onlineServices) {
+  return {
+    bookOnlineLink: getLink(onlineServices, 'appointments'),
+    repeatPrescriptionOnlineLink: getLink(onlineServices, 'repeatPrescriptions'),
+    codedRecordsOnlineLink: getLink(onlineServices, 'codedRecords'),
+  };
 }
 
 function map(gpData) {
-  return hasOnlineServices(gpData) ? createOnlineTasks(gpData) : undefined;
+  return hasOnlineServices(gpData) ? createOnlineTasks(gpData.onlineServices) : undefined;
 }
 
 module.exports = map;

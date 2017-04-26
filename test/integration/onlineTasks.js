@@ -40,45 +40,19 @@ describe('online services', () => {
   describe('when links are not available', () => {
     it('should not display them', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/43484`)
+        .get(`${constants.SITE_ROOT}/38560`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
 
           const $ = cheerio.load(res.text);
           const appointmentElem = $(appointmentClass);
+          const scriptsElem = $(scriptsClass);
+          const recordsElem = $(recordsClass);
 
           expect(appointmentElem.length).to.be.equal(0);
-          done();
-        });
-    });
-
-    it('should not display when one is not available', (done) => {
-      chai.request(app)
-        .get(`${constants.SITE_ROOT}/38560`)
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-
-          const $ = cheerio.load(res.text);
-          const scriptsElem = $(scriptsClass);
-
           expect(scriptsElem.length).to.be.equal(0);
-          done();
-        });
-    });
-
-    it('should not display when one is not available', (done) => {
-      chai.request(app)
-        .get(`${constants.SITE_ROOT}/38560`)
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
-
-          const $ = cheerio.load(res.text);
-          const onlineElem = $(recordsClass);
-
-          expect(onlineElem.length).to.be.equal(0);
+          expect(recordsElem.length).to.be.equal(0);
           done();
         });
     });

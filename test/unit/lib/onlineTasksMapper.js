@@ -16,7 +16,7 @@ describe('onlineTasksMapper', () => {
   });
 
   it('should return booking link as part of an object member', () => {
-    const input = { bookingSystem: { bookOnlineLink } };
+    const input = { onlineServices: { appointments: { url: bookOnlineLink } } };
 
     const response = mapper(input);
 
@@ -49,8 +49,8 @@ describe('onlineTasksMapper', () => {
       onlineServices: {
         repeatPrescriptions: { url: repeatScriptsLink },
         codedRecords: { url: codedRecordsLink },
+        appointments: { url: bookOnlineLink },
       },
-      bookingSystem: { bookOnlineLink },
     };
 
     const response = mapper(input);
