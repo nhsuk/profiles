@@ -6,6 +6,9 @@
 {% if gp.onlineTasks.repeatPrescriptionOnlineLink %}
   <li><a class="repeat-prescription-online" href="{{gp.onlineTasks.repeatPrescriptionOnlineLink}}">Order a repeat prescription</a></li>
 {% endif %}
+{% if gp.onlineTasks.codedRecordsOnlineLink %}
+  <li><a class="coded-records-online" href="{{gp.onlineTasks.codedRecordsOnlineLink}}">See your health records</a></li>
+{% endif %}
 </ul>
 <hr class="hr--fullwidth"/>
 {% endif %}

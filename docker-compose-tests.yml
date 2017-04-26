@@ -34,7 +34,7 @@ services:
     - profiles-db:mongo
 
   profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.7.6}"
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.7.9}"
 
 volumes:
   profiles-tests-node_modules:

@@ -1,6 +1,5 @@
 function hasOnlineServices(gpData) {
-  return gpData.bookingSystem ||
-    (gpData.onlineServices && gpData.onlineServices.repeatPrescriptions);
+  return gpData.bookingSystem || gpData.onlineServices;
 }
 
 function createOnlineTasks(gpData) {
@@ -10,8 +9,14 @@ function createOnlineTasks(gpData) {
     onlineTasks.bookOnlineLink = gpData.bookingSystem.bookOnlineLink;
   }
 
-  if (gpData.onlineServices) {
-    onlineTasks.repeatPrescriptionOnlineLink = gpData.onlineServices.repeatPrescriptions.url;
+  const onlineServices = gpData.onlineServices;
+  if (onlineServices) {
+    if (onlineServices.repeatPrescriptions) {
+      onlineTasks.repeatPrescriptionOnlineLink = onlineServices.repeatPrescriptions.url;
+    }
+    if (onlineServices.codedRecords) {
+      onlineTasks.codedRecordsOnlineLink = gpData.onlineServices.codedRecords.url;
+    }
   }
 
   return onlineTasks;
