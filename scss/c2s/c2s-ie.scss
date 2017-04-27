@@ -135,3 +135,40 @@ a.link-back {
     width: 130px;
     clear:both;
 }
+
+ul {
+  &.link-list {
+    &.grid-row {
+      margin-bottom: 36px;
+      li {
+        @include media(desktop) {
+          padding-right:0;
+        }
+        a {
+          line-height:22px;
+          color: #002C89;
+          width:100%;
+          background-color: #F0F4F5;
+          border-bottom:2px solid #C0CCDF;
+          padding:12px;
+          display:block;
+          text-decoration: none;
+          position:relative;
+          transition: background 0.1s linear;
+          font-weight: 700;
+          &:after {
+            content: ">";
+            right: 8px;
+            position: absolute;
+          }
+          &:hover {
+            color: #00236e;
+            background-color: #c0c3c4;
+            border-bottom: 2px solid #9aa3b2;
+            transition: background 0.1s linear;
+          }
+        }
+      }
+    }
+  }
+}
