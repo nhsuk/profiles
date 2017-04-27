@@ -28,9 +28,9 @@ describe('online services', () => {
 
           expect(appointmentElem.text()).to.be.equal('Book a GP appointment');
           expect(appointmentElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
-          expect(scriptsElem.text()).to.be.equal('Order a repeat prescription');
+          expect(scriptsElem.text()).to.be.equal('Get a repeat prescription');
           expect(scriptsElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/prescriptions/request');
-          expect(recordsElem.text()).to.be.equal('See your health records');
+          expect(recordsElem.text()).to.be.equal('View your medical record');
           expect(recordsElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/medical-record');
           done();
         });

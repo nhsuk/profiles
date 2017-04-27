@@ -18,9 +18,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="reading-width">
-  {% include "includes/online-tasks.nunjucks" %}
+{% include "includes/online-tasks.nunjucks" %}
 
+<div class="reading-width">
   {% include "includes/opening-times.nunjucks" %}
 
   {% include "includes/patient-survey.nunjucks" %}
