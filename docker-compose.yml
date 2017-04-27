@@ -7,7 +7,7 @@ services:
       context: .
       args:
         NODE_ENV: development
-    command: npm run start-watch
+    command: yarn run start-watch
     volumes:
       - .:/code
     environment:
@@ -27,7 +27,7 @@ services:
       - profiles-node_modules:/code/node_modules
 
   profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.7.3}"
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.8.0}"
 
 volumes:
   profiles-node_modules:

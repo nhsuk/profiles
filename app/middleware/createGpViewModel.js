@@ -3,6 +3,7 @@ const facilitiesMapper = require('../lib/facilitiesMapper');
 const gpHelper = require('../lib/gpHelper');
 const servicesMapper = require('../lib/servicesMapper');
 const contactsMapper = require('../lib/contactsMapper');
+const onlineTasksMapper = require('../lib/onlineTasksMapper');
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -14,10 +15,8 @@ function getGpInfo(gpData) {
     : undefined;
 }
 
-function getBookOnlineLink(gpData) {
-  return gpData.bookingSystem
-    ? gpData.bookingSystem.bookOnlineLink
-    : undefined;
+function getChoicesProfileLink(gpData) {
+  return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
 }
 
 function createGpViewModel(req, res, next) {
@@ -36,7 +35,8 @@ function createGpViewModel(req, res, next) {
       services: servicesMapper(gpData.services),
       openingTimes: openingTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
-      bookOnlineLink: getBookOnlineLink(gpData),
+      onlineTasks: onlineTasksMapper(gpData),
+      choicesProfileLink: getChoicesProfileLink(gpData),
     };
   }
   next();
