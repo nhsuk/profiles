@@ -6,6 +6,12 @@ jQuery(function($) {
     $('.gp-book-online').on('click', function () {
       Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Booking', 'WT.dl', '121']});
     });
+    $('.repeat-prescription-online').on('click', function () {
+      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Repeat-Prescription', 'WT.dl', '121']});
+    });
+    $('.coded-records-online').on('click', function () {
+      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Medical-Record', 'WT.dl', '121']});
+    });
     $('.gp-patient-survey').on('click', function () {
       Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Patient_Survey', 'WT.dl', '121']});
     });

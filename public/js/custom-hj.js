@@ -6,6 +6,12 @@ jQuery(function($) {
     $('.gp-book-online').on('click', function () {
       hj('tagRecording', ['Book Online']);
     });
+    $('.repeat-prescription-online').on('click', function () {
+      hj('tagRecording', ['Repeat Prescriptions Online']);
+    });
+    $('.coded-records-online').on('click', function () {
+      hj('tagRecording', ['Medical Record Online']);
+    });
     $('.gp-patient-survey').on('click', function () {
       hj('tagRecording', ['Patient Survey']);
     });
