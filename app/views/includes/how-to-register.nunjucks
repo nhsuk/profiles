@@ -6,7 +6,7 @@
   </p>
 </div>
 <div>
-  <p>Find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx#register">how to register as a patient</a>.</p>
+  <p>Find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx#register" class="gp-website-register">how to register as a patient</a>.</p>
 </div>
 {% else %}
 <div class="callout callout--info">
@@ -15,7 +15,7 @@
   </p>
 </div>
 <div>
-  <p>You can still find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx#register">how to register with other surgeries</a>.</p>
+  <p>You can still find out <a href="http://www.nhs.uk/NHSEngland/AboutNHSservices/doctors/Pages/NHSGPs.aspx#register" class="gp-website-register-other">how to register with other surgeries</a>.</p>
 </div>
 {% endif %}
 <hr class="hr--fullwidth"/>
