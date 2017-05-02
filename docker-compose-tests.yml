@@ -18,7 +18,7 @@ services:
     extends:
       file: docker-compose.yml
       service: base-app
-    command: sh -c "yarn run travis"
+    command: yarn run travis
     user: root
     volumes:
       - profiles-travis-tests-node_modules:/code/node_modules
