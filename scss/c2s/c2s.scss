@@ -12,6 +12,22 @@ $grey: #d9dde0;
    HTML elements
 */
 
+dl {
+  dt {
+    font-weight:bold;
+    border-top:1px solid $grey-3;
+    padding-top: 16px;
+    &:first-child {
+      border:none;
+      padding-top:0;
+    }
+    dd{}
+  }
+  border-bottom:1px solid $grey-3;
+  padding-bottom: 16px;
+  margin-bottom: 48px;
+}
+
 html {
   background-color:$blue;
 }
