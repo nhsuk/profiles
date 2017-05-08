@@ -1,6 +1,33 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.0
-ignore: {}
+version: v1.7.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:brace-expansion:20170302':
+    - nunjucks > chokidar > fsevents > node-pre-gyp > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.860Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.860Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.860Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.861Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > fstream-ignore > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.861Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > fstream-ignore > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.861Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-05-27T15:42:12.862Z'
+  'npm:qs:20170213':
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > qs:
+        reason: None given
+        expires: '2017-05-27T15:42:12.862Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:qs:20170213':
