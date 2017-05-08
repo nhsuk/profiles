@@ -13,12 +13,9 @@ jQuery(function($) {
       'gp-website-opening-times' : 'Website Opening Times'
     }
 
-    $('a').on('touchstart click', function () {
-      elem = $(this);
-      $.each( anchors, function( key, value ){
-        if ( $(elem).hasClass(key) ) {
-          hj('tagRecording', [value]);
-        }
+    $.each(anchors , function(prop, val) {
+      $('a.' + prop).on('touchstart click', function () {
+        hj('tagRecording', [val]);
       });
     });
   });
