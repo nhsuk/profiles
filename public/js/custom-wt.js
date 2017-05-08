@@ -13,12 +13,9 @@ jQuery(function($) {
       'gp-website-opening-times' : 'GP-Website_OpeningTimes'
     }
 
-    $('a').on('touchstart click', function () {
-      elem = $(this);
-      $.each( anchors, function( key, value ){
-        if ( $(elem).hasClass(key) ) {
-          Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', value, 'WT.dl', '121']});
-        }
+    $.each(anchors , function(prop, val) {
+      $('a.' + prop).on('touchstart click', function () {
+        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
       });
     });
   });
