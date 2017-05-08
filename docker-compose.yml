@@ -20,14 +20,21 @@ services:
     extends:
       service: base-app
     links:
-    - profiles-db:mongo
+    - mongo-db:mongo
     ports:
       - 3000:3000
     volumes:
       - profiles-node_modules:/code/node_modules
 
-  profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.8.0}"
+  profiles-db-updater:
+    image: "nhsuk/profiles-db-updater:pr-1"
+    links:
+    - mongo-db:mongo
+
+  mongo-db:
+    image: mongo:3.4
+    ports:
+      - 27017:27017
 
 volumes:
   profiles-node_modules:
