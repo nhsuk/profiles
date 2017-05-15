@@ -1,31 +1,22 @@
 jQuery(function($) {
   $(document).ready(function () {
-    $('.gp-email').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Email', 'WT.dl', '121']});
-    });
-    $('.gp-book-online').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Booking', 'WT.dl', '121']});
-    });
-    $('.repeat-prescription-online').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Repeat-Prescription', 'WT.dl', '121']});
-    });
-    $('.coded-records-online').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Medical-Record', 'WT.dl', '121']});
-    });
-    $('.gp-patient-survey').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Patient_Survey', 'WT.dl', '121']});
-    });
-    $('.gp-website-register').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Register_Patient', 'WT.dl', '121']});
-    });
-    $('.gp-website-register-other').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Register_Other', 'WT.dl', '121']});
-    });
-    $('.gp-website').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Website', 'WT.dl', '121']});
-    });
-    $('.gp-website-opening-times').on('touchstart click', function () {
-      Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', 'GP-Website_OpeningTimes', 'WT.dl', '121']});
+
+    var anchors = {
+      'gp-email' : 'GP-Email',
+      'gp-book-online' : 'GP-Booking',
+      'repeat-prescription-online' : 'GP-Repeat-Prescription',
+      'coded-records-online' : 'GP-Medical-Record',
+      'gp-patient-survey' : 'GP-Patient_Survey',
+      'gp-website-register' : 'GP-Register_Patient',
+      'gp-website-register-other' : 'GP-Register_Other',
+      'gp-website' : 'GP-Websitet',
+      'gp-website-opening-times' : 'GP-Website_OpeningTimes'
+    }
+
+    $.each(anchors , function(prop, val) {
+      $('a.' + prop).on('touchstart click', function () {
+        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
+      });
     });
   });
 });

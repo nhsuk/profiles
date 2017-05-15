@@ -1,25 +1,22 @@
 jQuery(function($) {
   $(document).ready(function () {
-    $('.gp-email').on('click', function () {
-      hj('tagRecording', ['Email']);
-    });
-    $('.gp-book-online').on('click', function () {
-      hj('tagRecording', ['Book Online']);
-    });
-    $('.repeat-prescription-online').on('click', function () {
-      hj('tagRecording', ['Repeat Prescriptions Online']);
-    });
-    $('.coded-records-online').on('click', function () {
-      hj('tagRecording', ['Medical Record Online']);
-    });
-    $('.gp-patient-survey').on('click', function () {
-      hj('tagRecording', ['Patient Survey']);
-    });
-    $('.gp-website').on('click', function () {
-      hj('tagRecording', ['Website']);
-    });
-    $('.gp-website-opening-times').on('click', function () {
-      hj('tagRecording', ['Website Opening Times']);
+
+    var anchors = {
+      'gp-email' : 'Email',
+      'gp-book-online' : 'Book Online',
+      'repeat-prescription-online' : 'Repeat Prescriptions Online',
+      'coded-records-online' : 'Medical Record Online',
+      'gp-patient-survey' : 'Patient Survey',
+      'gp-website' : 'Website',
+      'gp-website-register' : 'How to register as a patient',
+      'gp-website-register-other' : 'How to register with other surgeries',
+      'gp-website-opening-times' : 'Website Opening Times'
+    }
+
+    $.each(anchors , function(prop, val) {
+      $('a.' + prop).on('touchstart click', function () {
+        hj('tagRecording', [val]);
+      });
     });
   });
 });
