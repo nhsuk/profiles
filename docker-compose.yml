@@ -28,6 +28,8 @@ services:
 
   profiles-db:
     image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.8.0}"
+    expose:
+      - "27017"
 
 volumes:
   profiles-node_modules:

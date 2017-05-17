@@ -1,6 +1,8 @@
-{% macro openingTimes(times, title, message, genTitle) %}
+{% macro openingTimes(times, title, message, genTitle, subtitle, callout) %}
 <h2 class='opening-times' data-title='{{genTitle}}'>{{ title }}</h2>
 {% if times %}
+  <div class='{{callout}}'>
+    <h3>{{ subtitle }}</h3>
     <table class='opening-times'>
       {% for ot in times %}
       <tr>
@@ -16,13 +18,15 @@
       </tr>
     {% endfor %}
   </table>
+  </div>
 {% else %}
     <p class='opening-times'>{{message}}</p>
 {% endif %}
 {% endmacro %}
 
-{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)') }}
-{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)') }}
+{{ openingTimes(gp.openingTimes.reception, 'Reception opening times','','Bank holiday opening','Bank holiday opening','callout callout--warning') }}
+{{ openingTimes(gp.openingTimes.reception, '', 'No information available. Contact reception to find out opening times.','Open (Reception)','','') }}
+{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)','','') }}
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a class="gp-website-opening-times" href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
