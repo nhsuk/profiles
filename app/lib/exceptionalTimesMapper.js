@@ -1,6 +1,6 @@
 const timeUtils = require('./timeUtils');
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function joinContiguousTimes(date) {
@@ -34,7 +34,7 @@ function mapDate(date) {
 function getDates(times) {
   const filteredTimes = {};
   Object.keys(times).forEach((exceptionalTime) => {
-    if (timeUtils.isDateInWindow(exceptionalTime, Date.now(), 14) === true) {
+    if (timeUtils.isDateInWindow(exceptionalTime, timeUtils.getCurrentDate(), 14) === true) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });

@@ -12,5 +12,5 @@ function sortIgnoreCase(array) {
 
 module.exports = {
   removeDuplicates,
-  sortIgnoreCase
+  sortIgnoreCase,
 };

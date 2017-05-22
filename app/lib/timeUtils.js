@@ -23,10 +23,10 @@ function dayDiff(secondDate, firstDate) {
   return Math.trunc((secondDate - firstDate) / (1000 * 60 * 60 * 24));
 }
 
-function isDateInWindow(dateString, now, noDays) {
+function isDateInWindow(dateString, currentDate, noDays) {
   const exceptionalDate = new Date(dateString);
-  if ((dayDiff(exceptionalDate, new Date(now)) <= noDays) &&
-    (dayDiff(exceptionalDate, new Date(now)) >= 0)) {
+  if ((dayDiff(exceptionalDate, currentDate) <= noDays) &&
+    (dayDiff(exceptionalDate, currentDate) >= 0)) {
     return true;
   }
   return false;
@@ -34,11 +34,16 @@ function isDateInWindow(dateString, now, noDays) {
 
 function toReadableDate(dateString, days, months) {
   const exceptionalDate = new Date(dateString);
-  return `${days[exceptionalDate.getDay()]} ${exceptionalDate.getDate()} ${months[exceptionalDate.getMonth()]}`;
+  return `${days[exceptionalDate.getDay()]} ${exceptionalDate.getDate()} ${months[exceptionalDate.getMonth()]}:`;
+}
+
+function getCurrentDate() {
+  return new Date(Date.now());
 }
 
 module.exports = {
   toAmPm,
   toReadableDate,
   isDateInWindow,
+  getCurrentDate
 };
