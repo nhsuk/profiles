@@ -21,10 +21,8 @@
   </div>
 {% endif %}
 {% if times %}
-  <div class='{{callout}}'>
-    <h3>{{ subtitle }}</h3>
-    <table class='opening-times'>
-      {% for ot in times %}
+  <table class='opening-times'>
+    {% for ot in times %}
       <tr>
           <td>{{ot.day}}</td>
           {% for session in ot.sessions %}
@@ -38,7 +36,6 @@
       </tr>
     {% endfor %}
   </table>
-  </div>
 {% else %}
     <p class='opening-times'>{{message}}</p>
 {% endif %}
