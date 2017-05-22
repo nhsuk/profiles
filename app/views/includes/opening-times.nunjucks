@@ -3,7 +3,7 @@
 {% if times %}
     <table class='opening-times'>
       {% for ot in times %}
-      <tr>
+      <tr class="{{ot.oneSession}}">
           <td>{{ot.day}}</td>
           {% for session in ot.sessions %}
           <td>
