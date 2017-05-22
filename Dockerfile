@@ -26,4 +26,4 @@ USER $USERNAME
 
 RUN [ "yarn", "run", "build-css" ]
 
-CMD [ "yarn", "start" ]
+CMD [ "node", "app.js" ]
