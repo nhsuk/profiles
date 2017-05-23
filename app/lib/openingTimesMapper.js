@@ -1,22 +1,7 @@
 const timeUtils = require('./timeUtils');
+// const exceptionalTimesMapper = require('./exceptionalTimesMapper');
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-function joinContiguousTimes(day) {
-  const fixedDays = day.reduce((o, session) => {
-    /* eslint-disable no-param-reassign */
-    if (o.prev && session.opens === o.prev.closes) {
-      o.prev.closes = session.closes;
-    } else {
-      o.list.push(session);
-      o.prev = session;
-    }
-    /* eslint-enable no-param-reassign */
-    return o;
-  }, { list: [], prev: undefined });
-
-  return fixedDays.list;
-}
 
 function mapDay(day) {
   // empty day field doesn't occur in the source data, added default in case
@@ -26,7 +11,7 @@ function mapDay(day) {
   }
 
   // eslint-disable-next-line arrow-body-style
-  const sessions = joinContiguousTimes(day).map((session) => {
+  const sessions = timeUtils.joinContiguousTimes(day).map((session) => {
     return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
   });
 
@@ -34,20 +19,6 @@ function mapDay(day) {
     sessions.push('Closed');
   }
   return sessions;
-}
-
-function addPadding(parsedTimes) {
-  const counts = parsedTimes.map(time => time.sessions.length);
-  const max = Math.max(...counts);
-
-  parsedTimes.forEach((time) => {
-    if (time.sessions.length < max) {
-      // eslint-disable-next-line no-param-reassign
-      time.padding = (max - time.sessions.length);
-    }
-  });
-
-  return parsedTimes;
 }
 
 function isOpen(times) {
@@ -68,7 +39,13 @@ function mapWeek(times) {
     const sessions = mapDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
-  return addPadding(parsedTimes);
+  return timeUtils.addTimePadding(parsedTimes);
+}
+
+// eslint-disable-next-line no-unused-vars
+function mapWeekReception(recTimes, excTimes) {
+  mapWeek(recTimes);
+  // TODO: how do exceptional opening times override reception times
 }
 
 function timesValid(allTimes) {
