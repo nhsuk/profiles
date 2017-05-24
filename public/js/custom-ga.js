@@ -64,7 +64,7 @@ jQuery(function($) {
         scroller = true;
       }
 
-      $('h2').not('.above, .util-visuallyhidden').each(function(){
+      $('h2, .exceptional-opening-times').not('.above, .util-visuallyhidden').each(function(){
         if(aboveFold(bottom, $(this))){
           $(this).addClass('above');
           scrolledSection(false, $(this).data('title'));
