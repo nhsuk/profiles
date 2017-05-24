@@ -2,6 +2,12 @@ version: '2'
 
 services:
 
+  profiles-db:
+      image: mongo:3.4
+      labels:
+        io.rancher.container.pull_image: always
+        io.rancher.scheduler.affinity:host_label_soft: c2s=true
+
   profiles-frontend:
     image: "nhsuk/profiles:${DOCKER_IMAGE_TAG}"
     environment:
@@ -9,7 +15,9 @@ services:
       HOTJAR_ANALYTICS_TRACKING_ID: ${HOTJAR_ID}
       GOOGLE_ANALYTICS_TRACKING_ID: ${GOOGLE_ID}
       WEBTRENDS_ANALYTICS_TRACKING_ID: ${WEBTRENDS_ID}
-      MONGODB_HOST: profiles-db.profiles-db
+      MONGODB_HOST: mongo
+    links:
+      - profiles-db:mongo
     labels:
       traefik.enable: stack
       traefik.domain: ${TRAEFIK_DOMAIN}
@@ -17,3 +25,15 @@ services:
       map-public-http: 3000
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:host_label_soft: c2s=true
+
+    profiles-db-updater:
+      image: nhsuk/profiles-db-updater:pr-1
+      environment:
+        MONGO_PORT: '27017'
+        UPDATE_SCHEDULE: 0 7 * * *
+      stdin_open: true
+      tty: true
+      links:
+      - profiles-db:mongo
+      labels:
+        io.rancher.container.pull_image: always
