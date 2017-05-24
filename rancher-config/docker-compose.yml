@@ -26,14 +26,14 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:host_label_soft: c2s=true
 
-    profiles-db-updater:
-      image: nhsuk/profiles-db-updater:pr-1
-      environment:
-        MONGO_PORT: '27017'
-        UPDATE_SCHEDULE: 0 7 * * *
-      stdin_open: true
-      tty: true
-      links:
-      - profiles-db:mongo
-      labels:
-        io.rancher.container.pull_image: always
+  profiles-db-updater:
+    image: nhsuk/profiles-db-updater:pr-1
+    environment:
+      MONGO_PORT: '27017'
+      UPDATE_SCHEDULE: 0 7 * * *
+    stdin_open: true
+    tty: true
+    links:
+    - profiles-db:mongo
+    labels:
+      io.rancher.container.pull_image: always
