@@ -1,25 +1,6 @@
-const timeUtils = require('./timeUtils');
-// const exceptionalTimesMapper = require('./exceptionalTimesMapper');
+const continuousTimeUtils = require('./continuousTimeUtils');
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-function mapDay(day) {
-  // empty day field doesn't occur in the source data, added default in case
-  // it changes in future
-  if (day === undefined) {
-    return ['No information available'];
-  }
-
-  // eslint-disable-next-line arrow-body-style
-  const sessions = timeUtils.joinContiguousTimes(day).map((session) => {
-    return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
-  });
-
-  if (sessions.length === 0) {
-    sessions.push('Closed');
-  }
-  return sessions;
-}
 
 function isOpen(times) {
   return daysOfWeek.some((day) => {
@@ -36,16 +17,10 @@ function mapWeek(times) {
 
   daysOfWeek.forEach((day) => {
     const daySessions = times[day.toLowerCase()];
-    const sessions = mapDay(daySessions);
+    const sessions = continuousTimeUtils.mapKey(daySessions);
     parsedTimes.push({ day, sessions });
   });
-  return timeUtils.addTimePadding(parsedTimes);
-}
-
-// eslint-disable-next-line no-unused-vars
-function mapWeekReception(recTimes, excTimes) {
-  mapWeek(recTimes);
-  // TODO: how do exceptional opening times override reception times
+  return continuousTimeUtils.addTimePadding(parsedTimes);
 }
 
 function timesValid(allTimes) {
@@ -63,6 +38,5 @@ function mapAll(allTimes) {
 
 module.exports = {
   mapAll,
-  mapWeek,
-  mapDay
+  mapWeek
 };

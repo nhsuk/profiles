@@ -1,24 +1,12 @@
 const timeUtils = require('./timeUtils');
+const cTimeUtils = require('./continuousTimeUtils');
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-function mapDate(date) {
-  // eslint-disable-next-line arrow-body-style
-  const sessions = timeUtils.joinContiguousTimes(date).map((session) => {
-    return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
-  });
-
-  if (sessions.length === 0) {
-    sessions.push('Closed');
-  }
-  return sessions;
-}
+const futureDays = 14;
 
 function getDates(times) {
   const filteredTimes = {};
   Object.keys(times).forEach((exceptionalTime) => {
-    if (timeUtils.isDateInWindow(exceptionalTime, timeUtils.getCurrentDate(), 14) === true) {
+    if (cTimeUtils.isDateInWindow(exceptionalTime, timeUtils.getToday(), futureDays) === true) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });
@@ -29,11 +17,11 @@ function mapDates(times) {
   const parsedTimes = [];
 
   Object.keys(getDates(times)).forEach((date) => {
-    const formattedDate = timeUtils.toReadableDate(date, daysOfWeek, months);
-    const sessions = mapDate(times[date]);
+    const formattedDate = cTimeUtils.toReadableDate(date);
+    const sessions = cTimeUtils.mapKey(times[date]);
     parsedTimes.push({ formattedDate, sessions });
   });
-  return timeUtils.addTimePadding(parsedTimes);
+  return cTimeUtils.addTimePadding(parsedTimes);
 }
 
 function timesValid(allTimes) {
@@ -49,6 +37,5 @@ function mapAll(allTimes) {
 
 module.exports = {
   mapAll,
-  mapDates,
-  mapDate,
+  mapDates
 };

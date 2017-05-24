@@ -1,8 +1,23 @@
 const chai = require('chai');
-
 const timeUtils = require('../../../app/lib/timeUtils');
+const tk = require('timekeeper');
 
 const expect = chai.expect;
+
+function mockCurrentDate() {
+  return new Date('26/05/2017');
+}
+
+beforeEach((done) => {
+  tk.travel(mockCurrentDate());
+  done();
+});
+
+afterEach((done) => {
+  tk.reset();
+  done();
+});
+
 
 describe('timeUtils', () => {
   describe('toAmPm', () => {
@@ -34,6 +49,18 @@ describe('timeUtils', () => {
     it('it should return invalid strings unchanged', () => {
       const time = timeUtils.toAmPm('notATime');
       expect(time).to.equal('notATime');
+    });
+  });
+
+  describe('getToday', () => {
+    xit('it should get today\'s date', () => {
+      const time = timeUtils.getToday();
+      expect(time.toISOString().slice(0, 10)).to.equal('2017-05-26');
+    });
+
+    it('it should return a date value', () => {
+      const time = timeUtils.getToday();
+      expect(time).to.be.a('date');
     });
   });
 });
