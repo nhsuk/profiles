@@ -42,7 +42,7 @@ describe('app', () => {
           expect(res.text).to.include('Changes to opening times');
           const $ = cheerio.load(res.text);
 
-          const exceptionalRows = $('table.exceptional-opening-times').first().find('tr');
+          const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
           const expectedExTimes = ['8am to 12pm', 'Closed'];
           expectExceptionalOpeningTimes1($, exceptionalRows, expectedExTimes);
 
@@ -61,7 +61,7 @@ describe('app', () => {
           expect(res.text).to.include('Changes to opening times');
           const $ = cheerio.load(res.text);
 
-          const exceptionalRows = $('table.exceptional-opening-times').first().find('tr');
+          const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
           const expectedExTimes = ['8am to 12pm', 'Closed'];
           expectExceptionalOpeningTimes2($, exceptionalRows, expectedExTimes);
 

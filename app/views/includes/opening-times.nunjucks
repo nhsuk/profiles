@@ -1,11 +1,11 @@
 {% macro openingTimes(times, title, message, genTitle, exceptionalTimes, subtitle, genSubTitle, callout) %}
 <h2 class='opening-times' data-title='{{genTitle}}'>{{ title }}</h2>
 {% if exceptionalTimes %}
-  <div class='{{ callout }}'>
-    <h3 class='exceptional-opening-times' data-title='{{genSubTitle}}'>{{ subtitle }}</h3>
-    <table class='exceptional-opening-times'>
+  <div class='{{ callout }} exceptional-opening-times' data-title='{{genSubTitle}}'>
+    <h3>{{ subtitle }}</h3>
+    <table class='opening-times opening-times--exceptional'>
       {% for eot in exceptionalTimes %}
-      <tr>
+      <tr class="{{eot.oneSession}}">
           <td>{{eot.formattedDate}}</td>
           {% for session in eot.sessions %}
           <td>
@@ -23,7 +23,7 @@
 {% if times %}
   <table class='opening-times'>
     {% for ot in times %}
-      <tr>
+      <tr class="{{ot.oneSession}}">
           <td>{{ot.day}}</td>
           {% for session in ot.sessions %}
           <td>

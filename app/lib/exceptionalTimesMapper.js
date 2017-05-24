@@ -49,6 +49,9 @@ function addPadding(parsedTimes) {
     if (time.sessions.length < max) {
       // eslint-disable-next-line no-param-reassign
       time.padding = (max - time.sessions.length);
+    } else if (time.sessions.length === 1) {
+      // eslint-disable-next-line no-param-reassign
+      time.oneSession = 'one-session';
     }
   });
 
