@@ -80,8 +80,8 @@ table, .table {
         height:42px;
         border-bottom: 1px solid #d9dde0;
         margin-top: 0px;
-        display: block;
-        width: 400px;
+        //display: block;
+        //width: 400px;
         td {
           display:inline-block;
           border:none;
@@ -89,9 +89,7 @@ table, .table {
           margin: 0;
           &:first-child {
             font-weight:bold;
-          }
-          &:last-child {
-            left:200px;
+            margin-right: 5px;
           }
         }
       }
