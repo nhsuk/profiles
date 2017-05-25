@@ -20,7 +20,7 @@ function joinContiguousTimes(keySessions) {
   return fixedKeySessions.list;
 }
 
-function addTimePadding(parsedTimes) {
+function addTimePadding(parsedTimes, isOneSession) {
   const counts = parsedTimes.map(time => time.sessions.length);
   const max = Math.max(...counts);
 
@@ -28,11 +28,15 @@ function addTimePadding(parsedTimes) {
     if (time.sessions.length < max) {
       // eslint-disable-next-line no-param-reassign
       time.padding = (max - time.sessions.length);
+    } else if ((time.sessions.length === 1) && (isOneSession === true)) {
+      // eslint-disable-next-line no-param-reassign
+      time.oneSession = 'one-session';
     }
   });
 
   return parsedTimes;
 }
+
 
 function dayDiff(secondDate, firstDate) {
   return Math.trunc((secondDate - firstDate) / (1000 * 60 * 60 * 24));

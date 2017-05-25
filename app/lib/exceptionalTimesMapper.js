@@ -23,7 +23,7 @@ function mapDates(times) {
       const sessions = cTimeUtils.mapKey(times[date]);
       parsedTimes.push({ formattedDate, sessions });
     });
-    return cTimeUtils.addTimePadding(parsedTimes);
+    return cTimeUtils.addTimePadding(parsedTimes, true);
   }
   return undefined;
 }
