@@ -1,14 +1,16 @@
+<p>{{ gp.address.addressLines | safe | replace(",", ", ") }}, {{ gp.address.postcode }}</p>
+<p><a href="{{mapUrl}}">See map and get directions</a></p>
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
-    <div class="column--one-half">
-      <p>{{ gp.address.addressLines | safe | replace(",", "<br />") }}<br />{{ gp.address.postcode }}</p>
-      <a href="{{mapUrl}}">See map and get directions</a>
-    </div>
     <div class="column--one-half">
       <p>
       {% if gp.contact.telephone %}Reception: {{ gp.contact.telephone }}<br />{% endif %}
       {% if gp.contact.fax %}Fax: {{ gp.contact.fax }}<br />{% endif %}
-      {% if gp.contact.email %}Email: <a class="gp-email" href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a><br />{% endif %}
+      </p>
+    </div>
+    <div class="column--one-half">
+      <p>
+      {% if gp.contact.email %}Email:<a class="gp-email" href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a><br />{% endif %}
       {% if gp.contact.website %}<a class="gp-website" href="{{ gp.contact.website }}">See the surgery's own website</a><br />{% endif %}
       </p>
     </div>
