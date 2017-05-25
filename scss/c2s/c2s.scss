@@ -328,10 +328,14 @@ form {
     .local-header__intro {
       .column {
         &--one-half {
+          margin-top: 0;
+
           @include media(tablet) {
             float: left;
             width: 50%;
-            margin-top: 0px;
+            p {
+              margin-top: 0;
+            }
           }
           &:first-child {
             p {
