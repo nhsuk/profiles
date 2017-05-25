@@ -300,6 +300,7 @@ form {
   margin-top:0;
   padding-top:32px;
   background-color:$blue;
+  color: $white;
   &--fullwidth {
     max-width:100%;
     @include media(mobile) {
@@ -316,11 +317,11 @@ form {
     a {
       word-wrap: break-word;
     }
+    p {
+      font-size:1em;
+      line-height:1.6em;
+    }
     .local-header__intro {
-      * {
-        font-size:1em;
-        line-height:1.6em;
-      }
       .column {
         &--one-half {
           @include media(tablet) {
