@@ -1,57 +1,9 @@
-const timeUtils = require('./timeUtils');
+const continuousTimeUtils = require('./continuousTimeUtils');
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-function joinContiguousTimes(day) {
-  const fixedDays = day.reduce((o, session) => {
-    /* eslint-disable no-param-reassign */
-    if (o.prev && session.opens === o.prev.closes) {
-      o.prev.closes = session.closes;
-    } else {
-      o.list.push(session);
-      o.prev = session;
-    }
-    /* eslint-enable no-param-reassign */
-    return o;
-  }, { list: [], prev: undefined });
-
-  return fixedDays.list;
-}
-
-function mapDay(day) {
-  // empty day field doesn't occur in the source data, added default in case
-  // it changes in future
-  if (day === undefined) {
-    return ['No information available'];
-  }
-
-  // eslint-disable-next-line arrow-body-style
-  const sessions = joinContiguousTimes(day).map((session) => {
-    return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
-  });
-
-  if (sessions.length === 0) {
-    sessions.push('Closed');
-  }
-  return sessions;
-}
-
-function addPadding(parsedTimes) {
-  const counts = parsedTimes.map(time => time.sessions.length);
-  const max = Math.max(...counts);
-
-  parsedTimes.forEach((time) => {
-    if (time.sessions.length < max) {
-      // eslint-disable-next-line no-param-reassign
-      time.padding = (max - time.sessions.length);
-    }
-  });
-
-  return parsedTimes;
-}
+const daysOrderedForUi = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 function isOpen(times) {
-  return daysOfWeek.some((day) => {
+  return daysOrderedForUi.some((day) => {
     const daySessions = times[day.toLowerCase()];
     return daySessions && daySessions.length > 0;
   });
@@ -63,12 +15,12 @@ function mapWeek(times) {
   }
   const parsedTimes = [];
 
-  daysOfWeek.forEach((day) => {
+  daysOrderedForUi.forEach((day) => {
     const daySessions = times[day.toLowerCase()];
-    const sessions = mapDay(daySessions);
+    const sessions = continuousTimeUtils.mapDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
-  return addPadding(parsedTimes);
+  return continuousTimeUtils.addTimePadding(parsedTimes, false);
 }
 
 function timesValid(allTimes) {
@@ -86,6 +38,5 @@ function mapAll(allTimes) {
 
 module.exports = {
   mapAll,
-  mapWeek,
-  mapDay
+  mapWeek
 };

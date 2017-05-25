@@ -1,9 +1,29 @@
-{% macro openingTimes(times, title, message, genTitle) %}
+{% macro openingTimes(times, title, message, genTitle, exceptionalTimes, subtitle, genSubTitle, callout) %}
 <h2 class='opening-times' data-title='{{genTitle}}'>{{ title }}</h2>
+{% if exceptionalTimes %}
+  <div class='{{ callout }} exceptional-opening-times' data-title='{{genSubTitle}}'>
+    <h3>{{ subtitle }}</h3>
+    <table class='opening-times opening-times--exceptional'>
+      {% for eot in exceptionalTimes %}
+      <tr class="{{eot.oneSession}}">
+          <td>{{eot.formattedDate}}{% if eot.oneSession %}:{% endif%}</td>
+          {% for session in eot.sessions %}
+          <td>
+              {{ session }}
+          </td>
+          {% endfor %}
+          {% if eot.padding %}
+            <td colspan='{{eot.padding}}'></td>
+          {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endif %}
 {% if times %}
-    <table class='opening-times'>
-      {% for ot in times %}
-      <tr>
+  <table class='opening-times'>
+    {% for ot in times %}
+      <tr class="{{ot.oneSession}}">
           <td>{{ot.day}}</td>
           {% for session in ot.sessions %}
           <td>
@@ -21,8 +41,8 @@
 {% endif %}
 {% endmacro %}
 
-{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)') }}
-{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)') }}
+{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)',gp.exceptionalTimes.alterations,'Changes to opening times','Changes (Reception)','callout callout--warning') }}
+{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)',nil,'','','') }}
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a class="gp-website-opening-times" href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>

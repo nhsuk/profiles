@@ -1,4 +1,5 @@
 const openingTimesMapper = require('../lib/openingTimesMapper').mapAll;
+const exceptionalTimesMapper = require('../lib/exceptionalTimesMapper').mapAll;
 const facilitiesMapper = require('../lib/facilitiesMapper');
 const gpHelper = require('../lib/gpHelper');
 const servicesMapper = require('../lib/servicesMapper');
@@ -34,6 +35,7 @@ function createGpViewModel(req, res, next) {
       facilities: facilitiesMapper(gpData.facilities),
       services: servicesMapper(gpData.services),
       openingTimes: openingTimesMapper(gpData.openingTimes),
+      exceptionalTimes: exceptionalTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
       onlineTasks: onlineTasksMapper(gpData),
       choicesProfileLink: getChoicesProfileLink(gpData),
