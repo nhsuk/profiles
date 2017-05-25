@@ -97,6 +97,9 @@ table, .table {
     &--exceptional {
       margin:0;
       tr {
+        &:last-child {
+          border:none;
+        }
         &.one-session {
           height:30px;
           padding:0 0 8px;
