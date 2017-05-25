@@ -320,6 +320,7 @@ form {
     p {
       font-size:1em;
       line-height:1.6em;
+      margin-top: 8px;
     }
     .local-header__intro {
       .column {
@@ -332,6 +333,7 @@ form {
           &:first-child {
             p {
               text-transform:capitalize;
+              margin-top: 0;
             }
           }
         }
@@ -347,8 +349,13 @@ form {
   }
   &__intro {
     &--fullwidth{
-      padding-top:24px;
-      margin-top:24px;
+      padding-top:16px;
+      margin-top:16px;
+
+      @include media(tablet) {
+        padding-top: 24px;
+        margin-top: 24px;
+      }
     }
   }
 }
@@ -698,7 +705,6 @@ form {
   &__intro {
     &--fullwidth {
       max-width:100%;
-      padding-top:32px;
     }
   }
 }
