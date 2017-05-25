@@ -1,7 +1,7 @@
 const timeUtils = require('./timeUtils');
 
 // this is so the days are the right ones on the front end
-const daysOrdered = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const daysOrderedByUtcIndex = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function joinContiguousTimes(keySessions) {
@@ -44,19 +44,19 @@ function dayDiff(secondDate, firstDate) {
 
 function isDateInWindow(dateString, currentDate, noDays) {
   const exceptionalDate = timeUtils.getDateFromDateString(dateString);
-  if ((dayDiff(exceptionalDate, currentDate) <= noDays) &&
-    (dayDiff(exceptionalDate, currentDate) >= 0)) {
-    return true;
-  }
-  return false;
+  return (dayDiff(exceptionalDate, currentDate) <= noDays) &&
+    (dayDiff(exceptionalDate, currentDate) >= 0);
 }
 
 function toReadableDate(dateString) {
   const exceptionalDate = timeUtils.getDateFromDateString(dateString);
-  return `${daysOrdered[exceptionalDate.getUTCDay()]} ${exceptionalDate.getUTCDate()} ${months[exceptionalDate.getUTCMonth()]}`;
+  const dayOfWeek = daysOrderedByUtcIndex[exceptionalDate.getUTCDay()];
+  const date = exceptionalDate.getUTCDate();
+  const month = months[exceptionalDate.getUTCMonth()];
+  return `${dayOfWeek} ${date} ${month}`;
 }
 
-function mapKey(keySessions) {
+function mapDay(keySessions) {
   // empty day field doesn't occur in the source data, added default in case
   // it changes in future
   if (keySessions === undefined) {
@@ -78,5 +78,5 @@ module.exports = {
   isDateInWindow,
   toReadableDate,
   addTimePadding,
-  mapKey,
+  mapDay,
 };

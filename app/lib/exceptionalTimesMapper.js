@@ -20,7 +20,7 @@ function mapDates(times) {
     const parsedTimes = [];
     filteredTimes.forEach((date) => {
       const formattedDate = cTimeUtils.toReadableDate(date);
-      const sessions = cTimeUtils.mapKey(times[date]);
+      const sessions = cTimeUtils.mapDay(times[date]);
       parsedTimes.push({ formattedDate, sessions });
     });
     return cTimeUtils.addTimePadding(parsedTimes, true);

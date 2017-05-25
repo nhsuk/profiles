@@ -47,7 +47,7 @@ describe('toReadableDate', () => {
   });
 });
 
-describe('mapKey', () => {
+describe('mapDay', () => {
   it('should change array of 24 hour open close times to array of from to messages', () => {
     const monday = [
       {
@@ -60,7 +60,7 @@ describe('mapKey', () => {
       }
     ];
 
-    const openingTimes = continuousTimeUtils.mapKey(monday);
+    const openingTimes = continuousTimeUtils.mapDay(monday);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(2);
     expect(openingTimes[0]).to.equal('7:30am to 12:30pm');
@@ -79,14 +79,14 @@ describe('mapKey', () => {
       }
     ];
 
-    const openingTimes = continuousTimeUtils.mapKey(monday);
+    const openingTimes = continuousTimeUtils.mapDay(monday);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(1);
     expect(openingTimes[0]).to.equal('7:30am to 8pm');
   });
 
   it('should change empty array to closed message', () => {
-    const openingTimes = continuousTimeUtils.mapKey([]);
+    const openingTimes = continuousTimeUtils.mapDay([]);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(1);
     expect(openingTimes[0]).to.equal('Closed');

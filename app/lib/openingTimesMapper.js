@@ -1,9 +1,9 @@
 const continuousTimeUtils = require('./continuousTimeUtils');
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysOrderedForUi = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 function isOpen(times) {
-  return daysOfWeek.some((day) => {
+  return daysOrderedForUi.some((day) => {
     const daySessions = times[day.toLowerCase()];
     return daySessions && daySessions.length > 0;
   });
@@ -15,9 +15,9 @@ function mapWeek(times) {
   }
   const parsedTimes = [];
 
-  daysOfWeek.forEach((day) => {
+  daysOrderedForUi.forEach((day) => {
     const daySessions = times[day.toLowerCase()];
-    const sessions = continuousTimeUtils.mapKey(daySessions);
+    const sessions = continuousTimeUtils.mapDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
   return continuousTimeUtils.addTimePadding(parsedTimes, false);
