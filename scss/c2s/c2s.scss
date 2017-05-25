@@ -298,9 +298,12 @@ form {
 
 .local-header {
   margin-top:0;
-  padding-top:32px;
+  padding:16px 0;
   background-color:$blue;
   color: $white;
+  @include media(tablet) {
+    padding:32px 0;
+  }
   &--fullwidth {
     max-width:100%;
     @include media(mobile) {
