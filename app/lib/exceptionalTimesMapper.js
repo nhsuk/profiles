@@ -1,72 +1,31 @@
 const timeUtils = require('./timeUtils');
+const cTimeUtils = require('./continuousTimeUtils');
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-function joinContiguousTimes(date) {
-  const fixedDates = date.reduce((o, session) => {
-    /* eslint-disable no-param-reassign */
-    if (o.prev && session.opens === o.prev.closes) {
-      o.prev.closes = session.closes;
-    } else {
-      o.list.push(session);
-      o.prev = session;
-    }
-    /* eslint-enable no-param-reassign */
-    return o;
-  }, { list: [], prev: undefined });
-
-  return fixedDates.list;
-}
-
-function mapDate(date) {
-  // eslint-disable-next-line arrow-body-style
-  const sessions = joinContiguousTimes(date).map((session) => {
-    return `${timeUtils.toAmPm(session.opens)} to ${timeUtils.toAmPm(session.closes)}`;
-  });
-
-  if (sessions.length === 0) {
-    sessions.push('Closed');
-  }
-  return sessions;
-}
+const futureDays = 14;
 
 function getDates(times) {
   const filteredTimes = {};
   Object.keys(times).forEach((exceptionalTime) => {
-    if (timeUtils.isDateInWindow(exceptionalTime, timeUtils.getCurrentDate(), 14) === true) {
+    if (cTimeUtils.isDateInWindow(exceptionalTime, timeUtils.getToday(), futureDays) === true) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });
   return filteredTimes;
 }
 
-function addPadding(parsedTimes) {
-  const counts = parsedTimes.map(time => time.sessions.length);
-  const max = Math.max(...counts);
-
-  parsedTimes.forEach((time) => {
-    if (time.sessions.length < max) {
-      // eslint-disable-next-line no-param-reassign
-      time.padding = (max - time.sessions.length);
-    } else if (time.sessions.length === 1) {
-      // eslint-disable-next-line no-param-reassign
-      time.oneSession = 'one-session';
-    }
-  });
-
-  return parsedTimes;
-}
-
 function mapDates(times) {
-  const parsedTimes = [];
+  const filteredTimes = Object.keys(getDates(times));
 
-  Object.keys(getDates(times)).forEach((date) => {
-    const formattedDate = timeUtils.toReadableDate(date, daysOfWeek, months);
-    const sessions = mapDate(times[date]);
-    parsedTimes.push({ formattedDate, sessions });
-  });
-  return addPadding(parsedTimes);
+  if (filteredTimes.length > 0) {
+    const parsedTimes = [];
+    filteredTimes.forEach((date) => {
+      const formattedDate = cTimeUtils.toReadableDate(date);
+      const sessions = cTimeUtils.mapDay(times[date]);
+      parsedTimes.push({ formattedDate, sessions });
+    });
+    return cTimeUtils.addTimePadding(parsedTimes, true);
+  }
+  return undefined;
 }
 
 function timesValid(allTimes) {
@@ -77,11 +36,10 @@ function timesValid(allTimes) {
 function mapAll(allTimes) {
   return timesValid(allTimes) ? {
     alterations: mapDates(allTimes.alterations),
-  } : {};
+  } : undefined;
 }
 
 module.exports = {
   mapAll,
-  mapDates,
-  mapDate,
+  mapDates
 };

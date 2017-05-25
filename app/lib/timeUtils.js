@@ -19,31 +19,21 @@ function toAmPm(timeString) {
   return `${hours}${mins}${suffix}`;
 }
 
-function dayDiff(secondDate, firstDate) {
-  return Math.trunc((secondDate - firstDate) / (1000 * 60 * 60 * 24));
-}
-
-function isDateInWindow(dateString, currentDate, noDays) {
-  const exceptionalDate = new Date(dateString);
-  if ((dayDiff(exceptionalDate, currentDate) <= noDays) &&
-    (dayDiff(exceptionalDate, currentDate) >= 0)) {
-    return true;
-  }
-  return false;
-}
-
-function toReadableDate(dateString, days, months) {
-  const exceptionalDate = new Date(dateString);
-  return `${days[exceptionalDate.getDay()]} ${exceptionalDate.getDate()} ${months[exceptionalDate.getMonth()]}:`;
-}
-
-function getCurrentDate() {
+function getToday() {
   return new Date(Date.now());
+}
+
+function getDateFromDateString(dateString) {
+  // the exceptional opening times keys are formatted as 'yyyy-mm-dd'
+  const dateArr = dateString.split('-');
+  const year = dateArr[0];
+  const month = dateArr[1] - 1;
+  const date = dateArr[2];
+  return new Date(year, month, date);
 }
 
 module.exports = {
   toAmPm,
-  toReadableDate,
-  isDateInWindow,
-  getCurrentDate
+  getToday,
+  getDateFromDateString,
 };

@@ -1,5 +1,4 @@
 const chai = require('chai');
-
 const timeUtils = require('../../../app/lib/timeUtils');
 
 const expect = chai.expect;
@@ -34,6 +33,16 @@ describe('timeUtils', () => {
     it('it should return invalid strings unchanged', () => {
       const time = timeUtils.toAmPm('notATime');
       expect(time).to.equal('notATime');
+    });
+  });
+
+  describe('getDateFromDateString', () => {
+    it('it should return the right date based on the formatted string', () => {
+      const time = timeUtils.getDateFromDateString('2017-05-25');
+      expect(time.getUTCDate()).to.equal(25);
+      // starts from 0
+      expect(time.getUTCMonth()).to.equal(4);
+      expect(time.getUTCFullYear()).to.equal(2017);
     });
   });
 });
