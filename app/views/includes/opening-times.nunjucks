@@ -7,9 +7,9 @@
       {% for eot in exceptionalTimes %}
       <tr class="{{eot.oneSession}}">
           <td>{{eot.formattedDate}}
-              {% if eot.oneSession %}
-                :
-              {% endif%}
+            {% if eot.oneSession %}
+              :
+            {% endif%}
           </td>
           {% for session in eot.sessions %}
           <td>
@@ -45,8 +45,8 @@
 {% endif %}
 {% endmacro %}
 
-{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)', gp.exceptionalTimes.alterations, 'Changes to opening times', 'Changes (Reception)', 'callout callout--warning') }}
-{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)', nil, '', '', '') }}
+{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)',gp.exceptionalTimes.alterations,'Changes to opening times','Changes (Reception)','callout callout--warning') }}
+{{ openingTimes(gp.openingTimes.surgery, 'GP appointment times', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)',nil,'','','') }}
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a class="gp-website-opening-times" href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
