@@ -39,7 +39,7 @@ function dayDiff(secondDate, firstDate) {
 }
 
 function isDateInWindow(dateString, currentDate, noDays) {
-  const exceptionalDate = new Date(dateString);
+  const exceptionalDate = timeUtils.getDateFromDateString(dateString);
   if ((dayDiff(exceptionalDate, currentDate) <= noDays) &&
     (dayDiff(exceptionalDate, currentDate) >= 0)) {
     return true;
@@ -48,8 +48,8 @@ function isDateInWindow(dateString, currentDate, noDays) {
 }
 
 function toReadableDate(dateString) {
-  const exceptionalDate = new Date(dateString);
-  return `${daysOrdered[exceptionalDate.getDay()]} ${exceptionalDate.getDate()} ${months[exceptionalDate.getMonth()]}:`;
+  const exceptionalDate = timeUtils.getDateFromDateString(dateString);
+  return `${daysOrdered[exceptionalDate.getUTCDay()]} ${exceptionalDate.getUTCDate()} ${months[exceptionalDate.getUTCMonth()]}`;
 }
 
 function mapKey(keySessions) {

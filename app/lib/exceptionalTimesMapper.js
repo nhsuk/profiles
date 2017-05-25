@@ -14,14 +14,18 @@ function getDates(times) {
 }
 
 function mapDates(times) {
-  const parsedTimes = [];
+  const filteredTimes = Object.keys(getDates(times));
 
-  Object.keys(getDates(times)).forEach((date) => {
-    const formattedDate = cTimeUtils.toReadableDate(date);
-    const sessions = cTimeUtils.mapKey(times[date]);
-    parsedTimes.push({ formattedDate, sessions });
-  });
-  return cTimeUtils.addTimePadding(parsedTimes);
+  if (filteredTimes.length > 0) {
+    const parsedTimes = [];
+    filteredTimes.forEach((date) => {
+      const formattedDate = cTimeUtils.toReadableDate(date);
+      const sessions = cTimeUtils.mapKey(times[date]);
+      parsedTimes.push({ formattedDate, sessions });
+    });
+    return cTimeUtils.addTimePadding(parsedTimes);
+  }
+  return undefined;
 }
 
 function timesValid(allTimes) {
@@ -32,7 +36,7 @@ function timesValid(allTimes) {
 function mapAll(allTimes) {
   return timesValid(allTimes) ? {
     alterations: mapDates(allTimes.alterations),
-  } : {};
+  } : undefined;
 }
 
 module.exports = {

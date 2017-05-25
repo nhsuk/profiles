@@ -23,7 +23,17 @@ function getToday() {
   return new Date(Date.now());
 }
 
+function getDateFromDateString(dateString) {
+  // the exceptional opening times keys are formatted as 'yyyy-mm-dd'
+  const dateArr = dateString.split('-');
+  const year = dateArr[0];
+  const month = dateArr[1] - 1;
+  const date = dateArr[2];
+  return new Date(year, month, date);
+}
+
 module.exports = {
   toAmPm,
   getToday,
+  getDateFromDateString,
 };

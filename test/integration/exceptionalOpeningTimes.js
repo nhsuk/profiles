@@ -10,28 +10,28 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 function mockCurrentDate1() {
-  return new Date('22/05/2017');
+  return new Date('2017', '04', '25');
 }
 
 function mockCurrentDate2() {
-  return new Date('26/05/2017');
+  return new Date('2017', '04', '26');
 }
 
 function expectExceptionalOpeningTimes1($, rows, times) {
-  expect($(rows[0]).text()).to.include('Thursday 25 May:');
+  expect($(rows[0]).text()).to.include('Thursday 25 May');
   expect($(rows[0]).text()).to.include(times[0]);
-  expect($(rows[1]).text()).to.include('Monday 29 May:');
+  expect($(rows[1]).text()).to.include('Monday 29 May');
   expect($(rows[1]).text()).to.include(times[1]);
 }
 
 function expectExceptionalOpeningTimes2($, rows, times) {
-  expect($(rows[1]).text()).to.include('Monday 29 May:');
+  expect($(rows[1]).text()).to.include('Monday 29 May');
   expect($(rows[1]).text()).to.include(times[1]);
 }
 
 describe('app', () => {
   describe('opening times', () => {
-    it('should return reception and surgery opening times for the date and change the day info too', (done) => {
+    it('should return exceptional opening times for the date', (done) => {
       tk.travel(mockCurrentDate1());
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
@@ -50,7 +50,7 @@ describe('app', () => {
         });
       tk.reset();
     });
-    it('should return reception and surgery opening times for the date and not change the day info', (done) => {
+    it('should return exceptional opening times for the date but not the ones in the past', (done) => {
       tk.travel(mockCurrentDate2());
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
@@ -65,6 +65,19 @@ describe('app', () => {
           const expectedExTimes = ['8am to 12pm', 'Closed'];
           expectExceptionalOpeningTimes2($, exceptionalRows, expectedExTimes);
 
+          done();
+        });
+      tk.reset();
+    });
+    it('should return reception and surgery opening times for the date but not the ones in the past', (done) => {
+      tk.travel(mockCurrentDate1());
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}/42057`)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+
+          expect(res.text).to.not.include('Changes to opening times');
           done();
         });
       tk.reset();

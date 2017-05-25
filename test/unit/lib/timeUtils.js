@@ -1,23 +1,7 @@
 const chai = require('chai');
 const timeUtils = require('../../../app/lib/timeUtils');
-const tk = require('timekeeper');
 
 const expect = chai.expect;
-
-function mockCurrentDate() {
-  return new Date('26/05/2017');
-}
-
-beforeEach((done) => {
-  tk.travel(mockCurrentDate());
-  done();
-});
-
-afterEach((done) => {
-  tk.reset();
-  done();
-});
-
 
 describe('timeUtils', () => {
   describe('toAmPm', () => {
@@ -52,15 +36,13 @@ describe('timeUtils', () => {
     });
   });
 
-  describe('getToday', () => {
-    xit('it should get today\'s date', () => {
-      const time = timeUtils.getToday();
-      expect(time.toISOString().slice(0, 10)).to.equal('2017-05-26');
-    });
-
-    it('it should return a date value', () => {
-      const time = timeUtils.getToday();
-      expect(time).to.be.a('date');
+  describe('getDateFromDateString', () => {
+    it('it should return the right date based on the formatted string', () => {
+      const time = timeUtils.getDateFromDateString('2017-05-25');
+      expect(time.getUTCDate()).to.equal(25);
+      // starts from 0
+      expect(time.getUTCMonth()).to.equal(4);
+      expect(time.getUTCFullYear()).to.equal(2017);
     });
   });
 });

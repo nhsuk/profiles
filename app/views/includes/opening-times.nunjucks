@@ -6,7 +6,11 @@
     <table class='opening-times opening-times--exceptional'>
       {% for eot in exceptionalTimes %}
       <tr class="{{eot.oneSession}}">
-          <td>{{eot.formattedDate}}</td>
+          <td>{{eot.formattedDate}}
+              {% if eot.oneSession %}
+                :
+              {% endif%}
+          </td>
           {% for session in eot.sessions %}
           <td>
               {{ session }}
