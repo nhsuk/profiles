@@ -18,15 +18,13 @@ function mockCurrentDate2() {
 }
 
 function expectExceptionalOpeningTimes1($, rows, times) {
-  expect($(rows[0]).text()).to.include('Thursday 25 May');
+  expect($(rows[0]).text()).to.include('Monday 29 May');
   expect($(rows[0]).text()).to.include(times[0]);
-  expect($(rows[1]).text()).to.include('Monday 29 May');
-  expect($(rows[1]).text()).to.include(times[1]);
 }
 
 function expectExceptionalOpeningTimes2($, rows, times) {
-  expect($(rows[1]).text()).to.include('Monday 29 May');
-  expect($(rows[1]).text()).to.include(times[1]);
+  expect($(rows[0]).text()).to.include('Monday 29 May');
+  expect($(rows[0]).text()).to.include(times[0]);
 }
 
 describe('app', () => {
@@ -43,7 +41,7 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
-          const expectedExTimes = ['8am to 12pm', 'Closed'];
+          const expectedExTimes = ['Closed'];
           expectExceptionalOpeningTimes1($, exceptionalRows, expectedExTimes);
 
           done();
@@ -62,7 +60,7 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
-          const expectedExTimes = ['8am to 12pm', 'Closed'];
+          const expectedExTimes = ['Closed'];
           expectExceptionalOpeningTimes2($, exceptionalRows, expectedExTimes);
 
           done();
