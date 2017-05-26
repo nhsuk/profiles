@@ -57,7 +57,12 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
+<<<<<<< HEAD
           expectExceptionalOpeningTimes1($, exceptionalRows);
+=======
+          const expectedExTimes = ['Closed'];
+          expectExceptionalOpeningTimes1($, exceptionalRows, expectedExTimes);
+>>>>>>> 0ea515a... :weary: updating tests
 
           done();
         });
@@ -82,7 +87,12 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
+<<<<<<< HEAD
           expectExceptionalOpeningTimes2($, exceptionalRows);
+=======
+          const expectedExTimes = ['Closed'];
+          expectExceptionalOpeningTimes2($, exceptionalRows, expectedExTimes);
+>>>>>>> 0ea515a... :weary: updating tests
 
           done();
         });

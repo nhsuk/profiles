@@ -323,24 +323,25 @@ form {
     p {
       font-size:1em;
       line-height:1.6em;
-      margin-top: 8px;
+      margin-top: 4px;
     }
     .local-header__intro {
       .column {
         &--one-half {
-          margin-top: 0;
-
-          @include media(tablet) {
-            float: left;
-            width: 50%;
-            p {
+          p {
+            &:first-of-type {
               margin-top: 0;
             }
           }
-          &:first-child {
-            p {
-              text-transform:capitalize;
-              margin-top: 0;
+          margin-top: 0;
+          &:first-of-type {
+            margin-bottom: 4px;
+          }
+          @include media(tablet) {
+            float: left;
+            width: 50%;
+            &:first-of-type {
+              margin-bottom: 0;
             }
           }
         }
