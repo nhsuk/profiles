@@ -316,6 +316,11 @@ form {
     }
     h1 {
       padding-top:0;
+      margin-bottom: 8px;
+
+      @include media(tablet) {
+        margin-bottom: 16px;
+      }
     }
     a {
       word-wrap: break-word;
@@ -323,26 +328,15 @@ form {
     p {
       font-size:1em;
       line-height:1.6em;
-      margin-top: 4px;
+      margin-top: 0;
     }
     .local-header__intro {
       .column {
         &--one-half {
-          p {
-            &:first-of-type {
-              margin-top: 0;
-            }
-          }
           margin-top: 0;
-          &:first-of-type {
-            margin-bottom: 4px;
-          }
           @include media(tablet) {
             float: left;
             width: 50%;
-            &:first-of-type {
-              margin-bottom: 0;
-            }
           }
         }
       }
@@ -365,6 +359,9 @@ form {
         margin-top: 24px;
       }
     }
+  }
+  .gp-address {
+    margin-bottom: 8px;
   }
 }
 
