@@ -3,12 +3,12 @@
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">
     <div class="column--one-half">
-      <p>{% if gp.contact.telephone %}Reception: {{ gp.contact.telephone }}{% endif %}</p>
-      <p>{% if gp.contact.fax %}Fax: {{ gp.contact.fax }}{% endif %}</p>
+      {% if gp.contact.telephone %}<p>Reception: {{ gp.contact.telephone }}</p>{% endif %}
+      {% if gp.contact.fax %}<p>Fax: {{ gp.contact.fax }}</p>{% endif %}
     </div>
     <div class="column--one-half">
-      <p>{% if gp.contact.email %}Email: <a class="gp-email" href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a></p>{% endif %}
-      <p>{% if gp.contact.website %}<a class="gp-website" href="{{ gp.contact.website }}">See the surgery's own website</a></p>{% endif %}
+      {% if gp.contact.email %}<p>Email: <a class="gp-email" href="mailto:{{ gp.contact.email }}">{{ gp.contact.email }}</a></p>{% endif %}
+      {% if gp.contact.website %}<p><a class="gp-website" href="{{ gp.contact.website }}">See the surgery's own website</a></p>{% endif %}
     </div>
   </div>
 </div>
