@@ -18,19 +18,29 @@ function mockCurrentDate2() {
 }
 
 function expectExceptionalOpeningTimes1($, rows, times) {
-  expect($(rows[0]).text()).to.include('Monday 29 May');
+  expect($(rows[0]).text()).to.include('Thursday 25 May');
   expect($(rows[0]).text()).to.include(times[0]);
+  expect($(rows[1]).text()).to.include('Monday 29 May');
+  expect($(rows[1]).text()).to.include(times[1]);
 }
 
 function expectExceptionalOpeningTimes2($, rows, times) {
+  expect($(rows[0]).text()).to.not.include('Thursday 25 May');
+  expect($(rows[0]).text()).to.not.include('8am to 12pm');
   expect($(rows[0]).text()).to.include('Monday 29 May');
   expect($(rows[0]).text()).to.include(times[0]);
 }
 
 describe('app', () => {
-  describe('opening times', () => {
-    it('should return exceptional opening times for the date', (done) => {
+  describe('opening times with exceptional opening times in the past', () => {
+    before(() => {
       tk.travel(mockCurrentDate1());
+    });
+
+    after(() => {
+      tk.reset();
+    });
+    it('should return exceptional opening times for the date', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
         .end((err, res) => {
@@ -41,15 +51,22 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
-          const expectedExTimes = ['Closed'];
+          const expectedExTimes = ['8am to 12pm', 'Closed'];
           expectExceptionalOpeningTimes1($, exceptionalRows, expectedExTimes);
 
           done();
         });
+    });
+  });
+  describe('opening times with exceptional opening times in the past (II)', () => {
+    before(() => {
+      tk.travel(mockCurrentDate2());
+    });
+
+    after(() => {
       tk.reset();
     });
     it('should return exceptional opening times for the date but not the ones in the past', (done) => {
-      tk.travel(mockCurrentDate2());
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
         .end((err, res) => {
@@ -65,20 +82,27 @@ describe('app', () => {
 
           done();
         });
+    });
+  });
+
+  describe('opening times with no exceptional opening times', () => {
+    before(() => {
+      tk.travel(mockCurrentDate2());
+    });
+
+    after(() => {
       tk.reset();
     });
-    it('should return reception and surgery opening times for the date but not the ones in the past', (done) => {
-      tk.travel(mockCurrentDate1());
+    it('should not return any changed info', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/42057`)
-        .end((err, res) => {
-          expect(err).to.equal(null);
-          expect(res).to.have.status(200);
+       .get(`${constants.SITE_ROOT}/42057`)
+       .end((err, res) => {
+         expect(err).to.equal(null);
+         expect(res).to.have.status(200);
 
-          expect(res.text).to.not.include('Changes to opening times');
-          done();
-        });
-      tk.reset();
+         expect(res.text).to.not.include('Changes to opening times');
+         done();
+       });
     });
   });
 });

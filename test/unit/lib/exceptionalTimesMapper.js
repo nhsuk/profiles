@@ -1,5 +1,6 @@
 const chai = require('chai');
 const exceptionalTimesMapper = require('../../../app/lib/exceptionalTimesMapper');
+const tk = require('timekeeper');
 
 const rawExceptionalOpeningTimes = require('../../resources/exceptionalOpeningTimes.json');
 const rawExceptionalOpeningTimesNotInDate = require('../../resources/exceptionalOpeningTimesNotInDate.json');
@@ -21,11 +22,13 @@ describe('exceptionalOpeningTimesMapper', () => {
     });
 
     it('should populate alterations for in date exceptional opening times', () => {
+      tk.travel(new Date('2017', '04', '25'));
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(rawExceptionalOpeningTimes);
       /* eslint-disable no-unused-expressions */
       expect(exceptionalOpeningTimes.alterations).to.exist;
-      expect(exceptionalOpeningTimes.alterations[0].formattedDate).to.equal('Monday 29 May');
+      expect(exceptionalOpeningTimes.alterations[0].formattedDate).to.equal('Thursday 25 May');
       /* eslint-enable no-unused-expressions */
+      tk.reset();
     });
 
     it('should not populate alterations for out of date exceptional opening times', () => {
