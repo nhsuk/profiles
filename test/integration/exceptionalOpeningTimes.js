@@ -10,29 +10,35 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 function mockCurrentDate1() {
-  return new Date('2017', '04', '25');
+  const day25 = '25';
+  const monthOfMay = '04'; // it's expected to be off by one
+  const year2017 = '2017';
+  return new Date(year2017, monthOfMay, day25);
 }
 
 function mockCurrentDate2() {
-  return new Date('2017', '04', '26');
+  const day26 = '26';
+  const monthOfMay = '04'; // it's expected to be off by one
+  const year2017 = '2017';
+  return new Date(year2017, monthOfMay, day26);
 }
 
-function expectExceptionalOpeningTimes1($, rows, times) {
+function expectExceptionalOpeningTimes1($, rows) {
   expect($(rows[0]).text()).to.include('Thursday 25 May');
-  expect($(rows[0]).text()).to.include(times[0]);
+  expect($(rows[0]).text()).to.include('8am to 12pm');
   expect($(rows[1]).text()).to.include('Monday 29 May');
-  expect($(rows[1]).text()).to.include(times[1]);
+  expect($(rows[1]).text()).to.include('Closed');
 }
 
-function expectExceptionalOpeningTimes2($, rows, times) {
+function expectExceptionalOpeningTimes2($, rows) {
   expect($(rows[0]).text()).to.not.include('Thursday 25 May');
   expect($(rows[0]).text()).to.not.include('8am to 12pm');
   expect($(rows[0]).text()).to.include('Monday 29 May');
-  expect($(rows[0]).text()).to.include(times[0]);
+  expect($(rows[0]).text()).to.include('Closed');
 }
 
 describe('app', () => {
-  describe('opening times with exceptional opening times in the past', () => {
+  describe('opening times with exceptional opening times', () => {
     before(() => {
       tk.travel(mockCurrentDate1());
     });
@@ -40,7 +46,7 @@ describe('app', () => {
     after(() => {
       tk.reset();
     });
-    it('should return exceptional opening times for the date', (done) => {
+    it('should display changes to opening times within the next two weeks', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
         .end((err, res) => {
@@ -51,8 +57,7 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
-          const expectedExTimes = ['8am to 12pm', 'Closed'];
-          expectExceptionalOpeningTimes1($, exceptionalRows, expectedExTimes);
+          expectExceptionalOpeningTimes1($, exceptionalRows);
 
           done();
         });
@@ -66,7 +71,7 @@ describe('app', () => {
     after(() => {
       tk.reset();
     });
-    it('should return exceptional opening times for the date but not the ones in the past', (done) => {
+    it('should not display changes to opening times that occur in the past', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/42056`)
         .end((err, res) => {
@@ -77,8 +82,7 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           const exceptionalRows = $('table.opening-times--exceptional').first().find('tr');
-          const expectedExTimes = ['Closed'];
-          expectExceptionalOpeningTimes2($, exceptionalRows, expectedExTimes);
+          expectExceptionalOpeningTimes2($, exceptionalRows);
 
           done();
         });
@@ -93,7 +97,7 @@ describe('app', () => {
     after(() => {
       tk.reset();
     });
-    it('should not return any changed info', (done) => {
+    it('should not display any changes to opening times', (done) => {
       chai.request(app)
        .get(`${constants.SITE_ROOT}/42057`)
        .end((err, res) => {

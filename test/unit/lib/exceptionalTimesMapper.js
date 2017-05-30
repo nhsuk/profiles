@@ -7,6 +7,13 @@ const rawExceptionalOpeningTimesNotInDate = require('../../resources/exceptional
 
 const expect = chai.expect;
 
+function mockCurrentDate() {
+  const day25 = '25';
+  const monthOfMay = '04'; // it's expected to be off by one
+  const year2017 = '2017';
+  return new Date(year2017, monthOfMay, day25);
+}
+
 describe('exceptionalOpeningTimesMapper', () => {
   describe('mapAll', () => {
     it('should return empty object for undefined opening times', () => {
@@ -21,8 +28,8 @@ describe('exceptionalOpeningTimesMapper', () => {
       expect(exceptionalOpeningTimes).to.be.empty;
     });
 
-    it('should populate alterations for in date exceptional opening times', () => {
-      tk.travel(new Date('2017', '04', '25'));
+    it('should display changes to opening times within the next two weeks', () => {
+      tk.travel(mockCurrentDate());
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(rawExceptionalOpeningTimes);
       /* eslint-disable no-unused-expressions */
       expect(exceptionalOpeningTimes.alterations).to.exist;
@@ -31,7 +38,7 @@ describe('exceptionalOpeningTimesMapper', () => {
       tk.reset();
     });
 
-    it('should not populate alterations for out of date exceptional opening times', () => {
+    it('should not display changes to opening times if they dont\'t exist', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper
         .mapAll(rawExceptionalOpeningTimesNotInDate);
       /* eslint-disable no-unused-expressions */

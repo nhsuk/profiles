@@ -40,7 +40,7 @@ describe('timeUtils', () => {
     it('it should return the right date based on the formatted string', () => {
       const time = timeUtils.getDateFromDateString('2017-05-25');
       expect(time.getUTCDate()).to.equal(25);
-      // starts from 0
+      // starts from 0 and expected to be one off
       expect(time.getUTCMonth()).to.equal(4);
       expect(time.getUTCFullYear()).to.equal(2017);
     });
