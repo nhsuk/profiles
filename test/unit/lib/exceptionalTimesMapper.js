@@ -33,7 +33,7 @@ describe('exceptionalOpeningTimesMapper', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(rawExceptionalOpeningTimes);
       /* eslint-disable no-unused-expressions */
       expect(exceptionalOpeningTimes.alterations).to.exist;
-      expect(exceptionalOpeningTimes.alterations[0].formattedDate).to.equal('Monday 29 May');
+      expect(exceptionalOpeningTimes.alterations[0].formattedDate).to.equal('Thursday 25 May');
       /* eslint-enable no-unused-expressions */
       tk.reset();
     });
