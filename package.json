@@ -7,7 +7,7 @@
     "build-css": "./css-build",
     "check-coverage": "istanbul check-coverage --config .istanbul.yml",
     "check-unit-coverage": "istanbul check-coverage --config .istanbul.unit.yml",
-    "generate-unit-coverage": "yarn run istanbul -- cover _mocha -- --recursive test/unit",
+    "generate-unit-coverage": "export TZ=UTC; yarn run istanbul -- cover _mocha -- --recursive test/unit",
     "generate-coverage": "yarn run istanbul -- cover _mocha -- --recursive",
     "git-hook": "yarn run lint && yarn run generate-unit-coverage && yarn run check-unit-coverage",
     "istanbul": "NODE_ENV=test istanbul",
