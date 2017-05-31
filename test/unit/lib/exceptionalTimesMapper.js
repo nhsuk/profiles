@@ -8,9 +8,9 @@ const rawExceptionalOpeningTimesNotInDate = require('../../resources/exceptional
 const expect = chai.expect;
 
 function mockCurrentDate() {
-  const day25 = '25';
-  const monthOfMay = '04'; // it's expected to be off by one
-  const year2017 = '2017';
+  const day25 = 25;
+  const monthOfMay = 4; // it's expected to be off by one
+  const year2017 = 2017;
   return new Date(year2017, monthOfMay, day25);
 }
 

@@ -10,16 +10,16 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 function mockCurrentDate1() {
-  const day25 = '25';
-  const monthOfMay = '04'; // it's expected to be off by one
-  const year2017 = '2017';
+  const day25 = 25;
+  const monthOfMay = 4; // it's expected to be off by one
+  const year2017 = 2017;
   return new Date(year2017, monthOfMay, day25);
 }
 
 function mockCurrentDate2() {
-  const day26 = '26';
-  const monthOfMay = '04'; // it's expected to be off by one
-  const year2017 = '2017';
+  const day26 = 26;
+  const monthOfMay = 4; // it's expected to be off by one
+  const year2017 = 2017;
   return new Date(year2017, monthOfMay, day26);
 }
 

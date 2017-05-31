@@ -6,7 +6,7 @@ const expect = chai.expect;
 describe('isDateInWindow', () => {
   it('should return true if the proposed date in not in the past and it\'s le than 14 days from today', () => {
     const dateString = '2017-05-27';
-    const currentDate = new Date('2017', '04', '25');
+    const currentDate = new Date(2017, 4, 25); // May 25 2017
     const noDays = 14;
     const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(true);
@@ -14,7 +14,7 @@ describe('isDateInWindow', () => {
 
   it('should return false if the proposed date is in the past', () => {
     const dateString = '2016-05-20';
-    const currentDate = new Date('2017', '04', '22');
+    const currentDate = new Date(2017, 4, 22); // May 22 2017
     const noDays = 14;
     const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(false);
@@ -22,7 +22,7 @@ describe('isDateInWindow', () => {
 
   it('should return false if the proposed date is more than 14 days in the future', () => {
     const dateString = '2017-05-16';
-    const currentDate = new Date('2017', '04', '01');
+    const currentDate = new Date(2017, 4, 1); // May 1 2017
     const noDays = 14;
     const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(false);
