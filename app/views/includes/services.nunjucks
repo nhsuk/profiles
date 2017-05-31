@@ -1,7 +1,7 @@
 {% if gp.services %}
 <h2 class="services" data-title="Services">Services at this surgery</h2>
 {% if gp.services.gpReferrals.length %}
-<h3>Services that need a GP referral</h3>
+<h3>Services patients need to see a GP for</h3>
 <ul class="link-list gp-referrals">
   {% for service in gp.services.gpReferrals %}
   <li>{{ service }}</li>
