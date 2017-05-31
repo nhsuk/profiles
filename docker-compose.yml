@@ -27,7 +27,7 @@ services:
       - profiles-node_modules:/code/node_modules
 
   profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.8.0}"
+    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.10.0}"
     expose:
       - "27017"
 
