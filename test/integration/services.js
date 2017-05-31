@@ -42,7 +42,7 @@ describe('app', () => {
         const $ = cheerio.load(res.text);
 
         expect($('.services').text()).to.equal('Services at this surgery');
-        expect($('.services').next('h3').text()).to.equal('Services that need a GP referral');
+        expect($('.services').next('h3').text()).to.equal('Services patients need to see a GP for');
         expect($('.gp-referrals li').length).to.equal(1);
         expect($($('.gp-referrals li')[0]).text()).to.equal('Minor surgery (e.g. removal of moles and skin lesions) - provided in-house');
         done();
