@@ -20,7 +20,7 @@ function mapWeek(times) {
     const sessions = continuousTimeUtils.mapDay(daySessions);
     parsedTimes.push({ day, sessions });
   });
-  return continuousTimeUtils.addTimePadding(parsedTimes, false);
+  return continuousTimeUtils.addTimePadding(parsedTimes, true);
 }
 
 function timesValid(allTimes) {
