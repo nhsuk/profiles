@@ -89,6 +89,12 @@ table, .table {
           }
         }
       }
+      td {
+        margin-top:6px;
+        @include media(tablet) {
+          margin-top:16px;
+        }
+      }
     }
     &--exceptional {
       margin:0;
