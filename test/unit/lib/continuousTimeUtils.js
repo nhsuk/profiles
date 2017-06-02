@@ -1,5 +1,5 @@
 const chai = require('chai');
-const continuousTimeUtils = require('../../../app/lib/continuousTimeUtils');
+const openingTimesUtils = require('../../../app/lib/openingTimesUtils');
 
 const expect = chai.expect;
 
@@ -8,7 +8,7 @@ describe('isDateInWindow', () => {
     const dateString = '2017-05-27';
     const currentDate = new Date(2017, 4, 25); // May 25 2017
     const noDays = 14;
-    const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
+    const result = openingTimesUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(true);
   });
 
@@ -16,7 +16,7 @@ describe('isDateInWindow', () => {
     const dateString = '2016-05-20';
     const currentDate = new Date(2017, 4, 22); // May 22 2017
     const noDays = 14;
-    const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
+    const result = openingTimesUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(false);
   });
 
@@ -24,7 +24,7 @@ describe('isDateInWindow', () => {
     const dateString = '2017-05-16';
     const currentDate = new Date(2017, 4, 1); // May 1 2017
     const noDays = 14;
-    const result = continuousTimeUtils.isDateInWindow(dateString, currentDate, noDays);
+    const result = openingTimesUtils.isDateInWindow(dateString, currentDate, noDays);
     expect(result).to.equal(false);
   });
 });
@@ -32,17 +32,17 @@ describe('isDateInWindow', () => {
 describe('toReadableDate', () => {
   it('should return the formatted date based on day, date and month for Sunday and December', () => {
     const dateString = '2016-12-04';
-    const result = continuousTimeUtils.toReadableDate(dateString);
+    const result = openingTimesUtils.toReadableDate(dateString);
     expect(result).to.equal('Sunday 4 December');
   });
   it('should return the formatted date based on day, date and month for Monday and January', () => {
     const dateString = '2017-01-02';
-    const result = continuousTimeUtils.toReadableDate(dateString);
+    const result = openingTimesUtils.toReadableDate(dateString);
     expect(result).to.equal('Monday 2 January');
   });
   it('should return the formatted date based on day, date and month', () => {
     const dateString = '2017-05-25';
-    const result = continuousTimeUtils.toReadableDate(dateString);
+    const result = openingTimesUtils.toReadableDate(dateString);
     expect(result).to.equal('Thursday 25 May');
   });
 });
@@ -60,7 +60,7 @@ describe('mapDay', () => {
       }
     ];
 
-    const openingTimes = continuousTimeUtils.mapDay(monday);
+    const openingTimes = openingTimesUtils.mapDay(monday);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(2);
     expect(openingTimes[0]).to.equal('7:30am to 12:30pm');
@@ -79,14 +79,14 @@ describe('mapDay', () => {
       }
     ];
 
-    const openingTimes = continuousTimeUtils.mapDay(monday);
+    const openingTimes = openingTimesUtils.mapDay(monday);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(1);
     expect(openingTimes[0]).to.equal('7:30am to 8pm');
   });
 
   it('should change empty array to closed message', () => {
-    const openingTimes = continuousTimeUtils.mapDay([]);
+    const openingTimes = openingTimesUtils.mapDay([]);
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes.length).to.equal(1);
     expect(openingTimes[0]).to.equal('Closed');

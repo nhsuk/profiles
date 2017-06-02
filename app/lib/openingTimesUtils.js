@@ -20,7 +20,7 @@ function joinContiguousTimes(keySessions) {
   return fixedKeySessions.list;
 }
 
-function addTimePadding(parsedTimes, isOneSession) {
+function addMarkupProperties(parsedTimes) {
   const counts = parsedTimes.map(time => time.sessions.length);
   const max = Math.max(...counts);
 
@@ -28,7 +28,7 @@ function addTimePadding(parsedTimes, isOneSession) {
     if (time.sessions.length < max) {
       // eslint-disable-next-line no-param-reassign
       time.padding = (max - time.sessions.length);
-    } else if ((time.sessions.length === 1) && (isOneSession === true)) {
+    } else if ((time.sessions.length === 1)) {
       // eslint-disable-next-line no-param-reassign
       time.oneSession = 'one-session';
     }
@@ -77,6 +77,6 @@ function mapDay(keySessions) {
 module.exports = {
   isDateInWindow,
   toReadableDate,
-  addTimePadding,
+  addMarkupProperties,
   mapDay,
 };

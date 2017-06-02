@@ -1,12 +1,12 @@
 const timeUtils = require('./timeUtils');
-const cTimeUtils = require('./continuousTimeUtils');
+const openingTimesUtils = require('./openingTimesUtils');
 
 const futureDays = 14;
 
 function getDates(times) {
   const filteredTimes = {};
   Object.keys(times).forEach((exceptionalTime) => {
-    if (cTimeUtils.isDateInWindow(exceptionalTime, timeUtils.getToday(), futureDays) === true) {
+    if (openingTimesUtils.isDateInWindow(exceptionalTime, timeUtils.getToday(), futureDays)) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });
@@ -19,11 +19,11 @@ function mapDates(times) {
   if (filteredTimes.length > 0) {
     const parsedTimes = [];
     filteredTimes.forEach((date) => {
-      const formattedDate = cTimeUtils.toReadableDate(date);
-      const sessions = cTimeUtils.mapDay(times[date]);
+      const formattedDate = openingTimesUtils.toReadableDate(date);
+      const sessions = openingTimesUtils.mapDay(times[date]);
       parsedTimes.push({ formattedDate, sessions });
     });
-    return cTimeUtils.addTimePadding(parsedTimes, true);
+    return openingTimesUtils.addMarkupProperties(parsedTimes);
   }
   return undefined;
 }

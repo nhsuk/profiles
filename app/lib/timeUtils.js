@@ -20,7 +20,7 @@ function toAmPm(timeString) {
 }
 
 function getToday() {
-  return new Date(Date.now());
+  return new Date();
 }
 
 function getDateFromDateString(dateString) {

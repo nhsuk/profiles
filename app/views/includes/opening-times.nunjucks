@@ -1,8 +1,8 @@
-{% macro openingTimes(times, title, message, genTitle, exceptionalTimes, subtitle, genSubTitle, callout) %}
+{% macro openingTimes(times, title, message, genTitle, exceptionalTimes) %}
 <h2 class='opening-times' data-title='{{genTitle}}'>{{ title }}</h2>
 {% if exceptionalTimes %}
-  <div class='{{ callout }} exceptional-opening-times' data-title='{{genSubTitle}}'>
-    <h3>{{ subtitle }}</h3>
+  <div class='callout callout--warning exceptional-opening-times' data-title='Changes (Reception)'>
+    <h3>Changes to opening times</h3>
     <table class='opening-times opening-times--exceptional'>
       {% for eot in exceptionalTimes %}
       <tr class="{{eot.oneSession}}">
@@ -41,8 +41,21 @@
 {% endif %}
 {% endmacro %}
 
-{{ openingTimes(gp.openingTimes.reception, 'Reception opening times', 'No information available. Contact reception to find out opening times.','Open (Reception)',gp.exceptionalTimes.alterations,'Changes to opening times','Changes (Reception)','callout callout--warning') }}
-{{ openingTimes(gp.openingTimes.surgery, 'When GPs see patients', "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",'Open (GP)',nil,'','','') }}
+{{ openingTimes(
+     gp.openingTimes.reception,
+     'Reception opening times',
+     'No information available. Contact reception to find out opening times.',
+     'Open (Reception)',
+     gp.exceptionalTimes.alterations
+)}}
+
+{{ openingTimes(
+     gp.openingTimes.surgery,
+     'When GPs see patients',
+     "We don't have opening times for this surgery. Contact reception to find out when the surgery is open.",
+     'Open (GP)',
+     nil
+)}}
 
 <p>Contact reception{%if gp.contact.website %} or go to the <a class="gp-website-opening-times" href="{{gp.contact.website}}">surgery's website</a>{% endif %} to find out if appointments are available at other times.</p>
 <p>If the surgery is closed and you need help quickly, call 111 for advice on local services that might be able to help.</p>
