@@ -66,11 +66,12 @@ describe('app', () => {
 
           expect($('.local-header__title').text().trim())
             .to.equal('Dr Writer & Partners');
-          expect($('.column--one-half:first-child p').text().trim())
-            .to.equal('Park PracticeEastbourne Park Primary Care CentreBroadwater WayEastbourneBN22 9PQ');
-          const contactDetailsText = $('.column--one-half p').last().text().trim();
-          expect(contactDetailsText).to.include('Reception: 01323 502200');
-          expect(contactDetailsText).to.include('Fax: 01323 500527');
+          expect($('.gp-address').text().trim())
+            .to.equal('Park Practice, Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, BN22 9PQ');
+          const contactDetailsTextFirst = $('.column--one-half:first-child p').first().text().trim();
+          const contactDetailsTextLast = $('.column--one-half:first-child p').last().text().trim();
+          expect(contactDetailsTextFirst).to.equal('Reception: 01323 502200');
+          expect(contactDetailsTextLast).to.equal('Fax: 01323 500527');
           expect($('.gp-email').text()).to.equal('admin.parkpractice@nhs.net');
           expect($('.gp-email').attr('href')).to.equal('mailto:admin.parkpractice@nhs.net');
           expect($('.gp-website').text()).to.equal("See the surgery's own website");

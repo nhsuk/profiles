@@ -321,8 +321,12 @@ form {
 
 .local-header {
   margin-top:0;
-  padding-top:32px;
+  padding:16px 0;
   background-color:$blue;
+  color: $white;
+  @include media(tablet) {
+    padding:32px 0;
+  }
   &--fullwidth {
     max-width:100%;
     @include media(mobile) {
@@ -335,26 +339,27 @@ form {
     }
     h1 {
       padding-top:0;
+      margin-bottom: 8px;
+
+      @include media(tablet) {
+        margin-bottom: 16px;
+      }
     }
     a {
       word-wrap: break-word;
     }
+    p {
+      font-size:1em;
+      line-height:1.6em;
+      margin-top: 0;
+    }
     .local-header__intro {
-      * {
-        font-size:1em;
-        line-height:1.6em;
-      }
       .column {
         &--one-half {
+          margin-top: 0;
           @include media(tablet) {
             float: left;
             width: 50%;
-            margin-top: 0px;
-          }
-          &:first-child {
-            p {
-              text-transform:capitalize;
-            }
           }
         }
       }
@@ -369,9 +374,17 @@ form {
   }
   &__intro {
     &--fullwidth{
-      padding-top:24px;
-      margin-top:24px;
+      padding-top:16px;
+      margin-top:16px;
+
+      @include media(tablet) {
+        padding-top: 24px;
+        margin-top: 24px;
+      }
     }
+  }
+  .gp-address {
+    margin-bottom: 8px;
   }
 }
 
@@ -720,7 +733,6 @@ form {
   &__intro {
     &--fullwidth {
       max-width:100%;
-      padding-top:32px;
     }
   }
 }
