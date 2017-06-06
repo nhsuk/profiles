@@ -27,6 +27,7 @@
           "functions": "never"
         }],
         "react/require-extension": "off",
+        "newline-before-return": "error",
         "newline-after-var": [
           "error", "always"
         ]

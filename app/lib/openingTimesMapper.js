@@ -22,6 +22,7 @@ function mapWeek(times) {
 
     parsedTimes.push({ day, sessions });
   });
+
   return openingTimesUtils.addMarkupProperties(parsedTimes);
 }
 

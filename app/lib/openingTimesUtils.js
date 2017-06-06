@@ -14,6 +14,7 @@ function joinContiguousTimes(keySessions) {
       o.prev = session;
     }
     /* eslint-enable no-param-reassign */
+
     return o;
   }, { list: [], prev: undefined });
 
@@ -73,6 +74,7 @@ function mapDay(keySessions) {
   if (sessions.length === 0) {
     sessions.push('Closed');
   }
+
   return sessions;
 }
 

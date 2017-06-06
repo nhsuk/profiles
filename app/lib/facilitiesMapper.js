@@ -31,6 +31,7 @@ function createItemList(parking, accessibility) {
   if (parking.length === 1 && accessibility.length === 0) {
     return [`${correctName(parking[0])} is available`];
   }
+
   return utils.removeDuplicates(parking.concat(accessibility)).map(correctName);
 }
 
@@ -43,6 +44,7 @@ function map(allFacilities) {
 
     return items.length === 0 ? undefined : { title, items };
   }
+
   return undefined;
 }
 

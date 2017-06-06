@@ -11,6 +11,7 @@ function getDates(times) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });
+
   return filteredTimes;
 }
 
@@ -26,8 +27,10 @@ function mapDates(times) {
 
       parsedTimes.push({ formattedDate, sessions });
     });
+
     return openingTimesUtils.addMarkupProperties(parsedTimes);
   }
+
   return undefined;
 }
 
