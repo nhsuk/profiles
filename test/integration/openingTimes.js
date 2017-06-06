@@ -42,12 +42,14 @@ describe('app', () => {
           const expectedRecTimes = [
             '8am to 6:30pm', '8am to 6:30pm', '8am to 1pm',
             '8am to 6:30pm', '8am to 6:30pm', 'Closed', 'Closed'];
+
           expectOpeningTimes($, receptionRows, expectedRecTimes);
 
           const surgeryRows = $('table.opening-times').last().find('tr');
           const expectedSurTimes = [
             '8am to 6:30pm', '8am to 6:30pm', '8am to 1pm',
             '8am to 6:30pm', '8am to 6:30pm', 'Closed', 'Closed'];
+
           expectOpeningTimes($, surgeryRows, expectedSurTimes);
 
           done();
@@ -67,10 +69,12 @@ describe('app', () => {
           expect($('h2.opening-times').last().text().trim()).to.equal('When GPs see patients');
 
           const receptionTableText = $('p.opening-times').first().text().trim();
+
           expect(receptionTableText).to.equal('No information available. ' +
                                                 'Contact reception to find out opening times.');
 
           const surgeryTableText = $('p.opening-times').last().text().trim();
+
           expect(surgeryTableText).to.equal('We don\'t have opening times for this surgery. ' +
                                               'Contact reception to find out when the surgery is open.');
 

@@ -34,6 +34,7 @@ describe('servicesMapper', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;
     const gpRefs = results.gpReferrals;
+
     // eslint-disable-next-line no-unused-expressions
     expect(gpRefs).to.not.be.undefined;
     expect(gpRefs.length).to.equal(1);
@@ -46,6 +47,7 @@ describe('servicesMapper', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(results).to.not.be.undefined;
     const selfRefs = results.selfReferrals;
+
     // eslint-disable-next-line no-unused-expressions
     expect(selfRefs).to.not.be.undefined;
     expect(selfRefs.length).to.equal(1);

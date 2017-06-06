@@ -16,6 +16,7 @@ function filterYes(item) {
 
 function getTitle(parking, accessibility) {
   const titles = [];
+
   if (parking.length > 0) {
     titles.push('Parking');
   }
@@ -30,6 +31,7 @@ function createItemList(parking, accessibility) {
   if (parking.length === 1 && accessibility.length === 0) {
     return [`${correctName(parking[0])} is available`];
   }
+
   return utils.removeDuplicates(parking.concat(accessibility)).map(correctName);
 }
 
@@ -39,8 +41,10 @@ function map(allFacilities) {
     const accessibility = filterYes(allFacilities.accessibility);
     const title = getTitle(parking, accessibility);
     const items = createItemList(parking, accessibility);
+
     return items.length === 0 ? undefined : { title, items };
   }
+
   return undefined;
 }
 

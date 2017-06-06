@@ -11,6 +11,7 @@ function mockCurrentDate() {
   const day25 = 25;
   const monthOfMay = 4; // it's expected to be off by one
   const year2017 = 2017;
+
   return new Date(year2017, monthOfMay, day25);
 }
 
@@ -18,12 +19,14 @@ describe('exceptionalOpeningTimesMapper', () => {
   describe('mapAll', () => {
     it('should return empty object for undefined opening times', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(undefined);
+
       // eslint-disable-next-line no-unused-expressions
       expect(exceptionalOpeningTimes).to.be.empty;
     });
 
     it('should return empty object for empty opening times', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll({});
+
       // eslint-disable-next-line no-unused-expressions
       expect(exceptionalOpeningTimes).to.be.empty;
     });
@@ -32,6 +35,7 @@ describe('exceptionalOpeningTimesMapper', () => {
       tk.travel(mockCurrentDate());
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(rawExceptionalOpeningTimes);
       /* eslint-disable no-unused-expressions */
+
       expect(exceptionalOpeningTimes.alterations).to.exist;
       expect(exceptionalOpeningTimes.alterations[0].formattedDate).to.equal('Thursday 25 May');
       /* eslint-enable no-unused-expressions */
@@ -42,6 +46,7 @@ describe('exceptionalOpeningTimesMapper', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper
         .mapAll(rawExceptionalOpeningTimesNotInDate);
       /* eslint-disable no-unused-expressions */
+
       expect(exceptionalOpeningTimes.alterations).to.not.exist;
       /* eslint-enable no-unused-expressions */
     });

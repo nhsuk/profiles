@@ -10,18 +10,21 @@ describe('openingTimesMapper', () => {
   describe('mapAll', () => {
     it('should return empty object for undefined opening times', () => {
       const openingTimes = openingTimesMapper.mapAll(undefined);
+
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes).to.be.empty;
     });
 
     it('should return empty object for empty opening times', () => {
       const openingTimes = openingTimesMapper.mapAll({});
+
       // eslint-disable-next-line no-unused-expressions
       expect(openingTimes).to.be.empty;
     });
 
     it('should gracefully handle missing days on opening times', () => {
       const openingTimes = openingTimesMapper.mapAll(rawOpeningTimesNoMonday);
+
       /* eslint-disable no-unused-expressions */
       expect(openingTimes.reception).to.exist;
       expect(openingTimes.reception[0].day).to.equal('Monday');
@@ -32,6 +35,7 @@ describe('openingTimesMapper', () => {
 
     it('should populate reception and surgery for valid opening times', () => {
       const openingTimes = openingTimesMapper.mapAll(rawOpeningTimes);
+
       /* eslint-disable no-unused-expressions */
       expect(openingTimes.reception).to.exist;
       expect(openingTimes.reception[0].day).to.equal('Monday');
@@ -70,6 +74,7 @@ describe('openingTimesMapper', () => {
       };
 
       const days = openingTimesMapper.mapWeek(week);
+
       expect(days.length).to.equal(7);
       // eslint-disable-next-line no-unused-expressions
       expect(days[0].padding).to.be.undefined;
@@ -87,6 +92,7 @@ describe('openingTimesMapper', () => {
       };
 
       const days = openingTimesMapper.mapWeek(week);
+
       // eslint-disable-next-line no-unused-expressions
       expect(days).to.be.undefined;
     });

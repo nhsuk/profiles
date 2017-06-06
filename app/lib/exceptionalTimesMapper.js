@@ -5,11 +5,13 @@ const futureDays = 14;
 
 function getDates(times) {
   const filteredTimes = {};
+
   Object.keys(times).forEach((exceptionalTime) => {
     if (openingTimesUtils.isDateInWindow(exceptionalTime, timeUtils.getToday(), futureDays)) {
       filteredTimes[exceptionalTime] = times[exceptionalTime];
     }
   });
+
   return filteredTimes;
 }
 
@@ -18,13 +20,17 @@ function mapDates(times) {
 
   if (filteredTimes.length > 0) {
     const parsedTimes = [];
+
     filteredTimes.forEach((date) => {
       const formattedDate = openingTimesUtils.toReadableDate(date);
       const sessions = openingTimesUtils.mapDay(times[date]);
+
       parsedTimes.push({ formattedDate, sessions });
     });
+
     return openingTimesUtils.addMarkupProperties(parsedTimes);
   }
+
   return undefined;
 }
 

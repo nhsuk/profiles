@@ -70,6 +70,7 @@ describe('app', () => {
             .to.equal('Park Practice, Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, BN22 9PQ');
           const contactDetailsTextFirst = $('.column--one-half:first-child p').first().text().trim();
           const contactDetailsTextLast = $('.column--one-half:first-child p').last().text().trim();
+
           expect(contactDetailsTextFirst).to.equal('Reception: 01323 502200');
           expect(contactDetailsTextLast).to.equal('Fax: 01323 500527');
           expect($('.gp-email').text()).to.equal('admin.parkpractice@nhs.net');
@@ -78,6 +79,7 @@ describe('app', () => {
           expect($('.gp-website').attr('href')).to.equal('http://www.parkpractice.co.uk');
 
           const choicesProfileLink = $('.choices-profile-link').prop('href');
+
           expect(choicesProfileLink).to.be.equal('http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
 
           done();

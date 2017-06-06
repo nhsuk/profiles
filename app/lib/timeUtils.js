@@ -29,6 +29,7 @@ function getDateFromDateString(dateString) {
   const year = dateArr[0];
   const month = dateArr[1] - 1;
   const date = dateArr[2];
+
   return new Date(year, month, date);
 }
 
