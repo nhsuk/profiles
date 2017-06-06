@@ -6,6 +6,7 @@ const expect = chai.expect;
 describe('mapLink', () => {
   it('returns a fully qualified google map url', () => {
     const gp = {};
+
     gp.name = 'Gilberdyke Health Centre';
     gp.address = {};
     gp.address.addressLines = 'The Health Centre,Thornton Dam Lane,Gilberdyke,Gilberdyke';

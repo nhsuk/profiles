@@ -5,6 +5,7 @@ const daysOrderedForUi = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
 function isOpen(times) {
   return daysOrderedForUi.some((day) => {
     const daySessions = times[day.toLowerCase()];
+
     return daySessions && daySessions.length > 0;
   });
 }
@@ -18,6 +19,7 @@ function mapWeek(times) {
   daysOrderedForUi.forEach((day) => {
     const daySessions = times[day.toLowerCase()];
     const sessions = openingTimesUtils.mapDay(daySessions);
+
     parsedTimes.push({ day, sessions });
   });
   return openingTimesUtils.addMarkupProperties(parsedTimes);

@@ -16,6 +16,7 @@ function filterYes(item) {
 
 function getTitle(parking, accessibility) {
   const titles = [];
+
   if (parking.length > 0) {
     titles.push('Parking');
   }
@@ -39,6 +40,7 @@ function map(allFacilities) {
     const accessibility = filterYes(allFacilities.accessibility);
     const title = getTitle(parking, accessibility);
     const items = createItemList(parking, accessibility);
+
     return items.length === 0 ? undefined : { title, items };
   }
   return undefined;

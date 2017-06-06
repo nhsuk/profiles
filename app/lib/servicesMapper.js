@@ -6,11 +6,13 @@ function containsEntries(services) {
 
 function filterGpReferrals(services) {
   const gpReferrals = services.entries.filter(x => x.gpReferralRequired).map(x => x.title);
+
   return utils.sortIgnoreCase(gpReferrals);
 }
 
 function filterSelfReferrals(services) {
   const selfReferrals = services.entries.filter(x => !x.gpReferralRequired).map(x => x.title);
+
   return utils.sortIgnoreCase(selfReferrals);
 }
 

@@ -6,6 +6,7 @@ const expect = chai.expect;
 describe('facilitiesMapper', () => {
   it('should gracefully handle undefined facilities', () => {
     const openingTimes = facilitiesMapper(undefined);
+
     // eslint-disable-next-line no-unused-expressions
     expect(openingTimes).to.be.undefined;
   });
@@ -23,6 +24,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.exist;
     expect(yesFacilities.items.length).to.equal(3);
@@ -43,8 +45,8 @@ describe('facilitiesMapper', () => {
         { name: 'Disabled parking', exists: 'Yes' },
       ],
     };
-
     const yesFacilities = facilitiesMapper(facilities);
+
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.exist;
     expect(yesFacilities.items.length).to.equal(3);
@@ -67,6 +69,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     // eslint-disable-next-line no-unused-expressions
     expect(yesFacilities).to.be.undefined;
   });
@@ -85,6 +88,7 @@ describe('facilitiesMapper', () => {
 
     const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
+
     expect(yesFacilities.title).to.equal('Parking');
   });
 
@@ -101,6 +105,7 @@ describe('facilitiesMapper', () => {
 
     const yesFacilities = facilitiesMapper(facilities);
     // eslint-disable-next-line no-unused-expressions
+
     expect(yesFacilities.items[0]).to.equal('Car parking is available');
   });
 
@@ -117,6 +122,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     expect(yesFacilities.title).to.equal('Accessibility');
   });
 
@@ -133,6 +139,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     expect(yesFacilities.title).to.equal('Parking and accessibility');
   });
 
@@ -145,6 +152,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     expect(yesFacilities.items[0]).to.equal('Car parking');
   });
 
@@ -156,6 +164,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     expect(yesFacilities.items[0]).to.equal('Disabled toilet');
   });
 
@@ -167,6 +176,7 @@ describe('facilitiesMapper', () => {
     };
 
     const yesFacilities = facilitiesMapper(facilities);
+
     expect(yesFacilities.items[0]).to.equal('Step-free access');
   });
 });

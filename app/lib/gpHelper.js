@@ -13,6 +13,7 @@ function areGpsAvailable(gpCounts) {
 
 function getGpCountMessages(gpCounts) {
   const messages = [];
+
   if (gpCounts.female) {
     messages.push(`${gpCounts.female} female ${pluraliseGP(gpCounts.female)}`);
   }

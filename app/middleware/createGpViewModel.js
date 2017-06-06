@@ -22,6 +22,7 @@ function getChoicesProfileLink(gpData) {
 
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
+
   if (gpData) {
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {

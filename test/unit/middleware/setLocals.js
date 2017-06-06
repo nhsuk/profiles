@@ -6,6 +6,7 @@ const expect = chai.expect;
 describe('setLocals', () => {
   describe('backLink', () => {
     const referer = 'http://web.site.com';
+
     function getReferer() { return referer; }
     function noReferer() { return ''; }
     function mockNext() { }

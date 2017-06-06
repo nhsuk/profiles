@@ -22,6 +22,7 @@ describe('app', () => {
           expect($('h2.facilities').first().text().trim()).to.equal('Parking and accessibility');
 
           const facilitiesList = $('ul.facilities li');
+
           expect(facilitiesList.length).to.equal(4);
           expect($(facilitiesList[0]).text().trim()).to.equal('Car parking');
           expect($(facilitiesList[1]).text().trim()).to.equal('Disabled toilet');

@@ -3,6 +3,7 @@ function generateUrl(gp) {
   const address = gp.address.addressLines;
   const postcode = gp.address.postcode;
   const url = `https://maps.google.com/?q=${name},${address},${postcode}`.replace(/ /g, '+');
+
   return url;
 }
 

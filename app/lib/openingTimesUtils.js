@@ -44,6 +44,7 @@ function dayDiff(secondDate, firstDate) {
 
 function isDateInWindow(dateString, currentDate, noDays) {
   const exceptionalDate = timeUtils.getDateFromDateString(dateString);
+
   return (dayDiff(exceptionalDate, currentDate) <= noDays) &&
     (dayDiff(exceptionalDate, currentDate) >= 0);
 }
@@ -53,6 +54,7 @@ function toReadableDate(dateString) {
   const dayOfWeek = daysOrderedByUtcIndex[exceptionalDate.getUTCDay()];
   const date = exceptionalDate.getUTCDate();
   const month = months[exceptionalDate.getUTCMonth()];
+
   return `${dayOfWeek} ${date} ${month}`;
 }
 
