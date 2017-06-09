@@ -29,4 +29,4 @@ database, ensuring the event loop isn't blocked.
 The sharing of the image means any work done on improving the creation of the
 image including data refresh frequency will be shared amongst all consumers.
 MongoDB provides much more functionality than is required by the application
-which may be able to be leveraged in the future.
+which may be leveraged in the future.
