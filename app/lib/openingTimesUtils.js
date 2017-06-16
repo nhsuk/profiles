@@ -38,7 +38,6 @@ function addMarkupProperties(parsedTimes) {
   return parsedTimes;
 }
 
-
 function dayDiff(secondDate, firstDate) {
   return Math.trunc((secondDate - firstDate) / (1000 * 60 * 60 * 24));
 }
