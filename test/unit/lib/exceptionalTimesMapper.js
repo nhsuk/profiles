@@ -20,15 +20,15 @@ describe('exceptionalOpeningTimesMapper', () => {
     it('should return empty object for undefined opening times', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(undefined);
 
-      // eslint-disable-next-line no-unused-expressions
-      expect(exceptionalOpeningTimes).to.be.empty;
+     // eslint-disable-next-line no-unused-expressions
+      expect(exceptionalOpeningTimes).to.be.undefined;
     });
 
     it('should return empty object for empty opening times', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll({});
 
       // eslint-disable-next-line no-unused-expressions
-      expect(exceptionalOpeningTimes).to.be.empty;
+      expect(exceptionalOpeningTimes).to.be.undefined;
     });
 
     it('should display changes to opening times within the next two weeks', () => {
