@@ -1,0 +1,44 @@
+ <script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Physician",
+  "name" : "{{gp.name}}",
+  "telephone" : "{{ gp.contact.telephone }}",
+  "email" : "{{ gp.contact.email }}",
+  "identifier" : "{{ gp.odsCode }}",
+  "address" : {
+    "@type" : "PostalAddress",
+    "streetAddress" : "{{gp.address.addressLines}}",
+    "addressLocality" : "{{gp.address.addressLines}}",
+    "postalCode" : "{{ gp.address.postcode }}"
+    
+  },
+  "geo" : 
+  {
+    "@type": "GeoCoordinates",
+    "latitude": "{{gp.location.latitude}}",
+    "longitude": "73.98"
+    },
+  
+  "openingHoursSpecification" : [ {
+    "@type" : "OpeningHoursSpecification",
+    "dayOfWeek" : {
+      "@type" : "DayOfWeek",
+      "name" : "Monday"
+    },
+    "description" : "Reception",
+    "opens" : "09:00",
+    "closes" : "12:00"
+  }, {
+  "@type" : "OpeningHoursSpecification",
+    "dayOfWeek" : {
+      "@type" : "DayOfWeek",
+      "name" : "Monday"
+    },
+    "description" : "Surgery",
+    "opens" : "09:00",
+    "closes" : "12:00"
+  }],
+  "url" : {{gp.contact.website}},
+  "isAcceptingNewPatients" : "{{gp.acceptingNewPatients}}"
+}
