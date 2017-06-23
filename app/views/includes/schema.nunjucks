@@ -1,0 +1,59 @@
+{% macro openingTimesSchema(times, title, message, genTitle, exceptionalTimes) %}
+{% if times %}
+ {% for ot in times %}
+ {% for session in ot.sessions %}
+ {
+    "@type" : "OpeningHoursSpecification",
+    "dayOfWeek" : {
+      "@type" : "DayOfWeek",
+      "name" : "{{ot.day}}"
+    },
+    "description" : "Reception",
+    "opens" : "{{session}}",
+    "closes" : "{{session}}"
+  }
+   {% if loop.last %}
+  {% else %}
+  ,
+  {% endif %} 
+  {% endfor %}
+   {% if loop.last %}
+  {% else %}
+  ,
+  {% endif %} 
+  {% endfor %}
+{% endif %}
+{% endmacro %}
+
+ <script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Physician",
+  "name" : "{{gp.name}}",
+  "telephone" : "{{ gp.contact.telephone }}",
+  "email" : "{{ gp.contact.email }}",
+  "identifier" : "{{ gp.odsCode }}",
+  "address" : {
+    "@type" : "PostalAddress",
+    "streetAddress" : "{{gp.address.addressLines[1]}}",
+    "addressLocality" : "{{gp.address.addressLines[3]}}",
+    "postalCode" : "{{ gp.address.postcode }}"
+    
+  },
+  "geo" : 
+  {
+    "@type": "GeoCoordinates",
+    "latitude": "{{gp.location.coordinates[0]}}",
+    "longitude": "{{gp.location.coordinates[1]}}"
+    },
+  
+  "openingHoursSpecification" : [
+
+{{ openingTimesSchema(
+     gp.openingTimes.reception)
+     }}
+],
+  "url" : "{{gp.contact.website}}",
+  "isAcceptingNewPatients" : "{{gp.acceptingNewPatients}}"
+}
+</script>
