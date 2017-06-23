@@ -1,6 +1,5 @@
 const openingTimesUtils = require('./openingTimesUtils');
-
-const daysOrderedForUi = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysOrderedForUi = require('./constants').daysOfWeekOrderedForUi;
 
 function isOpen(times) {
   return daysOrderedForUi.some((day) => {
