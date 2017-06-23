@@ -14,7 +14,7 @@ function removeDay(days, day) {
 }
 
 function expectValidOpeningHoursSpecification(openingHours) {
-  const days = constants.daysOfWeekOrderedForUi;
+  const days = JSON.parse(JSON.stringify(constants.daysOfWeekOrderedForUi));
   openingHours.forEach((day) => {
     expect(day['@type']).equal('OpeningHoursSpecification');
     expect(day.dayOfWeek['@type']).equal('DayOfWeek');
