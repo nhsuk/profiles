@@ -178,7 +178,8 @@ ul {
     &.grid-row {
       margin-bottom: 36px;
       li {
-        &.column--one-third {
+        &.column--one-half {
+          margin-bottom: 16px;
           @include media(desktop) {
             padding-right:0;
           }

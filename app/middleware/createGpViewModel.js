@@ -20,6 +20,10 @@ function getChoicesProfileLink(gpData) {
   return `http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
 }
 
+function getChoicesReviewLink(gpData) {
+  return `https://www.nhs.uk/Services/GP/LeaveReview/DefaultView.aspx?id=${gpData.choicesId}`;
+}
+
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
 
@@ -40,6 +44,7 @@ function createGpViewModel(req, res, next) {
       gpInfo: getGpInfo(gpData),
       onlineTasks: onlineTasksMapper(gpData),
       choicesProfileLink: getChoicesProfileLink(gpData),
+      choicesReviewLink: getChoicesReviewLink(gpData),
     };
   }
   next();
