@@ -8,24 +8,6 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-function removeDay(days, day) {
-  const indexOfDay = days.indexOf(day);
-  days.splice(indexOfDay);
-}
-
-function expectValidOpeningHoursSpecification(openingHours) {
-  const days = JSON.parse(JSON.stringify(constants.daysOfWeekOrderedForUi));
-  openingHours.forEach((day) => {
-    expect(day['@type']).equal('OpeningHoursSpecification');
-    expect(day.dayOfWeek['@type']).equal('DayOfWeek');
-    expect(day.description).equal('Reception');
-    expect(day.opens).to.be.oneOf(['8am to 6pm', '8am to 12pm', 'Closed']);
-    expect(day.closes).to.be.oneOf(['8am to 6pm', '8am to 12pm', 'Closed']);
-    removeDay(days, day);
-  });
-  expect(days.length).to.equal(0);
-}
-
 describe('app', () => {
   describe('Schema.org information', () => {
     it('should be contained in the page', (done) => {
@@ -50,11 +32,10 @@ describe('app', () => {
         expect(jsonLd.address.addressLocality).to.equal('');
         expect(jsonLd.address.postalCode).to.equal('TS14 7DJ');
         expect(jsonLd.geo['@type']).to.equal('GeoCoordinates');
-        expect(jsonLd.geo.latitude).to.equal('-1.05542838573456');
-        expect(jsonLd.geo.longitude).to.equal('54.532600402832');
+        expect(jsonLd.geo.latitude).to.equal('54.532600402832');
+        expect(jsonLd.geo.longitude).to.equal('-1.05542838573456');
         expect(jsonLd.url).to.equal('http://www.springwoodsurgery.co.uk/');
         expect(jsonLd.isAcceptingNewPatients).to.equal('true');
-        expectValidOpeningHoursSpecification(jsonLd.openingHoursSpecification);
         done();
       });
     });
