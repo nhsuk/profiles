@@ -28,6 +28,7 @@ describe('app', () => {
         expect(jsonLd.address.addressLocality).to.equal('');
         expect(jsonLd.address.postalCode).to.equal('TS14 7DJ');
         expect(jsonLd.email).to.equal('rc-pct.Springwood@nhs.net');
+        expect(jsonLd.faxNumber).to.equal('01287 619613');
         expect(jsonLd.geo['@type']).to.equal('GeoCoordinates');
         expect(jsonLd.geo.latitude).to.equal('54.532600402832');
         expect(jsonLd.geo.longitude).to.equal('-1.05542838573456');
