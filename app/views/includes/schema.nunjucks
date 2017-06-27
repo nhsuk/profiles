@@ -9,6 +9,7 @@
     "postalCode": "{{ gp.address.postcode }}"
   },
   "email": "{{ gp.contact.email }}",
+  "faxNumber": "{{ gp.contact.fax }}",
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "{{ gp.location.coordinates[1] }}",
