@@ -1,19 +1,22 @@
 {% if gp.onlineTasks %}
 <ul class="link-list grid-row">
   {% if gp.onlineTasks.bookOnlineLink %}
-  <li class="column--one-third">
-    <a class="column--one-third gp-book-online" href="{{gp.onlineTasks.bookOnlineLink}}">Book a GP appointment</a>
+  <li class="column--one-half">
+    <a class="gp-book-online" href="{{gp.onlineTasks.bookOnlineLink}}">Book a GP appointment</a>
   </li>
   {% endif %}
   {% if gp.onlineTasks.repeatPrescriptionOnlineLink %}
-  <li class="column--one-third">
+  <li class="column--one-half">
     <a class="repeat-prescription-online" href="{{gp.onlineTasks.repeatPrescriptionOnlineLink}}">Get a repeat prescription</a>
   </li>
   {% endif %}
   {% if gp.onlineTasks.codedRecordsOnlineLink %}
-  <li class="column--one-third">
+  <li class="column--one-half">
     <a class="coded-records-online" href="{{gp.onlineTasks.codedRecordsOnlineLink}}">View your medical record</a>
   </li>
   {% endif %}
+  <li class="column--one-half">
+    <a class="gp-feedback-online" href="{{gp.choicesLeaveReviewLink}}">Leave a review</a>
+  </li>
 </ul>
 {% endif %}

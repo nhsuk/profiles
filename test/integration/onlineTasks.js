@@ -12,6 +12,7 @@ describe('online services', () => {
   const appointmentClass = '.gp-book-online';
   const recordsClass = '.coded-records-online';
   const scriptsClass = '.repeat-prescription-online';
+  const feedbackClass = '.gp-feedback-online';
 
   describe('when links are avaiable', () => {
     it('should display them', (done) => {
@@ -25,6 +26,7 @@ describe('online services', () => {
           const appointmentElem = $(appointmentClass);
           const scriptsElem = $(scriptsClass);
           const recordsElem = $(recordsClass);
+          const feedbackElem = $(feedbackClass);
 
           expect(appointmentElem.text()).to.be.equal('Book a GP appointment');
           expect(appointmentElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/appointments/available');
@@ -32,6 +34,8 @@ describe('online services', () => {
           expect(scriptsElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/prescriptions/request');
           expect(recordsElem.text()).to.be.equal('View your medical record');
           expect(recordsElem.prop('href')).to.be.equal('https://patient.emisaccess.co.uk/medical-record');
+          expect(feedbackElem.text()).to.be.equal('Leave a review');
+          expect(feedbackElem.prop('href')).to.be.equal('https://www.nhs.uk/Services/GP/LeaveReview/DefaultView.aspx?id=40565');
           done();
         });
     });
