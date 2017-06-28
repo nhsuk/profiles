@@ -1,11 +1,11 @@
 <h2 data-title="Patients Say">What patients say about this surgery</h2>
-<p>Every year, the GP Patient Survey gives patients a chance to say how they feel about their GP surgery.</p>
-<p>The survey is independent and asks people about their experiences of:</p>
+<p>You can see:</p>
+
 <ul>
-  <li>booking an appointment</li>
-  <li>waiting times</li>
-  <li>staff at the surgery</li>
+  <li><a class="gp-ratings-reviews" href="{{gp.choicesReviewsLink}}">ratings and reviews</a> for this surgery</li>
+  <li><a class="gp-patient-survey" href="{{gp.patientSurveyLink}}">GP Patient Survey results</a> for this surgery</li>
 </ul>
-<p>You can <a class="gp-patient-survey" href="https://gp-patient.co.uk/practices/{{gp.odsCode}}">see results for this surgery on the GP Patient Survey website</a>.</p>
+
+<p>The GP Patient Survey is an independent, national survey. It asks people what they think about their GP services.</p>
 
 <hr class="hr--fullwidth"/>
