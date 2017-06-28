@@ -14,7 +14,7 @@
   <script src="{{ SITE_ROOT }}/js/custom-ga.js{{ qs }}" type="text/javascript"></script>
 {% endif %}
 
-{% if WEBTRENDS_TRACKING_ID %}
+{% if WEBTRENDS_ANALYTICS_TRACKING_ID %}
   <script>
     // WebTrends SmartSource Data Collector Tag v10.4.23
     // Copyright (c) 2016 Webtrends Inc.  All rights reserved.
@@ -22,7 +22,7 @@
     // Created: 2016.01.13
     window.webtrendsAsyncInit=function(){
       var dcs=new Webtrends.dcs().init({
-        dcsid:'{{ WEBTRENDS_TRACKING_ID }}',
+        dcsid:'{{ WEBTRENDS_ANALYTICS_TRACKING_ID }}',
         domain:'statse.webtrendslive.com',
         timezone:0,
         i18n:true,
@@ -47,10 +47,10 @@
   <script src="{{ SITE_ROOT }}/js/custom-wt.js{{ qs }}" type="text/javascript"></script>
 
   <noscript>
-    <img alt="dcsimg" id="dcsimg" width="1" height="1" src="//statse.webtrendslive.com/{{ WEBTRENDS_TRACKING_ID }}/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.4.23&amp;dcssip=.nhs.uk"/>
+    <img alt="dcsimg" id="dcsimg" width="1" height="1" src="//statse.webtrendslive.com/{{ WEBTRENDS_ANALYTICS_TRACKING_ID }}/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.4.23&amp;dcssip=.nhs.uk"/>
   </noscript>
 {% endif %}
 
-{% if HOTJAR_TRACKING_ID %}
+{% if HOTJAR_ANALYTICS_TRACKING_ID %}
   <script src="{{ SITE_ROOT }}/js/custom-hj.js{{ qs }}" type="text/javascript"></script>
 {% endif %}
