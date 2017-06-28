@@ -16,7 +16,7 @@
   </li>
   {% endif %}
   <li class="column--one-half">
-    <a class="coded-records-online" href="{{gp.choicesReviewLink}}">Leave feedback</a>
+    <a class="gp-feedback-online" href="{{gp.choicesLeaveReviewLink}}">Leave a review</a>
   </li>
 </ul>
 {% endif %}
