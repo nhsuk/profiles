@@ -2,8 +2,8 @@
 <p>You can see:</p>
 
 <ul>
-  <li><a href="{{gp.choicesReviewsLink}}">ratings and reviews</a> for this surgery</li>
-  <li><a class="gp-patient-surve" href="https://gp-patient.co.uk/report?practicecode={{gp.odsCode}}">GP Patient Survey results</a> for this surgery</li>
+  <li><a class="gp-ratings-reviews" href="{{gp.choicesReviewsLink}}">ratings and reviews</a> for this surgery</li>
+  <li><a class="gp-patient-survey" href="https://gp-patient.co.uk/report?practicecode={{gp.odsCode}}">GP Patient Survey results</a> for this surgery</li>
 </ul>
 
 <p>The GP Patient Survey is an independent, national survey. It asks people what they think about their GP services.</p>
