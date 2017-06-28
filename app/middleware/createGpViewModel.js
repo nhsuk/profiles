@@ -23,8 +23,13 @@ function getChoicesProfileLink(gpData) {
 function getChoicesLeaveReviewLink(gpData) {
   return `https://www.nhs.uk/Services/GP/LeaveReview/DefaultView.aspx?id=${gpData.choicesId}`;
 }
+
 function getChoicesReviewsLink(gpData) {
   return `http://www.nhs.uk/Services/GP/ReviewsAndRatings/DefaultView.aspx?id=${gpData.choicesId}`;
+}
+
+function getPatientSurveyLink(gpData) {
+  return `https://gp-patient.co.uk/report?practicecode=${gpData.odsCode}`;
 }
 
 function createGpViewModel(req, res, next) {
@@ -49,6 +54,7 @@ function createGpViewModel(req, res, next) {
       choicesProfileLink: getChoicesProfileLink(gpData),
       choicesLeaveReviewLink: getChoicesLeaveReviewLink(gpData),
       choicesReviewsLink: getChoicesReviewsLink(gpData),
+      patientSurveyLink: getPatientSurveyLink(gpData),
     };
   }
   next();

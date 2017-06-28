@@ -4,7 +4,7 @@ jQuery(function($) {
     var anchors = {
       'gp-email' : 'GP-Email',
       'gp-book-online' : 'GP-Booking',
-      'gp-feedback-online' : 'gp-Leave-a-Review',
+      'gp-feedback-online' : 'GP-Leave-a-Review',
       'repeat-prescription-online' : 'GP-Repeat-Prescription',
       'coded-records-online' : 'GP-Medical-Record',
       'gp-ratings-reviews' : 'GP-Ratings-and-Reviews',
