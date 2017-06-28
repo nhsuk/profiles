@@ -1,0 +1,24 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Physician",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ gp.address.addressLines[1] }}",
+    "addressLocality": "{{ gp.address.addressLines[3] }}",
+    "postalCode": "{{ gp.address.postcode }}"
+  },
+  "email": "{{ gp.contact.email }}",
+  "faxNumber": "{{ gp.contact.fax }}",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ gp.location.coordinates[1] }}",
+    "longitude": "{{ gp.location.coordinates[0] }}"
+    },
+  "identifier": "{{ gp.odsCode }}",
+  "isAcceptingNewPatients": "{{ gp.acceptingNewPatients }}",
+  "name": "{{ gp.name }}",
+  "telephone": "{{ gp.contact.telephone }}",
+  "url": "{{ gp.contact.website }}"
+}
+</script>
