@@ -1,5 +1,4 @@
 # Profiles
-
 [![Build Status](https://travis-ci.org/nhsuk/profiles.svg?branch=master)](https://travis-ci.org/nhsuk/profiles)
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/profiles/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/profiles?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/nhsuk/profiles/badge.svg)](https://snyk.io/test/github/nhsuk/profiles)
