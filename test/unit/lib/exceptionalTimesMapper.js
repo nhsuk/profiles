@@ -20,7 +20,7 @@ describe('exceptionalOpeningTimesMapper', () => {
     it('should return empty object for undefined opening times', () => {
       const exceptionalOpeningTimes = exceptionalTimesMapper.mapAll(undefined);
 
-     // eslint-disable-next-line no-unused-expressions
+      // eslint-disable-next-line no-unused-expressions
       expect(exceptionalOpeningTimes).to.be.undefined;
     });
 

@@ -103,14 +103,14 @@ describe('app', () => {
     });
     it('should not display any changes to opening times', (done) => {
       chai.request(app)
-       .get(`${constants.SITE_ROOT}/42057`)
-       .end((err, res) => {
-         expect(err).to.equal(null);
-         expect(res).to.have.status(200);
+        .get(`${constants.SITE_ROOT}/42057`)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
 
-         expect(res.text).to.not.include('Changes to opening times');
-         done();
-       });
+          expect(res.text).to.not.include('Changes to opening times');
+          done();
+        });
     });
   });
 });

@@ -1,6 +1,6 @@
 function getPersonSingular(gpCounts) {
   return gpCounts.female === 1 || (gpCounts.female === 0 && gpCounts.male === 1)
-  ? 'is' : 'are';
+    ? 'is' : 'are';
 }
 
 function pluraliseGP(count) {
