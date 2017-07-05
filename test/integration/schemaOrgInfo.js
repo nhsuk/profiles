@@ -18,7 +18,7 @@ describe('app', () => {
           expect(res).to.have.status(200);
 
           const $ = cheerio.load(res.text);
-          const jsonLdText = $('script[type="application/ld+json"]').text();
+          const jsonLdText = $('script[type="application/ld+json"]').html();
 
           const jsonLd = JSON.parse(jsonLdText);
           expect(jsonLd['@context']).to.equal('http://schema.org');
