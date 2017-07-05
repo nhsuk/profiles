@@ -45,6 +45,7 @@
     "normalize.css": "^7.0.0",
     "nunjucks": "^3.0.1",
     "object.values": "^1.0.4",
+    "on-headers": "^1.0.1",
     "request": "^2.81.0",
     "require-environment-variables": "^1.1.2",
     "snyk": "^1.36.2",
