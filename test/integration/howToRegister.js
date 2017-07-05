@@ -13,32 +13,32 @@ describe('app', () => {
   describe('How to register', () => {
     it('should display \'this surgery is accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
-      .get(`${constants.SITE_ROOT}/42387`)
-      .end((err, res) => {
-        expect(err).to.equal(null);
-        expect(res).to.have.status(200);
+        .get(`${constants.SITE_ROOT}/42387`)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
 
-        const $ = cheerio.load(res.text);
+          const $ = cheerio.load(res.text);
 
-        expect($('h2.how-to-register').text()).to.equal('How to register');
-        expect(utils.removeWhitespace($('p.how-to-register').text())).to.equal('This surgery is accepting new patients');
-        done();
-      });
+          expect($('h2.how-to-register').text()).to.equal('How to register');
+          expect(utils.removeWhitespace($('p.how-to-register').text())).to.equal('This surgery is accepting new patients');
+          done();
+        });
     });
 
     it('should display \'This surgery isn\'t accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
-      .get(`${constants.SITE_ROOT}/46158`)
-      .end((err, res) => {
-        expect(err).to.equal(null);
-        expect(res).to.have.status(200);
+        .get(`${constants.SITE_ROOT}/46158`)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
 
-        const $ = cheerio.load(res.text);
+          const $ = cheerio.load(res.text);
 
-        expect($('h2.how-to-register').text()).to.equal('How to register');
-        expect(utils.removeWhitespace($('p.how-to-register').text())).to.equal('This surgery isn\'t accepting new patients');
-        done();
-      });
+          expect($('h2.how-to-register').text()).to.equal('How to register');
+          expect(utils.removeWhitespace($('p.how-to-register').text())).to.equal('This surgery isn\'t accepting new patients');
+          done();
+        });
     });
   });
 });

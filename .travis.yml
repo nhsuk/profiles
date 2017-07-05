@@ -1,16 +1,12 @@
 language: node_js
-node_js:
-  - node
+node_js: node
+cache: yarn
 
-services:
-  - docker
+services: docker
 
 before_install:
-  - pip install docker-compose
   - yarn global add greenkeeper-lockfile@1
-
-after_success:
-  - bash ./scripts/ci-deployment/deploy.sh
+  - pip install docker-compose
 
 before_script: greenkeeper-lockfile-update
 
@@ -21,3 +17,5 @@ script:
 after_script:
   - greenkeeper-lockfile-upload
   - docker-compose -f docker-compose-tests.yml down -v
+
+after_success: bash ./scripts/ci-deployment/deploy.sh
