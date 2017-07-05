@@ -7,13 +7,17 @@ services:
 
 before_install:
   - pip install docker-compose
+  - yarn global add greenkeeper-lockfile@1
 
 after_success:
   - bash ./scripts/ci-deployment/deploy.sh
+
+before_script: greenkeeper-lockfile-update
 
 script:
   - docker-compose -f docker-compose-tests.yml build travis-tests
   - docker-compose -f docker-compose-tests.yml run travis-tests
 
 after_script:
+  - greenkeeper-lockfile-upload
   - docker-compose -f docker-compose-tests.yml down -v
