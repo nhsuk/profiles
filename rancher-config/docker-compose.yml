@@ -10,7 +10,7 @@ services:
       GOOGLE_ANALYTICS_TRACKING_ID: ${GOOGLE_ANALYTICS_TRACKING_ID}
       WEBTRENDS_ANALYTICS_TRACKING_ID: ${WEBTRENDS_ANALYTICS_TRACKING_ID}
       MONGODB_HOST: profiles-db.profiles-db
-      CACHE_TIMEOUT_SECONDS: 86400
+      CACHE_TIMEOUT_SECONDS: 43200
     labels:
       traefik.enable: true
       traefik.frontend.rule: $TRAEFIK_RULE
