@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "build-css": "./css-build",
-    "check-coverage": "istanbul check-coverage --config .istanbul.yml",
-    "check-unit-coverage": "istanbul check-coverage --config .istanbul.unit.yml",
-    "generate-unit-coverage": "export TZ=UTC; yarn istanbul -- cover _mocha -- --recursive test/unit",
-    "generate-coverage": "yarn istanbul -- cover _mocha -- --recursive",
-    "git-hook": "yarn lint && yarn generate-unit-coverage && yarn check-unit-coverage",
+    "coverage-check": "istanbul check-coverage --config .istanbul.yml",
+    "coverage-check-unit": "istanbul check-coverage --config .istanbul.unit.yml",
+    "coverage-generate-unit": "export TZ=UTC; yarn istanbul -- cover _mocha -- --recursive test/unit",
+    "coverage-generate": "yarn istanbul -- cover _mocha -- --recursive",
+    "coverage-upload-coveralls": "cat ./coverage/lcov.info | coveralls",
+    "git-hook": "yarn lint && yarn coverage-generate-unit && yarn coverage-check-unit",
     "istanbul": "NODE_ENV=test istanbul",
     "lint": "eslint --ext .js,.json .",
     "lint-watch": "esw --watch .",
@@ -20,8 +21,7 @@
     "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
     "test": "NODE_ENV=test mocha --recursive test",
     "test-watch": "yarn test -- --watch --reporter min",
-    "travis": "yarn lint && yarn generate-coverage && yarn check-coverage && yarn upload-coverage-coveralls",
-    "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
+    "travis": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls"
   },
   "repository": {
     "type": "git",
