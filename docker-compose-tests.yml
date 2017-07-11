@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
 
-  tests:
+  test:
     extends:
       file: docker-compose.yml
       service: base-app
@@ -14,11 +14,11 @@ services:
     links:
     - profiles-db:mongo
 
-  travis-tests:
+  test-ci:
     extends:
       file: docker-compose.yml
       service: base-app
-    command: yarn run travis
+    command: yarn run test-ci
     user: root
     volumes:
       - profiles-travis-tests-node_modules:/code/node_modules

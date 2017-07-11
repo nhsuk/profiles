@@ -20,8 +20,8 @@
     "start": "node app.js",
     "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
     "test": "NODE_ENV=test mocha --recursive test",
-    "test-watch": "yarn test -- --watch --reporter min",
-    "travis": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls"
+    "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
+    "test-watch": "yarn test -- --watch --reporter min"
   },
   "repository": {
     "type": "git",
