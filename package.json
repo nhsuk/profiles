@@ -15,14 +15,12 @@
     "lint-watch": "esw --watch .",
     "postrewrite": "yarn git-hook",
     "precommit": "yarn git-hook",
-    "prepush": "yarn git-hook",
-    "snyk": "snyk",
-    "snyk-travis": "yarn snyk -- test --org=nhsuk && yarn snyk -- monitor --org=nhsuk",
+    "prepush": "yarn git-hook && yarn snyk test",
     "start": "node app.js",
     "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
     "test": "NODE_ENV=test mocha --recursive test",
     "test-watch": "yarn test -- --watch --reporter min",
-    "travis": "yarn lint && yarn generate-coverage && yarn check-coverage && yarn upload-coverage-coveralls && yarn snyk-travis",
+    "travis": "yarn lint && yarn generate-coverage && yarn check-coverage && yarn upload-coverage-coveralls",
     "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
