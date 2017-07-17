@@ -16,6 +16,7 @@ describe('smartCache', () => {
         done();
       });
   });
+
   it('should not set cache-control for page not found', (done) => {
     chai.request(app)
       .get(`${constants.SITE_ROOT}/a404Page`)
