@@ -6,14 +6,14 @@ function getGp(req, res, next) {
   const connectionString = config.connectionString;
 
   MongoClient.connect(connectionString).then((db) => {
-    log.info(`Connected to ${connectionString}`);
+    log.info(`Connected to ${connectionString}.`);
 
     const collection = db.collection(config.collection);
 
     const choicesId = res.locals.choicesId;
 
     collection.findOne({ _id: choicesId }).then((gp) => {
-      log.debug({ gp }, `Returned when searching for ${choicesId}`);
+      log.debug({ gp }, `Returned when searching for ${choicesId}.`);
       // eslint-disable-next-line no-param-reassign
       res.locals.gpData = gp;
 
@@ -22,7 +22,7 @@ function getGp(req, res, next) {
       next();
     });
   }).catch((err) => {
-    log.error(err, `Error connecting to ${connectionString}`);
+    log.error({ err }, `Error connecting to ${connectionString}.`);
     next(err);
   });
 }
