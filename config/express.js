@@ -17,7 +17,7 @@ module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
 
-  app.use(smartCache);
+  app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);
   app.set('view engine', 'nunjucks');
