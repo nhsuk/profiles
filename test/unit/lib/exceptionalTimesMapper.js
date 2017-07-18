@@ -1,6 +1,7 @@
 const chai = require('chai');
-const exceptionalTimesMapper = require('../../../app/lib/exceptionalTimesMapper');
 const tk = require('timekeeper');
+
+const exceptionalTimesMapper = require('../../../app/lib/exceptionalTimesMapper');
 
 const rawExceptionalOpeningTimes = require('../../resources/exceptionalOpeningTimes.json');
 const rawExceptionalOpeningTimesNotInDate = require('../../resources/exceptionalOpeningTimesNotInDate.json');

@@ -1,14 +1,15 @@
-const app = require('../../server');
-const constants = require('../../app/lib/constants');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+
+const app = require('../../server');
+const constants = require('../../app/lib/constants');
 
 const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe('smartCache', () => {
-  it('should set cache-control header for valid page', (done) => {
+describe('Cache-control headers', () => {
+  it('should set cache-control header to 60 seconds for valid page', (done) => {
     chai.request(app)
       .get(`${constants.SITE_ROOT}/44125`)
       .end((err, res) => {
@@ -21,7 +22,7 @@ describe('smartCache', () => {
     chai.request(app)
       .get(`${constants.SITE_ROOT}/a404Page`)
       .end((err, res) => {
-        expect(res).to.not.have.header('Cache-Control', 'public, max-age=60');
+        expect(res).to.not.have.header('Cache-Control');
         done();
       });
   });
