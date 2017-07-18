@@ -5,8 +5,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
+
 const router = require('./routes');
 const locals = require('../app/middleware/locals');
+const smartCache = require('../app/middleware/smartCache');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
@@ -14,6 +16,8 @@ const backLink = require('../app/middleware/setLocals').backLink;
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
+
+  app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);
   app.set('view engine', 'nunjucks');
