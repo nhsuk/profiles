@@ -16,9 +16,9 @@ Several parameters are exposed to customise the base test.
 ## Running the Test
 
 The test may be loaded into the JMeter application, or the file may be run from the command line locally by changing into the `test/performance` folder and entering:
-```
+
 /usr/local/bin/jmeter/jmeter -n -t  ./profiles.jmx -Jhostname=*hostname* -Jusers=*users* -Jrampup=*rampup* -Jduration=*duration* -Jthroughput=*throughput* Jcsvfile=*csvfile* -l profiles.jtl
-```
+
 
 Where the parameters in italics can be substituted with the desired value, or removed entirely to use the default.
 
