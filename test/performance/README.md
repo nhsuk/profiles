@@ -1,4 +1,4 @@
-# Profiles Performance Test
+# Performance Testing
 
 The `profiles.jmx` [JMeter](http://jmeter.apache.org/) test will call the Profiles application for a number of different surgeries.
 Several parameters are exposed to customise the base test.
@@ -11,7 +11,7 @@ Several parameters are exposed to customise the base test.
 | `rampup`                         | Time in seconds to ramp up to total number of users                | 20                 |
 | `duration`                       | Time in seconds to run test                                        | 120                |
 | `throughput`                     | target throughput in samples per minute                            | 120                |
-| `csvfile`                        | csv data file of choices ID to use, either `ids_100.csv`, `ids_1200.csv`, or `ids_all.csv` (9000+), allowing a number of different GP pages to be visited during the test | ids_100.cs         |
+| `csvfile`                        | csv data file of choices ID to use, either `ids_100.csv`, `ids_1200.csv`, or `ids_all.csv` (9000+), allowing a number of different GP pages to be visited during the test | ids_100.csv         |
 
 ## Running the Test
 
