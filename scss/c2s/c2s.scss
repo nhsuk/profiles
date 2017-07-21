@@ -3,7 +3,8 @@
 /*
    Colours.
 */
-$hiviz: #fada8b;
+$hiviz: #fdebc3;
+$hiviz-a: #005088;
 $callout-border-blue: #40ADD7;
 $callout-blue: rgba(64, 173, 215, 0.1);
 $blue: #005eb8;
@@ -312,6 +313,9 @@ form {
   }
   &__hiviz {
     background-color: $hiviz;
+    a {
+      color: $hiviz-a;
+    }
   }
 }
 .local-header-white-bg {
