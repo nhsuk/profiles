@@ -42,7 +42,7 @@
     "mongodb": "^2.2.29",
     "nhsuk-bunyan-logger": "^1.4.0",
     "node-sass": "^4.5.3",
-    "normalize.css": "^7.0.0",
+    "normalize-scss": "^7.0.0",
     "nunjucks": "^3.0.1",
     "object.values": "^1.0.4",
     "on-headers": "^1.0.1",
