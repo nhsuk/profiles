@@ -47,14 +47,14 @@
   <body>
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     <!-- <script>(function(d){d.className=d.className.replace(/\bno-js\b/,'js-enabled')})(document.documentElement);</script> -->
-    <div class="skiplinks">
+    <div class="skiplinks" role="navigation" aria-label="Skip to main content">
       <div class="skiplinks--inner">
         <a href="#content" class="skiplinks--link">Skip to main content</a>
       </div>
     </div>
 
-    <div class="notification-banner notification-banner__js-hidden" id="global-cookies-banner" role="alert">
-      <p class="notification-banner--inner">
+    <div class="notification-banner notification-banner__js-hidden" id="global-cookies-banner" role="dialog" aria-labelledby="cookie-label">
+      <p class="notification-banner--inner" id="cookie-label">
       NHS.UK uses cookies to make the site simpler.
       <a href="https://beta.nhs.uk/help/cookies">Find out more about cookies</a>
       </p>
@@ -68,13 +68,13 @@
       <div class="global-header">
         <div class="global-header--inner">
           <a href="/" class="global-header__link" title="Go to the NHS.UK homepage">
-            <img src="{{ SITE_ROOT }}/images/logotype-nhs-mono.png" alt="">
+            <img src="{{ SITE_ROOT }}/images/logotype-nhs-mono.png" alt="NHS">
           </a>
         </div>
       </div>
     </header>
 
-    <main id="content" role="main" class="util-nofocus">
+    <main id="content" class="util-nofocus">
       {% block article %}
       <div class="{% block headerClass %}{% endblock %}">
         <div class="local-header local-header--no-padding-lr">
@@ -92,7 +92,7 @@
       {% endblock %}
     </main>
 
-    <footer role="contentinfo">
+    <footer>
       {% include "includes/footer.nunjucks" %}
     </footer>
 
