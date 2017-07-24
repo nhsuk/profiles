@@ -1,6 +1,6 @@
 node_modules/
-public/css/
 coverage/
+*.css
 
 .sass-cache
 npm-debug.log
