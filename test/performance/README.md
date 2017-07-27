@@ -6,7 +6,7 @@ Several parameters are exposed to customise the base test.
 
 | Parameter                         | Description                                                        | Default               |
 |:---------------------------------|:-------------------------------------------------------------------|-----------------------|
-| `hostname`                       | URL of server to test                                              | profiles.dev.beta.nhschoices.net|
+| `hostname`                       | URL of server to test                                              | staging.beta.nhschoices.net|
 | `users`                          | Simulated number of concurrent users                               | 5                  |
 | `rampup`                         | Time in seconds to ramp up to total number of users                | 20                 |
 | `duration`                       | Time in seconds to run test                                        | 120                |
