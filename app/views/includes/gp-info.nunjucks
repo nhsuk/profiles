@@ -7,7 +7,7 @@
   </p>
     <ul class="link-list gp-info">
       {% for doctor in gp.gpInfo.doctors %}
-          <li>{{doctor}}</li>
+          <li>{{doctor | title | replace("Mc ", "Mc")}}</li>
       {% endfor %}
     </ul>
   <hr class="hr--fullwidth"/>
