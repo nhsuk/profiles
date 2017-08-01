@@ -1,25 +1,40 @@
 # Performance Testing
 
-The `profiles.jmx` [JMeter](http://jmeter.apache.org/) test will call the Profiles application for a number of different surgeries.
+The `profiles.jmx` [JMeter](http://jmeter.apache.org/) test will call the
+Profiles application for a number of different surgeries.
 Several parameters are exposed to customise the base test.
 
 
-| Parameter                         | Description                                                        | Default               |
-|:---------------------------------|:-------------------------------------------------------------------|-----------------------|
-| `hostname`                       | URL of server to test                                              | staging.beta.nhschoices.net|
-| `users`                          | Simulated number of concurrent users                               | 5                  |
-| `rampup`                         | Time in seconds to ramp up to total number of users                | 20                 |
-| `duration`                       | Time in seconds to run test                                        | 120                |
-| `throughput`                     | target throughput in samples per minute                            | 120                |
-| `csvfile`                        | csv data file of choices ID to use, either `ids_100.csv`, `ids_1200.csv`, or `ids_all.csv` (9000+), allowing a number of different GP pages to be visited during the test | ids_100.csv         |
-
-## Running the Test
-
-The test may be loaded into the JMeter application, or the file may be run from the command line locally by changing into the `test/performance` folder and entering:
-
-/usr/local/bin/jmeter/jmeter -n -t  ./profiles.jmx -Jhostname=*hostname* -Jusers=*users* -Jrampup=*rampup* -Jduration=*duration* -Jthroughput=*throughput* Jcsvfile=*csvfile* -l profiles.jtl
+| Parameter    | Description                                                                                                     | Default                     |
+| :------------| :-------------------------------------------------------------------------------------------------------------- | :-------------------------- |
+| `hostname`   | URL of server to test                                                                                           | staging.beta.nhschoices.net |
+| `protocol`   | Protocol required for request                                                                                   | https                       |
+| `port`       | Port required for request                                                                                       | 443                         |
+| `users`      | Simulated number of concurrent users                                                                            | 5                           |
+| `rampup`     | Time in seconds to ramp up to total number of users                                                             | 20                          |
+| `duration`   | Time in seconds to run test                                                                                     | 120                         |
+| `throughput` | target throughput in samples per minute                                                                         | 120                         |
+| `csvfile`    | CSV data file containing choicesIds, used to request a profile. Any file in `./test/performance/data/` is valid | ids_100.csv                 |
 
 
-Where the parameters in italics can be substituted with the desired value, or removed entirely to use the default.
+## Running Tests
 
-*Note:* The path to JMeter may differ depending on your installation location.
+The test can be loaded into JMeter and run from the GUI. However, this is only
+recommended during test development and debugging. All other times the test
+should be run via the JMeter CLI.
+
+On a machine where the JMeter CLI is available run the following command (from
+the project root directory) to start a test execution using the default values.
+This will create a log file in the project root directory called
+`profiles`:
+
+`jmeter -n -t ./test/performance/profiles.jmx -l profiles.jtl`
+
+In order to override any of the configurable parameters they need to be
+supplied to the CLI in the following manner. The example below overrides all of
+the available parameters.
+Note: only parameters wishing to be overridden need to be supplied.
+
+`jmeter -n -t ./<path-to-test>/<test-name>.jmx
+-Jhostname=localhost -Jprotocol=http -Jport=3000 -Jusers=10 -Jrampup=10
+-Jduration=500 -Jthroughput=60 Jcsvfile=search-terms.csv -l profiles.jtl`
