@@ -21,16 +21,16 @@
 {% include "includes/online-tasks.nunjucks" %}
 
 <div class="reading-width">
-  {% include "includes/opening-times.nunjucks" %}
+  <div class="page" data-name="Opening Times">{% include "includes/opening-times.nunjucks" %}</div>
 
-  {% include "includes/patient-survey.nunjucks" %}
+  <div class="page" data-name="Patient Survey">{% include "includes/patient-survey.nunjucks" %}</div>
 
-  {% include "includes/gp-info.nunjucks" %}
+  <div class="page" data-name="GP Info">{% include "includes/gp-info.nunjucks" %}</div>
 
-  {% include "includes/services.nunjucks" %}
+  <div class="page" data-name="Services">{% include "includes/services.nunjucks" %}</div>
 
-  {% include "includes/parking-accessibility.nunjucks" %}
+  <div class="page" data-name="Parking and Accessibility">{% include "includes/parking-accessibility.nunjucks" %}</div>
 
-  {% include "includes/how-to-register.nunjucks" %}
+  <div class="page" data-name="How to Register">{% include "includes/how-to-register.nunjucks" %}</div>
 </div>
 {% endblock %}

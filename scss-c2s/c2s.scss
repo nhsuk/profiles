@@ -744,3 +744,38 @@ form {
     }
   }
 }
+
+.sausage-set {
+    position: fixed; left: 0; top: 0;
+    width: 15px; height: 100%;
+}
+    .sausage {
+        position: absolute; left: 0;
+        width: 100%; height: 100%;
+        background-color: #f1f1f1;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .sausage-hover,
+    .sausage-current {
+        background-color: #999;
+    }
+        .sausage-span {
+          position: absolute;
+          left: 18px;
+          top: 50%;
+          z-index: 2;
+          margin-top:-11px;
+          display: none;
+          width: 180px;
+          padding: 2px 5px;
+          color: #fff;
+          background-color: #333;
+          font-size: 14px;
+          line-height: 18px;
+          font-weight: normal;
+          text-align: center;
+        }
+        .sausage-hover .sausage-span {
+            display: inline-block;
+        }
