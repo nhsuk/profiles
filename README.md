@@ -1,5 +1,6 @@
 # Profiles
 
+[![GitHub Release](https://img.shields.io/github/release/nhsuk/profiles.svg)](https://github.com/nhsuk/profiles/releases/latest/)
 [![Greenkeeper badge](https://badges.greenkeeper.io/nhsuk/profiles.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/nhsuk/profiles.svg?branch=master)](https://travis-ci.org/nhsuk/profiles)
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/profiles/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/profiles?branch=master)
