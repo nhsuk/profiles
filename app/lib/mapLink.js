@@ -1,8 +1,9 @@
+const qs = require('querystring');
+
 function generateUrl(gp) {
-  const name = gp.name;
-  const address = gp.address.addressLines;
-  const postcode = gp.address.postcode;
-  const url = `https://maps.google.com/?q=${name},${address},${postcode}`.replace(/ /g, '+');
+  const query = `${gp.name},${gp.address.addressLines},${gp.address.postcode}`;
+  const encodedQuery = qs.escape(query);
+  const url = `https://maps.google.com/?q=${encodedQuery}`;
 
   return url;
 }
