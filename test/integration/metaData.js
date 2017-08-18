@@ -89,4 +89,22 @@ describe('The application\'s meta data', () => {
         });
     });
   });
+
+  describe('for Webtrends', () => {
+    it('should be contained in the page', (done) => {
+      chai.request(app)
+        .get(requestUrl)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+
+          const $ = cheerio.load(res.text);
+
+          expect($('meta[name="DCSext.CTSServiceName"]').attr('content')).to.equal(name);
+          expect($('meta[name="DCSext.CTSServiceType"]').attr('content')).to.equal('GP');
+
+          done();
+        });
+    });
+  });
 });
