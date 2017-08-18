@@ -1,5 +1,9 @@
 const notFound = require('../middleware/renderer').notFound;
 
+function hostNameAndProtocol(req) {
+  return `${req.protocol}://${req.hostname}`;
+}
+
 function fromRequest(req, res, next) {
   const choicesId = parseInt(req.params.choicesId, 10);
 
@@ -8,6 +12,7 @@ function fromRequest(req, res, next) {
   } else {
     // eslint-disable-next-line no-param-reassign
     res.locals.choicesId = choicesId;
+    res.locals.hostNameAndProtocol = hostNameAndProtocol(req);
     next();
   }
 }

@@ -69,7 +69,7 @@ describe('The application\'s meta data', () => {
 
           const $ = cheerio.load(res.text);
 
-          expect($('meta[property="og:url"]').attr('content')).to.equal(`https://beta.nhs.uk${requestUrl}`);
+          expect($('meta[property="og:url"]').attr('content')).to.equal(`http://127.0.0.1${requestUrl}`);
           expect($('meta[property="og:type"]').attr('content')).to.equal('business.business');
           expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - Service Providers - NHS Choices`);
           expect($('meta[property="og:image"]').attr('content')).to.equal('/gp-surgeries/images/opengraph-image.png');
