@@ -5,8 +5,7 @@
 {% block meta %}
   {% include "includes/metadata/schema-org.nunjucks" %}
   {% include "includes/metadata/opengraph.nunjucks" %}
-  <meta name="DCSext.CTSServiceName" content="{{ gp.name }}"></meta>
-  <meta name="DCSext.CTSServiceType" content="GP"></meta>
+  {% include "includes/metadata/webtrends.nunjucks" %}
 {% endblock %}
 
 {% block headerClass %}local-header local-header--fullwidth local-header--no-padding{% endblock %}
