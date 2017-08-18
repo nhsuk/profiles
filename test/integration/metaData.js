@@ -25,6 +25,7 @@ describe('The application\'s meta data', () => {
   const longitude = '-1.52137899398804';
   const acceptingNewPatients = 'true';
   const type = 'Physician';
+  const hostNameAndProtocol = 'http://127.0.0.1';
 
   describe('for Schema.org', () => {
     it('should be contained in the page', (done) => {
@@ -69,10 +70,10 @@ describe('The application\'s meta data', () => {
 
           const $ = cheerio.load(res.text);
 
-          expect($('meta[property="og:url"]').attr('content')).to.equal(`http://127.0.0.1${requestUrl}`);
+          expect($('meta[property="og:url"]').attr('content')).to.equal(`${hostNameAndProtocol}${requestUrl}`);
           expect($('meta[property="og:type"]').attr('content')).to.equal('business.business');
           expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - Service Providers - NHS Choices`);
-          expect($('meta[property="og:image"]').attr('content')).to.equal('/gp-surgeries/images/opengraph-image.png');
+          expect($('meta[property="og:image"]').attr('content')).to.equal(`${hostNameAndProtocol}/gp-surgeries/images/opengraph-image.png`);
           expect($('meta[property="og:image:width"]').attr('content')).to.equal('1200');
           expect($('meta[property="og:image:height"]').attr('content')).to.equal('1200');
           expect($('meta[property="business:contact_data:street_address"]').attr('content')).to.equal(streetAddress);
