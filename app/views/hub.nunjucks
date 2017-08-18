@@ -3,8 +3,10 @@
 {% block pageTitle %}{{ gp.name }} - NHS.UK{% endblock %}
 
 {% block meta %}
-<meta name="DCSext.CTSServiceName" content="{{ gp.name }}"></meta>
-<meta name="DCSext.CTSServiceType" content="GP"></meta>
+  {% include "includes/schema.nunjucks" %}
+  {% include "includes/opengraph.nunjucks" %}
+  <meta name="DCSext.CTSServiceName" content="{{ gp.name }}"></meta>
+  <meta name="DCSext.CTSServiceType" content="GP"></meta>
 {% endblock %}
 
 {% block headerClass %}local-header local-header--fullwidth local-header--no-padding{% endblock %}
