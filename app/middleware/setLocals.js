@@ -6,17 +6,17 @@ function fromRequest(req, res, next) {
   if (isNaN(choicesId)) {
     notFound(req, res);
   } else {
-    /* eslint-disable no-param-reassign */
+    // eslint-disable-next-line no-param-reassign
     res.locals.choicesId = choicesId;
-    /* eslint-enable no-param-reassign */
     next();
   }
 }
 
 function backLink(req, res, next) {
   /* eslint-disable no-script-url */
-  /* eslint-disable no-param-reassign */
+  // eslint-disable-next-line no-param-reassign
   res.locals.backLink = req.get('referer') || 'javascript:history.back();';
+  /* eslint-enable no-script-url */
   next();
 }
 
