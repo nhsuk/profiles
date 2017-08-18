@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 
 describe('The application\'s meta data', () => {
   const requestUrl = `${constants.SITE_ROOT}/44444`;
-  const identifier = 'B86049';
+  const odsCode = 'B86049';
   const name = 'Chandos Medical Centre';
   const streetAddress = '123 Lidgett Lane';
   const locality = 'Leeds';
@@ -24,6 +24,7 @@ describe('The application\'s meta data', () => {
   const latitude = '53.8359870910645';
   const longitude = '-1.52137899398804';
   const acceptingNewPatients = 'true';
+  const type = 'Physician';
 
   describe('for Schema.org', () => {
     it('should be contained in the page', (done) => {
@@ -38,7 +39,7 @@ describe('The application\'s meta data', () => {
 
           const jsonLd = JSON.parse(jsonLdText);
           expect(jsonLd['@context']).to.equal('http://schema.org');
-          expect(jsonLd['@type']).to.equal('Physician');
+          expect(jsonLd['@type']).to.equal(type);
           expect(jsonLd.address['@type']).to.equal('PostalAddress');
           expect(jsonLd.address.streetAddress).to.equal(streetAddress);
           expect(jsonLd.address.addressLocality).to.equal(locality);
@@ -48,7 +49,7 @@ describe('The application\'s meta data', () => {
           expect(jsonLd.geo['@type']).to.equal('GeoCoordinates');
           expect(jsonLd.geo.latitude).to.equal(latitude);
           expect(jsonLd.geo.longitude).to.equal(longitude);
-          expect(jsonLd.identifier).to.equal(identifier);
+          expect(jsonLd.identifier).to.equal(odsCode);
           expect(jsonLd.isAcceptingNewPatients).to.equal(acceptingNewPatients);
           expect(jsonLd.name).to.equal(name);
           expect(jsonLd.telephone).to.equal(telephone);
@@ -102,6 +103,25 @@ describe('The application\'s meta data', () => {
 
           expect($('meta[name="DCSext.CTSServiceName"]').attr('content')).to.equal(name);
           expect($('meta[name="DCSext.CTSServiceType"]').attr('content')).to.equal('GP');
+
+          done();
+        });
+    });
+  });
+
+  describe('for NHS', () => {
+    it('should be contained in the page', (done) => {
+      chai.request(app)
+        .get(requestUrl)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+
+          const $ = cheerio.load(res.text);
+
+          expect($('meta[name="nhs:providers:type"]').attr('content')).to.equal(type);
+          expect($('meta[name="nhs:providers:identifier"]').attr('content')).to.equal(odsCode);
+          expect($('meta[name="nhs:providers:isAcceptingNewPatients"]').attr('content')).to.equal(acceptingNewPatients);
 
           done();
         });

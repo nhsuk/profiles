@@ -6,6 +6,7 @@
   {% include "includes/metadata/schema-org.nunjucks" %}
   {% include "includes/metadata/opengraph.nunjucks" %}
   {% include "includes/metadata/webtrends.nunjucks" %}
+  {% include "includes/metadata/nhs.nunjucks" %}
 {% endblock %}
 
 {% block headerClass %}local-header local-header--fullwidth local-header--no-padding{% endblock %}
