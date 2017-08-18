@@ -25,7 +25,7 @@ describe('The application\'s meta data', () => {
   const longitude = '-1.52137899398804';
   const acceptingNewPatients = 'true';
   const type = 'Physician';
-  const hostNameAndProtocol = 'http://127.0.0.1';
+  const hostNameAndProtocol = 'https://127.0.0.1';
 
   describe('for Schema.org', () => {
     it('should be contained in the page', (done) => {

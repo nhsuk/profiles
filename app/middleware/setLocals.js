@@ -1,7 +1,7 @@
 const notFound = require('../middleware/renderer').notFound;
 
 function hostNameAndProtocol(req) {
-  return `${req.protocol}://${req.hostname}`;
+  return `https://${req.hostname}`;
 }
 
 function fromRequest(req, res, next) {
