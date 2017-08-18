@@ -9,7 +9,8 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe('app', () => {
+describe('The application\'s meta data', () => {
+  const requestUrl = `${constants.SITE_ROOT}/44444`;
   const identifier = 'B86049';
   const name = 'Chandos Medical Centre';
   const streetAddress = '123 Lidgett Lane';
@@ -24,10 +25,10 @@ describe('app', () => {
   const longitude = '-1.52137899398804';
   const acceptingNewPatients = 'true';
 
-  describe('Schema.org information', () => {
+  describe('for Schema.org', () => {
     it('should be contained in the page', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/44444`)
+        .get(requestUrl)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -57,18 +58,17 @@ describe('app', () => {
     });
   });
 
-  describe('Facebook Open Graph meta data', () => {
+  describe('for Facebook Open Graph', () => {
     it('should be contained in the page', (done) => {
-      const url = `${constants.SITE_ROOT}/44444`;
       chai.request(app)
-        .get(url)
+        .get(requestUrl)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
 
           const $ = cheerio.load(res.text);
 
-          expect($('meta[property="og:url"]').attr('content')).to.equal(url);
+          expect($('meta[property="og:url"]').attr('content')).to.equal(`https://beta.nhs.uk${requestUrl}`);
           expect($('meta[property="og:type"]').attr('content')).to.equal('business.business');
           expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - Service Providers - NHS Choices`);
           expect($('meta[property="og:image"]').attr('content')).to.equal('/gp-surgeries/images/opengraph-image.png');

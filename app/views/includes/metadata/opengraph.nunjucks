@@ -1,5 +1,5 @@
 <!-- OpenGraph Metadata Start -->
-<meta property="og:url" content="{{ SITE_ROOT }}/44444" />
+<meta property="og:url" content="https://beta.nhs.uk{{ SITE_ROOT }}/{{ gp.choicesId }}" />
 <meta property="og:title" content="{{ gp.name }} - Service Providers - NHS Choices" />
 <meta property="og:type" content="business.business" />
 
