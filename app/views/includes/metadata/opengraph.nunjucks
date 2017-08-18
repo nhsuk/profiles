@@ -1,4 +1,4 @@
-<!-- OpenGraph Metadata -->
+<!-- OpenGraph Metadata Start -->
 <meta property="og:url" content="{{ SITE_ROOT }}/44444" />
 <meta property="og:title" content="{{ gp.name }} - Service Providers - NHS Choices" />
 <meta property="og:type" content="business.business" />
@@ -18,3 +18,4 @@
 
 <meta property="place:location:latitude" content="{{ gp.location.coordinates[1] }}" />
 <meta property="place:location:longitude" content="{{ gp.location.coordinates[0] }}" />
+<!-- OpenGraph Metadata End -->

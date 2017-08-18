@@ -1,3 +1,4 @@
+<!-- Schema.org Metadata Start -->
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -22,3 +23,4 @@
   "url": "{{ gp.contact.website }}"
 }
 </script>
+<!-- Schema.org Metadata End -->
