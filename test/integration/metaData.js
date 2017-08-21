@@ -87,6 +87,18 @@ describe('The application\'s meta data', () => {
           expect($('meta[property="place:location:latitude"]').attr('content')).to.equal(latitude);
           expect($('meta[property="place:location:longitude"]').attr('content')).to.equal(longitude);
 
+          expect($('meta[property="business:hours:day"]').length).to.equal(7);
+          const days = [];
+          $('meta[property="business:hours:day"]').each((i, elm) => {
+            days.push($(elm).attr('content'));
+          });
+          expect(days).to.deep.equal(constants.daysOrderedByUtcIndex.map(d => d.toLowerCase()));
+
+          expect($('meta[property="business:hours:start"]').length).to.equal(7);
+          expect($('meta[property="business:hours:end"]').length).to.equal(7);
+          expect($('meta[property="business:hours:start"]').attr('content')).to.equal('08:15');
+          expect($('meta[property="business:hours:end"]').attr('content')).to.equal('12:00');
+
           done();
         });
     });
