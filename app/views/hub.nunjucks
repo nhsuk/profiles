@@ -5,6 +5,7 @@
 {% block meta %}
   {% include "includes/metadata/schema-org.nunjucks" %}
   {% include "includes/metadata/opengraph.nunjucks" %}
+  {% include "includes/metadata/twitter.nunjucks" %}
   {% include "includes/metadata/webtrends.nunjucks" %}
   {% include "includes/metadata/nhs.nunjucks" %}
 {% endblock %}
