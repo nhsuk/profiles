@@ -1,28 +1,15 @@
-const MongoClient = require('mongodb').MongoClient;
+const esClient = require('../lib/esClient');
 const log = require('../lib/logger');
-const config = require('../../config/config').mongodb;
 
 function getGp(req, res, next) {
-  const connectionString = config.connectionString;
-
-  MongoClient.connect(connectionString).then((db) => {
-    log.info(`Connected to ${connectionString}.`);
-
-    const collection = db.collection(config.collection);
-
-    const choicesId = res.locals.choicesId;
-
-    collection.findOne({ _id: choicesId }).then((gp) => {
-      log.debug({ gp }, `Returned when searching for ${choicesId}.`);
-      // eslint-disable-next-line no-param-reassign
-      res.locals.gpData = gp;
-
-      db.close();
-
-      next();
-    });
+  const choicesId = res.locals.choicesId;
+  esClient.getGp(choicesId).then((gp) => {
+    log.debug({ gp }, `Returned when searching for ${choicesId}.`);
+    // eslint-disable-next-line no-param-reassign
+    res.locals.gpData = gp;
+    next();
   }).catch((err) => {
-    log.error({ err }, `Error connecting to ${connectionString}.`);
+    log.error({ err }, `Error retrieving gp ID '${choicesId}'.`);
     next(err);
   });
 }

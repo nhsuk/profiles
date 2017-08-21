@@ -1,9 +1,6 @@
 const path = require('path');
 
 const rootPath = path.normalize(`${__dirname}/..`);
-const host = process.env.MONGODB_HOST || 'mongo';
-const port = process.env.MONGODB_PORT || 27017;
-const db = 'profiles';
 
 module.exports = {
   app: {
@@ -12,9 +9,9 @@ module.exports = {
   env: process.env.NODE_ENV || 'development',
   root: rootPath,
   port: process.env.PORT || 3000,
-  mongodb: {
-    collection: 'gps',
-    connectionString: `mongodb://${host}:${port}/${db}`,
+  es: {
+    host: process.env.ES_HOST || 'es',
+    port: process.env.ES_PORT || '9200',
   },
   hotjarId: process.env.HOTJAR_ANALYTICS_TRACKING_ID,
   googleAnalyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,

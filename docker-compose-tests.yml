@@ -12,7 +12,7 @@ services:
     environment:
       NODE_ENV: test
     links:
-    - profiles-db:mongo
+    - profiles-db-elastic:es
 
   test-ci:
     extends:
@@ -30,10 +30,10 @@ services:
       TRAVIS_COMMIT: ${TRAVIS_COMMIT}
       TRAVIS_JOB_ID: ${TRAVIS_JOB_ID}
     links:
-    - profiles-db:mongo
+    - profiles-db-elastic:es
 
-  profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.10.0}"
+  profiles-db-elastic:
+    image: "nhsuk/profiles-db-elastic:${profiles_db_docker_image_tag-master}"
 
 volumes:
   profiles-tests-node_modules:
