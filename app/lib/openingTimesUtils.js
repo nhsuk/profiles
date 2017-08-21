@@ -1,8 +1,8 @@
 const timeUtils = require('./timeUtils');
+const constants = require('./constants');
 
-// this is so the days are the right ones on the front end
-const daysOrderedByUtcIndex = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const daysOrderedByUtcIndex = constants.daysOrderedByUtcIndex;
+const months = constants.months;
 
 function joinContiguousTimes(keySessions) {
   const fixedKeySessions = keySessions.reduce((o, session) => {
