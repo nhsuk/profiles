@@ -14,10 +14,6 @@
 
     <title>{% if errorMessage %}Please retry - {% endif %}{% block pageTitle %}NHS.UK{% endblock %}</title>
 
-    <meta property="og:image" content="{{ SITE_ROOT }}/images/opengraph-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="1200">
-
     {% set qs = '?v=19' %}
 
     <!--[if gt IE 8]><!--><link href="{{ SITE_ROOT }}/nhsuk.css{{ qs }}" media="screen" rel="stylesheet" type="text/css"><!--<![endif]-->
@@ -40,7 +36,7 @@
         })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
       </script>
     {% endif %}
-    {% include "includes/schema.nunjucks" %}
+
     {% block meta %}{% endblock %}
   </head>
 

@@ -1,0 +1,4 @@
+<!-- Webtrends Metadata Start -->
+<meta name="DCSext.CTSServiceName" content="{{ gp.name }}"></meta>
+<meta name="DCSext.CTSServiceType" content="GP"></meta>
+<!-- Webtrends Metadata End -->

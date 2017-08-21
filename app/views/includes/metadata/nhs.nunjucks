@@ -1,0 +1,5 @@
+<!-- Custom NHS Metadata Start -->
+<meta name="nhs:providers:identifier" content="{{ gp.odsCode }}"/>
+<meta name="nhs:providers:isAcceptingNewPatients" content="{{ gp.acceptingNewPatients }}"/>
+<meta name="nhs:providers:type" content="Physician" />
+<!-- Custom NHS Metadata End -->
