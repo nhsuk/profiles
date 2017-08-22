@@ -4,9 +4,11 @@ const cheerio = require('cheerio');
 
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
+const testUtils = require('./testUtils');
 
 const expect = chai.expect;
-
+let startTime;
+const maxWaitTime = 1 * 60 * 1000;
 chai.use(chaiHttp);
 
 function expect404Page(err, res) {
@@ -17,7 +19,23 @@ function expect404Page(err, res) {
   expect(res.text).to.contain('Page not found');
 }
 
-describe('app', () => {
+function waitForEsToStart(done) {
+  testUtils.esServerReady().then((res) => {
+    if (res || (new Date() - startTime) > maxWaitTime) {
+      done();
+    } else {
+      setTimeout(() => waitForEsToStart(done), 3000);
+    }
+  });
+}
+
+describe('app', function test() {
+  this.timeout(maxWaitTime);
+  before((done) => {
+    startTime = new Date();
+    waitForEsToStart(done);
+  });
+
   describe('security headers', () => {
     it('should be returned for a valid request', (done) => {
       chai.request(app)
