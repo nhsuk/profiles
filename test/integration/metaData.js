@@ -72,7 +72,7 @@ describe('The application\'s meta data', () => {
 
           expect($('meta[property="og:url"]').attr('content')).to.equal(`${hostNameAndProtocol}${requestUrl}`);
           expect($('meta[property="og:type"]').attr('content')).to.equal('business.business');
-          expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - Service Providers - NHS Choices`);
+          expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - NHS Choices`);
           expect($('meta[property="og:image"]').attr('content')).to.equal(`${hostNameAndProtocol}/gp-surgeries/images/opengraph-image.png`);
           expect($('meta[property="og:image:width"]').attr('content')).to.equal('1200');
           expect($('meta[property="og:image:height"]').attr('content')).to.equal('1200');
