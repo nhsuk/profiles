@@ -1,6 +1,6 @@
 <!-- OpenGraph Metadata Start -->
 <meta property="og:url" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/{{ gp.choicesId }}" />
-<meta property="og:title" content="{{ gp.name }} - Service Providers - NHS Choices" />
+<meta property="og:title" content="{{ gp.name }} - NHS Choices" />
 <meta property="og:type" content="business.business" />
 
 <meta property="og:image" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/images/opengraph-image.png">
