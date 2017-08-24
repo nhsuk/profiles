@@ -7,10 +7,27 @@ const constants = require('../../app/lib/constants');
 const utils = require('./testUtils');
 
 const expect = chai.expect;
+let startTime;
+const maxWaitTime = 1 * 60 * 1000;
 
 chai.use(chaiHttp);
 
-describe('app', () => {
+function waitForEsToStart(done) {
+  utils.esServerReady().then((res) => {
+    if (res || (new Date() - startTime) > maxWaitTime) {
+      done();
+    } else {
+      setTimeout(() => waitForEsToStart(done), 3000);
+    }
+  });
+}
+
+describe('app', function test() {
+  this.timeout(maxWaitTime);
+  before((done) => {
+    startTime = new Date();
+    waitForEsToStart(done);
+  });
   describe('How to register', () => {
     it('should display \'this surgery is accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
