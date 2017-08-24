@@ -9,7 +9,17 @@ function esServerReady() {
   return esClient.getGp(43213).then(() => true).catch(() => false);
 }
 
+function waitForEsToStart(done, startTime, maxWaitTime) {
+  esServerReady().then((res) => {
+    if (res || (new Date() - startTime) > maxWaitTime) {
+      done();
+    } else {
+      setTimeout(() => waitForEsToStart(done, startTime, maxWaitTime), 3000);
+    }
+  });
+}
+
 module.exports = {
   removeWhitespace,
-  esServerReady,
+  waitForEsToStart,
 };

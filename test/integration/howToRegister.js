@@ -12,22 +12,13 @@ const maxWaitTime = 1 * 60 * 1000;
 
 chai.use(chaiHttp);
 
-function waitForEsToStart(done) {
-  utils.esServerReady().then((res) => {
-    if (res || (new Date() - startTime) > maxWaitTime) {
-      done();
-    } else {
-      setTimeout(() => waitForEsToStart(done), 3000);
-    }
-  });
-}
-
 describe('app', function test() {
   this.timeout(maxWaitTime);
   before((done) => {
     startTime = new Date();
-    waitForEsToStart(done);
+    utils.waitForEsToStart(done, startTime, maxWaitTime);
   });
+
   describe('How to register', () => {
     it('should display \'this surgery is accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
