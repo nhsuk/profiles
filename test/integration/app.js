@@ -7,7 +7,6 @@ const constants = require('../../app/lib/constants');
 const utils = require('./testUtils');
 
 const expect = chai.expect;
-const maxWaitTime = 1 * 60 * 1000;
 chai.use(chaiHttp);
 
 function expect404Page(err, res) {
@@ -19,10 +18,9 @@ function expect404Page(err, res) {
 }
 
 describe('app', function test() {
-  this.timeout(maxWaitTime);
+  this.timeout(utils.maxWaitTimeMs);
   before((done) => {
-    const startTime = new Date();
-    utils.waitForEsToStart(done, startTime, maxWaitTime);
+    utils.waitForSiteReady(done);
   });
 
   describe('security headers', () => {
