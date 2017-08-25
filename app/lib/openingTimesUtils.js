@@ -25,7 +25,8 @@ function addMarkupProperties(parsedTimes) {
   const counts = parsedTimes.map(time => time.sessions.length);
   const max = Math.max(...counts);
 
-  parsedTimes.forEach((time) => {
+  for (let i = 0; i < parsedTimes.length; i++) {
+    const time = parsedTimes[i];
     if (time.sessions.length < max) {
       // eslint-disable-next-line no-param-reassign
       time.padding = (max - time.sessions.length);
@@ -33,7 +34,7 @@ function addMarkupProperties(parsedTimes) {
       // eslint-disable-next-line no-param-reassign
       time.oneSession = 'one-session';
     }
-  });
+  }
 
   return parsedTimes;
 }

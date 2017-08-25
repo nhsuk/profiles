@@ -15,12 +15,13 @@ function mapWeek(times) {
   }
   const parsedTimes = [];
 
-  daysOrderedForUi.forEach((day) => {
+  for (let i = 0; i < daysOrderedForUi.length; i++) {
+    const day = daysOrderedForUi[i];
     const daySessions = times[day.toLowerCase()];
     const sessions = openingTimesUtils.mapDay(daySessions);
 
     parsedTimes.push({ day, sessions });
-  });
+  }
 
   return openingTimesUtils.addMarkupProperties(parsedTimes);
 }

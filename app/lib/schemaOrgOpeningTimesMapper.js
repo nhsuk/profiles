@@ -1,28 +1,34 @@
-function mapWeek(times) {
+function mapWeek(weeklyOpeningSessions) {
   const week = [];
 
-  Object.keys(times)
-    .forEach((day) => {
-      times[day].forEach((session) => {
-        const dayOfWeek = day.charAt(0).toUpperCase() + day.slice(1);
-        week.push({
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: `http://schema.org/${dayOfWeek}`,
-          opens: session.opens,
-          closes: session.closes
-        });
+  const daySessions = Object.keys(weeklyOpeningSessions);
+
+  for (let i = 0; i < daySessions.length; i++) {
+    const day = daySessions[i];
+    const dailySessions = weeklyOpeningSessions[day];
+
+    for (let j = 0; j < dailySessions.length; j++) {
+      const dayOfWeek = day.charAt(0).toUpperCase() + day.slice(1);
+      week.push({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: `http://schema.org/${dayOfWeek}`,
+        opens: dailySessions[j].opens,
+        closes: dailySessions[j].closes
       });
-    });
+    }
+  }
 
   return week;
 }
 
-function containsReceptionTimes(times) {
-  return times && times.reception;
+function containsReceptionTimes(weeklyOpeningSessions) {
+  return weeklyOpeningSessions && weeklyOpeningSessions.reception;
 }
 
-function map(openingTimes) {
-  return containsReceptionTimes(openingTimes) ? mapWeek(openingTimes.reception) : [];
+function map(weeklyOpeningSessions) {
+  return containsReceptionTimes(weeklyOpeningSessions)
+    ? mapWeek(weeklyOpeningSessions.reception)
+    : [];
 }
 
 module.exports = {
