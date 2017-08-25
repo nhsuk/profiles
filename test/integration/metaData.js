@@ -72,7 +72,8 @@ describe('The application\'s meta data', () => {
 
           expect($('meta[property="og:url"]').attr('content')).to.equal(`${hostNameAndProtocol}${requestUrl}`);
           expect($('meta[property="og:type"]').attr('content')).to.equal('business.business');
-          expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - Service Providers - NHS Choices`);
+          expect($('meta[property="og:title"]').attr('content')).to.equal(`${name} - GP - NHS Choices`);
+          expect($('meta[property="og:description"]').attr('content')).to.equal(`Official information from NHS Choices about ${name} including contact details, directions, opening hours and service/treatment details.`);
           expect($('meta[property="og:image"]').attr('content')).to.equal(`${hostNameAndProtocol}/gp-surgeries/images/opengraph-image.png`);
           expect($('meta[property="og:image:width"]').attr('content')).to.equal('1200');
           expect($('meta[property="og:image:height"]').attr('content')).to.equal('1200');
@@ -135,6 +136,25 @@ describe('The application\'s meta data', () => {
           expect($('meta[name="nhs:providers:type"]').attr('content')).to.equal(type);
           expect($('meta[name="nhs:providers:identifier"]').attr('content')).to.equal(odsCode);
           expect($('meta[name="nhs:providers:isAcceptingNewPatients"]').attr('content')).to.equal(acceptingNewPatients);
+
+          done();
+        });
+    });
+  });
+
+  describe('for Twitter card with large image', () => {
+    it('should be contained in the page', (done) => {
+      chai.request(app)
+        .get(requestUrl)
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+
+          const $ = cheerio.load(res.text);
+
+          expect($('meta[name="twitter:card"]').attr('content')).to.equal('summary_large_image');
+          expect($('meta[name="twitter:site"]').attr('content')).to.equal('@NHSChoices');
+          expect($('meta[name="twitter:creator"]').attr('content')).to.equal('@NHSChoices');
 
           done();
         });
