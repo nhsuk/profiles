@@ -20,7 +20,8 @@
   "isAcceptingNewPatients": "{{ gp.acceptingNewPatients }}",
   "name": "{{ gp.name }}",
   "telephone": "{{ gp.contact.telephone }}",
-  "url": "{{ gp.contact.website }}"
+  "url": "{{ gp.contact.website }}",
+  "openingHoursSpecification": {{ gp.schemaOrgOpeningTimes | dump | safe }}
 }
 </script>
 <!-- Schema.org Metadata End -->
