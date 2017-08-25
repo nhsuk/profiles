@@ -9,8 +9,8 @@ function removeWhitespace(text) {
 }
 
 function esServerReady() {
-  // check if alive by requesting ID
-  return esClient.getGp(43213).then(() => true).catch(() => false);
+  // Note: yellow is the highest state for a single cluster
+  return esClient.getHealth().then(health => health[0].status === 'yellow').catch(() => false);
 }
 
 function waitForEsToStart(done, startTime) {

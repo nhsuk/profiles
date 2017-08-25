@@ -4,7 +4,7 @@ const esConfig = require('../../config/config').es;
 const client = elasticsearch.Client({ host: `${esConfig.host}:${esConfig.port}` });
 function getByIdQuery(id) {
   return {
-    index: 'profiles',
+    index: esConfig.index,
     type: 'gps',
     id,
   };
@@ -28,6 +28,19 @@ function getGp(id) {
   });
 }
 
+function getHealth() {
+  return new Promise((resolve, reject) => {
+    client.cat.health({ format: 'json' }, (error, result) => {
+      if (!error) {
+        resolve(result);
+      } else {
+        reject(error);
+      }
+    });
+  });
+}
+
 module.exports = {
   getGp,
+  getHealth,
 };
