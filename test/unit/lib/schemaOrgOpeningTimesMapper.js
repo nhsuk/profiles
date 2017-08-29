@@ -46,6 +46,7 @@ describe('openGraphOpeningTimesMapper', () => {
 
       openGraphOpeningTimes.forEach((openingTime) => {
         expect(openingTime['@type']).to.be.equal('OpeningHoursSpecification');
+        expect(openingTime.description).to.be.equal('Reception');
         const day = openingTime.dayOfWeek.split('/')[3];
         switch (day) {
           case 'Monday':

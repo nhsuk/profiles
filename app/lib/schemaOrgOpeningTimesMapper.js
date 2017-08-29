@@ -7,6 +7,7 @@ function mapWeek(times) {
         const dayOfWeek = day.charAt(0).toUpperCase() + day.slice(1);
         week.push({
           '@type': 'OpeningHoursSpecification',
+          description: 'Reception',
           dayOfWeek: `http://schema.org/${dayOfWeek}`,
           opens: session.opens,
           closes: session.closes
