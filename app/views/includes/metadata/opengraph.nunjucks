@@ -21,11 +21,13 @@
 <meta property="place:location:longitude" content="{{ gp.location.coordinates[0] }}" />
 
 {% for day in gp.openGraphOpeningTimes %}
-<meta property="business:hours:day" content="{{ day.day }}" />
-  {% for session in day.sessions %}
-  <meta property="business:hours:start" content="{{ session.opens }}" />
-  <meta property="business:hours:end" content="{{ session.closes }}" />
-  {% endfor %}
+  {% if day.sessions.length > 0 %}
+    <meta property="business:hours:day" content="{{ day.day }}" />
+    {% for session in day.sessions %}
+      <meta property="business:hours:start" content="{{ session.opens }}" />
+      <meta property="business:hours:end" content="{{ session.closes }}" />
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 <!-- OpenGraph Metadata End -->
