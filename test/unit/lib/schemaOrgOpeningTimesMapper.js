@@ -4,70 +4,130 @@ const daysOrderedByUtcIndex = require('../../../app/lib/constants').daysOrderedB
 
 const expect = chai.expect;
 
+function generateReceptionTimes() {
+  const times = {};
+  daysOrderedByUtcIndex.forEach((day) => {
+    switch (day) {
+      case 'Sunday':
+        times[day.toLowerCase()] = [];
+        break;
+      case 'Wednesday':
+        times[day.toLowerCase()] = [{ opens: '07:30', closes: '12:00' }, { opens: '13:30', closes: '20:00' }];
+        break;
+      default:
+        times[day.toLowerCase()] = [{ opens: '08:00', closes: '18:00' }];
+    }
+  });
+  return times;
+}
+
+function generateSurgeryTimes() {
+  const times = {};
+  daysOrderedByUtcIndex.forEach((day) => {
+    switch (day) {
+      case 'Sunday':
+        times[day.toLowerCase()] = [];
+        break;
+      case 'Wednesday':
+        times[day.toLowerCase()] = [{ opens: '08:00', closes: '12:00' }, { opens: '14:00', closes: '21:00' }];
+        break;
+      default:
+        times[day.toLowerCase()] = [{ opens: '08:30', closes: '19:00' }];
+    }
+  });
+  return times;
+}
+
 describe('openGraphOpeningTimesMapper', () => {
   describe('map', () => {
-    it('should return empty array for undefined opening times', () => {
-      const openingTimes = mapper.map(undefined);
+    describe('for empty times', () => {
+      it('shoUld return empty array for undefined opening times', () => {
+        const openingTimes = mapper.map(undefined);
 
-      // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes).to.be.an('array').that.is.empty;
+        // eslint-disable-next-line no-unused-expressions
+        expect(openingTimes).to.be.an('array').that.is.empty;
+      });
+
+      it('should return empty object for empty opening times', () => {
+        const openingTimes = mapper.map({});
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(openingTimes).to.be.an('array').that.is.empty;
+      });
     });
 
-    it('should return empty object for empty opening times', () => {
-      const openingTimes = mapper.map({});
-
-      // eslint-disable-next-line no-unused-expressions
-      expect(openingTimes).to.be.an('array').that.is.empty;
-    });
-
-    it('should return an array with all weekdays', () => {
+    describe('for populated times', () => {
       const openingTimes = {};
-      openingTimes.reception = {};
-      daysOrderedByUtcIndex.forEach((day, i) => {
-        switch (i) {
-          case 0:
-            openingTimes.reception[day.toLowerCase()] = [];
-            break;
-          case 3:
-            openingTimes.reception[day.toLowerCase()] = [{ opens: '07:30', closes: '12:00' }, { opens: '13:30', closes: '20:00' }];
-            break;
-          default:
-            openingTimes.reception[day.toLowerCase()] = [{ opens: '08:00', closes: '18:00' }];
-        }
+      openingTimes.reception = generateReceptionTimes();
+      openingTimes.surgery = generateSurgeryTimes();
+
+      const allOpeningTimes = mapper.map(openingTimes);
+      const receptionOpeningTimes = allOpeningTimes.filter(time => time.description === 'Reception');
+      const surgeryOpeningTimes = allOpeningTimes.filter(time => time.description === 'Surgery');
+
+      it('should return all reception times', () => {
+        let assertionsMade = 0;
+
+        const expectedNumberReceptionOpeningTimes = receptionOpeningTimes.length;
+        expect(expectedNumberReceptionOpeningTimes).to.be.equal(7);
+
+        receptionOpeningTimes.forEach((openingTime) => {
+          expect(openingTime['@type']).to.be.equal('OpeningHoursSpecification');
+
+          const day = openingTime.dayOfWeek.split('/')[3];
+          switch (day) {
+            case 'Monday':
+            case 'Tuesday':
+            case 'Thursday':
+            case 'Friday':
+            case 'Saturday':
+              assertionsMade += 1;
+              expect(openingTime.opens).to.be.equal('08:00');
+              expect(openingTime.closes).to.be.equal('18:00');
+              break;
+            case 'Wednesday':
+              assertionsMade += 1;
+              expect(openingTime.opens).to.satisfy(time => time === '07:30' || time === '13:30');
+              expect(openingTime.closes).to.satisfy(time => time === '12:00' || time === '20:00');
+              break;
+            default:
+          }
+        });
+
+        expect(assertionsMade).to.equal(expectedNumberReceptionOpeningTimes);
       });
 
-      const openGraphOpeningTimes = mapper.map(openingTimes);
-      const openingTimeSpecifications = openGraphOpeningTimes.length;
+      it('should return all surgery times', () => {
+        let assertionsMade = 0;
 
-      expect(openGraphOpeningTimes).to.be.an('array');
-      expect(openingTimeSpecifications).to.be.equal(7);
+        const expectedNumberSurgeryOpeningTimes = surgeryOpeningTimes.length;
+        expect(expectedNumberSurgeryOpeningTimes).to.be.equal(7);
 
-      let assertionsMade = 0;
+        surgeryOpeningTimes.forEach((openingTime) => {
+          expect(openingTime['@type']).to.be.equal('OpeningHoursSpecification');
+          expect(openingTime.description).to.be.equal('Surgery');
+          const day = openingTime.dayOfWeek.split('/')[3];
+          switch (day) {
+            case 'Monday':
+            case 'Tuesday':
+            case 'Thursday':
+            case 'Friday':
+            case 'Saturday':
+              assertionsMade += 1;
+              expect(openingTime.opens).to.be.equal('08:30');
+              expect(openingTime.closes).to.be.equal('19:00');
+              break;
+            case 'Wednesday':
+              assertionsMade += 1;
+              expect(openingTime.opens).to.satisfy(time => time === '08:00' || time === '14:00');
+              expect(openingTime.closes).to.satisfy(time => time === '12:00' || time === '21:00');
+              break;
+            default:
+          }
+        });
 
-      openGraphOpeningTimes.forEach((openingTime) => {
-        expect(openingTime['@type']).to.be.equal('OpeningHoursSpecification');
-        expect(openingTime.description).to.be.equal('Reception');
-        const day = openingTime.dayOfWeek.split('/')[3];
-        switch (day) {
-          case 'Monday':
-          case 'Tuesday':
-          case 'Thursday':
-          case 'Friday':
-          case 'Saturday':
-            assertionsMade += 1;
-            expect(openingTime.opens).to.be.equal('08:00');
-            expect(openingTime.closes).to.be.equal('18:00');
-            break;
-          case 'Wednesday':
-            assertionsMade += 1;
-            expect(openingTime.opens).to.satisfy(time => time === '07:30' || time === '13:30');
-            expect(openingTime.closes).to.satisfy(time => time === '12:00' || time === '20:00');
-            break;
-          default:
-        }
+        expect(assertionsMade).to.equal(expectedNumberSurgeryOpeningTimes);
       });
-
-      expect(assertionsMade).to.equal(openingTimeSpecifications);
     });
   });
 });

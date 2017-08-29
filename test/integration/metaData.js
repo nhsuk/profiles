@@ -55,7 +55,10 @@ describe('The application\'s meta data', () => {
           expect(jsonLd.name).to.equal(name);
           expect(jsonLd.telephone).to.equal(telephone);
           expect(jsonLd.url).to.equal(website);
-          expect(jsonLd.openingHoursSpecification.length).to.equal(7);
+          const receptionOpeningTimes = jsonLd.openingHoursSpecification.filter(x => x.description === 'Reception');
+          const surgeryOpeningTimes = jsonLd.openingHoursSpecification.filter(x => x.description === 'Surgery');
+          expect(receptionOpeningTimes.length).to.equal(7);
+          expect(surgeryOpeningTimes.length).to.equal(8);
           done();
         });
     });
