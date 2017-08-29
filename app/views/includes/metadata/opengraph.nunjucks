@@ -8,8 +8,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
 
-<meta property="business:contact_data:street_address" content="{{ gp.address.addressLines[1] }}" />
-<meta property="business:contact_data:locality" content="{{ gp.address.addressLines[3] }}" />
+<meta property="business:contact_data:street_address" content="{{ gp.address.streetAddress }}" />
 <meta property="business:contact_data:postal_code" content="{{ gp.address.postcode }}" />
 <meta property="business:contact_data:country_name" content="United Kingdom" />
 <meta property="business:contact_data:email" content="{{ gp.contact.email }}" />
