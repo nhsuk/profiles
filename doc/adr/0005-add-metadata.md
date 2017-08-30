@@ -1,4 +1,4 @@
-# 5. Add meta data
+# 5. Add metadata
 
 Date: 2017-08-29
 
@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-Meta data needs adding to each profile page in order that other services such
+Metadata needs adding to each profile page in order that other services such
 as Facebook, Twitter (social media) and Funnelback (search) can accurately
 interpret the data on the page.
 
@@ -25,6 +25,5 @@ the best integration with Google Search
 
 ## Consequences
 
-A consequence of adding the metadata to the page is that the size of the page
-has increased. This has been considered and the advantages are deemed to
-outweigh that cost.
+The size of the page has increased. This has been considered and the advantages
+are deemed to outweigh that cost.
