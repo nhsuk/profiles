@@ -7,6 +7,7 @@ const gpHelper = require('../lib/gpHelper');
 const servicesMapper = require('../lib/servicesMapper');
 const contactsMapper = require('../lib/contactsMapper');
 const onlineTasksMapper = require('../lib/onlineTasksMapper');
+const addressMapper = require('../lib/addressMapper');
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -41,7 +42,7 @@ function createGpViewModel(req, res, next) {
     // eslint-disable-next-line no-param-reassign
     res.locals.gp = {
       name: gpData.name,
-      address: gpData.address,
+      address: addressMapper(gpData.address),
       contact: contactsMapper(gpData.contact),
       odsCode: gpData.odsCode,
       choicesId: gpData.choicesId,

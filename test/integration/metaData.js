@@ -13,8 +13,7 @@ describe('The application\'s meta data', () => {
   const requestUrl = `${constants.SITE_ROOT}/44444`;
   const odsCode = 'B86049';
   const name = 'Chandos Medical Centre';
-  const streetAddress = '123 Lidgett Lane';
-  const locality = 'Leeds';
+  const streetAddress = `${name}, 123 Lidgett Lane, Leeds, Leeds`;
   const postcode = 'LS8 1QR';
   const country = 'United Kingdom';
   const email = 'woodhouse.medicalpractice@nhs.net';
@@ -43,7 +42,6 @@ describe('The application\'s meta data', () => {
           expect(jsonLd['@type']).to.equal(type);
           expect(jsonLd.address['@type']).to.equal('PostalAddress');
           expect(jsonLd.address.streetAddress).to.equal(streetAddress);
-          expect(jsonLd.address.addressLocality).to.equal(locality);
           expect(jsonLd.address.postalCode).to.equal(postcode);
           expect(jsonLd.email).to.equal(email);
           expect(jsonLd.faxNumber).to.equal(faxNumber);
@@ -82,7 +80,6 @@ describe('The application\'s meta data', () => {
           expect($('meta[property="og:image:width"]').attr('content')).to.equal('1200');
           expect($('meta[property="og:image:height"]').attr('content')).to.equal('1200');
           expect($('meta[property="business:contact_data:street_address"]').attr('content')).to.equal(streetAddress);
-          expect($('meta[property="business:contact_data:locality"]').attr('content')).to.equal(locality);
           expect($('meta[property="business:contact_data:postal_code"]').attr('content')).to.equal(postcode);
           expect($('meta[property="business:contact_data:country_name"]').attr('content')).to.equal(country);
           expect($('meta[property="business:contact_data:email"]').attr('content')).to.equal(email);
