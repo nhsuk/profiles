@@ -71,9 +71,9 @@ describe('app', function test() {
           const $ = cheerio.load(res.text);
 
           expect($('.local-header__title').text().trim())
-            .to.equal('Dr Writer & Partners');
+            .to.equal('Park Practice');
           expect($('.gp-address').text().trim())
-            .to.equal('Park Practice, Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, BN22 9PQ');
+            .to.equal('Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, East Sussex, BN22 9PQ');
           const contactDetailsTextFirst = $('.column--one-half:first-child p').first().text().trim();
           const contactDetailsTextLast = $('.column--one-half:first-child p').last().text().trim();
 

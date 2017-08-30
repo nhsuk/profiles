@@ -28,7 +28,7 @@ services:
       - profiles-node_modules:/code/node_modules
 
   profiles-db-elastic:
-    image: "nhsuk/profiles-db-elastic:${profiles_db_docker_image_tag-master}"
+    image: "nhsuk/profiles-db-elastic:0.4.1-20170930"
 
 volumes:
   profiles-node_modules:

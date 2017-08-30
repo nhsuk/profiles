@@ -29,7 +29,7 @@ describe('app', () => {
 
     it('should display \'This surgery isn\'t accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/46158`)
+        .get(`${constants.SITE_ROOT}/41530`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
