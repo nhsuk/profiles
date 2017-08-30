@@ -1,4 +1,4 @@
-<p class="gp-address">{{ gp.address.addressLines | safe | replace(",", ", ") }}, {{ gp.address.postcode }}</p>
+<p class="gp-address">{{ gp.address.streetAddress }}, {{ gp.address.postcode }}</p>
 <p><a href="{{mapUrl}}">See map and get directions</a></p>
 <div class="local-header__intro local-header__intro--fullwidth">
   <div class="grid-row">

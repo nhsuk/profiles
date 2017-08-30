@@ -5,8 +5,7 @@
   "@type": "Physician",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ gp.address.addressLines[1] }}",
-    "addressLocality": "{{ gp.address.addressLines[3] }}",
+    "streetAddress": "{{ gp.address.streetAddress }}",
     "postalCode": "{{ gp.address.postcode }}"
   },
   "email": "{{ gp.contact.email }}",

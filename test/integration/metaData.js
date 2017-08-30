@@ -13,8 +13,7 @@ describe('The application\'s meta data', () => {
   const requestUrl = `${constants.SITE_ROOT}/44444`;
   const odsCode = 'B86049';
   const name = 'Chandos Medical Centre';
-  const streetAddress = '123 Lidgett Lane';
-  const locality = 'Leeds';
+  const streetAddress = `${name}, 123 Lidgett Lane, Leeds, Leeds`;
   const postcode = 'LS8 1QR';
   const country = 'United Kingdom';
   const email = 'woodhouse.medicalpractice@nhs.net';
@@ -43,7 +42,6 @@ describe('The application\'s meta data', () => {
           expect(jsonLd['@type']).to.equal(type);
           expect(jsonLd.address['@type']).to.equal('PostalAddress');
           expect(jsonLd.address.streetAddress).to.equal(streetAddress);
-          expect(jsonLd.address.addressLocality).to.equal(locality);
           expect(jsonLd.address.postalCode).to.equal(postcode);
           expect(jsonLd.email).to.equal(email);
           expect(jsonLd.faxNumber).to.equal(faxNumber);
@@ -55,7 +53,10 @@ describe('The application\'s meta data', () => {
           expect(jsonLd.name).to.equal(name);
           expect(jsonLd.telephone).to.equal(telephone);
           expect(jsonLd.url).to.equal(website);
-          expect(jsonLd.openingHoursSpecification.length).to.equal(7);
+          const receptionOpeningTimes = jsonLd.openingHoursSpecification.filter(x => x.description === 'Reception');
+          const surgeryOpeningTimes = jsonLd.openingHoursSpecification.filter(x => x.description === 'Surgery');
+          expect(receptionOpeningTimes.length).to.equal(7);
+          expect(surgeryOpeningTimes.length).to.equal(8);
           done();
         });
     });
@@ -79,7 +80,6 @@ describe('The application\'s meta data', () => {
           expect($('meta[property="og:image:width"]').attr('content')).to.equal('1200');
           expect($('meta[property="og:image:height"]').attr('content')).to.equal('1200');
           expect($('meta[property="business:contact_data:street_address"]').attr('content')).to.equal(streetAddress);
-          expect($('meta[property="business:contact_data:locality"]').attr('content')).to.equal(locality);
           expect($('meta[property="business:contact_data:postal_code"]').attr('content')).to.equal(postcode);
           expect($('meta[property="business:contact_data:country_name"]').attr('content')).to.equal(country);
           expect($('meta[property="business:contact_data:email"]').attr('content')).to.equal(email);
@@ -89,13 +89,15 @@ describe('The application\'s meta data', () => {
           expect($('meta[property="place:location:latitude"]').attr('content')).to.equal(latitude);
           expect($('meta[property="place:location:longitude"]').attr('content')).to.equal(longitude);
 
-          expect($('meta[property="business:hours:day"]').length).to.equal(7);
-          const days = [];
+          const actualOpenDays = [];
           $('meta[property="business:hours:day"]').each((i, elm) => {
-            days.push($(elm).attr('content'));
+            actualOpenDays.push($(elm).attr('content'));
           });
-          expect(days).to.deep.equal(constants.daysOrderedByUtcIndex.map(d => d.toLowerCase()));
+          const expectedOpenDays =
+            constants.daysOfWeekOrderedForUi.map(d => d.toLowerCase()).slice(0, 5);
 
+          expect($('meta[property="business:hours:day"]').length).to.equal(5);
+          expect(actualOpenDays).to.deep.equal(expectedOpenDays);
           expect($('meta[property="business:hours:start"]').length).to.equal(7);
           expect($('meta[property="business:hours:end"]').length).to.equal(7);
           expect($('meta[property="business:hours:start"]').attr('content')).to.equal('08:15');
