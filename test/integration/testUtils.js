@@ -15,9 +15,11 @@ function esServerReady() {
 
 function waitForEsToStart(done, startTime) {
   esServerReady().then((res) => {
-    if (res || (new Date() - startTime) > maxWaitTimeMs) {
+    if (res) {
       // errors may occur for calls immediately after return, wait a short time before continuing
       setTimeout(() => done(), gracePeriodMs);
+    } else if ((new Date() - startTime) > maxWaitTimeMs) {
+      done(`Error: server did not respond within ${maxWaitTimeMs}ms`);
     } else {
       setTimeout(() => waitForEsToStart(done, startTime), pollingIntervalMs);
     }

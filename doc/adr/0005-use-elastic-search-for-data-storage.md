@@ -14,9 +14,10 @@ MongoDB runs as a single instance and is not clustered.
 
 ## Decision
 
-To reduce the deployed components Profiles will consume data from Elasticsearch rather than MongoDB, ensuring that the GP-Finder and Profiles use the same data source.
+ Profiles will consume data from Elasticsearch rather than MongoDB.
 
 ## Consequences
-
+The number of deployed components will be reduced.
+GP-Finder and Profiles will use the same data source.
 The profiles-db will no longer be required.
 The mongo-db-updater will only need to update the pharmacy MongoDB instance.
