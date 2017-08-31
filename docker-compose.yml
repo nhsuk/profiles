@@ -21,16 +21,14 @@ services:
     extends:
       service: base-app
     links:
-    - profiles-db:mongo
+    - profiles-db-elastic:es
     ports:
       - 3000:3000
     volumes:
       - profiles-node_modules:/code/node_modules
 
-  profiles-db:
-    image: "nhsuk/profiles-db:${profiles_db_docker_image_tag-0.10.0}"
-    expose:
-      - "27017"
+  profiles-db-elastic:
+    image: "nhsuk/profiles-db-elastic:0.4.1-20170930"
 
 volumes:
   profiles-node_modules:

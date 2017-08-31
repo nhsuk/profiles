@@ -11,9 +11,9 @@ chai.use(chaiHttp);
 
 describe('The application\'s meta data', () => {
   const requestUrl = `${constants.SITE_ROOT}/44444`;
-  const odsCode = 'B86049';
+  const odsCode = 'B86049001';
   const name = 'Chandos Medical Centre';
-  const streetAddress = `${name}, 123 Lidgett Lane, Leeds, Leeds`;
+  const streetAddress = '123 Lidgett Lane, Leeds, West Yorkshire';
   const postcode = 'LS8 1QR';
   const country = 'United Kingdom';
   const email = 'woodhouse.medicalpractice@nhs.net';

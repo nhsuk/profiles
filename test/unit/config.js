@@ -18,20 +18,5 @@ describe('config', () => {
       expect(config.port).to.be.equal(3000);
     });
   });
-
-  describe('mongodb', () => {
-    it('should return gps for collection', () => {
-      expect(config.mongodb.collection).to.be.equal('gps');
-    });
-
-    it('should return a correct connection string', () => {
-      const defaultHost = 'mongo';
-      const defaultPort = '27017';
-      const defaultDb = 'profiles';
-
-      expect(config.mongodb.connectionString)
-        .to.be.equal(`mongodb://${defaultHost}:${defaultPort}/${defaultDb}`);
-    });
-  });
 });
 

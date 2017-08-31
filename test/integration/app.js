@@ -4,9 +4,9 @@ const cheerio = require('cheerio');
 
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
+const utils = require('./testUtils');
 
 const expect = chai.expect;
-
 chai.use(chaiHttp);
 
 function expect404Page(err, res) {
@@ -17,7 +17,12 @@ function expect404Page(err, res) {
   expect(res.text).to.contain('Page not found');
 }
 
-describe('app', () => {
+describe('app', function test() {
+  this.timeout(utils.maxWaitTimeMs);
+  before((done) => {
+    utils.waitForSiteReady(done);
+  });
+
   describe('security headers', () => {
     it('should be returned for a valid request', (done) => {
       chai.request(app)
@@ -66,9 +71,9 @@ describe('app', () => {
           const $ = cheerio.load(res.text);
 
           expect($('.local-header__title').text().trim())
-            .to.equal('Dr Writer & Partners');
+            .to.equal('Park Practice');
           expect($('.gp-address').text().trim())
-            .to.equal('Park Practice, Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, BN22 9PQ');
+            .to.equal('Eastbourne Park Primary Care Centre, Broadwater Way, Eastbourne, East Sussex, BN22 9PQ');
           const contactDetailsTextFirst = $('.column--one-half:first-child p').first().text().trim();
           const contactDetailsTextLast = $('.column--one-half:first-child p').last().text().trim();
 
