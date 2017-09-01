@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
+const promBundle = require('express-prom-bundle');
 
 const router = require('./routes');
 const locals = require('../app/middleware/locals');
@@ -13,10 +14,13 @@ const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
 
+const metrics = promBundle({ includeMethod: true });
+
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
 
+  app.use(metrics);
   app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);

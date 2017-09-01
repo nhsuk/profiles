@@ -125,4 +125,17 @@ describe('app', function test() {
         });
     });
   });
+
+  describe('metrics end point', () => {
+    it('should return some metrics', (done) => {
+      chai.request(app)
+        .get('/metrics')
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res).to.have.status(200);
+          expect(res.text).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge\nup 1');
+          done();
+        });
+    });
+  });
 });
