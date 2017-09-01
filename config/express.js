@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
-const promBundle = require('express-prom-bundle');
 
 const router = require('./routes');
 const locals = require('../app/middleware/locals');
@@ -13,13 +12,14 @@ const smartCache = require('../app/middleware/smartCache');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
-
-const metrics = promBundle({ includeMethod: true });
+const metrics = require('../app/middleware/metrics');
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
 
+  // metrics needs to be registered before routes wishing to have metrics generated
+  // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
   app.use(metrics);
   app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 

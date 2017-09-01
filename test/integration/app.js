@@ -5,6 +5,7 @@ const cheerio = require('cheerio');
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
 const utils = require('./testUtils');
+const metrics = require('../../app/middleware/metrics');
 
 const expect = chai.expect;
 chai.use(chaiHttp);
@@ -136,6 +137,12 @@ describe('app', function test() {
           expect(res.text).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge\nup 1');
           done();
         });
+    });
+
+    after('clear metrics', () => {
+      // Clear the metrics created when the app starts to avoid reports of:
+      // Error: A metric with the name up has already been registered.
+      metrics.promClient.register.clear();
     });
   });
 });
