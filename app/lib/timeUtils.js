@@ -2,7 +2,7 @@ function toAmPm(timeString) {
   const hoursMins = timeString.split(':');
   let hours = Number(hoursMins[0]);
 
-  if (isNaN(hours) || isNaN(hoursMins[1])) {
+  if (Number.isNaN(hours) || Number.isNaN(hoursMins[1])) {
     return timeString;
   }
 

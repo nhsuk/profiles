@@ -5,11 +5,13 @@ const setLocals = require('../app/middleware/setLocals');
 const getGp = require('../app/middleware/getGp');
 const createGpViewModel = require('../app/middleware/createGpViewModel');
 
-router.get('/',
+router.get(
+  '/',
   renderer.notFound
 );
 
-router.get('/:choicesId',
+router.get(
+  '/:choicesId',
   setLocals.fromRequest,
   getGp,
   createGpViewModel,
