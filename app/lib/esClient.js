@@ -14,30 +14,21 @@ function notFound(error) {
   return error.message === 'Not Found';
 }
 
-function getGp(id) {
-  return new Promise((resolve, reject) => {
-    client.get(getByIdQuery(id), (error, result) => {
-      if (!error) {
-        // eslint-disable-next-line no-underscore-dangle
-        resolve(result._source);
-      } else {
-        // eslint-disable-next-line no-unused-expressions
-        notFound(error) ? resolve(undefined) : reject(error);
-      }
-    });
-  });
+async function getGp(id) {
+  try {
+    const result = await client.get(getByIdQuery(id));
+    // eslint-disable-next-line no-underscore-dangle
+    return result._source;
+  } catch (error) {
+    if (notFound(error)) {
+      return undefined;
+    }
+    throw error;
+  }
 }
 
 function getHealth() {
-  return new Promise((resolve, reject) => {
-    client.cat.health({ format: 'json' }, (error, result) => {
-      if (!error) {
-        resolve(result);
-      } else {
-        reject(error);
-      }
-    });
-  });
+  return client.cat.health({ format: 'json' });
 }
 
 module.exports = {
