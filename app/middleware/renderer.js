@@ -1,8 +1,10 @@
 const log = require('../lib/logger');
 const mapLink = require('../lib/mapLink');
+const notFoundCounter = require('../lib/promCounters').notFound;
 
 function notFound(req, res) {
   log.warn({ req }, 'Not found (404).');
+  notFoundCounter.inc(1);
   res.status(404);
   res.render('404');
 }
