@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const app = require('../../server');
 const constants = require('../../app/lib/constants');
 const utils = require('./testUtils');
-const metrics = require('../../app/middleware/metrics');
+const promClient = require('../../app/lib/promBundle').promClient;
 
 const expect = chai.expect;
 chai.use(chaiHttp);
@@ -142,7 +142,7 @@ describe('app', function test() {
     after('clear metrics', () => {
       // Clear the metrics created when the app starts to avoid reports of:
       // Error: A metric with the name up has already been registered.
-      metrics.promClient.register.clear();
+      promClient.register.clear();
     });
   });
 });

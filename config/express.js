@@ -12,7 +12,7 @@ const smartCache = require('../app/middleware/smartCache');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
-const metrics = require('../app/middleware/metrics');
+const promBundle = require('../app/lib/promBundle').middleware;
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
@@ -20,7 +20,7 @@ module.exports = (app, config) => {
 
   // metrics needs to be registered before routes wishing to have metrics generated
   // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
-  app.use(metrics);
+  app.use(promBundle);
   app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);
