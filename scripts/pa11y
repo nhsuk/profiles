@@ -1,0 +1,7 @@
+#!/bin/bash
+if curl -s --head  --request GET http://localhost:3000/gp-surgeries/43121 | grep "200 OK" > /dev/null; then
+  printf "________________\n\nRunning pa11y...\n________________\n\n"
+  yarn pa11y --reporter markdown http://localhost:3000/gp-surgeries/43121
+else
+  printf "_________________________\n  --------------------\n  ! SITE NOT RUNNING !\n  --------------------\nrun ./scripts/start first\n_________________________\n\n"
+fi
