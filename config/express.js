@@ -13,6 +13,7 @@ const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
 const promBundle = require('../app/lib/promBundle').middleware;
+const counters = require('../app/lib/promCounters');
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
@@ -111,6 +112,7 @@ module.exports = (app, config) => {
   app.use(constants.SITE_ROOT, (err, req, res, next) => {
     const statusCode = err.statusCode || 500;
 
+    counters.error.inc(1);
     log.error({ err }, 'Error.');
     res.status(statusCode);
     res.render('error', {
