@@ -128,18 +128,40 @@ describe('app', function test() {
   });
 
   describe('metrics end point', () => {
-    it('should return some metrics', (done) => {
+    let responseText;
+
+    before('make request to /metrics endpoint', (done) => {
       chai.request(app)
         .get('/metrics')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
-          expect(res.text).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge\nup 1');
+          responseText = res.text;
           done();
         });
     });
 
-    after('clear metrics', () => {
+    it('should return up gauge', () => {
+      expect(responseText).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge\nup 1');
+    });
+
+    it('should return app_start counter', () => {
+      expect(responseText).to.have.string('# HELP app_start times the application has been started\n# TYPE app_start counter\napp_start 0');
+    });
+
+    it('should return not_found counter', () => {
+      expect(responseText).to.have.string('# HELP not_found not found page has been returned\n# TYPE not_found counter\nnot_found');
+    });
+
+    it('should return gp_profile counter', () => {
+      expect(responseText).to.have.string('# HELP gp_profile GP profile has been returned\n# TYPE gp_profile counter\ngp_profile');
+    });
+
+    it('should return error counter', () => {
+      expect(responseText).to.have.string('# HELP error error page has been returned\n# TYPE error counter\nerror');
+    });
+
+    afterEach('clear metrics', () => {
       // Clear the metrics created when the app starts to avoid reports of:
       // Error: A metric with the name up has already been registered.
       promClient.register.clear();
