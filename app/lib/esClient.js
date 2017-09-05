@@ -3,6 +3,7 @@ const esConfig = require('../../config/config').es;
 const esGetGpHistogram = require('../lib/promHistograms').esGetGP;
 
 const client = elasticsearch.Client({ host: `${esConfig.host}:${esConfig.port}` });
+
 function getByIdQuery(id) {
   return {
     index: esConfig.index,
