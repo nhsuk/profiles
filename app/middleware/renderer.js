@@ -4,7 +4,7 @@ const counters = require('../lib/promCounters');
 
 function notFound(req, res) {
   log.warn({ req }, 'Not found (404).');
-  counters.notFoundCounter.inc(1);
+  counters.notFound.inc(1);
   res.status(404);
   res.render('404');
 }
