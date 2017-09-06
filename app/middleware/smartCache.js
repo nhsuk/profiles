@@ -1,5 +1,4 @@
 const onHeaders = require('on-headers');
-const cacheHeaderCounter = require('../lib/promCounters').cacheHeader;
 
 function notErrorResponse(statusCode) {
   return statusCode >= 200 && statusCode < 400;
@@ -13,7 +12,6 @@ function smartCache(settings) {
   return (req, res, next) => {
     onHeaders(res, () => {
       if (notErrorResponse(res.statusCode)) {
-        cacheHeaderCounter.inc(1);
         setCacheHeader(res, settings);
       }
     });

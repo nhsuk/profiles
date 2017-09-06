@@ -45,10 +45,6 @@ describe('metrics end point', () => {
     expect(responseText).to.have.string('# HELP error error page has been returned\n# TYPE error counter\nerror');
   });
 
-  it('should return a cache control header counter', () => {
-    expect(responseText).to.have.string('# HELP cache_header Cache-Control header set\n# TYPE cache_header counter\ncache_header');
-  });
-
   afterEach('clear metrics', () => {
     // Clear the metrics created when the app starts to avoid reports of:
     // Error: A metric with the name up has already been registered.
