@@ -19,6 +19,8 @@ module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
 
+  // start collecting default metrics
+  promBundle.promClient.collectDefaultMetrics();
   // metrics needs to be registered before routes wishing to have metrics generated
   // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
   app.use(promBundle);
