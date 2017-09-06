@@ -22,27 +22,27 @@ describe('metrics end point', () => {
   });
 
   it('should return an up gauge', () => {
-    expect(responseText).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge\nup 1');
+    expect(responseText).to.have.string('# HELP up 1 = up, 0 = not up\n# TYPE up gauge');
   });
 
   it('should return an http_request_duration_seconds histogram', () => {
     expect(responseText).to.have.string('# HELP http_request_duration_seconds duration histogram of http responses labeled with: status_code, path\n# TYPE http_request_duration_seconds histogram');
   });
 
-  it('should return an app_start counter', () => {
-    expect(responseText).to.have.string('# HELP app_start times the application has been started\n# TYPE app_start counter\napp_start 0');
+  it('should return an app_starts counter', () => {
+    expect(responseText).to.have.string('# HELP app_starts The number of times the application has been started\n# TYPE app_starts counter');
   });
 
-  it('should return a not_found counter', () => {
-    expect(responseText).to.have.string('# HELP not_found not found page has been returned\n# TYPE not_found counter\nnot_found');
+  it('should return a not_found_page_views counter', () => {
+    expect(responseText).to.have.string('# HELP not_found_page_views The number of not found page views\n# TYPE not_found_page_views counter');
   });
 
-  it('should return a gp_profile counter', () => {
-    expect(responseText).to.have.string('# HELP gp_profile GP profile has been returned\n# TYPE gp_profile counter\ngp_profile');
+  it('should return a gp_profile_page_views counter', () => {
+    expect(responseText).to.have.string('# HELP gp_profile_page_views The number of GP profile page views\n# TYPE gp_profile_page_views counter');
   });
 
-  it('should return an error counter', () => {
-    expect(responseText).to.have.string('# HELP error error page has been returned\n# TYPE error counter\nerror');
+  it('should return an error_page_views counter', () => {
+    expect(responseText).to.have.string('# HELP error_page_views The number of error page views\n# TYPE error_page_views counter');
   });
 
   it('should return an the default metrics', () => {
