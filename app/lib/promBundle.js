@@ -1,6 +1,6 @@
 const expressPromBundle = require('express-prom-bundle');
 
-const promBundle = expressPromBundle({ includeMethod: true });
+const promBundle = expressPromBundle({ includePath: true });
 
 module.exports = {
   middleware: promBundle,
