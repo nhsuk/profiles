@@ -21,9 +21,6 @@ module.exports = (app, config) => {
 
   // start collecting default metrics
   promBundle.promClient.collectDefaultMetrics();
-  // metrics needs to be registered before routes wishing to have metrics generated
-  // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
-  app.use(promBundle);
   app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);
@@ -108,6 +105,9 @@ module.exports = (app, config) => {
   app.use(constants.SITE_ROOT, express.static(`${config.root}/public`));
 
   app.use(constants.SITE_ROOT, backLink);
+  // metrics needs to be registered before routes wishing to have metrics generated
+  // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
+  app.use(promBundle);
   app.use(constants.SITE_ROOT, router);
 
   // eslint-disable-next-line no-unused-vars
