@@ -26,7 +26,7 @@ describe('metrics end point', () => {
   });
 
   it('should return an http_request_duration_seconds histogram', () => {
-    expect(responseText).to.have.string('# HELP http_request_duration_seconds duration histogram of http responses labeled with: status_code, method\n# TYPE http_request_duration_seconds histogram');
+    expect(responseText).to.have.string('# HELP http_request_duration_seconds duration histogram of http responses labeled with: status_code, path\n# TYPE http_request_duration_seconds histogram');
   });
 
   it('should return an app_start counter', () => {
