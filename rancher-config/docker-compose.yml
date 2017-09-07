@@ -17,6 +17,8 @@ services:
       traefik.enable: true
       traefik.frontend.rule: $TRAEFIK_RULE
       traefik.port: 3000
+      prometheus.port: 3000
+      prometheus.monitoring: true
       map-public-http: 3000
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:host_label_soft: c2s=true

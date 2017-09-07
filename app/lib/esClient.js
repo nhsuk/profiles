@@ -1,7 +1,9 @@
 const elasticsearch = require('elasticsearch');
 const esConfig = require('../../config/config').es;
+const esGetGpHistogram = require('../lib/promHistograms').esGetGP;
 
 const client = elasticsearch.Client({ host: `${esConfig.host}:${esConfig.port}` });
+
 function getByIdQuery(id) {
   return {
     index: esConfig.index,
@@ -15,7 +17,9 @@ function notFound(error) {
 }
 
 async function getGp(id) {
+  let endTimer;
   try {
+    endTimer = esGetGpHistogram.startTimer();
     const result = await client.get(getByIdQuery(id));
     // eslint-disable-next-line no-underscore-dangle
     return result._source;
@@ -24,6 +28,8 @@ async function getGp(id) {
       return undefined;
     }
     throw error;
+  } finally {
+    endTimer();
   }
 }
 

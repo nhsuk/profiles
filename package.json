@@ -39,6 +39,7 @@
     "cookie-parser": "^1.4.3",
     "elasticsearch": "^13.3.1",
     "express": "^4.15.4",
+    "express-prom-bundle": "^3.1.0",
     "helmet": "^3.8.1",
     "nhsuk-bunyan-logger": "^1.4.1",
     "node-sass": "^4.5.3",
@@ -65,6 +66,6 @@
     "husky": "^0.14.3",
     "istanbul": "^0.4.3",
     "mocha": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.12.0"
   }
 }

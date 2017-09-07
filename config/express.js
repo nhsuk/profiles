@@ -12,11 +12,15 @@ const smartCache = require('../app/middleware/smartCache');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
+const promBundle = require('../app/lib/promBundle').middleware;
+const counters = require('../app/lib/promCounters');
 
 module.exports = (app, config) => {
   // eslint-disable-next-line no-param-reassign
   app.locals.SITE_ROOT = constants.SITE_ROOT;
 
+  // start collecting default metrics
+  promBundle.promClient.collectDefaultMetrics();
   app.use(smartCache({ maxAge: config.cacheTimeoutSeconds }));
 
   app.set('views', `${config.root}/app/views`);
@@ -101,12 +105,16 @@ module.exports = (app, config) => {
   app.use(constants.SITE_ROOT, express.static(`${config.root}/public`));
 
   app.use(constants.SITE_ROOT, backLink);
+  // metrics needs to be registered before routes wishing to have metrics generated
+  // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
+  app.use(promBundle);
   app.use(constants.SITE_ROOT, router);
 
   // eslint-disable-next-line no-unused-vars
   app.use(constants.SITE_ROOT, (err, req, res, next) => {
     const statusCode = err.statusCode || 500;
 
+    counters.error.inc(1);
     log.error({ err }, 'Error.');
     res.status(statusCode);
     res.render('error', {
