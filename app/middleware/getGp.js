@@ -5,7 +5,6 @@ function getGp(req, res, next) {
   const choicesId = res.locals.choicesId;
   esClient.getGp(choicesId).then((gp) => {
     log.debug({ gp }, `Returned when searching for ${choicesId}.`);
-    // eslint-disable-next-line no-param-reassign
     res.locals.gpData = gp;
     next();
   }).catch((err) => {

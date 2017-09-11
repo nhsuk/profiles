@@ -10,7 +10,6 @@ function fromRequest(req, res, next) {
   if (Number.isNaN(choicesId)) {
     notFound(req, res);
   } else {
-    // eslint-disable-next-line no-param-reassign
     res.locals.choicesId = choicesId;
     res.locals.hostNameAndProtocol = hostNameAndProtocol(req);
     next();
@@ -19,9 +18,7 @@ function fromRequest(req, res, next) {
 
 function backLink(req, res, next) {
   /* eslint-disable no-script-url */
-  // eslint-disable-next-line no-param-reassign
   res.locals.backLink = req.get('referer') || 'javascript:history.back();';
-  /* eslint-enable no-script-url */
   next();
 }
 
