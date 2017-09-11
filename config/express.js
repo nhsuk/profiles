@@ -12,7 +12,7 @@ const smartCache = require('../app/middleware/smartCache');
 const constants = require('../app/lib/constants');
 const notFound = require('../app/middleware/renderer').notFound;
 const backLink = require('../app/middleware/setLocals').backLink;
-const promBundle = require('../app/lib/promBundle').middleware;
+const promBundle = require('../app/lib/promBundle');
 const counters = require('../app/lib/promCounters');
 
 module.exports = (app, config) => {
@@ -107,7 +107,7 @@ module.exports = (app, config) => {
   app.use(constants.SITE_ROOT, backLink);
   // metrics needs to be registered before routes wishing to have metrics generated
   // see https://github.com/jochen-schweizer/express-prom-bundle#sample-uusage
-  app.use(promBundle);
+  app.use(promBundle.middleware);
   app.use(constants.SITE_ROOT, router);
 
   // eslint-disable-next-line no-unused-vars
