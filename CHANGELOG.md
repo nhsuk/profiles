@@ -1,3 +1,7 @@
+0.19.1 / 2017-09-13
+===================
+- Fix date format in CHANGELOG
+
 0.19.0 / 2017-09-12
 ===================
 - Update all npm dependencies
