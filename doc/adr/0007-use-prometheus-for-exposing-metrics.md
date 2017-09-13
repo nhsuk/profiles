@@ -26,4 +26,4 @@ metrics i.e.  `/metrics`.
 The instrumentation of the application along with the additional requests being
 made to the application, from scraping the metrics incurs a performance cost.
 The cost is small, is outweighed by the benefits of having the data provided by
-the metrics and is a compromise worth making. 
+the metrics and is a compromise worth making.
