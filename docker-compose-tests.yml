@@ -33,7 +33,7 @@ services:
     - profiles-db-elastic:es
 
   profiles-db-elastic:
-    image: "nhsuk/profiles-db-elastic:0.4.1-20170930"
+    image: "nhsuk/elasticsearch-updater-snapshot:20170921"
 
 volumes:
   profiles-tests-node_modules:
