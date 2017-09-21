@@ -1,0 +1,24 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:tough-cookie:20170905':
+    - request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+    - node-sass > request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+    - node-sass > node-gyp > request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+    - node-pre-gyp > request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+    - snyk > request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: no patch available
+        expires: '2017-10-21T13:57:18.915Z'
+patch: {}
