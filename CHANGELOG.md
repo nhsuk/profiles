@@ -1,3 +1,8 @@
+0.19.2 / TBA
+===================
+- Change canonical URL from Choices ID to ODS Code
+- Add `choices-id` end point for lookup by Choices ID
+
 0.19.1 / 2017-09-13
 ===================
 - Fix date format in CHANGELOG

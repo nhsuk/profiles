@@ -34,7 +34,7 @@ function notFound(error) {
   return error.message === 'Not Found';
 }
 
-async function getGp(id) {
+async function getGpByChoicesId(id) {
   const endTimer = esGetGpHistogram.startTimer();
   try {
     const result = await client.get(getByIdQuery(id));
@@ -71,7 +71,7 @@ function getHealth() {
 }
 
 module.exports = {
-  getGp,
+  getGpByChoicesId,
   getGpByOdsCode,
   getHealth,
 };

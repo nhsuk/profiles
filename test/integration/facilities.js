@@ -13,7 +13,7 @@ describe('app', () => {
   describe('facilities', () => {
     it('should return facilities for GP', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/43213`)
+        .get(`${constants.SITE_ROOT}/P92651001`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -35,7 +35,7 @@ describe('app', () => {
 
     it('should display no facilities section for GP without any facilities', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/39658`)
+        .get(`${constants.SITE_ROOT}/A82018001`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);

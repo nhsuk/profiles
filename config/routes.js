@@ -2,6 +2,8 @@
 const router = require('express').Router();
 const renderer = require('../app/middleware/renderer');
 const setLocals = require('../app/middleware/setLocals');
+const setChoicesId = require('../app/middleware/setChoicesId');
+const setOdsCode = require('../app/middleware/setOdsCode');
 const getGp = require('../app/middleware/getGp');
 const createGpViewModel = require('../app/middleware/createGpViewModel');
 
@@ -11,8 +13,18 @@ router.get(
 );
 
 router.get(
-  '/:choicesId',
+  '/:odsCode',
   setLocals.fromRequest,
+  setOdsCode,
+  getGp,
+  createGpViewModel,
+  renderer.gpSurgeries
+);
+
+router.get(
+  '/choices-id/:choicesId',
+  setLocals.fromRequest,
+  setChoicesId,
   getGp,
   createGpViewModel,
   renderer.gpSurgeries

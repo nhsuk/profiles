@@ -11,15 +11,15 @@ describe('Elasticsearch Client', function test() {
     utils.waitForSiteReady(done);
   });
 
-  describe('getGp', () => {
+  describe('getGpByChoicesId', () => {
     it('should return GP by choicesId', async () => {
       const choicesId = 43213;
-      const gp = await esClient.getGp(choicesId);
+      const gp = await esClient.getGpByChoicesId(choicesId);
       expect(gp.choicesId).to.equal(choicesId);
     });
 
     it('should return undefined for unknown choicesId', async () => {
-      const gp = await esClient.getGp(33333333);
+      const gp = await esClient.getGpByChoicesId(33333333);
       // eslint-disable-next-line no-unused-expressions
       expect(gp).to.be.undefined;
     });

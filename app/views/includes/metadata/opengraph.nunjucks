@@ -1,5 +1,5 @@
 <!-- OpenGraph Metadata Start -->
-<meta property="og:url" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/{{ gp.choicesId }}" />
+<meta property="og:url" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/{{ gp.odsCode }}" />
 <meta property="og:title" content="{{ gp.name }} - GP - NHS Choices" />
 <meta property="og:description" content="Official information from NHS Choices about {{ gp.name }} including contact details, directions, opening hours and service/treatment details." />
 <meta property="og:type" content="business.business" />
