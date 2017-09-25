@@ -29,8 +29,12 @@ describe('metrics end point', () => {
     expect(responseText).to.have.string('# HELP http_request_duration_seconds duration histogram of http responses labeled with: status_code, path\n# TYPE http_request_duration_seconds histogram');
   });
 
-  it('should return a es_get_gp histogram', () => {
+  it('should return an es_get_gp histogram', () => {
     expect(responseText).to.have.string('# HELP es_get_gp Duration histogram of Elasticsearch request to get a GP\n# TYPE es_get_gp histogram');
+  });
+
+  it('should return an es_get_gp_by_ods_code histogram', () => {
+    expect(responseText).to.have.string('# HELP es_get_gp_by_ods_code Duration histogram of Elasticsearch request to get a GP by ODS code\n# TYPE es_get_gp_by_ods_code histogram');
   });
 
   it('should return an app_starts counter', () => {
