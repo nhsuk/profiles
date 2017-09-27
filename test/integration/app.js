@@ -95,7 +95,7 @@ describe('app', function test() {
 
     it('should return a GP Page for a valid choices ID', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/choices-id/44125`)
+        .get(`${constants.SITE_ROOT}/44125`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -127,18 +127,9 @@ describe('app', function test() {
         });
     });
 
-    it('should return a 404 for invalid choices ID', (done) => {
+    it('should return a 404 for unknown ID', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/choices-id/invalid`)
-        .end((err, res) => {
-          expect404Page(err, res);
-          done();
-        });
-    });
-
-    it('should return a 404 for unknown choices ID', (done) => {
-      chai.request(app)
-        .get(`${constants.SITE_ROOT}/choices-id/1`)
+        .get(`${constants.SITE_ROOT}/1`)
         .end((err, res) => {
           expect404Page(err, res);
           done();

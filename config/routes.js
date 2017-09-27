@@ -13,18 +13,18 @@ router.get(
 );
 
 router.get(
-  '/:odsCode',
+  '/:choicesId(\\d+)',
   setLocals.fromRequest,
-  setOdsCode,
+  setChoicesId,
   getGp,
   createGpViewModel,
   renderer.gpSurgeries
 );
 
 router.get(
-  '/choices-id/:choicesId',
+  '/:odsCode',
   setLocals.fromRequest,
-  setChoicesId,
+  setOdsCode,
   getGp,
   createGpViewModel,
   renderer.gpSurgeries
