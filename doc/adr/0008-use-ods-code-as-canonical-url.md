@@ -15,8 +15,8 @@ ODS Codes always contain a letter, Choices IDs are numerical.
 
 ## Decision
 
-The ID in the URL `/gp-surgeries/<id>` will support both the Choices ID and the ODS Code, using the present of a letter to distinguish between them.
+The ID in the URL `/gp-surgeries/<id>` will support both the Choices ID and the ODS Code, using the present of a letter to distinguish between them. If the URL is visited with a Choices ID, it will be re-directed to the ODS code.
 
 ## Consequences
 
-The profiles application will support both ODS Codes and Choices IDs in the URL.
+The profiles application will make two Elasticsearch queries when displaying a profile from a choicesID, one to look up the ODS code and another to retrieve the profile from the ODS code.

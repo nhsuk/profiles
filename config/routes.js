@@ -4,6 +4,7 @@ const renderer = require('../app/middleware/renderer');
 const setLocals = require('../app/middleware/setLocals');
 const setChoicesId = require('../app/middleware/setChoicesId');
 const setOdsCode = require('../app/middleware/setOdsCode');
+const redirectToOdsCode = require('../app/middleware/redirectToOdsCode');
 const getGp = require('../app/middleware/getGp');
 const createGpViewModel = require('../app/middleware/createGpViewModel');
 
@@ -16,9 +17,7 @@ router.get(
   '/:choicesId(\\d+)',
   setLocals.fromRequest,
   setChoicesId,
-  getGp,
-  createGpViewModel,
-  renderer.gpSurgeries
+  redirectToOdsCode
 );
 
 router.get(
