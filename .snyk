@@ -4,6 +4,9 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
         reason: None given
         expires: '2017-10-27T13:48:28.130Z'
+      node-pre-gyp > tar-pack > debug:
+        reason: None given
+        expires: '2017-10-27T14:11:07.304Z'
     - helmet > connect > debug:
         reason: None given
         expires: '2017-10-27T13:48:28.130Z'
@@ -14,4 +17,14 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: None given
         expires: '2017-10-27T13:48:28.130Z'
+      node-pre-gyp > request > tough-cookie:
+        reason: None given
+        expires: '2017-10-27T14:11:07.304Z'
+  'npm:mime:20170907':
+    - express > send > mime:
+        reason: None given
+        expires: '2017-10-27T14:11:07.304Z'
+    - express > serve-static > send > mime:
+        reason: None given
+        expires: '2017-10-27T14:11:07.304Z'
 patch: {}
