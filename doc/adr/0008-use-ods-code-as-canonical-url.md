@@ -9,12 +9,13 @@ Accepted
 ## Context
 
 Profile records are currently identified only by the Choices (PIMS) ID.
-A better option is the ODS Code which is a system wide identifier.
+A better option is the Organisation Data Service (ODS) Code which is used throughout the NHS to identify organisations and individuals across health and social care.
+More information can be found [here](https://digital.nhs.uk/organisation-data-service)
 
 ## Decision
 
-The existing canonical URL `/gp-surgeries/<odsCode>` will be indexed on the ODS Code.
-Lookup by Choices ID will be available at `/gp-surgeries/choices-id/<choicesId>`.
+The ID in the URL `/gp-surgeries/<id>` will change from the Choices ID to the ODS Code.
+Access to a GP profile by Choices ID will be available at the URL `/gp-surgeries/choices-id/<choicesId>`.
 
 ## Consequences
 

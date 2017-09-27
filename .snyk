@@ -1,6 +1,4 @@
-# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
-# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+version: v1.5.2
 ignore:
   'npm:tough-cookie:20170905':
     - request > tough-cookie:
@@ -21,4 +19,32 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: no patch available
         expires: '2017-10-21T13:57:18.915Z'
-patch: {}
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: None given
+        expires: '2017-10-27T10:04:26.515Z'
+  'npm:debug:20170905':
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        reason: None given
+        expires: '2017-10-27T10:04:26.515Z'
+    - helmet > connect > debug:
+        reason: None given
+        expires: '2017-10-27T10:04:26.515Z'
+    - helmet > connect > finalhandler > debug:
+        reason: None given
+        expires: '2017-10-27T10:04:26.515Z'
+patch:
+  'npm:debug:20170905':
+    - helmet > connect > finalhandler > debug:
+        patched: '2017-09-27T08:17:03.133Z'
+    - helmet > connect > debug:
+        patched: '2017-09-27T08:17:03.133Z'
+    - node-pre-gyp > tar-pack > debug:
+        patched: '2017-09-27T08:22:23.432Z'
+    - helmet > connect > debug:
+        patched: '2017-09-27T08:22:23.432Z'
+    - helmet > connect > finalhandler > debug:
+        patched: '2017-09-27T08:22:23.432Z'
+    - helmet > connect > debug:
+        patched: '2017-09-27T09:48:00.917Z'
+    - helmet > connect > finalhandler > debug:
+        patched: '2017-09-27T09:48:00.917Z'

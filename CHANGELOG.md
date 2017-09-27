@@ -1,4 +1,4 @@
-0.19.2 / TBA
+1.0.0 / TBA
 ===================
 - Change canonical URL from Choices ID to ODS Code
 - Add `choices-id` end point for lookup by Choices ID
