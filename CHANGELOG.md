@@ -1,7 +1,7 @@
 1.0.0 / TBA
 ===================
-- Change canonical URL from Choices ID to ODS Code
-- Add `choices-id` end point for lookup by Choices ID
+- The  gp-surgeries endpoint now supports both the Choices ID and the ODS code, using the presence of a letter to distinguish between them. 
+  If the URL is visited with a Choices ID, it will re-direct to the ODS code.
 
 0.19.1 / 2017-09-13
 ===================
