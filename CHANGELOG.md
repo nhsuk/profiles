@@ -1,6 +1,6 @@
 1.0.0 / TBA
 ===================
-- The  gp-surgeries endpoint now supports both the Choices ID and the ODS code, using the presence of a letter to distinguish between them. 
+- The gp-surgeries endpoint now supports both the Choices ID and the ODS code, using the presence of a letter to distinguish between them. 
   If the URL is visited with a Choices ID, it will re-direct to the ODS code.
 
 0.19.1 / 2017-09-13
