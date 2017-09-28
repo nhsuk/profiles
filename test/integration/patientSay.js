@@ -15,7 +15,7 @@ describe('what patients say links', () => {
     const patientSurveyClass = '.gp-patient-survey';
 
     chai.request(app)
-      .get(`${constants.SITE_ROOT}/40565`)
+      .get(`${constants.SITE_ROOT}/Y02622`)
       .end((err, res) => {
         expect(err).to.equal(null);
         expect(res).to.have.status(200);

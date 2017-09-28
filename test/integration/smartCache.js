@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 describe('Cache-control headers', () => {
   it('should set cache-control header to 60 seconds for valid page', (done) => {
     chai.request(app)
-      .get(`${constants.SITE_ROOT}/44125`)
+      .get(`${constants.SITE_ROOT}/G81104`)
       .end((err, res) => {
         expect(res).to.have.header('Cache-Control', 'public, max-age=60');
         done();

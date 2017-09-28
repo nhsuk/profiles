@@ -14,7 +14,7 @@ describe('app', () => {
   describe('How to register', () => {
     it('should display \'this surgery is accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/42387`)
+        .get(`${constants.SITE_ROOT}/E85672`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -29,7 +29,7 @@ describe('app', () => {
 
     it('should display \'This surgery isn\'t accepting new patients\' if accepting new patients', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/41530`)
+        .get(`${constants.SITE_ROOT}/A81057001`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);

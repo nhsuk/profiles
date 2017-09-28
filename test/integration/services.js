@@ -13,7 +13,7 @@ describe('app', () => {
   describe('services', () => {
     it('should display services that are self referral', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/43213`)
+        .get(`${constants.SITE_ROOT}/P92651001`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -35,7 +35,7 @@ describe('app', () => {
 
     it('should display services that require a GP referral', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/41772`)
+        .get(`${constants.SITE_ROOT}/A81005`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -52,7 +52,7 @@ describe('app', () => {
 
     it('should display no services when there are none', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/37151`)
+        .get(`${constants.SITE_ROOT}/A81633`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);

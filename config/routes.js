@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const renderer = require('../app/middleware/renderer');
 const setLocals = require('../app/middleware/setLocals');
+const redirectToOdsCode = require('../app/middleware/redirectToOdsCode');
 const getGp = require('../app/middleware/getGp');
 const createGpViewModel = require('../app/middleware/createGpViewModel');
 
@@ -11,7 +12,13 @@ router.get(
 );
 
 router.get(
-  '/:choicesId',
+  '/:choicesId(\\d+)',
+  setLocals.fromRequest,
+  redirectToOdsCode
+);
+
+router.get(
+  '/:odsCode',
   setLocals.fromRequest,
   getGp,
   createGpViewModel,

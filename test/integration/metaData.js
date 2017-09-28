@@ -10,8 +10,8 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('The application\'s meta data', () => {
-  const requestUrl = `${constants.SITE_ROOT}/44444`;
   const odsCode = 'B86049001';
+  const requestUrl = `${constants.SITE_ROOT}/${odsCode}`;
   const name = 'Chandos Medical Centre';
   const streetAddress = '123 Lidgett Lane, Leeds, West Yorkshire';
   const postcode = 'LS8 1QR';

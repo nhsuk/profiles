@@ -14,7 +14,7 @@ describe('app', () => {
   describe('GP Info', () => {
     it('should display female and male GP counts', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/41772`)
+        .get(`${constants.SITE_ROOT}/A81005`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);
@@ -30,7 +30,7 @@ describe('app', () => {
 
     it('should display no GP Info when there is none', (done) => {
       chai.request(app)
-        .get(`${constants.SITE_ROOT}/38925`)
+        .get(`${constants.SITE_ROOT}/A81015`)
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res).to.have.status(200);

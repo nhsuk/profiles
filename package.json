@@ -1,6 +1,6 @@
 {
   "name": "profiles",
-  "version": "0.19.1",
+  "version": "1.0.0",
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
@@ -34,11 +34,11 @@
   },
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "compression": "^1.7.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "elasticsearch": "^13.3.1",
-    "express": "^4.15.4",
+    "express": "^4.15.5",
     "express-prom-bundle": "^3.1.0",
     "helmet": "^3.8.1",
     "nhsuk-bunyan-logger": "^1.4.1",
@@ -48,7 +48,7 @@
     "on-headers": "^1.0.1",
     "request": "^2.81.0",
     "require-environment-variables": "^1.1.2",
-    "snyk": "^1.40.2",
+    "snyk": "^1.41.1",
     "timekeeper": "^2.0.0"
   },
   "devDependencies": {
@@ -64,7 +64,7 @@
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-watch": "^3.1.2",
     "husky": "^0.14.3",
-    "istanbul": "^0.4.3",
+    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.5.0",
     "nodemon": "^1.12.0"
   }
