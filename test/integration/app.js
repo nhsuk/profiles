@@ -104,6 +104,20 @@ describe('app', function test() {
           done();
         });
     });
+
+    it('should redirect to ODS Code page for a valid choices ID', (done) => {
+      chai.request(app)
+        .get(`${constants.SITE_ROOT}/44125`)
+        .redirects(0)
+        // chai-http considers a redirect an error code, use catch, not then
+        .catch(({ response }) => {
+          expect(response).to.have.status(301);
+          expect(response).to.redirectTo('G81104');
+          done();
+        })
+        // final catch to handle expectation failures from the initial catch
+        .catch(done);
+    });
   });
 
   describe('an unknown page', () => {
@@ -127,7 +141,7 @@ describe('app', function test() {
         });
     });
 
-    it('should return a 404 for unknown ID', (done) => {
+    it('should return a 404 for unknown Choices ID', (done) => {
       chai.request(app)
         .get(`${constants.SITE_ROOT}/1`)
         .end((err, res) => {
