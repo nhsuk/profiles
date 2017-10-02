@@ -53,7 +53,7 @@ async function getGpByChoicesId(id) {
 function getHitsResult(result, code) {
   const hits = result.hits && result.hits.hits;
   if (hits.length > 1) {
-    log.warning({ hits }, `Warning multiple records returned for ${code}, expecting only one`);
+    log.warn({ hits }, `Warning multiple records returned for ${code}, expecting only one`);
   }
   // eslint-disable-next-line no-underscore-dangle
   return hits.length > 0 ? hits[0]._source : undefined;
