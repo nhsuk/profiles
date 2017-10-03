@@ -4,7 +4,7 @@
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
-    "build-css": "./css-build",
+    "build-css": "yarn brunch build --production",
     "coverage-check": "istanbul check-coverage --config .istanbul.yml",
     "coverage-check-unit": "istanbul check-coverage --config .istanbul.unit.yml",
     "coverage-generate-unit": "export TZ=UTC; yarn istanbul -- cover _mocha -- --recursive test/unit",
@@ -35,6 +35,7 @@
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "brunch": "^2.10.10",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "elasticsearch": "^13.3.1",
@@ -48,6 +49,7 @@
     "on-headers": "^1.0.1",
     "request": "^2.81.0",
     "require-environment-variables": "^1.1.2",
+    "sass-brunch": "^2.10.4",
     "snyk": "^1.41.1",
     "timekeeper": "^2.0.0"
   },
