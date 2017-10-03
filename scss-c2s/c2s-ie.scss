@@ -141,9 +141,6 @@ ul {
     &.grid-row {
       margin-bottom: 36px;
       li {
-        @include media(desktop) {
-          padding-right:0;
-        }
         a {
           line-height:22px;
           color: #002C89;
