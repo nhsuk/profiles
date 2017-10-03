@@ -1,8 +1,13 @@
-1.0.0 / TBA
+1.0.2 / TBC
 ===================
-- The gp-surgeries endpoint now supports both the Choices ID and the ODS code, using the presence of a letter to distinguish between them.
+- Exclude subdomains from Strict-Transport-Security header
+
+1.0.1 / 2017-10-03
+===================
+- The gp-surgeries endpoint now supports both the Choices ID and the ODS code, using the presence of a letter to distinguish between them
   If the URL is visited with a Choices ID, it will re-direct to the ODS code
 - Update npm dependencies
+- Fix logging bug
 
 0.19.1 / 2017-09-13
 ===================
