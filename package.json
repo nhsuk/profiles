@@ -4,7 +4,7 @@
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
-    "build-css": "yarn brunch build --production",
+    "brunch-build": "yarn brunch build",
     "coverage-check": "istanbul check-coverage --config .istanbul.yml",
     "coverage-check-unit": "istanbul check-coverage --config .istanbul.unit.yml",
     "coverage-generate-unit": "export TZ=UTC; yarn istanbul -- cover _mocha -- --recursive test/unit",
@@ -18,7 +18,7 @@
     "precommit": "yarn git-hook",
     "prepush": "yarn git-hook && yarn snyk test",
     "start": "node app.js",
-    "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
+    "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & yarn brunch watch",
     "test": "NODE_ENV=test mocha --recursive test",
     "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
     "test-watch": "yarn test -- --watch --reporter min"
