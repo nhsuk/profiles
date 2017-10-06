@@ -8,6 +8,7 @@ const servicesMapper = require('../lib/servicesMapper');
 const contactsMapper = require('../lib/contactsMapper');
 const onlineTasksMapper = require('../lib/onlineTasksMapper');
 const addressMapper = require('../lib/addressMapper');
+const liveServiceHostname = require('../../config/config').liveServiceHostname;
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -24,7 +25,7 @@ function getChoicesProfileLink(gpData) {
 }
 
 function getChoicesEditLink(gpData) {
-  return `https://www.nhs.uk/Personalisation/Login.aspx?ReturnUrl=/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
+  return `https://${liveServiceHostname}/Personalisation/Login.aspx?ReturnUrl=/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
 }
 
 function getChoicesLeaveReviewLink(gpData) {

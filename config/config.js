@@ -17,5 +17,6 @@ module.exports = {
   hotjarId: process.env.HOTJAR_ANALYTICS_TRACKING_ID,
   googleAnalyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
   webtrendsId: process.env.WEBTRENDS_ANALYTICS_TRACKING_ID,
-  cacheTimeoutSeconds: process.env.CACHE_TIMEOUT_SECONDS || 0
+  cacheTimeoutSeconds: process.env.CACHE_TIMEOUT_SECONDS || 0,
+  liveServiceHostname: process.env.LIVE_SERVICE_HOSTNAME || 'www.nhs.uk'
 };
