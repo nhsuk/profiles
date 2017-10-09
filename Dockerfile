@@ -26,6 +26,6 @@ USER root
 RUN find /code -user 0 -print0 | xargs -0 chown "$USERNAME":"$USERNAME"
 USER $USERNAME
 
-RUN if [ "$NODE_ENV" == "production" ]; then yarn run build-brunch; fi
+RUN if [ "$NODE_ENV" == "production" ]; then yarn run brunch-build; fi
 
 CMD [ "node", "app.js" ]
