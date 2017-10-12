@@ -33,8 +33,10 @@ function expectPeakPractice($) {
   expect($('.gp-website').attr('href')).to.equal('http://www.parkpractice.co.uk');
 
   const choicesProfileLink = $('.choices-profile-link').prop('href');
+  expect(choicesProfileLink).to.be.equal('https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
 
-  expect(choicesProfileLink).to.be.equal('http://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=44125');
+  const choicesLoginLink = $('.choices-login-link').prop('href');
+  expect(choicesLoginLink).to.be.equal('https://www.nhs.uk/Personalisation/Login.aspx?ReturnUrl=/Services/GP/Overview/DefaultView.aspx?id=44125');
 }
 
 describe('app', function test() {

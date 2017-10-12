@@ -18,5 +18,5 @@ module.exports = {
   googleAnalyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
   webtrendsId: process.env.WEBTRENDS_ANALYTICS_TRACKING_ID,
   cacheTimeoutSeconds: process.env.CACHE_TIMEOUT_SECONDS || 0,
-  liveServiceHostname: process.env.LIVE_SERVICE_HOSTNAME || 'www.nhs.uk'
+  choicesUrl: process.env.CHOICES_URL || 'https://www.nhs.uk'
 };
