@@ -54,7 +54,6 @@ module.exports = (app, config) => {
           '*.hotjar.com',
           '*.webtrends.com',
           '*.webtrendslive.com',
-          'cdn.jsdelivr.net',
         ],
         imgSrc: [
           '\'self\'',
