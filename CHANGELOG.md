@@ -1,6 +1,7 @@
 1.2.0 / TBD
 ===================
 - Be less specific about third party domains within content security policy
+- Performance tests use threshold of 500ms
 
 1.1.0 / 2017-10-10
 ===================
