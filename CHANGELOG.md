@@ -2,6 +2,7 @@
 ===================
 - Be less specific about third party domains within content security policy
 - Performance tests use threshold of 500ms
+- Update performance test IDs to ODS Codes
 
 1.1.0 / 2017-10-10
 ===================
