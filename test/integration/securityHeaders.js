@@ -18,7 +18,7 @@ describe('app', function test() {
       chai.request(app)
         .get('/')
         .end((err, res) => {
-          expect(res).to.have.header('Content-Security-Policy', 'default-src \'self\'; child-src https://*.hotjar.com:*; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' data: www.google-analytics.com s.webtrends.com statse.webtrendslive.com static.hotjar.com script.hotjar.com cdn.jsdelivr.net; img-src \'self\' data: static.hotjar.com www.google-analytics.com statse.webtrendslive.com hm.webtrends.com; style-src \'self\' \'unsafe-inline\' assets.nhs.uk; font-src assets.nhs.uk; connect-src \'self\' https://*.hotjar.com:* wss://*.hotjar.com');
+          expect(res).to.have.header('Content-Security-Policy', 'default-src \'self\'; child-src *.hotjar.com; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' data: *.google-analytics.com *.hotjar.com *.webtrends.com *.webtrendslive.com; img-src \'self\' data: *.google-analytics.com *.hotjar.com *.webtrendslive.com *.webtrends.com; style-src \'self\' \'unsafe-inline\' assets.nhs.uk; font-src assets.nhs.uk; connect-src \'self\' *.hotjar.com:*');
           expect(res).to.have.header('X-Xss-Protection', '1; mode=block');
           expect(res).to.have.header('X-Frame-Options', 'DENY');
           expect(res).to.have.header('X-Content-Type-Options', 'nosniff');
