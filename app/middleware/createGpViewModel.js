@@ -8,7 +8,7 @@ const servicesMapper = require('../lib/servicesMapper');
 const contactsMapper = require('../lib/contactsMapper');
 const onlineTasksMapper = require('../lib/onlineTasksMapper');
 const addressMapper = require('../lib/addressMapper');
-const choicesUrl = require('../../config/config').choicesUrl;
+const choicesLinks = require('../lib/choicesLinks');
 
 function getGpInfo(gpData) {
   return gpHelper.areGpsAvailable(gpData.gpCounts)
@@ -20,30 +20,11 @@ function getGpInfo(gpData) {
     : undefined;
 }
 
-function getChoicesLoginLink(gpData) {
-  return `${choicesUrl}/Personalisation/Login.aspx?ReturnUrl=/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
-}
-
-function getChoicesProfileLink(gpData) {
-  return `${choicesUrl}/Services/GP/Overview/DefaultView.aspx?id=${gpData.choicesId}`;
-}
-
-function getChoicesLeaveReviewLink(gpData) {
-  return `${choicesUrl}/Services/GP/LeaveReview/DefaultView.aspx?id=${gpData.choicesId}`;
-}
-
-function getChoicesReviewsLink(gpData) {
-  return `${choicesUrl}/Services/GP/ReviewsAndRatings/DefaultView.aspx?id=${gpData.choicesId}`;
-}
-
-function getPatientSurveyLink(gpData) {
-  return `https://gp-patient.co.uk/report?practicecode=${gpData.odsCode}`;
-}
-
 function createGpViewModel(req, res, next) {
   const gpData = res.locals.gpData;
 
   if (gpData) {
+    const links = choicesLinks(gpData);
     res.locals.gp = {
       name: gpData.name,
       address: addressMapper(gpData.address),
@@ -60,11 +41,11 @@ function createGpViewModel(req, res, next) {
       exceptionalTimes: exceptionalTimesMapper(gpData.openingTimes),
       gpInfo: getGpInfo(gpData),
       onlineTasks: onlineTasksMapper(gpData),
-      choicesProfileLink: getChoicesProfileLink(gpData),
-      choicesLeaveReviewLink: getChoicesLeaveReviewLink(gpData),
-      choicesReviewsLink: getChoicesReviewsLink(gpData),
-      choicesLoginLink: getChoicesLoginLink(gpData),
-      patientSurveyLink: getPatientSurveyLink(gpData),
+      choicesProfileLink: links.choicesProfile,
+      choicesLeaveReviewLink: links.choicesLeaveReview,
+      choicesReviewsLink: links.choicesReviews,
+      choicesLoginLink: links.choicesLogin,
+      patientSurveyLink: links.patientSurvey
     };
   }
   next();
