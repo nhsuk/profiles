@@ -1,4 +1,4 @@
-1.2.0 / TBD
+1.2.0 / 2017-10-17
 ===================
 - Add link to allow GP profile editors to login and edit via PIMS
 - Be less specific about third party domains within content security policy
