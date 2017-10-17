@@ -25,7 +25,7 @@ describe('what patients say links', () => {
         const patientSurveyElem = $(patientSurveyClass);
 
         expect(ratingsReviewsElem.text()).to.be.equal('ratings and reviews');
-        expect(ratingsReviewsElem.prop('href')).to.be.equal('http://www.nhs.uk/Services/GP/ReviewsAndRatings/DefaultView.aspx?id=40565');
+        expect(ratingsReviewsElem.prop('href')).to.be.equal('https://www.nhs.uk/Services/GP/ReviewsAndRatings/DefaultView.aspx?id=40565');
         expect(patientSurveyElem.text()).to.be.equal('GP Patient Survey results');
         expect(patientSurveyElem.prop('href')).to.be.equal('https://gp-patient.co.uk/report?practicecode=Y02622');
 

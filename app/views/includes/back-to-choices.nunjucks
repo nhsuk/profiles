@@ -1,7 +1,7 @@
 <div class="notification-banner notification-banner--hiviz js-feedback-banner">
   <p class="notification-banner--inner">
     {% if gp %}
-      This is a new page. <a class="choices-profile-link" href="{{gp.choicesProfileLink}}">See the current version of this page</a> on NHS Choices</a>.
+      This is a new page. <a class="choices-profile-link" href="{{gp.choicesProfileLink}}">See the current version</a> on NHS Choices</a>. GP staff: <a class="choices-login-link" href="{{gp.choicesLoginLink}}">sign in</a> to change information about your surgery.
     {% else %}
       This is a new service. <a href="http://www.nhs.uk/">Go back to NHS Choices</a>.
     {% endif %}

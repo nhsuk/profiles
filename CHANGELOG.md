@@ -1,5 +1,6 @@
 1.2.0 / TBD
 ===================
+- Add link to allow GP profile editors to login and edit via PIMS
 - Be less specific about third party domains within content security policy
 - Performance tests use threshold of 500ms
 - Update performance test IDs to ODS Codes
