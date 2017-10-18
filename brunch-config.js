@@ -7,7 +7,7 @@ module.exports = {
   },
   overrides: {
     development: {
-      sourceMaps: false,
+      sourceMaps: true,
     },
     production: {
       sourceMaps: false,
@@ -38,7 +38,7 @@ module.exports = {
     fingerprint: {
       srcBasePath: 'public/',
       destBasePath: 'public/',
-      hashLength: 8
+      autoClearOldFiles: true,
     }
   }
 };
