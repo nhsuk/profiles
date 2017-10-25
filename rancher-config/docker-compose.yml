@@ -21,6 +21,7 @@ services:
       prometheus.port: 3000
       prometheus.monitoring: true
       io.rancher.container.pull_image: always
+      traefik.frontend.auth.basic: ${BASIC_AUTH}
     logging:
       driver: splunk
       options:
