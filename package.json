@@ -4,7 +4,7 @@
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
-    "build-css": "./css-build",
+    "brunch-build": "yarn brunch build --production",
     "coverage-check": "istanbul check-coverage --config .istanbul.yml",
     "coverage-check-unit": "istanbul check-coverage --config .istanbul.unit.yml",
     "coverage-generate": "yarn istanbul -- cover _mocha -- --exit --recursive",
@@ -18,7 +18,7 @@
     "precommit": "yarn git-hook",
     "prepush": "yarn git-hook && yarn snyk test",
     "start": "node app.js",
-    "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
+    "start-watch": "yarn brunch watch & nodemon app.js | ./node_modules/bunyan/bin/bunyan",
     "test": "NODE_ENV=test mocha --exit --recursive test",
     "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
     "test-watch": "yarn test -- --watch --reporter min"
@@ -42,7 +42,6 @@
     "express-prom-bundle": "^3.1.0",
     "helmet": "^3.8.1",
     "nhsuk-bunyan-logger": "^1.4.1",
-    "node-sass": "^4.5.3",
     "nunjucks": "^3.0.1",
     "object.values": "^1.0.4",
     "on-headers": "^1.0.1",
@@ -52,10 +51,13 @@
     "timekeeper": "^2.0.0"
   },
   "devDependencies": {
+    "after-brunch": "^0.0.5",
+    "brunch": "^2.10.11",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "cheerio": "^1.0.0-rc.2",
     "coveralls": "^3.0.0",
+    "crypto-js": "^3.1.9-1",
     "destroy": "^1.0.4",
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
@@ -64,9 +66,12 @@
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-watch": "^3.1.2",
+    "fingerprint-brunch": "^2.0.2",
     "husky": "^0.14.3",
     "istanbul": "^1.1.0-alpha.1",
+    "map-replace": "^1.0.2",
     "mocha": "^4.0.0",
-    "nodemon": "^1.12.0"
+    "nodemon": "^1.12.0",
+    "sass-brunch": "^2.10.4"
   }
 }

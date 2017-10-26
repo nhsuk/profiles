@@ -6,6 +6,9 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
         reason: No patch available
         expires: '2017-10-27T13:48:28.130Z'
+      brunch > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        reason: No patch available
+        expires: '2017-11-08T15:34:13.724Z'
     - helmet > connect > debug:
         reason: No patch available
         expires: '2017-10-27T13:48:28.130Z'
@@ -19,6 +22,9 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: No patch available
         expires: '2017-10-27T13:48:28.130Z'
+      brunch > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: No patch available
+        expires: '2017-11-08T15:34:13.725Z'
     - node-pre-gyp > request > tough-cookie:
         reason: No patch available
         expires: '2017-10-27T14:11:07.304Z'
@@ -26,7 +32,31 @@ ignore:
     - express > send > mime:
         reason: No patch available
         expires: '2017-10-27T14:11:07.304Z'
+      brunch > serve-brunch > pushserve > express > send > mime:
+        reason: No patch available
+        expires: '2017-11-08T15:34:13.724Z'
     - express > serve-static > send > mime:
         reason: No patch available
         expires: '2017-10-27T14:11:07.304Z'
-patch: {}
+      brunch > serve-brunch > pushserve > express > serve-static > send > mime:
+        reason: No patch available
+        expires: '2017-11-08T15:34:13.725Z'
+    - brunch > serve-brunch > pushserve > serve-static > send > mime:
+        reason: No patch available
+        expires: '2017-11-08T15:34:13.725Z'
+  'npm:growl:20160721':
+    - brunch > deppack > loggy > growl:
+        reason: No upgrade or patch available.
+        expires: '2017-11-08T15:19:44.317Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - brunch > since-app-start > debug:
+        patched: '2017-10-09T15:33:33.420Z'
+    - brunch > debug:
+        patched: '2017-10-09T15:33:33.420Z'
+  'npm:ms:20170412':
+    - brunch > since-app-start > debug > ms:
+        patched: '2017-10-09T15:33:33.420Z'
+    - brunch > debug > ms:
+        patched: '2017-10-09T15:33:33.420Z'
