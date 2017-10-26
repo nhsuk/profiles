@@ -1,3 +1,7 @@
+1.3.0 / 2017-10-31
+===================
+- Add basic authentication to service when running test environments in Rancher
+
 1.2.0 / 2017-10-17
 ===================
 - Add link to allow GP profile editors to login and edit via PIMS
