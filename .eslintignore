@@ -1,4 +1,5 @@
 coverage/
 public/js/*
+custom-analytics/*
 data/*
 test/resources/*
