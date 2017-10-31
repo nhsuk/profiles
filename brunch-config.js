@@ -13,7 +13,7 @@ module.exports = {
       sourceMaps: false,
       plugins: {
         afterBrunch: [
-          'echo ************ DAVE ********** && sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
+          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
         ]
       }
     }
