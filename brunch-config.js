@@ -1,6 +1,6 @@
 module.exports = {
   paths: {
-    watched: ['scss-c2s']
+    watched: ['scss-c2s', 'custom-analytics']
   },
   conventions: {
     ignored: 'scss-c2s/c2s-ie.scss'
@@ -13,12 +13,19 @@ module.exports = {
       sourceMaps: false,
       plugins: {
         afterBrunch: [
-          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json'
+          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
         ]
       }
     }
   },
   files: {
+    javascripts: {
+      joinTo: {
+        'js/analytics/customga.js': /customga.js/,
+        'js/analytics/customhj.js': /customhj.js/,
+        'js/analytics/customwt.js': /customwt.js/,
+      }
+    },
     stylesheets: {
       joinTo: {
         'nhsuk.css': /c2s.scss/,
@@ -38,7 +45,7 @@ module.exports = {
     fingerprint: {
       srcBasePath: 'public/',
       destBasePath: 'public/',
-      autoClearOldFiles: true,
+      autoClearOldFiles: true
     }
   }
 };
