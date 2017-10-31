@@ -34,12 +34,15 @@
   },
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
+    "after-brunch": "^0.0.5",
     "body-parser": "^1.18.2",
+    "brunch": "^2.10.12",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "elasticsearch": "^13.3.1",
     "express": "4.16.2",
     "express-prom-bundle": "^3.1.0",
+    "fingerprint-brunch": "^2.0.2",
     "helmet": "^3.8.1",
     "nhsuk-bunyan-logger": "^1.4.1",
     "nunjucks": "3.0.1",
@@ -47,12 +50,11 @@
     "on-headers": "^1.0.1",
     "request": "^2.81.0",
     "require-environment-variables": "^1.1.2",
+    "sass-brunch": "^2.10.4",
     "snyk": "^1.41.1",
     "timekeeper": "^2.0.0"
   },
   "devDependencies": {
-    "after-brunch": "^0.0.5",
-    "brunch": "^2.10.11",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "cheerio": "^1.0.0-rc.2",
@@ -66,12 +68,10 @@
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-watch": "^3.1.2",
-    "fingerprint-brunch": "^2.0.2",
     "husky": "^0.14.3",
     "istanbul": "^1.1.0-alpha.1",
     "map-replace": "^1.0.2",
     "mocha": "^4.0.0",
-    "nodemon": "^1.12.0",
-    "sass-brunch": "^2.10.4"
+    "nodemon": "^1.12.0"
   }
 }
