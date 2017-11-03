@@ -35,6 +35,7 @@
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
     "after-brunch": "^0.0.5",
+    "before-brunch": "^0.0.5",
     "body-parser": "^1.18.2",
     "brunch": "^2.10.12",
     "compression": "^1.7.1",
@@ -54,7 +55,8 @@
     "require-environment-variables": "^1.1.2",
     "sass-brunch": "^2.10.4",
     "snyk": "^1.41.1",
-    "timekeeper": "^2.0.0"
+    "timekeeper": "^2.0.0",
+    "uglifyjs-folder": "^1.2.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

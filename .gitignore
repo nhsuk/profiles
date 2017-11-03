@@ -2,7 +2,8 @@ node_modules/
 coverage/
 *.css
 *.css.map
-public/js/analytics/*
+public/js/*.js
+public/js/*.js.map
 
 .sass-cache
 npm-debug.log

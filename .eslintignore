@@ -1,5 +1,5 @@
 coverage/
 public/js/*
-custom-analytics/*
+pre_brunch_js/*
 data/*
 test/resources/*
