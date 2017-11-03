@@ -1,6 +1,6 @@
 module.exports = {
   paths: {
-    watched: ['scss-c2s', 'custom-analytics']
+    watched: ['scss-c2s', 'pre_brunch_js']
   },
   conventions: {
     ignored: 'scss-c2s/c2s-ie.scss'
@@ -18,12 +18,19 @@ module.exports = {
       }
     }
   },
+  npm: {
+    enabled: false
+  },
+  modules: {
+    wrapper: false,
+    definition: false
+  },
   files: {
     javascripts: {
       joinTo: {
-        'js/analytics/customga.js': /customga.js/,
-        'js/analytics/customhj.js': /customhj.js/,
-        'js/analytics/customwt.js': /customwt.js/,
+        'js/customga.js': /customga.js/,
+        'js/analytics.js': /analytics.js/,
+        'js/cookiemessage.js': /cookiemessage.js/,
       }
     },
     stylesheets: {
