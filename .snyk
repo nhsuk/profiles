@@ -13,8 +13,31 @@ ignore:
     - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
         reason: Not user facing
         expires: '2017-11-24T08:34:08.441Z'
+      brunch > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
+    - brunch > debug:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
+    - brunch > since-app-start > debug:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
   'npm:tough-cookie:20170905':
     - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: Not user facing
         expires: '2017-11-24T08:34:08.441Z'
+      brunch > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
+  'npm:ms:20170412':
+    - brunch > debug > ms:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
+    - brunch > since-app-start > debug > ms:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
+  'npm:growl:20160721':
+    - brunch > deppack > loggy > growl:
+        reason: None given
+        expires: '2017-11-30T16:45:23.747Z'
 patch: {}
