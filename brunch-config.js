@@ -17,7 +17,7 @@ module.exports = {
           'for f in pre_brunch_js/*.js; do short=${f%.js}; uglifyjs $f > $short.min.js; done'
         ],
         afterBrunch: [
-          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
+          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json && yarn map-replace app/views/foot.nunjucks < assets.json'
         ]
       }
     }
@@ -56,8 +56,7 @@ module.exports = {
     fingerprint: {
       srcBasePath: 'public/',
       destBasePath: 'public/',
-      autoClearOldFiles: true,
-      alwaysRun: true
+      autoClearOldFiles: true
     }
   }
 };
