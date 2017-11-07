@@ -14,7 +14,7 @@ module.exports = {
       plugins: {
         beforeBrunch: [
           // eslint-disable-next-line no-template-curly-in-string
-          'for f in pre_brunch_js/*.js; do short=${f%.js}; uglifyjs $f > $short.min.js; done'
+          'for f in pre_brunch_js/*.js; do short=${f%.js}; uglifyjs $f --compress hoist_vars=true,unused=false --mangle --output $short.min.js; done'
         ],
         afterBrunch: [
           'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json && yarn map-replace app/views/includes/foot.nunjucks < assets.json'

@@ -1,4 +1,4 @@
-(function() {
+jQuery(function($) {
   'use strict';
 
   var analytics = document.currentScript.getAttribute('data-analytics');
