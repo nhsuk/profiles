@@ -1,7 +1,8 @@
-jQuery(function($) {
-
-  // Debug flag
-  var debugMode = false;
+(function(global) {
+  'use strict';
+  var $ = global.jQuery;
+  var document = global.document;
+  var window = global;
 
   // Default time delay before checking location
   var callBackTime = 100;
@@ -30,20 +31,11 @@ jQuery(function($) {
     if (start) {
       scrollStart = currentTime.getTime();
       timeToScroll = Math.round((scrollStart - beginning) / 1000);
-      if (!debugMode) {
-          ga('send', 'event', section, timeToScroll+'s');
-      } else {
-          alert(section + ' (Time: ' + timeToScroll + 's)');
-      }
-
+      ga('send', 'event', section, timeToScroll+'s');
     } else {
       scrollEnd = currentTime.getTime();
       timeToScroll = Math.round((scrollEnd - scrollStart) / 1000);
-      if (!debugMode) {
-          ga('send', 'event', 'User reached the "' + section +'" section', timeToScroll+'s');
-      } else {
-          alert('User reached the "' + section + '" section (Time: ' + timeToScroll + 's)');
-      }
+      ga('send', 'event', 'User reached the "' + section +'" section', timeToScroll+'s');
     }
     scroller = true;
   }
@@ -64,14 +56,14 @@ jQuery(function($) {
         scroller = true;
       }
 
-      $('h2, .exceptional-opening-times').not('.above, .util-visuallyhidden').each(function(){
+      $('h2, .exceptional-opening-times').not('.above, .util-visuallyhidden').each(function() {
         if(aboveFold(bottom, $(this))){
           $(this).addClass('above');
           scrolledSection(false, $(this).data('title'));
         }
       });
 
-      if (bottom > $('footer ul.link-list').offset().top + $('footer ul.link-list').outerHeight() && !didComplete){
+      if (bottom > $('footer ul.link-list').offset().top + $('footer ul.link-list').outerHeight() && !didComplete) {
         scrolledSection(false, 'end of the page');
         didComplete = true;
       }
@@ -79,12 +71,12 @@ jQuery(function($) {
 
   // Track the scrolling and track location
   $(window).scroll(function() {
-      if (timer) {
-          clearTimeout(timer);
-      }
+    if (timer) {
+      clearTimeout(timer);
+    }
 
-      // Use a buffer so we don't call trackLocation too often.
-      timer = setTimeout(trackLocation, callBackTime);
+    // Use a buffer so we don't call trackLocation too often.
+    timer = setTimeout(trackLocation, callBackTime);
   });
 
-});
+})(window);

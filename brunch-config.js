@@ -14,8 +14,8 @@ module.exports = {
       plugins: {
         afterBrunch: [
           // eslint-disable-next-line no-template-curly-in-string
-          'sleep 1s && for file in public/js/*.js; do ./node_modules/uglify-es/bin/uglifyjs $file -m -c > ${file}.ugly; mv ${file}.ugly $file; done',
-          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
+          'sleep 1s; for file in public/js/*.js; do ./node_modules/uglify-es/bin/uglifyjs $file -m -c > ${file}.ugly; mv ${file}.ugly $file; done',
+          'sleep 1s; yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
         ]
       }
     }
@@ -30,8 +30,7 @@ module.exports = {
   files: {
     javascripts: {
       joinTo: {
-        'js/analytics.js': 'app/public/js/analytics.js',
-        'js/cookieMessage.js': 'app/public/js/cookieMessage.js',
+        'js/app.js': ['app/public/js/analytics.js', 'app/public/js/cookieMessage.js'],
         'js/customGA.js': 'app/public/js/customGA.js',
       }
     },

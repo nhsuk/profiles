@@ -1,5 +1,8 @@
-jQuery(function($) {
+(function(global) {
   'use strict';
+  var $ = global.jQuery;
+  var hj = global.hj;
+  var wt = global.Webtrends;
 
   var anchors = {
     'gp-email' : 'GP-Email',
@@ -20,9 +23,9 @@ jQuery(function($) {
       if (typeof hj === 'function') {
         hj('tagRecording', [val]);
       }
-      if (typeof Webtrends === 'function') {
-        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
+      if (typeof wt === 'function') {
+        wt.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
       }
     });
   });
-});
+})(window);
