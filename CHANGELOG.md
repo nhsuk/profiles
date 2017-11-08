@@ -1,6 +1,7 @@
 1.4.0 / 2017-11-14
 ===================
 - Add Brunch for front-end static asset minification, compression and cache busting
+- Add ADR for the use of Brunch
 - Update npm dependencies
 
 1.3.0 / 2017-10-31
