@@ -15,7 +15,7 @@ module.exports = {
         afterBrunch: [
           // eslint-disable-next-line no-template-curly-in-string
           'sleep 1s && for file in public/js/*.js; do ./node_modules/uglify-es/bin/uglifyjs $file -m -c > ${file}.ugly; mv ${file}.ugly $file; done',
-          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json && yarn map-replace app/views/includes/foot.nunjucks < assets.json'
+          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json'
         ]
       }
     }

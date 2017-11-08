@@ -1,7 +1,6 @@
 jQuery(function($) {
   'use strict';
 
-  var analytics = document.currentScript.getAttribute('data-analytics');
   var anchors = {
     'gp-email' : 'GP-Email',
     'gp-book-online' : 'GP-Booking',
@@ -18,15 +17,11 @@ jQuery(function($) {
 
   $.each(anchors , function(prop, val) {
     $('a.' + prop).on('touchstart click', function () {
-      if (analytics = 'all'){
-        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
+      if (typeof hj === 'function') {
         hj('tagRecording', [val]);
       }
-      else if (analytics = 'wt'){
+      if (typeof Webtrends === 'function') {
         Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
-      }
-      else if (analytics = 'hj'){
-        hj('tagRecording', [val]);
       }
     });
   });
