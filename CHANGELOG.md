@@ -1,3 +1,8 @@
+1.4.0 / 2017-11-14
+===================
+- Add Brunch for front-end static asset minification, compression and cache busting
+- Update npm dependencies
+
 1.3.0 / 2017-10-31
 ===================
 - Add basic authentication to service when running test environments in Rancher
