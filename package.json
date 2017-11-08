@@ -35,7 +35,6 @@
   "homepage": "https://github.com/nhsuk/profiles#readme",
   "dependencies": {
     "after-brunch": "^0.0.5",
-    "before-brunch": "^0.0.5",
     "body-parser": "^1.18.2",
     "brunch": "^2.10.12",
     "compression": "^1.7.1",
