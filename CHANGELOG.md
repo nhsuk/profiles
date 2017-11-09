@@ -3,6 +3,7 @@
 - Add Brunch for front-end static asset minification, compression and cache busting
 - Add ADR for the use of Brunch
 - Update npm dependencies
+- Upgrade Docker container to `node:8.9.1-alpine`
 
 1.3.0 / 2017-10-31
 ===================
