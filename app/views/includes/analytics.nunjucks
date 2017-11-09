@@ -11,7 +11,7 @@
     ga('send', 'pageview');
   </script>
 
-  <script src="{{ SITE_ROOT }}/js/customga.js" type="text/javascript"></script>
+  <script src="{{ SITE_ROOT }}/js/GA.js" type="text/javascript"></script>
 {% endif %}
 
 {% if WEBTRENDS_ANALYTICS_TRACKING_ID %}
@@ -47,14 +47,4 @@
   <noscript>
     <img alt="dcsimg" id="dcsimg" width="1" height="1" src="//statse.webtrendslive.com/{{ WEBTRENDS_ANALYTICS_TRACKING_ID }}/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.4.23&amp;dcssip=.nhs.uk"/>
   </noscript>
-{% endif %}
-
-{% if (WEBTRENDS_ANALYTICS_TRACKING_ID) and (HOTJAR_ANALYTICS_TRACKING_ID) %}
-  <script src="{{ SITE_ROOT }}/js/analytics.js" data-analytics="all" type="text/javascript" ></script>
-{% elif WEBTRENDS_ANALYTICS_TRACKING_ID %}
-  <script src="{{ SITE_ROOT }}/js/analytics.js" data-analytics="wt" type="text/javascript"></script>
-{% elif HOTJAR_ANALYTICS_TRACKING_ID %}
-  <script src="{{ SITE_ROOT }}/js/analytics.js" data-analytics="hj" type="text/javascript"></script>
-{% else %}
-  <!-- No analytics -->
 {% endif %}

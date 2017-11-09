@@ -1,5 +1,5 @@
 coverage/
+app/public/js/*
 public/js/*
-pre_brunch_js/*
 data/*
 test/resources/*

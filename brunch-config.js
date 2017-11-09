@@ -1,6 +1,6 @@
 module.exports = {
   paths: {
-    watched: ['scss-c2s', 'pre_brunch_js']
+    watched: ['scss-c2s', 'app/public/js']
   },
   conventions: {
     ignored: ['scss-c2s/c2s-ie.scss']
@@ -12,12 +12,11 @@ module.exports = {
     production: {
       sourceMaps: false,
       plugins: {
-        beforeBrunch: [
-          // eslint-disable-next-line no-template-curly-in-string
-          'for f in pre_brunch_js/*.js; do short=${f%.js}; uglifyjs $f > $short.min.js; done'
-        ],
         afterBrunch: [
-          'sleep 1s && yarn map-replace app/views/layout.nunjucks < assets.json && yarn map-replace app/views/includes/analytics.nunjucks < assets.json && yarn map-replace app/views/includes/foot.nunjucks < assets.json'
+          // eslint-disable-next-line no-template-curly-in-string
+          'sleep 1s; for file in public/js/*.js; do ./node_modules/uglify-es/bin/uglifyjs $file -m -c > ${file}.ugly; mv ${file}.ugly $file; done',
+          'sleep 1s; for file in app/views/*.nunjucks; do yarn map-replace $file < assets.json; done',
+          'sleep 1s; for file in app/views/includes/*.nunjucks; do yarn map-replace $file < assets.json; done',
         ]
       }
     }
@@ -32,9 +31,8 @@ module.exports = {
   files: {
     javascripts: {
       joinTo: {
-        'js/customga.js': /customga.min.js/,
-        'js/analytics.js': /analytics.min.js/,
-        'js/cookiemessage.js': /cookiemessage.min.js/,
+        'js/app.js': ['app/public/js/analytics.js', 'app/public/js/cookieMessage.js'],
+        'js/GA.js': 'app/public/js/GA.js',
       }
     },
     stylesheets: {

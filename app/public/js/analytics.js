@@ -1,7 +1,9 @@
-(function() {
+(function(global) {
   'use strict';
+  var $ = global.jQuery;
+  var hj = global.hj;
+  var wt = global.Webtrends;
 
-  var analytics = document.currentScript.getAttribute('data-analytics');
   var anchors = {
     'gp-email' : 'GP-Email',
     'gp-book-online' : 'GP-Booking',
@@ -18,16 +20,12 @@
 
   $.each(anchors , function(prop, val) {
     $('a.' + prop).on('touchstart click', function () {
-      if (analytics = 'all'){
-        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
+      if (typeof hj === 'function') {
         hj('tagRecording', [val]);
       }
-      else if (analytics = 'wt'){
-        Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
-      }
-      else if (analytics = 'hj'){
-        hj('tagRecording', [val]);
+      if (typeof wt === 'function') {
+        wt.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
       }
     });
   });
-});
+})(window);
