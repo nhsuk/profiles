@@ -32,7 +32,7 @@ module.exports = {
     javascripts: {
       joinTo: {
         'js/app.js': ['app/public/js/analytics.js', 'app/public/js/cookieMessage.js'],
-        'js/customGA.js': 'app/public/js/customGA.js',
+        'js/GA.js': 'app/public/js/GA.js',
       }
     },
     stylesheets: {
