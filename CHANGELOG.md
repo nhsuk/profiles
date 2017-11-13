@@ -1,6 +1,7 @@
-1.4.1 / 2017-11-14
+1.4.2 / 2017-11-14
 ===================
-- Use `var` rather than `let` for IE7+ support 
+- Ensure cookie banner supports IE7+
+- Fix Google Analytics script
 - Add Brunch for front-end static asset minification, compression and cache busting
 - Add ADR for the use of Brunch
 - Update npm dependencies

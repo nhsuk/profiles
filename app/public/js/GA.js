@@ -27,7 +27,9 @@
   var pageTitle = document.title;
 
   function scrolledSection(start, section) {
-    currentTime = new Date();
+    var scrollStart, scrollEnd, timeToScroll;
+    var currentTime = new Date();
+
     if (start) {
       scrollStart = currentTime.getTime();
       timeToScroll = Math.round((scrollStart - beginning) / 1000);
@@ -47,8 +49,8 @@
 
   // Check the location and track user
   function trackLocation() {
-      bottom = $(window).height() + $(window).scrollTop();
-      height = $(document).height();
+      var bottom = $(window).height() + $(window).scrollTop();
+      var height = $(document).height();
 
       // If user starts to scroll send an event
       if (bottom > readerLocation && !scroller) {

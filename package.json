@@ -1,6 +1,6 @@
 {
   "name": "profiles",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
