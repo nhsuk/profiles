@@ -1,6 +1,6 @@
 {
   "name": "profiles",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Web app to display useful information about GP practices Pharmacies",
   "main": "server.js",
   "scripts": {
@@ -12,7 +12,9 @@
     "coverage-upload-coveralls": "cat ./coverage/lcov.info | coveralls",
     "git-hook": "yarn lint && yarn coverage-generate-unit && yarn coverage-check-unit",
     "istanbul": "NODE_ENV=test istanbul",
-    "lint": "eslint --ext .js,.json .",
+    "lint": "yarn lint-backend && yarn lint-frontend",
+    "lint-backend": "eslint --ext .js,.json .",
+    "lint-frontend": "eslint --no-ignore --no-eslintrc ./app/public/js",
     "lint-watch": "esw --watch .",
     "postrewrite": "yarn git-hook",
     "precommit": "yarn git-hook",

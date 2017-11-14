@@ -1,4 +1,4 @@
-1.4.2 / 2017-11-14
+1.4.3 / 2017-11-14
 ===================
 - Ensure cookie banner supports IE7+
 - Fix Google Analytics script
