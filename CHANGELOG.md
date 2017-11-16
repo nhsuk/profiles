@@ -1,4 +1,4 @@
-1.4.4 / 2017-11-15
+1.4.4 / 2017-11-16
 ===================
 - Update to latest version of the frontend library
 
