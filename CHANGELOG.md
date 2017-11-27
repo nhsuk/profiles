@@ -1,6 +1,6 @@
 1.4.5 / 2017-11-28
 ===================
-- Fix Webtrends 'undefined' bug
+- Fix Webtrends 'undefined' bug, update express
 
 1.4.4 / 2017-11-16
 ===================
