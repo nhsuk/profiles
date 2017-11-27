@@ -2,7 +2,6 @@
   'use strict';
   var $ = global.jQuery;
   var hj = global.hj;
-  var wt = global.Webtrends;
 
   var anchors = {
     'gp-email' : 'GP-Email',
@@ -23,8 +22,10 @@
       if (typeof hj === 'function') {
         hj('tagRecording', [val]);
       }
-      if (typeof wt === 'function') {
-        wt.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
+      // Webtrends is added asynchronously via DOM manipulation so must be accessed directly
+      // rather than setting to a local variable as hj and jQuery are above
+      if (global.Webtrends) {
+        global.Webtrends.multiTrack({argsa: ['DCSext.CTSLinkClicks', val, 'WT.dl', '121']});
       }
     });
   });

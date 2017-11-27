@@ -1,3 +1,8 @@
+1.4.5 / 2017-11-28
+===================
+- Fix Webtrends 'undefined' bug
+- Update express
+
 1.4.4 / 2017-11-16
 ===================
 - Update to latest version of the frontend library
