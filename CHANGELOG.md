@@ -1,3 +1,7 @@
+1.5.0 / 2018-01-02
+===================
+- Update npm dependencies
+
 1.4.5 / 2017-11-28
 ===================
 - Fix Webtrends 'undefined' bug
