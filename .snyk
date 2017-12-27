@@ -1,43 +1,36 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.10.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  'npm:mime:20170907':
-    - express > send > mime:
-        reason: Express 4.16 has problems
-        expires: '2017-11-24T08:34:08.441Z'
-    - express > serve-static > send > mime:
-        reason: Express 4.16 has problems
-        expires: '2017-11-24T08:34:08.441Z'
   'npm:debug:20170905':
-    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
-        reason: Not user facing
-        expires: '2017-11-24T08:34:08.441Z'
-    - brunch > debug:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
-    - brunch > since-app-start > debug:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
     - brunch > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
-  'npm:tough-cookie:20170905':
-    - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
         reason: Not user facing
-        expires: '2017-11-24T08:34:08.441Z'
+        expires: '2018-01-26T10:54:09.381Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        reason: No upgrade path
+        expires: '2018-01-26T10:54:09.381Z'
+    - brunch > debug:
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
+    - brunch > since-app-start > debug:
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
+  'npm:tough-cookie:20170905':
     - brunch > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        reason: No upgrade path
+        expires: '2018-01-26T10:54:09.381Z'
   'npm:ms:20170412':
     - brunch > debug > ms:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
     - brunch > since-app-start > debug > ms:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
   'npm:growl:20160721':
     - brunch > deppack > loggy > growl:
-        reason: None given
-        expires: '2017-11-30T16:45:23.747Z'
+        reason: Not user facing
+        expires: '2018-01-26T10:54:09.381Z'
 patch: {}
