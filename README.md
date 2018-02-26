@@ -1,3 +1,7 @@
+# **DEPRECATED** - no longer actively maintained
+
+---
+
 # Profiles
 
 [![GitHub Release](https://img.shields.io/github/release/nhsuk/profiles.svg)](https://github.com/nhsuk/profiles/releases/latest/)
