@@ -1,36 +1,192 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.10.1
+version: v1.10.2
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:debug:20170905':
     - brunch > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.252Z'
     - nunjucks > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
-        reason: No upgrade path
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
     - brunch > debug:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
     - brunch > since-app-start > debug:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
   'npm:tough-cookie:20170905':
     - brunch > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.252Z'
     - nunjucks > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
-        reason: No upgrade path
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
   'npm:ms:20170412':
     - brunch > debug > ms:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
     - brunch > since-app-start > debug > ms:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
   'npm:growl:20160721':
     - brunch > deppack > loggy > growl:
-        reason: Not user facing
-        expires: '2018-01-26T10:54:09.381Z'
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+  'npm:hoek:20180212':
+    - request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > node-gyp > request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > node-gyp > request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > node-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - sass-brunch > node-sass > node-gyp > request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+    - nunjucks > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+  'npm:lodash:20180130':
+    - sass-brunch > node-sass > gaze > globule > lodash:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.253Z'
+    - elasticsearch > lodash:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.255Z'
+  'npm:braces:20180219':
+    - sass-brunch > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > anysort > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > check-dependencies > findup-sync > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > chokidar > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - brunch > deppack > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
+    - nunjucks > chokidar > anymatch > micromatch > braces:
+        reason: No patch available
+        expires: '2018-03-28T13:47:52.254Z'
 patch: {}
