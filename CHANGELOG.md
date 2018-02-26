@@ -1,6 +1,7 @@
 1.6.0 / TBD
 ===================
 - Update npm dependencies
+- Upgrade python in Alpine to 2.7.14-r0
 
 1.5.0 / 2018-01-02
 ===================
